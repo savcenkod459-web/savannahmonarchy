@@ -11,7 +11,6 @@ import { useQuery } from "@tanstack/react-query";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
-
 type Cat = {
   id: string;
   name: string;
@@ -23,20 +22,17 @@ type Cat = {
   description: string;
   traits: string[];
 };
-
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
   '/src/assets/savannah-f2-1.jpg': savannah2,
-  '/src/assets/savannah-kitten-1.jpg': kitten,
+  '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const Catalog = () => {
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
-  
   const [selectedBreed, setSelectedBreed] = useState<string>(breedFromUrl);
   const [selectedAge, setSelectedAge] = useState<string>("all");
   const [selectedGender, setSelectedGender] = useState<string>("all");
-  
   useEffect(() => {
     if (breedFromUrl !== 'all') {
       setSelectedBreed(breedFromUrl);
@@ -44,25 +40,27 @@ const Catalog = () => {
   }, [breedFromUrl]);
 
   // Fetch cats from Supabase
-  const { data: cats, isLoading, error } = useQuery({
+  const {
+    data: cats,
+    isLoading,
+    error
+  } = useQuery({
     queryKey: ['cats'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('cats')
-        .select('*')
-        .order('created_at', { ascending: true });
-      
+      const {
+        data,
+        error
+      } = await supabase.from('cats').select('*').order('created_at', {
+        ascending: true
+      });
       if (error) throw error;
-      
       return (data as Cat[]).map(cat => ({
         ...cat,
-        image: imageMap[cat.image] || cat.image,
+        image: imageMap[cat.image] || cat.image
       }));
-    },
+    }
   });
-
   const allCats = cats || [];
-
   const filteredCats = allCats.filter(cat => {
     if (selectedBreed !== "all" && cat.breed !== selectedBreed) return false;
     if (selectedAge !== "all" && cat.age !== selectedAge) return false;
@@ -156,17 +154,13 @@ const Catalog = () => {
         {/* Catalog Grid */}
         <section className="py-20">
           <div className="container mx-auto px-6">
-            {isLoading ? (
-              <div className="flex justify-center items-center py-20">
+            {isLoading ? <div className="flex justify-center items-center py-20">
                 <Loader2 className="w-12 h-12 animate-spin text-primary" />
-              </div>
-            ) : error ? (
-              <div className="text-center py-20">
+              </div> : error ? <div className="text-center py-20">
                 <p className="text-xl text-red-500">
                   Ошибка загрузки данных. Попробуйте перезагрузить страницу.
                 </p>
-              </div>
-            ) : filteredCats.length === 0 ? <div className="text-center py-20">
+              </div> : filteredCats.length === 0 ? <div className="text-center py-20">
                 <p className="text-xl text-muted-foreground">
                   Нет кошек, соответствующих выбранным фильтрам
                 </p>
@@ -205,7 +199,7 @@ const Catalog = () => {
                           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
                         </div>
                         
-                        <div className="p-6 space-y-5">
+                        <div className="p-6 space-y-5 py-[30px]">
                           <div className="space-y-3">
                             <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
                               {cat.name}
@@ -219,12 +213,10 @@ const Catalog = () => {
                           
                           {/* Traits grid with icons */}
                           <div className="grid grid-cols-2 gap-3 p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10">
-                            {cat.traits.map((trait, i) => 
-                              <div key={i} className="flex items-center gap-2 text-xs font-medium text-foreground/80 group/trait">
+                            {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-xs font-medium text-foreground/80 group/trait">
                                 <Sparkles className="w-3 h-3 text-primary group-hover/trait:animate-pulse" />
                                 <span className="group-hover/trait:text-primary transition-colors">{trait}</span>
-                              </div>
-                            )}
+                              </div>)}
                           </div>
                           
                           {/* Price section with enhanced styling */}
