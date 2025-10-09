@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
-
 type Cat = {
   id: string;
   name: string;
@@ -15,32 +14,32 @@ type Cat = {
   image: string;
   traits: string[];
 };
-
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
   '/src/assets/savannah-f2-1.jpg': savannah2,
-  '/src/assets/savannah-kitten-1.jpg': kitten,
+  '/src/assets/savannah-kitten-1.jpg': kitten
 };
-
 const FeaturedCollection = () => {
   // Fetch cats from Supabase
-  const { data: cats, isLoading } = useQuery({
+  const {
+    data: cats,
+    isLoading
+  } = useQuery({
     queryKey: ['featured-cats'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('cats')
-        .select('*')
-        .order('created_at', { ascending: true })
-        .limit(3);
-      
+      const {
+        data,
+        error
+      } = await supabase.from('cats').select('*').order('created_at', {
+        ascending: true
+      }).limit(3);
       if (error) throw error;
-      
       return (data as Cat[]).map(cat => ({
         ...cat,
         image: imageMap[cat.image] || cat.image,
-        price: `${cat.price.toLocaleString("en-US")} €`,
+        price: `${cat.price.toLocaleString("en-US")} €`
       }));
-    },
+    }
   });
   return <section className="py-32 relative overflow-hidden">
       {/* Декоративный фон */}
@@ -66,14 +65,11 @@ const FeaturedCollection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {isLoading ? (
-            <div className="col-span-full flex justify-center py-12">
+          {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div>
-          ) : cats && cats.length > 0 ? (
-            cats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} className="group animate-scale-in" style={{
+            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} style={{
           animationDelay: `${index * 100}ms`
-        }}>
+        }} className="group animate-scale-in py-[30px]">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
@@ -111,11 +107,9 @@ const FeaturedCollection = () => {
                     
                     {/* Traits grid with icons */}
                     <div className="flex flex-wrap gap-2">
-                      {cat.traits.map((trait, i) => 
-                        <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction hover:scale-105 transition-transform">
+                      {cat.traits.map((trait, i) => <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction hover:scale-105 transition-transform">
                           {trait}
-                        </span>
-                      )}
+                        </span>)}
                     </div>
                     
                     {/* Price section with enhanced styling */}
@@ -140,8 +134,7 @@ const FeaturedCollection = () => {
                   </div>
                 </div>
               </div>
-            </Link>)
-          ) : null}
+            </Link>) : null}
         </div>
 
         <div className="text-center">
