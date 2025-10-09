@@ -204,7 +204,7 @@ const Catalog = () => {
                             <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight">
                               {cat.name}
                             </h3>
-                            <p className="text-muted-foreground/90 text-base leading-relaxed font-light tracking-wide">{cat.description}</p>
+                            <p className="text-foreground/70 text-base leading-relaxed font-light tracking-wide drop-shadow-sm">{cat.description}</p>
                             <div className="flex gap-3 text-sm font-bold">
                               <span className="px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.age}</span>
                               <span className="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent/10 text-accent rounded-full border border-accent/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.gender}</span>
