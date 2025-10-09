@@ -1,0 +1,47 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import About from "./pages/About";
+import Catalog from "./pages/Catalog";
+import Breeders from "./pages/Breeders";
+import Guide from "./pages/Guide";
+import Payment from "./pages/Payment";
+import Warranty from "./pages/Warranty";
+import Contact from "./pages/Contact";
+import AdminCats from "./pages/AdminCats";
+import Auth from "./pages/Auth";
+import NotFound from "./pages/NotFound";
+import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTopOnRouteChange />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/breeders" element={<Breeders />} />
+          <Route path="/guide" element={<Guide />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/warranty" element={<Warranty />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin/cats" element={<AdminCats />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;

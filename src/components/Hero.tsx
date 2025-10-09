@@ -1,0 +1,69 @@
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { ArrowRight, Crown } from "lucide-react";
+import heroImage from "@/assets/hero-savannah.jpg";
+const Hero = () => {
+  return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
+      animationDelay: '3s'
+    }} />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Text Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20 hover-shine micro-interaction bg-slate-200 mx-0 px-[15px] py-[10px] my-[20px]">
+                <Crown className="w-4 h-4 text-primary animate-gold-pulse" />
+                <span className="tracking-widest uppercase text-neutral-950 font-extrabold text-sm">ЭЛИТНЫЙ ПИТОМНИК</span>
+              </div>
+              <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow">
+                Luxury Cats
+                <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl font-light">
+                Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной 
+                коллекции породистых элитных кошек. Каждая кошка тщательно отобрана по 
+                исключительной родословной, здоровью и темпераменту.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/catalog">
+                <Button size="lg" className="group w-full sm:w-auto text-lg px-10 py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
+                  <span className="relative z-10 font-semibold">Посмотреть наших котов</span>
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 py-7 rounded-2xl border-2 border-primary/30 hover:bg-primary/5 hover:border-primary transition-all duration-500 gold-border text-lg micro-interaction font-semibold">
+                  Узнать больше
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative animate-scale-in">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl animate-gold-pulse" />
+            <div className="relative rounded-3xl overflow-hidden shadow-deep hover:shadow-glow transition-all duration-700 hover:scale-[1.02] image-blur-edges">
+              <img src={heroImage} alt="Элитная кошка Саванна F1" className="w-full h-[600px] object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
+              
+              {/* Gold accent overlay */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full" />
+            </div>
+            
+            {/* Floating Badge */}
+            <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold animate-gold-pulse micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]">
+              <p className="text-sm font-bold opacity-90 tracking-wider uppercase">Саванна F1</p>
+              <p className="text-3xl font-display font-black luxury-text-shadow">Премиум класс</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>;
+};
+export default Hero;
