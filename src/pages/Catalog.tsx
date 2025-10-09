@@ -200,22 +200,22 @@ const Catalog = () => {
                         </div>
                         
                         <div className="p-6 space-y-5 py-[30px]">
-                          <div className="space-y-3">
-                            <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
+                          <div className="space-y-4">
+                            <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight">
                               {cat.name}
                             </h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed font-light">{cat.description}</p>
-                            <div className="flex gap-3 text-sm font-medium">
-                              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">{cat.age}</span>
-                              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20">{cat.gender}</span>
+                            <p className="text-muted-foreground/90 text-base leading-relaxed font-light tracking-wide">{cat.description}</p>
+                            <div className="flex gap-3 text-sm font-bold">
+                              <span className="px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.age}</span>
+                              <span className="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent/10 text-accent rounded-full border border-accent/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">{cat.gender}</span>
                             </div>
                           </div>
                           
                           {/* Traits grid with icons */}
-                          <div className="grid grid-cols-2 gap-3 p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10">
-                            {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-xs font-medium text-foreground/80 group/trait">
-                                <Sparkles className="w-3 h-3 text-primary group-hover/trait:animate-pulse" />
-                                <span className="group-hover/trait:text-primary transition-colors">{trait}</span>
+                          <div className="grid grid-cols-2 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner">
+                            {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
+                                <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_4px_rgba(217,179,112,0.4)]" />
+                                <span className="group-hover/trait:text-primary transition-colors duration-300">{trait}</span>
                               </div>)}
                           </div>
                           

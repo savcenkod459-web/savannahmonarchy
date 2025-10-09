@@ -95,21 +95,23 @@ const FeaturedCollection = () => {
                   </div>
                   
                   <div className="p-6 space-y-5 py-[30px]">
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
+                    <div className="space-y-4">
+                      <h3 className="text-3xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left leading-tight">
                         {cat.name}
                       </h3>
-                      <p className="text-muted-foreground font-light flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{cat.breed}</span>
-                      </p>
+                      <p className="text-muted-foreground/90 text-base leading-relaxed font-light tracking-wide">{cat.breed}</p>
+                      <div className="flex gap-3 text-sm font-bold">
+                        <span className="px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">Premium</span>
+                        <span className="px-4 py-2 bg-gradient-to-r from-accent/20 to-accent/10 text-accent rounded-full border border-accent/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">Exclusive</span>
+                      </div>
                     </div>
                     
                     {/* Traits grid with icons */}
-                    <div className="flex flex-wrap gap-2">
-                      {cat.traits.map((trait, i) => <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-accent/20 text-foreground text-xs rounded-full border border-primary/20 font-medium micro-interaction hover:scale-105 transition-transform">
-                          {trait}
-                        </span>)}
+                    <div className="grid grid-cols-2 gap-3 p-5 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-2xl border border-primary/20 backdrop-blur-sm shadow-inner">
+                      {cat.traits.map((trait, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
+                          <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_4px_rgba(217,179,112,0.4)]" />
+                          <span className="group-hover/trait:text-primary transition-colors duration-300">{trait}</span>
+                        </div>)}
                     </div>
                     
                     {/* Price section with enhanced styling */}
