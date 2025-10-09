@@ -94,7 +94,7 @@ const FeaturedCollection = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
                   </div>
                   
-                  <div className="p-6 space-y-5">
+                  <div className="p-6 space-y-5 py-[30px]">
                     <div className="space-y-3">
                       <h3 className="text-2xl font-display font-black luxury-text-shadow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
                         {cat.name}
