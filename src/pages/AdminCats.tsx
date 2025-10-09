@@ -22,6 +22,7 @@ type Cat = {
   image: string;
   description: string;
   traits: string[];
+  additional_images: string[];
 };
 
 const AdminCats = () => {
@@ -30,6 +31,7 @@ const AdminCats = () => {
   const [loading, setLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadingCatId, setUploadingCatId] = useState<string | null>(null);
+  const [uploadingAdditionalFor, setUploadingAdditionalFor] = useState<string | null>(null);
   const [newCat, setNewCat] = useState({
     name: "",
     breed: "Саванна F1",
@@ -39,6 +41,7 @@ const AdminCats = () => {
     description: "",
     traits: "",
     image: "",
+    additional_images: [] as string[],
   });
   const queryClient = useQueryClient();
 
@@ -149,6 +152,79 @@ const AdminCats = () => {
     },
   });
 
+  // Add additional image mutation
+  const addAdditionalImageMutation = useMutation({
+    mutationFn: async ({ catId, imageUrl }: { catId: string; imageUrl: string }) => {
+      const { data: cat, error: fetchError } = await supabase
+        .from('cats')
+        .select('additional_images')
+        .eq('id', catId)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      const currentImages = cat.additional_images || [];
+      const updatedImages = [...currentImages, imageUrl];
+
+      const { error } = await supabase
+        .from('cats')
+        .update({ additional_images: updatedImages })
+        .eq('id', catId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-cats'] });
+      queryClient.invalidateQueries({ queryKey: ['cats'] });
+      queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
+      setUploadingAdditionalFor(null);
+      toast.success("Дополнительное изображение добавлено!");
+    },
+    onError: () => {
+      setUploadingAdditionalFor(null);
+    },
+  });
+
+  // Set main image from additional images
+  const setMainImageMutation = useMutation({
+    mutationFn: async ({ catId, imageUrl }: { catId: string; imageUrl: string }) => {
+      const { data: cat, error: fetchError } = await supabase
+        .from('cats')
+        .select('image, additional_images')
+        .eq('id', catId)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      const currentAdditional = cat.additional_images || [];
+      const oldMainImage = cat.image;
+      
+      // Remove the new main image from additional images
+      const updatedAdditional = currentAdditional.filter((img: string) => img !== imageUrl);
+      
+      // Add old main image to additional if it's not the placeholder
+      if (oldMainImage && !oldMainImage.includes('/src/assets/')) {
+        updatedAdditional.push(oldMainImage);
+      }
+
+      const { error } = await supabase
+        .from('cats')
+        .update({ 
+          image: imageUrl,
+          additional_images: updatedAdditional 
+        })
+        .eq('id', catId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-cats'] });
+      queryClient.invalidateQueries({ queryKey: ['cats'] });
+      queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
+      toast.success("Главное изображение изменено!");
+    },
+  });
+
   // Add new cat mutation
   const addCatMutation = useMutation({
     mutationFn: async () => {
@@ -167,6 +243,7 @@ const AdminCats = () => {
           image: newCat.image || '/src/assets/savannah-f1-1.jpg',
           description: newCat.description,
           traits: newCat.traits.split(',').map(t => t.trim()).filter(t => t),
+          additional_images: newCat.additional_images,
         }]);
 
       if (error) throw error;
@@ -184,6 +261,7 @@ const AdminCats = () => {
         description: "",
         traits: "",
         image: "",
+        additional_images: [],
       });
       toast.success("Кот добавлен!");
     },
@@ -206,6 +284,29 @@ const AdminCats = () => {
   const handleUploadForNewCat = () => {
     if (selectedFile) {
       uploadImageMutation.mutate({ file: selectedFile });
+    }
+  };
+
+  const handleAdditionalImageUpload = async (file: File, catId: string) => {
+    setUploadingAdditionalFor(catId);
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      
+      const { error: uploadError } = await supabase.storage
+        .from('cat-images')
+        .upload(fileName, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('cat-images')
+        .getPublicUrl(fileName);
+
+      addAdditionalImageMutation.mutate({ catId, imageUrl: publicUrl });
+    } catch (error: any) {
+      toast.error("Ошибка загрузки: " + error.message);
+      setUploadingAdditionalFor(null);
     }
   };
 
@@ -402,23 +503,71 @@ const AdminCats = () => {
                         ${cat.price.toLocaleString()}
                       </p>
 
-                      <div className="space-y-2">
-                        <Label htmlFor={`file-${cat.id}`} className="text-xs">
-                          Обновить изображение
-                        </Label>
-                        <div className="flex gap-2">
-                          <Input
-                            id={`file-${cat.id}`}
-                            type="file"
-                            accept="image/*,video/*"
-                            onChange={(e) => handleFileChange(e, cat.id)}
-                            disabled={uploadingCatId === cat.id}
-                            className="cursor-pointer text-xs"
-                          />
-                          {uploadingCatId === cat.id && (
-                            <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                          )}
+                      <div className="space-y-4">
+                        <div>
+                          <Label htmlFor={`file-${cat.id}`} className="text-xs">
+                            Обновить главное изображение
+                          </Label>
+                          <div className="flex gap-2">
+                            <Input
+                              id={`file-${cat.id}`}
+                              type="file"
+                              accept="image/*,video/*"
+                              onChange={(e) => handleFileChange(e, cat.id)}
+                              disabled={uploadingCatId === cat.id}
+                              className="cursor-pointer text-xs"
+                            />
+                            {uploadingCatId === cat.id && (
+                              <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                            )}
+                          </div>
                         </div>
+
+                        <div>
+                          <Label htmlFor={`additional-${cat.id}`} className="text-xs">
+                            Добавить дополнительные фото ({cat.additional_images?.length || 0}/5)
+                          </Label>
+                          <div className="flex gap-2">
+                            <Input
+                              id={`additional-${cat.id}`}
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file && (cat.additional_images?.length || 0) < 5) {
+                                  handleAdditionalImageUpload(file, cat.id);
+                                } else if ((cat.additional_images?.length || 0) >= 5) {
+                                  toast.error("Максимум 5 дополнительных фото");
+                                }
+                              }}
+                              disabled={uploadingAdditionalFor === cat.id || (cat.additional_images?.length || 0) >= 5}
+                              className="cursor-pointer text-xs"
+                            />
+                            {uploadingAdditionalFor === cat.id && (
+                              <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                            )}
+                          </div>
+                        </div>
+
+                        {cat.additional_images && cat.additional_images.length > 0 && (
+                          <div>
+                            <Label className="text-xs mb-2 block">Дополнительные фото</Label>
+                            <div className="grid grid-cols-3 gap-2">
+                              {cat.additional_images.map((img, idx) => (
+                                <div key={idx} className="relative aspect-square rounded overflow-hidden group">
+                                  <img src={img} alt={`Additional ${idx + 1}`} className="w-full h-full object-cover" />
+                                  <Button
+                                    size="sm"
+                                    className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                    onClick={() => setMainImageMutation.mutate({ catId: cat.id, imageUrl: img })}
+                                  >
+                                    Главное
+                                  </Button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </CardContent>
                   </Card>

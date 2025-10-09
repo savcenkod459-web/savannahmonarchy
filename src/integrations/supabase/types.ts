@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       cats: {
         Row: {
+          additional_images: string[] | null
           age: string
           breed: string
           created_at: string | null
@@ -29,6 +30,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          additional_images?: string[] | null
           age: string
           breed: string
           created_at?: string | null
@@ -42,6 +44,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          additional_images?: string[] | null
           age?: string
           breed?: string
           created_at?: string | null

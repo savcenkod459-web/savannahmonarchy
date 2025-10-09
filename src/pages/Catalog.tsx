@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
+import { CatGallery } from "@/components/CatGallery";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -21,6 +22,7 @@ type Cat = {
   image: string;
   description: string;
   traits: string[];
+  additional_images: string[];
 };
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
@@ -33,11 +35,22 @@ const Catalog = () => {
   const [selectedBreed, setSelectedBreed] = useState<string>(breedFromUrl);
   const [selectedAge, setSelectedAge] = useState<string>("all");
   const [selectedGender, setSelectedGender] = useState<string>("all");
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
+
   useEffect(() => {
     if (breedFromUrl !== 'all') {
       setSelectedBreed(breedFromUrl);
     }
   }, [breedFromUrl]);
+
+  const openGallery = (cat: Cat) => {
+    const allImages = [cat.image, ...(cat.additional_images || [])];
+    setGalleryImages(allImages);
+    setGalleryInitialIndex(0);
+    setGalleryOpen(true);
+  };
 
   // Fetch cats from Supabase
   const {
@@ -165,7 +178,11 @@ const Catalog = () => {
                   Нет кошек, соответствующих выбранным фильтрам
                 </p>
               </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredCats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} className="group animate-scale-in" style={{
+                {filteredCats.map((cat, index) => <div 
+                  key={cat.id}
+                  onClick={() => openGallery(cat)}
+                  className="group animate-scale-in cursor-pointer" 
+                  style={{
               animationDelay: `${index * 100}ms`
             }}>
                     <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
@@ -241,7 +258,7 @@ const Catalog = () => {
                         </div>
                       </div>
                     </div>
-                  </Link>)}
+                  </div>)}
               </div>}
           </div>
         </section>
@@ -249,6 +266,12 @@ const Catalog = () => {
       
       <Footer />
       <ScrollToTop />
+      <CatGallery 
+        images={galleryImages}
+        isOpen={galleryOpen}
+        onClose={() => setGalleryOpen(false)}
+        initialIndex={galleryInitialIndex}
+      />
     </div>;
 };
 export default Catalog;

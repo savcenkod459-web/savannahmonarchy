@@ -3,6 +3,8 @@ import { Button } from "./ui/button";
 import { ArrowRight, Crown, Sparkles, Loader2, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
+import { CatGallery } from "@/components/CatGallery";
+import { useState } from "react";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -16,6 +18,7 @@ type Cat = {
   image: string;
   description: string;
   traits: string[];
+  additional_images: string[];
 };
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
@@ -23,6 +26,17 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const FeaturedCollection = () => {
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
+
+  const openGallery = (image: string, additionalImages: string[]) => {
+    const allImages = [image, ...(additionalImages || [])];
+    setGalleryImages(allImages);
+    setGalleryInitialIndex(0);
+    setGalleryOpen(true);
+  };
+
   // Fetch cats from Supabase
   const {
     data: cats,
@@ -70,9 +84,12 @@ const FeaturedCollection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <Link key={cat.id} to={`/catalog/${cat.id}`} style={{
+            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div 
+              key={cat.id}
+              onClick={() => openGallery(cat.image, cat.additional_images)}
+              style={{
           animationDelay: `${index * 100}ms`
-        }} className="group animate-scale-in py-[30px]">
+        }} className="group animate-scale-in py-[30px] cursor-pointer">
               <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
@@ -139,7 +156,7 @@ const FeaturedCollection = () => {
                   </div>
                 </div>
               </div>
-            </Link>) : null}
+            </div>) : null}
         </div>
 
         <div className="text-center">
@@ -151,6 +168,13 @@ const FeaturedCollection = () => {
           </Link>
         </div>
       </div>
+      
+      <CatGallery 
+        images={galleryImages}
+        isOpen={galleryOpen}
+        onClose={() => setGalleryOpen(false)}
+        initialIndex={galleryInitialIndex}
+      />
     </section>;
 };
 export default FeaturedCollection;
