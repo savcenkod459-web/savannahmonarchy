@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, Loader2, Plus, Image as ImageIcon } from "lucide-react";
+import { Upload, Loader2, Plus, Image as ImageIcon, Trash2, ChevronUp, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -222,6 +222,63 @@ const AdminCats = () => {
       queryClient.invalidateQueries({ queryKey: ['cats'] });
       queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
       toast.success("Главное изображение изменено!");
+    },
+  });
+
+  // Delete additional image mutation
+  const deleteAdditionalImageMutation = useMutation({
+    mutationFn: async ({ catId, imageUrl }: { catId: string; imageUrl: string }) => {
+      const { data: cat, error: fetchError } = await supabase
+        .from('cats')
+        .select('additional_images')
+        .eq('id', catId)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      const updatedImages = (cat.additional_images || []).filter((img: string) => img !== imageUrl);
+
+      const { error } = await supabase
+        .from('cats')
+        .update({ additional_images: updatedImages })
+        .eq('id', catId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-cats'] });
+      queryClient.invalidateQueries({ queryKey: ['cats'] });
+      queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
+      toast.success("Изображение удалено!");
+    },
+  });
+
+  // Move image in order
+  const moveImageMutation = useMutation({
+    mutationFn: async ({ catId, fromIndex, toIndex }: { catId: string; fromIndex: number; toIndex: number }) => {
+      const { data: cat, error: fetchError } = await supabase
+        .from('cats')
+        .select('additional_images')
+        .eq('id', catId)
+        .single();
+
+      if (fetchError) throw fetchError;
+
+      const images = [...(cat.additional_images || [])];
+      const [movedImage] = images.splice(fromIndex, 1);
+      images.splice(toIndex, 0, movedImage);
+
+      const { error } = await supabase
+        .from('cats')
+        .update({ additional_images: images })
+        .eq('id', catId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-cats'] });
+      queryClient.invalidateQueries({ queryKey: ['cats'] });
+      queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
     },
   });
 
@@ -552,17 +609,60 @@ const AdminCats = () => {
                         {cat.additional_images && cat.additional_images.length > 0 && (
                           <div>
                             <Label className="text-xs mb-2 block">Дополнительные фото</Label>
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-2 gap-2">
                               {cat.additional_images.map((img, idx) => (
-                                <div key={idx} className="relative aspect-square rounded overflow-hidden group">
+                                <div key={idx} className="relative aspect-square rounded overflow-hidden border border-primary/20 bg-muted">
                                   <img src={img} alt={`Additional ${idx + 1}`} className="w-full h-full object-cover" />
-                                  <Button
-                                    size="sm"
-                                    className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                                    onClick={() => setMainImageMutation.mutate({ catId: cat.id, imageUrl: img })}
-                                  >
-                                    Главное
-                                  </Button>
+                                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all opacity-0 group-hover:opacity-100">
+                                    <div className="absolute top-1 left-1 flex gap-1">
+                                      <Button
+                                        size="icon"
+                                        variant="secondary"
+                                        className="h-7 w-7"
+                                        disabled={idx === 0}
+                                        onClick={() => moveImageMutation.mutate({ 
+                                          catId: cat.id, 
+                                          fromIndex: idx, 
+                                          toIndex: idx - 1 
+                                        })}
+                                      >
+                                        <ChevronUp className="h-4 w-4" />
+                                      </Button>
+                                      <Button
+                                        size="icon"
+                                        variant="secondary"
+                                        className="h-7 w-7"
+                                        disabled={idx === cat.additional_images.length - 1}
+                                        onClick={() => moveImageMutation.mutate({ 
+                                          catId: cat.id, 
+                                          fromIndex: idx, 
+                                          toIndex: idx + 1 
+                                        })}
+                                      >
+                                        <ChevronDown className="h-4 w-4" />
+                                      </Button>
+                                    </div>
+                                    <Button
+                                      size="sm"
+                                      variant="default"
+                                      className="absolute top-1 right-1 h-7 px-2 text-xs"
+                                      onClick={() => setMainImageMutation.mutate({ catId: cat.id, imageUrl: img })}
+                                    >
+                                      Главное
+                                    </Button>
+                                    <Button
+                                      size="icon"
+                                      variant="destructive"
+                                      className="absolute bottom-1 right-1 h-7 w-7"
+                                      onClick={() => {
+                                        if (confirm("Удалить это изображение?")) {
+                                          deleteAdditionalImageMutation.mutate({ catId: cat.id, imageUrl: img });
+                                        }
+                                      }}
+                                    >
+                                      <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                  </div>
                                 </div>
                               ))}
                             </div>
