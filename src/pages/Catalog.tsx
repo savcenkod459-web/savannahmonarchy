@@ -206,7 +206,7 @@ const Catalog = () => {
                           </div>
                           
                           {/* Breed tag with glass effect */}
-                          <div className="absolute top-4 left-4 flex gap-2">
+                          <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
                             <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs rounded-full font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm border border-white/20">
                               {cat.breed}
                             </span>
