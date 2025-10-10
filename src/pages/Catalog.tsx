@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { ArrowRight, Filter, Crown, Sparkles, Diamond, Star, Loader2, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -30,6 +30,7 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const Catalog = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
   const [selectedBreed, setSelectedBreed] = useState<string>(breedFromUrl);
@@ -255,7 +256,13 @@ const Catalog = () => {
                                 <div className="relative">
                                   <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                                 </div>
-                                <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300">
+                                <div 
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    navigate('/contact');
+                                  }}
+                                  className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
+                                >
                                   <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                                 </div>
                               </div>

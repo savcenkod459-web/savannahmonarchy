@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Crown, Sparkles, Loader2, Star, Calendar, Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -26,6 +26,7 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const FeaturedCollection = () => {
+  const navigate = useNavigate();
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
@@ -156,7 +157,13 @@ const FeaturedCollection = () => {
                           <div className="relative">
                             <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                           </div>
-                          <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300">
+                          <div 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate('/contact');
+                            }}
+                            className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer"
+                          >
                             <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                           </div>
                         </div>
