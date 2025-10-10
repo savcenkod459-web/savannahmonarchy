@@ -105,7 +105,7 @@ const FeaturedCollection = () => {
                     
                     {/* Crown icon with LuxuryCats text */}
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
-                      <span className="font-display font-black text-2xl text-luxury-gradient drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">
+                      <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">
                         LuxuryCats
                       </span>
                       <div className="relative">
