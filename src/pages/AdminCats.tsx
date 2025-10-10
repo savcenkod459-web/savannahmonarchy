@@ -611,9 +611,9 @@ const AdminCats = () => {
                             <Label className="text-xs mb-2 block">Дополнительные фото</Label>
                             <div className="grid grid-cols-2 gap-2">
                               {cat.additional_images.map((img, idx) => (
-                                <div key={idx} className="relative aspect-square rounded overflow-hidden border border-primary/20 bg-muted">
+                                <div key={idx} className="group relative aspect-square rounded overflow-hidden border border-primary/20 bg-muted">
                                   <img src={img} alt={`Additional ${idx + 1}`} className="w-full h-full object-cover" />
-                                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all opacity-0 group-hover:opacity-100">
+                                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100">
                                     <div className="absolute top-1 left-1 flex gap-1">
                                       <Button
                                         size="icon"
