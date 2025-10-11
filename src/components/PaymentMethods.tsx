@@ -1,11 +1,6 @@
-import { CreditCard, Shield, DollarSign, Sparkles, Lock, Landmark, ShieldCheck, CheckCircle2, Bitcoin } from "lucide-react";
+import { DollarSign, Lock, Landmark, ShieldCheck, CheckCircle2, Bitcoin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const paymentMethods = [{
-  icon: CreditCard,
-  title: "Банковские карты",
-  subtitle: "Visa, MasterCard, Maestro",
-  features: ["Мгновенная обработка", "SSL защита", "3D Secure"]
-}, {
   icon: DollarSign,
   title: "PayPal",
   subtitle: "Быстрая и безопасная оплата",
@@ -54,22 +49,20 @@ const PaymentMethods = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-4xl mx-auto">
           {paymentMethods.map((method, index) => <div key={index} onClick={() => {
             if (index === 0) {
-              navigate("/payment?tab=card");
-            } else if (index === 1) {
               navigate("/payment?tab=paypal");
-            } else if (index === 2) {
+            } else if (index === 1) {
               navigate("/payment?tab=crypto");
             }
-          }} className={`p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{
+          }} className={`p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{
           animationDelay: `${index * 100}ms`
         }}>
-              <div className="mb-6 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                <method.icon className="h-8 w-8 text-primary" />
+              <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
+                <method.icon className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">{method.title}</h3>
+              <h3 className="text-3xl font-display font-bold mb-2 luxury-text-shadow">{method.title}</h3>
               <p className="text-muted-foreground mb-6 font-light">{method.subtitle}</p>
               <ul className="space-y-3">
                 {method.features.map((feature, i) => <li key={i} className="flex items-center text-sm font-light">

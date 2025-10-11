@@ -43,76 +43,57 @@ const Warranty = () => {
               Комплексная гарантия здоровья
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction">
-                <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                  <Clock className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="group p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction">
+                <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
+                  <Clock className="h-10 w-10 text-primary group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">1 месяц гарантии здоровья</h3>
-                <p className="text-sm text-muted-foreground font-light">Полное покрытие наследственных и врожденных заболеваний</p>
-                <div className="mt-4 flex items-center justify-center gap-1">
-                  <Star className="w-3 h-3 text-primary animate-pulse" />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                <h3 className="text-2xl font-display font-bold mb-3 luxury-text-shadow">1 месяц гарантии здоровья</h3>
+                <p className="text-base text-muted-foreground font-light">Полное покрытие наследственных и врожденных заболеваний</p>
+                <div className="mt-6 flex items-center justify-center gap-1">
+                  <Star className="w-4 h-4 text-primary animate-pulse" />
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.2s'
                 }} />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.4s'
                 }} />
                 </div>
               </div>
               
-              <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
+              <div className="group p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
               animationDelay: "100ms"
             }}>
-                <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                  <RefreshCw className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
+                <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
+                  <Headphones className="h-10 w-10 text-primary group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">7-дневная политика возврата</h3>
-                <p className="text-sm text-muted-foreground font-light">Полный возврат средств, если не полностью удовлетворены</p>
-                <div className="mt-4 flex items-center justify-center gap-1">
-                  <Star className="w-3 h-3 text-primary animate-pulse" />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                <h3 className="text-2xl font-display font-bold mb-3 luxury-text-shadow">Пожизненная поддержка</h3>
+                <p className="text-base text-muted-foreground font-light">24/7 доступ к нашим ветеринарным экспертам</p>
+                <div className="mt-6 flex items-center justify-center gap-1">
+                  <Star className="w-4 h-4 text-primary animate-pulse" />
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.2s'
                 }} />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.4s'
                 }} />
                 </div>
               </div>
               
-              <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
+              <div className="group p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
               animationDelay: "200ms"
             }}>
-                <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                  <Headphones className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
+                <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
+                  <Shield className="h-10 w-10 text-primary group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">Пожизненная поддержка</h3>
-                <p className="text-sm text-muted-foreground font-light">24/7 доступ к нашим ветеринарным экспертам</p>
-                <div className="mt-4 flex items-center justify-center gap-1">
-                  <Star className="w-3 h-3 text-primary animate-pulse" />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                <h3 className="text-2xl font-display font-bold mb-3 luxury-text-shadow">Комплексная защита</h3>
+                <p className="text-base text-muted-foreground font-light">Покрытие генетических заболеваний и врожденных дефектов</p>
+                <div className="mt-6 flex items-center justify-center gap-1">
+                  <Star className="w-4 h-4 text-primary animate-pulse" />
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.2s'
                 }} />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
-                  animationDelay: '0.4s'
-                }} />
-                </div>
-              </div>
-              
-              <div className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 text-center animate-scale-in hover-lift micro-interaction" style={{
-              animationDelay: "300ms"
-            }}>
-                <div className="mb-4 inline-flex p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
-                  <Shield className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <h3 className="text-xl font-display font-bold mb-2 luxury-text-shadow">Комплексная защита</h3>
-                <p className="text-sm text-muted-foreground font-light">Покрытие генетических заболеваний и врожденных дефектов</p>
-                <div className="mt-4 flex items-center justify-center gap-1">
-                  <Star className="w-3 h-3 text-primary animate-pulse" />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
-                  animationDelay: '0.2s'
-                }} />
-                  <Star className="w-3 h-3 text-primary animate-pulse" style={{
+                  <Star className="w-4 h-4 text-primary animate-pulse" style={{
                   animationDelay: '0.4s'
                 }} />
                 </div>
@@ -128,47 +109,51 @@ const Warranty = () => {
               Что покрывается?
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
-                    <Stethoscope className="w-6 h-6 text-primary" />
+            <div className="max-w-5xl mx-auto space-y-8">
+              {/* Top centered card - larger */}
+              <div className="max-w-2xl mx-auto">
+                <div className="group p-10 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
+                      <Stethoscope className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наследственные заболевания</h3>
                   </div>
-                  <h3 className="text-2xl font-display font-bold luxury-text-shadow">Наследственные заболевания</h3>
+                  <p className="text-muted-foreground leading-relaxed font-light text-lg">
+                    Дисплазия тазобедренного сустава, заболевания сердца, проблемы с глазами и другие 
+                    генетические расстройства, характерные для породы
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Дисплазия тазобедренного сустава, заболевания сердца, проблемы с глазами и другие 
-                  генетические расстройства, характерные для породы
-                </p>
               </div>
               
-              <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
-                    <Heart className="w-6 h-6 text-primary" />
+              {/* Bottom two cards */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
+                      <Heart className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-display font-bold luxury-text-shadow">Врожденные дефекты</h3>
                   </div>
-                  <h3 className="text-2xl font-display font-bold luxury-text-shadow">Врожденные дефекты</h3>
+                  <p className="text-muted-foreground leading-relaxed font-light">
+                    Врожденные дефекты, влияющие на нормальное функционирование или качество жизни, 
+                    выявленные лицензированным ветеринаром
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Врожденные дефекты, влияющие на нормальное функционирование или качество жизни, 
-                  выявленные лицензированным ветеринаром
-                </p>
-              </div>
-              
-              <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
-                    <FileText className="w-6 h-6 text-primary" />
+                
+                <div className="group p-8 glass-card rounded-3xl shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
+                      <FileText className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-display font-bold luxury-text-shadow">Серьезные заболевания</h3>
                   </div>
-                  <h3 className="text-2xl font-display font-bold luxury-text-shadow">Серьезные заболевания</h3>
+                  <p className="text-muted-foreground leading-relaxed font-light">
+                    Опасные для жизни состояния, развивающиеся в течение первого года, за исключением 
+                    предотвратимых заболеваний
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Опасные для жизни состояния, развивающиеся в течение первого года, за исключением 
-                  предотвратимых заболеваний
-                </p>
               </div>
-              
-              
             </div>
           </div>
         </section>

@@ -165,7 +165,7 @@ const Breeders = () => {
         {/* CTA Section */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
+            <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
               <h2 className="font-display font-black text-4xl flex items-center justify-center gap-3">
                 <MessageCircle className="w-10 h-10 text-primary" />
                 Хотите узнать больше о наших заводчиках?
@@ -173,6 +173,12 @@ const Breeders = () => {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Свяжитесь с нами, чтобы узнать больше о конкретных заводчиках и их подходе к разведению элитных кошек
               </p>
+              <div className="pt-4">
+                <a href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full font-bold text-lg hover:shadow-glow transition-all duration-500 hover-lift hover-scale group">
+                  <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                  Связаться
+                </a>
+              </div>
             </div>
           </div>
         </section>

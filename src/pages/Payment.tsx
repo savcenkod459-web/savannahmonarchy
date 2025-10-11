@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CreditCard, Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle } from "lucide-react";
+import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams } from "react-router-dom";
 const cryptoAddresses = [{
@@ -36,16 +36,14 @@ const cryptoAddresses = [{
 }];
 const Payment = () => {
   const [searchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState<"card" | "paypal" | "crypto">("card");
+  const [activeTab, setActiveTab] = useState<"paypal" | "crypto">("paypal");
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const {
     toast
   } = useToast();
   useEffect(() => {
     const tab = searchParams.get("tab");
-    if (tab === "card") {
-      setActiveTab("card");
-    } else if (tab === "paypal") {
+    if (tab === "paypal") {
       setActiveTab("paypal");
     } else if (tab === "crypto") {
       setActiveTab("crypto");
@@ -101,7 +99,7 @@ const Payment = () => {
                 <p className="text-sm text-muted-foreground font-light">Защита данных</p>
               </div>
               <div className="text-center space-y-2 glass-card rounded-2xl px-6 py-4 micro-interaction hover-lift">
-                <CreditCard className="h-8 w-8 text-primary mx-auto animate-pulse" />
+                <Shield className="h-8 w-8 text-primary mx-auto animate-pulse" />
                 <p className="font-bold luxury-text-shadow">Конфиденциальность</p>
                 <p className="text-sm text-muted-foreground font-light">Данные карты не сохраняются</p>
               </div>
@@ -117,72 +115,31 @@ const Payment = () => {
         {/* Payment Methods */}
         <section className="py-20">
           <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               {/* Tabs */}
-              <div className="flex gap-4 mb-8 border-b">
-                <button onClick={() => setActiveTab("card")} className={`px-6 py-3 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "card" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <CreditCard className="h-4 w-4" />
-                  Карты
-                </button>
-                <button onClick={() => setActiveTab("paypal")} className={`px-6 py-3 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "paypal" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <Wallet className="h-4 w-4" />
+              <div className="flex gap-4 mb-8 border-b justify-center">
+                <button onClick={() => setActiveTab("paypal")} className={`px-8 py-4 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "paypal" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
+                  <Wallet className="h-5 w-5" />
                   PayPal
                 </button>
-                <button onClick={() => setActiveTab("crypto")} className={`px-6 py-3 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
-                  <Bitcoin className="h-4 w-4" />
+                <button onClick={() => setActiveTab("crypto")} className={`px-8 py-4 font-medium transition-all rounded-t-lg flex items-center gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
+                  <Bitcoin className="h-5 w-5" />
                   Крипто
                 </button>
               </div>
 
-              {/* Card Payment */}
-              {activeTab === "card" && <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in">
-                  <div className="flex items-center gap-3 mb-6">
-                    <CreditCard className="w-6 h-6 text-primary" />
-                    <h3 className="text-2xl font-display font-bold luxury-text-shadow">Банковские карты</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-8 font-light">
-                    Принимаем Visa, MasterCard и другие основные платежные системы
-                  </p>
-                  
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="cardNumber">Номер карты</Label>
-                      <Input id="cardNumber" placeholder="1234 5678 9012 3456" />
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="expiry">Срок действия</Label>
-                        <Input id="expiry" placeholder="MM/YY" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="cvv">CVV</Label>
-                        <Input id="cvv" placeholder="123" type="password" maxLength={3} />
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="cardName">Имя на карте</Label>
-                      <Input id="cardName" placeholder="IVAN IVANOV" />
-                    </div>
-                    
-                    <Button className="w-full" size="lg">
-                      Оплатить
-                    </Button>
-                  </div>
-                </div>}
-
               {/* PayPal */}
-              {activeTab === "paypal" && <div className="p-8 bg-card rounded-3xl shadow-soft animate-fade-in">
+              {activeTab === "paypal" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in">
                   <div className="flex items-center gap-3 mb-6">
-                    <Wallet className="w-6 h-6 text-primary" />
-                    <h3 className="text-2xl font-display font-bold luxury-text-shadow">PayPal</h3>
+                    <Wallet className="w-8 h-8 text-primary" />
+                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">PayPal</h3>
                   </div>
-                  <p className="text-muted-foreground mb-8">
+                  <p className="text-muted-foreground mb-8 text-lg">
                     Быстрая и безопасная оплата через PayPal
                   </p>
                   
                   <Button className="w-full bg-[#0070ba] hover:bg-[#005ea6]" size="lg">
+                    <Wallet className="w-5 h-5 mr-2" />
                     Оплатить через PayPal
                   </Button>
                 </div>}
