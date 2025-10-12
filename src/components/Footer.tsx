@@ -113,11 +113,9 @@ const Footer = () => {
               <Mail className="w-5 h-5 text-primary" />
               Контакты
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">Email: luxurycats@gmail.com</p>
-              <p className="text-sm text-muted-foreground font-light">
-                Телефон: +1 (555) 123-CATS
-              </p>
+              
               <div className="flex gap-4 pt-2">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
                   <Instagram className="h-5 w-5" />
