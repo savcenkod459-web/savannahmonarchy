@@ -8,27 +8,30 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Instagram, Send, Crown, Sparkles, MessageCircle, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Сообщение отправлено",
-      description: "Мы свяжемся с вами в ближайшее время!",
+      description: "Мы свяжемся с вами в ближайшее время!"
     });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    });
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
       
       <main className="pt-24">
@@ -38,7 +41,9 @@ const Contact = () => {
             <Crown className="w-32 h-32 text-primary animate-float" />
           </div>
           <div className="absolute bottom-20 right-10 opacity-5">
-            <MessageCircle className="w-40 h-40 text-accent animate-float" style={{animationDelay: '2s'}} />
+            <MessageCircle className="w-40 h-40 text-accent animate-float" style={{
+            animationDelay: '2s'
+          }} />
           </div>
           
           <div className="container mx-auto px-6">
@@ -73,48 +78,34 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Имя</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Ваше имя"
-                        required
-                      />
+                      <Input id="name" value={formData.name} onChange={e => setFormData({
+                      ...formData,
+                      name: e.target.value
+                    })} placeholder="Ваше имя" required />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="your@email.com"
-                        required
-                      />
+                      <Input id="email" type="email" value={formData.email} onChange={e => setFormData({
+                      ...formData,
+                      email: e.target.value
+                    })} placeholder="your@email.com" required />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="phone">Телефон</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+7 (999) 123-45-67"
-                      />
+                      <Input id="phone" type="tel" value={formData.phone} onChange={e => setFormData({
+                      ...formData,
+                      phone: e.target.value
+                    })} placeholder="+7 (999) 123-45-67" />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="message">Сообщение</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Расскажите нам о том, что вас интересует..."
-                        rows={6}
-                        required
-                      />
+                      <Textarea id="message" value={formData.message} onChange={e => setFormData({
+                      ...formData,
+                      message: e.target.value
+                    })} placeholder="Расскажите нам о том, что вас интересует..." rows={6} required />
                     </div>
                     
                     <Button type="submit" size="lg" className="w-full">
@@ -125,7 +116,9 @@ const Contact = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="space-y-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
+              <div className="space-y-8 animate-fade-in" style={{
+              animationDelay: "200ms"
+            }}>
                 <div>
                   <div className="flex items-center gap-3 mb-8">
                     <MessageCircle className="w-6 h-6 text-primary" />
@@ -133,32 +126,9 @@ const Contact = () => {
                   </div>
                   
                   <div className="space-y-6">
-                    <div className="flex items-start gap-4 p-4 glass-card rounded-2xl hover-lift micro-interaction">
-                      <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl shadow-soft">
-                        <MapPin className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold mb-1 luxury-text-shadow">Посетите нас</h4>
-                        <p className="text-muted-foreground font-light">
-                          ул. Роскошная, 123<br />
-                          Беверли Хиллз, CA 90210<br />
-                          США
-                        </p>
-                      </div>
-                    </div>
                     
-                    <div className="flex items-start gap-4 p-4 glass-card rounded-2xl hover-lift micro-interaction">
-                      <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl shadow-soft">
-                        <Phone className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold mb-1 luxury-text-shadow">Позвоните нам</h4>
-                        <p className="text-muted-foreground font-light">
-                          +1 (555) 123-CATS<br />
-                          +1 (555) 123-2287
-                        </p>
-                      </div>
-                    </div>
+                    
+                    
                     
                     <div className="flex items-start gap-4 p-4 glass-card rounded-2xl hover-lift micro-interaction">
                       <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl shadow-soft">
@@ -200,32 +170,17 @@ const Contact = () => {
                   </p>
                   
                   <div className="flex gap-4 flex-wrap">
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:opacity-90 transition-opacity"
-                    >
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <Instagram className="h-5 w-5" />
                       <span className="font-medium">@luxurycats</span>
                     </a>
                     
-                    <a
-                      href="https://t.me"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 bg-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity"
-                    >
+                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <Send className="h-5 w-5" />
                       <span className="font-medium">Telegram</span>
                     </a>
                     
-                    <a
-                      href="https://tiktok.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:opacity-90 transition-opacity"
-                    >
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                       </svg>
@@ -241,8 +196,6 @@ const Contact = () => {
       
       <Footer />
       <ScrollToTop />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
