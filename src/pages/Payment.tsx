@@ -116,8 +116,8 @@ const Payment = () => {
         </section>
 
         {/* Payment Methods */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-20 px-4 md:px-0">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               {/* Tabs */}
               <div className="flex gap-4 mb-8 border-b justify-center">
