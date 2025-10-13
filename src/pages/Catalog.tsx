@@ -215,9 +215,9 @@ const Catalog = () => {
                               </div>)}
                           </div>
                           
-                          {/* Price section with enhanced styling */}
-                          <div className="pt-4 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
-                            <div className="space-y-4">
+                    {/* Price section with enhanced styling */}
+                    <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                      <div className="space-y-4 pb-2">
                               <div className="flex items-end justify-between">
                                 <div className="space-y-1">
                                   <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">Цена</span>
@@ -240,12 +240,12 @@ const Catalog = () => {
                                   </div>
                                 </div>
                         </div>
-                        <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="mt-6">
-                          <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
-                            Забронировать
-                          </Button>
-                        </Link>
                       </div>
+                      <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="block mt-8">
+                        <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
+                          Забронировать
+                        </Button>
+                      </Link>
                           </div>
                         </div>
                       </div>
