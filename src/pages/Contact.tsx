@@ -31,6 +31,14 @@ const Contact = () => {
       message: ""
     });
   };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("luxurycxts@gmail.com");
+    toast({
+      title: "Email скопирован",
+      description: "luxurycxts@gmail.com скопирован в буфер обмена"
+    });
+  };
   return <div className="min-h-screen">
       <Navigation />
       
@@ -136,10 +144,12 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 luxury-text-shadow">Cвяжитесь с нами</h4>
-                        <p className="text-muted-foreground font-light">
-                          hello@luxurycats.com<br />
-                          support@luxurycats.com
-                        </p>
+                        <button 
+                          onClick={copyEmail}
+                          className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer"
+                        >
+                          luxurycxts@gmail.com
+                        </button>
                       </div>
                     </div>
                     
