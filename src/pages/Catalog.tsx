@@ -233,7 +233,7 @@ const Catalog = () => {
                         </div>
                       </div>
                       <Link to="/payment#booking" onClick={e => e.stopPropagation()} className="block mt-8">
-                        <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300">
+                        <Button size="sm" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(217,179,112,0.6)] transition-all duration-300 py-[20px]">
                           Забронировать
                         </Button>
                       </Link>
