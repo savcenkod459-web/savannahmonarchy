@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
-import { CatGallery } from "@/components/CatGallery";
+import { CatDetailModal } from "@/components/CatDetailModal";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -23,6 +23,7 @@ type Cat = {
   description: string;
   traits: string[];
   additional_images: string[];
+  video?: string;
 };
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
@@ -34,19 +35,21 @@ const Catalog = () => {
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
   const [selectedBreed, setSelectedBreed] = useState<string>(breedFromUrl);
-  const [galleryOpen, setGalleryOpen] = useState(false);
-  const [galleryImages, setGalleryImages] = useState<string[]>([]);
-  const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImages, setModalImages] = useState<string[]>([]);
+  const [modalVideo, setModalVideo] = useState<string | undefined>();
+  
   useEffect(() => {
     if (breedFromUrl !== 'all') {
       setSelectedBreed(breedFromUrl);
     }
   }, [breedFromUrl]);
-  const openGallery = (cat: Cat) => {
+  
+  const openCatDetail = (cat: Cat) => {
     const allImages = [cat.image, ...(cat.additional_images || [])];
-    setGalleryImages(allImages);
-    setGalleryInitialIndex(0);
-    setGalleryOpen(true);
+    setModalImages(allImages);
+    setModalVideo(cat.video);
+    setModalOpen(true);
   };
 
   // Fetch cats from Supabase
@@ -149,7 +152,7 @@ const Catalog = () => {
                   Нет кошек, соответствующих выбранным фильтрам
                 </p>
               </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openGallery(cat)} className="group animate-scale-in cursor-pointer" style={{
+                {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openCatDetail(cat)} className="group animate-scale-in cursor-pointer" style={{
               animationDelay: `${index * 100}ms`
             }}>
                     <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
@@ -249,7 +252,12 @@ const Catalog = () => {
       
       <Footer />
       <ScrollToTop />
-      <CatGallery images={galleryImages} isOpen={galleryOpen} onClose={() => setGalleryOpen(false)} initialIndex={galleryInitialIndex} />
+      <CatDetailModal 
+        images={modalImages} 
+        video={modalVideo}
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+      />
     </div>;
 };
 export default Catalog;

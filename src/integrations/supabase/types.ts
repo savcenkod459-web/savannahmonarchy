@@ -28,6 +28,7 @@ export type Database = {
           price: number
           traits: string[]
           updated_at: string | null
+          video: string | null
         }
         Insert: {
           additional_images?: string[] | null
@@ -42,6 +43,7 @@ export type Database = {
           price: number
           traits: string[]
           updated_at?: string | null
+          video?: string | null
         }
         Update: {
           additional_images?: string[] | null
@@ -56,6 +58,7 @@ export type Database = {
           price?: number
           traits?: string[]
           updated_at?: string | null
+          video?: string | null
         }
         Relationships: []
       }

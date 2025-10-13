@@ -23,6 +23,7 @@ type Cat = {
   description: string;
   traits: string[];
   additional_images: string[];
+  video?: string;
 };
 
 const AdminCats = () => {
@@ -32,6 +33,7 @@ const AdminCats = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadingCatId, setUploadingCatId] = useState<string | null>(null);
   const [uploadingAdditionalFor, setUploadingAdditionalFor] = useState<string | null>(null);
+  const [uploadingVideoFor, setUploadingVideoFor] = useState<string | null>(null);
   const [newCat, setNewCat] = useState({
     name: "",
     breed: "Саванна F1",
@@ -42,6 +44,7 @@ const AdminCats = () => {
     traits: "",
     image: "",
     additional_images: [] as string[],
+    video: "",
   });
   const queryClient = useQueryClient();
 
@@ -319,6 +322,7 @@ const AdminCats = () => {
         traits: "",
         image: "",
         additional_images: [],
+        video: "",
       });
       toast.success("Кот добавлен!");
     },
@@ -364,6 +368,47 @@ const AdminCats = () => {
     } catch (error: any) {
       toast.error("Ошибка загрузки: " + error.message);
       setUploadingAdditionalFor(null);
+    }
+  };
+
+  const handleVideoUpload = async (file: File, catId?: string) => {
+    if (catId) {
+      setUploadingVideoFor(catId);
+    }
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `video-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      
+      const { error: uploadError } = await supabase.storage
+        .from('cat-images')
+        .upload(fileName, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('cat-images')
+        .getPublicUrl(fileName);
+
+      if (catId) {
+        const { error } = await supabase
+          .from('cats')
+          .update({ video: publicUrl })
+          .eq('id', catId);
+
+        if (error) throw error;
+        
+        queryClient.invalidateQueries({ queryKey: ['admin-cats'] });
+        queryClient.invalidateQueries({ queryKey: ['cats'] });
+        queryClient.invalidateQueries({ queryKey: ['featured-cats'] });
+        toast.success("Видео загружено!");
+        setUploadingVideoFor(null);
+      } else {
+        setNewCat(prev => ({ ...prev, video: publicUrl }));
+        toast.success("Видео загружено!");
+      }
+    } catch (error: any) {
+      toast.error("Ошибка загрузки видео: " + error.message);
+      setUploadingVideoFor(null);
     }
   };
 
@@ -483,7 +528,7 @@ const AdminCats = () => {
                 <div className="flex gap-2 items-center">
                   <Input
                     type="file"
-                    accept="image/*,video/*"
+                    accept="image/*"
                     onChange={(e) => handleFileChange(e)}
                     className="cursor-pointer"
                   />
@@ -502,6 +547,26 @@ const AdminCats = () => {
                 </div>
                 {newCat.image && (
                   <p className="text-xs text-green-600 mt-1">✓ Изображение загружено</p>
+                )}
+              </div>
+
+              <div>
+                <Label className="mb-2 block">Видео</Label>
+                <div className="flex gap-2 items-center">
+                  <Input
+                    type="file"
+                    accept="video/*"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        handleVideoUpload(file);
+                      }
+                    }}
+                    className="cursor-pointer"
+                  />
+                </div>
+                {newCat.video && (
+                  <p className="text-xs text-green-600 mt-1">✓ Видео загружено</p>
                 )}
               </div>
 
@@ -569,7 +634,7 @@ const AdminCats = () => {
                             <Input
                               id={`file-${cat.id}`}
                               type="file"
-                              accept="image/*,video/*"
+                              accept="image/*"
                               onChange={(e) => handleFileChange(e, cat.id)}
                               disabled={uploadingCatId === cat.id}
                               className="cursor-pointer text-xs"
@@ -578,6 +643,33 @@ const AdminCats = () => {
                               <Loader2 className="w-4 h-4 animate-spin text-primary" />
                             )}
                           </div>
+                        </div>
+
+                        <div>
+                          <Label htmlFor={`video-${cat.id}`} className="text-xs">
+                            Загрузить видео
+                          </Label>
+                          <div className="flex gap-2">
+                            <Input
+                              id={`video-${cat.id}`}
+                              type="file"
+                              accept="video/*"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  handleVideoUpload(file, cat.id);
+                                }
+                              }}
+                              disabled={uploadingVideoFor === cat.id}
+                              className="cursor-pointer text-xs"
+                            />
+                            {uploadingVideoFor === cat.id && (
+                              <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                            )}
+                          </div>
+                          {cat.video && (
+                            <p className="text-xs text-green-600 mt-1">✓ Видео загружено</p>
+                          )}
                         </div>
 
                         <div>
