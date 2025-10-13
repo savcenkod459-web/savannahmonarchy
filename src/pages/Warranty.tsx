@@ -2,7 +2,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Shield, Clock, Headphones, RefreshCw, Crown, Sparkles, Star, Award, HeartPulse, Stethoscope, Heart, FileText, DollarSign, ClipboardCheck, ListChecks, Package, ClipboardList, Phone, Mail } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
 const Warranty = () => {
+  const { toast } = useToast();
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("luxurycxts@gmail.com");
+    toast({
+      title: "Email скопирован!",
+      description: "luxurycxts@gmail.com скопирован в буфер обмена",
+    });
+  };
   return <div className="min-h-screen">
       <Navigation />
       
@@ -278,7 +289,12 @@ const Warranty = () => {
                     </div>
                     <p className="font-bold font-display luxury-text-shadow">Напишите нам:</p>
                   </div>
-                  <p className="text-primary font-semibold text-lg">luxurycxts@gmail.com</p>
+                  <button 
+                    onClick={copyEmail}
+                    className="text-primary font-semibold text-lg hover:text-primary/80 transition-colors cursor-pointer"
+                  >
+                    luxurycxts@gmail.com
+                  </button>
                 </div>
               </div>
             </div>

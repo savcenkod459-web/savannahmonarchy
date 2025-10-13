@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { toast } = useToast();
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("luxurycxts@gmail.com");
+    toast({
+      title: "Email скопирован!",
+      description: "luxurycxts@gmail.com скопирован в буфер обмена",
+    });
+  };
   return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5">
@@ -114,7 +125,14 @@ const Footer = () => {
               Контакты
             </h4>
             <div className="space-y-4 py-0">
-              <p className="text-sm text-muted-foreground font-light">Email: luxurycxts@gmail.com</p>
+              <p className="text-sm text-muted-foreground font-light">
+                Email: <button 
+                  onClick={copyEmail}
+                  className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal"
+                >
+                  luxurycxts@gmail.com
+                </button>
+              </p>
               
               <div className="flex gap-4 pt-2">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
