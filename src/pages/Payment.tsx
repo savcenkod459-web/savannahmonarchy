@@ -180,7 +180,7 @@ const Payment = () => {
                 </div>}
 
               {/* Cash */}
-              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in">
+              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
                   <div className="flex items-center gap-3 mb-6">
                     <Banknote className="w-8 h-8 text-primary" />
                     <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наличные</h3>
