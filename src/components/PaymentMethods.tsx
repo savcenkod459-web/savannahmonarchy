@@ -1,4 +1,4 @@
-import { DollarSign, Lock, Landmark, ShieldCheck, CheckCircle2, Bitcoin } from "lucide-react";
+import { DollarSign, Lock, Landmark, ShieldCheck, EyeOff, Bitcoin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const paymentMethods = [{
   icon: DollarSign,
@@ -20,9 +20,9 @@ const securityFeatures = [{
   title: "Защита данных",
   description: "Данные карт никогда не сохраняются на наших серверах"
 }, {
-  icon: CheckCircle2,
-  title: "Гарантия возврата денег",
-  description: "Полный возврат, если кошка не соответствует описанию"
+  icon: EyeOff,
+  title: "Конфиденциальность",
+  description: "Ваши личные данные надежно защищены и никогда не передаются третьим лицам"
 }];
 const PaymentMethods = () => {
   const navigate = useNavigate();
