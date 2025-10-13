@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle, Banknote } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 const cryptoAddresses = [{
   name: "USDT (TRC20)",
   address: "TVkjYLi5Yn6XPYA8i5pRRqQdp6741YeGyt",
@@ -36,6 +36,7 @@ const cryptoAddresses = [{
 }];
 const Payment = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"paypal" | "crypto" | "cash">("paypal");
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const {
@@ -212,6 +213,34 @@ const Payment = () => {
                     </div>
                   </div>
                 </div>}
+            </div>
+          </div>
+        </section>
+
+        {/* Booking Section */}
+        <section className="py-20 border-t glass-effect">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="p-10 bg-card rounded-3xl shadow-soft">
+                <div className="flex items-center gap-3 mb-6">
+                  <Crown className="w-8 h-8 text-primary" />
+                  <h3 className="text-3xl font-display font-bold luxury-text-shadow">Бронирование</h3>
+                </div>
+                
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <p className="text-lg text-muted-foreground">
+                    Чтобы узнать детали - свяжитесь с нами
+                  </p>
+                  
+                  <Button 
+                    size="lg" 
+                    onClick={() => navigate('/contact')}
+                    className="whitespace-nowrap"
+                  >
+                    Связаться с нами
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
