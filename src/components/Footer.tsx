@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const copyEmail = () => {
     navigator.clipboard.writeText("luxurycxts@gmail.com");
     toast({
       title: "Email скопирован!",
-      description: "luxurycxts@gmail.com скопирован в буфер обмена",
+      description: "luxurycxts@gmail.com скопирован в буфер обмена"
     });
   };
   return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
@@ -30,9 +30,7 @@ const Footer = () => {
               <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-full shadow-gold">
                 <Crown className="w-5 h-5 text-luxury-black" />
               </div>
-              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">
-                LuxuryCats
-              </h3>
+              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahDynasty</h3>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
@@ -126,10 +124,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">
-                Email: <button 
-                  onClick={copyEmail}
-                  className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal"
-                >
+                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">
                   luxurycxts@gmail.com
                 </button>
               </p>
