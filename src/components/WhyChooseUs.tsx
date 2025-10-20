@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">Премиум качество</span>
           </div>
-          <h2 className="font-display text-luxury-gradient font-black luxury-text-shadow py-[10px]">Почему выбирают LuxuryCats?</h2>
+          <h2 className="font-display text-luxury-gradient font-black luxury-text-shadow py-[10px]">Почему выбирают SavannahDynasty?</h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">Мы предоставляем высочайший стандарт элитных кошек породы Саванна с непревзойденным качеством и заботой</p>
         </div>
 
