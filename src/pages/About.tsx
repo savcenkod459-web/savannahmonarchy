@@ -6,15 +6,15 @@ import { useEffect } from "react";
 import { CheckCircle2, Crown, Sparkles, Diamond, Star, Award, HeartPulse, Users, Trophy, Headset, Apple, Home, PawPrint, Brain, Gem, Cat, Baby, AlertCircle, Wind, Drumstick, Snowflake, Activity, Heart, Scale, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import breedingImage from "@/assets/breeding-facility.jpg";
-
 const About = () => {
   const location = useLocation();
-  
   useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({
+          behavior: "smooth"
+        });
       }
     }
   }, [location]);
@@ -384,43 +384,7 @@ const About = () => {
                     </Link>
                   </div>
 
-                  <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in hover-lift micro-interaction border-2 border-accent/20">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="p-4 bg-gradient-to-br from-accent to-primary rounded-2xl">
-                        <span className="text-3xl font-display font-black text-white">F2</span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">Savannah F2</h4>
-                        <p className="text-muted-foreground font-light leading-relaxed">
-                          Второе поколение, уже более адаптированное к жизни дома, но всё ещё сохраняющее мощь и внешнюю красоту предков.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="p-6 bg-accent/5 rounded-2xl mb-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Gem className="w-6 h-6 text-accent" />
-                        <span className="text-2xl font-display font-bold text-luxury-gradient">
-                          🐾 Цена: от 7 500 до 15 000 EUR
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground font-light">
-                        В зависимости от окраса, пола и линии разведения
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                      <p className="text-muted-foreground font-light">
-                        Идеальный баланс между дикой энергетикой и домашним комфортом — именно поэтому F2 часто выбирают те, кто ищет <span className="text-foreground font-bold">"дикость в роскошной форме"</span>
-                      </p>
-                    </div>
-                    
-                    <Link to="/catalog?breed=Саванна F2" className="block mt-6">
-                      <Button className="w-full text-sm md:text-lg py-6 group whitespace-normal h-auto min-h-[3rem]">
-                        Посмотреть наших котов Саванны F2
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
-                      </Button>
-                    </Link>
-                  </div>
+                  
                 </div>
               </div>
 
