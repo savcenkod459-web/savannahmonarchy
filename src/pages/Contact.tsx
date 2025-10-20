@@ -143,9 +143,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 luxury-text-shadow">Cвяжитесь с нами</h4>
-                        <button onClick={copyEmail} className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer">
-                          luxurycxts@gmail.com
-                        </button>
+                        <button onClick={copyEmail} className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer">savannahdynasty@gmail.com</button>
                       </div>
                     </div>
                     
