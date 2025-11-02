@@ -23,10 +23,6 @@ const About = () => {
     name: "Саванна F1",
     description: "Отличается экзотической внешностью, высоким интеллектом и энергичным темпераментом. Эти кошки — первые в поколении гибрида с африканским сервалом, сочетающие дикую грацию с преданностью домашнего питомца. Саванна F1 — выбор для тех, кто ищет не просто кошку, а настоящего компаньона с характером.",
     traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
-  }, {
-    name: "Саванна F2",
-    description: "Сочетает в себе экзотику дикой природы и более мягкий, дружелюбный характер. Кошки F2 унаследовали грациозность и интеллект, сохранив при этом легкость в общении с человеком. Это эффектный и умный питомец с сильной индивидуальностью.",
-    traits: ["Активная", "Умная", "Общительная", "Экзотическая"]
   }];
   return <div className="min-h-screen">
       <Navigation />
@@ -166,10 +162,10 @@ const About = () => {
                 <span className="text-sm font-bold tracking-widest uppercase text-primary">Премиум коллекция</span>
               </div>
               <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow">
-                Наши избранные породы
+                Наша избранная порода
               </h2>
             </div>
-            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="max-w-3xl mx-auto">
               {breeds.map((breed, index) => <div key={index} className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 animate-scale-in hover-lift micro-interaction" style={{
               animationDelay: `${index * 200}ms`
             }}>
@@ -676,7 +672,7 @@ const About = () => {
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-6 luxury-text-shadow flex items-center gap-4">
                 <Crown className="w-10 h-10 md:w-12 md:h-12 text-primary" />
-                Взрослые коты Savannah (F1 / F2)
+                Взрослые коты Savannah F1
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light">
                 Наши взрослые Саванны — это не просто экзотические животные, а зрелые, сформированные личности с яркой индивидуальностью и великолепным экстерьером.
@@ -745,7 +741,7 @@ const About = () => {
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-6 luxury-text-shadow flex items-center gap-4">
                 <Cat className="w-10 h-10 md:w-12 md:h-12 text-primary" />
-                Котята Savannah (F1 / F2)
+                Котята Savannah F1
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light">
                 Котята Саванны — это настоящее чудо. Маленькие "леопардики", в которых сочетается дикость внешности и невероятная любознательность, характерная для этой уникальной породы.

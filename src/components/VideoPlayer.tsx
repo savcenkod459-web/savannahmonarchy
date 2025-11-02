@@ -167,28 +167,24 @@ export const VideoPlayer = ({
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
         <div className="space-y-2">
           <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20 h-8 w-8">
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-              </Button>
-              <span className="text-xs text-white whitespace-nowrap">
-                {formatTime(Math.min(currentTime, duration))} / {formatTime(duration)}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
-                {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-              </Button>
-              <Slider 
-                value={[isMuted ? 0 : volume]} 
-                min={0}
-                max={1} 
-                step={0.1} 
-                onValueChange={handleVolumeChange} 
-                className="cursor-pointer w-20" 
-              />
-            </div>
+          <div className="flex items-center justify-center gap-3">
+            <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20 h-8 w-8">
+              {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            </Button>
+            <span className="text-xs text-white whitespace-nowrap">
+              {formatTime(Math.min(currentTime, duration))} / {formatTime(duration)}
+            </span>
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
+              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            </Button>
+            <Slider 
+              value={[isMuted ? 0 : volume]} 
+              min={0}
+              max={1} 
+              step={0.1} 
+              onValueChange={handleVolumeChange} 
+              className="cursor-pointer w-20" 
+            />
           </div>
         </div>
       </div>
