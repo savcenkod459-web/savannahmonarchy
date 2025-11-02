@@ -19,7 +19,7 @@ const Hero = () => {
                 <Crown className="w-4 h-4 text-primary animate-gold-pulse" />
                 <span className="tracking-widest uppercase text-neutral-950 font-extrabold text-sm">ЭЛИТНЫЙ ПИТОМНИК</span>
               </div>
-              <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="font-display font-black text-luxury-gradient leading-tight relative luxury-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-[5px]">
                 SavannahDynasty
                 <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-transparent rounded-full" />
               </h1>
@@ -58,8 +58,8 @@ const Hero = () => {
             
             {/* Floating Badge */}
             <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold animate-gold-pulse micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
-              boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)'
-            }}>
+            boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)'
+          }}>
               <p className="text-sm font-bold opacity-90 tracking-wider uppercase">Саванна F1</p>
               <p className="text-3xl font-display font-black luxury-text-shadow">Премиум класс</p>
             </div>
