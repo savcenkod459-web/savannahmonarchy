@@ -115,7 +115,12 @@ export const VideoPlayer = ({
             </Button>
 
             <div className="flex-1 flex items-center justify-center">
-              <video ref={videoRef} src={videoUrl} className="max-w-full max-h-full" onClick={togglePlay} />
+              <video 
+                ref={videoRef} 
+                src={videoUrl} 
+                className="max-w-full max-h-full" 
+                onClick={togglePlay}
+              />
             </div>
 
             <div className="p-6 bg-black/90 space-y-4">
@@ -128,7 +133,7 @@ export const VideoPlayer = ({
                   <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
                   <div className="flex justify-between text-xs text-white/70 mt-1">
                     <span>{formatTime(Math.min(currentTime, duration))}</span>
-                    <span>{formatTime(duration)}</span>
+                    <span>{formatTime(duration || 0)}</span>
                   </div>
                 </div>
 
@@ -144,7 +149,7 @@ export const VideoPlayer = ({
         </DialogContent>
       </Dialog>;
   }
-  return <div className="relative w-full h-full group">
+  return <div className="relative w-full h-full group flex items-center justify-center">
       <video 
         ref={videoRef} 
         src={videoUrl} 
@@ -172,7 +177,7 @@ export const VideoPlayer = ({
               {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
             </Button>
             <span className="text-xs text-white whitespace-nowrap">
-              {formatTime(Math.min(currentTime, duration))} / {formatTime(duration)}
+              {formatTime(Math.min(currentTime, duration))} / {formatTime(duration || 0)}
             </span>
             <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
               {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}

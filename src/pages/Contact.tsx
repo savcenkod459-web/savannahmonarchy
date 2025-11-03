@@ -174,18 +174,21 @@ const Contact = () => {
                   </p>
                   
                   <div className="flex gap-4 flex-wrap">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:opacity-90 transition-opacity">
+                    <a href="https://www.instagram.com/savannahdynasty?igsh=cjRvbTM5Y3p1N3Uz&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <Instagram className="h-5 w-5" />
-                      <span className="font-medium">@luxurycats</span>
+                      <span className="font-medium">@savannahdynasty</span>
                     </a>
                     
+                    <a href="https://t.me/SavannahDynasty" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl hover:opacity-90 transition-opacity">
+                      <Send className="h-5 w-5" />
+                      <span className="font-medium">@SavannahDynasty_bot</span>
+                    </a>
                     
-                    
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:opacity-90 transition-opacity">
+                    <a href="https://www.tiktok.com/@savannahdynasty?_r=1&_t=ZM-9163yTY9hWK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:opacity-90 transition-opacity">
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                       </svg>
-                      <span className="font-medium">TikTok</span>
+                      <span className="font-medium">@savannahdynasty</span>
                     </a>
                   </div>
                 </div>

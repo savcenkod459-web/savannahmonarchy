@@ -84,18 +84,26 @@ const FeaturedCollection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {isLoading ? <div className="col-span-full flex justify-center py-12">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} onClick={() => openGallery(cat.image, cat.additional_images)} style={{
+            </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} onClick={() => navigate('/catalog')} style={{
           animationDelay: `${index * 100}ms`
         }} className="group animate-scale-in py-[30px] cursor-pointer">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
+              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 micro-interaction" style={{ transform: 'translateZ(0)' }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl">
+                    <img 
+                      src={cat.image} 
+                      alt={cat.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openGallery(cat.image, cat.additional_images);
+                      }}
+                    />
                     
                     {/* Gradient overlay on hover - softer colors */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

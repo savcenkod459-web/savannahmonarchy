@@ -127,14 +127,14 @@ const Catalog = () => {
                 {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openCatDetail(cat)} className="group animate-scale-in cursor-pointer" style={{
               animationDelay: `${index * 100}ms`
             }}>
-                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover-lift micro-interaction">
+                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 micro-interaction" style={{ transform: 'translateZ(0)' }}>
                       {/* Gradient border effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                       <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                       
                       {/* Content */}
                       <div className="relative">
-                        <div className="relative aspect-[3/4] overflow-hidden">
+                        <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl">
                           <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                           
                           {/* Gradient overlay on hover - softer colors */}
