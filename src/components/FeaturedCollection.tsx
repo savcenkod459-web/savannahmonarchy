@@ -94,15 +94,14 @@ const FeaturedCollection = () => {
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer" onClick={(e) => {
+                    e.stopPropagation();
+                    openGallery(cat.image, cat.additional_images);
+                  }}>
                     <img 
                       src={cat.image} 
                       alt={cat.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer" 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openGallery(cat.image, cat.additional_images);
-                      }}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                     />
                     
                     {/* Gradient overlay on hover - softer colors */}
