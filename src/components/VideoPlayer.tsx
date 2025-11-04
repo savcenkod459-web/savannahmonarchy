@@ -140,39 +140,48 @@ export const VideoPlayer = ({
             <DialogTitle>Полноэкранное видео</DialogTitle>
             <DialogDescription>Видео в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
-          <div className="relative w-full h-[95vh] flex flex-col">
+          <div className="relative w-full h-[95vh] group flex items-center justify-center">
             <Button variant="ghost" size="icon" className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full" onClick={onToggleFullscreen}>
               <X className="h-6 w-6" />
             </Button>
 
-            <div className="flex-1 flex items-center justify-center">
-              <video 
-                ref={videoRef} 
-                src={videoUrl} 
-                className="max-w-full max-h-full" 
-                onClick={togglePlay}
-              />
-            </div>
+            <video 
+              ref={videoRef} 
+              src={videoUrl} 
+              className="max-w-full max-h-full object-contain"
+              onClick={togglePlay}
+            />
 
-            <div className="p-6 bg-black/90 space-y-4">
-              <div className="flex items-center gap-4">
-                <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20">
-                  {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-                </Button>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={togglePlay} 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full"
+            >
+              {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8" />}
+            </Button>
 
-                <div className="flex-1">
-                  <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
-                  <div className="flex justify-between text-xs text-white/70 mt-1">
-                    <span>{formatTime(Math.min(currentTime, duration))}</span>
-                    <span>{formatTime(duration || 0)}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 w-32">
-                  <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20">
-                    {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="space-y-2">
+                <Slider value={[Math.min(currentTime, duration)]} min={0} max={duration || 100} step={0.1} onValueChange={handleTimeChange} className="cursor-pointer" />
+                <div className="flex items-center justify-center gap-3">
+                  <Button variant="ghost" size="icon" onClick={togglePlay} className="text-white hover:bg-white/20 h-8 w-8">
+                    {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                   </Button>
-                  <Slider value={[volume]} max={1} step={0.1} onValueChange={handleVolumeChange} className="cursor-pointer" />
+                  <span className="text-xs text-white whitespace-nowrap">
+                    {formatTime(Math.min(currentTime, duration))} / {formatTime(duration || 0)}
+                  </span>
+                  <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 h-8 w-8">
+                    {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+                  </Button>
+                  <Slider 
+                    value={[isMuted ? 0 : volume]} 
+                    min={0}
+                    max={1} 
+                    step={0.1} 
+                    onValueChange={handleVolumeChange} 
+                    className="cursor-pointer w-20" 
+                  />
                 </div>
               </div>
             </div>
