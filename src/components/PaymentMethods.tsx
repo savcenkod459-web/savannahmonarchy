@@ -1,5 +1,6 @@
-import { DollarSign, Lock, Landmark, ShieldCheck, EyeOff, Bitcoin, Banknote } from "lucide-react";
+import { Bitcoin, Banknote, Landmark, ShieldCheck, EyeOff, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
 const paymentMethods = [{
   icon: Bitcoin,
   title: "Криптовалюта",
@@ -11,6 +12,7 @@ const paymentMethods = [{
   subtitle: "Курьерская доставка",
   features: ["Оплата при получении", "Личная передача", "Международная доставка"]
 }];
+
 const securityFeatures = [{
   icon: Landmark,
   title: "Банковский уровень безопасности",
@@ -24,6 +26,7 @@ const securityFeatures = [{
   title: "Конфиденциальность",
   description: "Ваши личные данные надежно защищены и никогда не передаются третьим лицам"
 }];
+
 const PaymentMethods = () => {
   const navigate = useNavigate();
 
@@ -76,7 +79,7 @@ const PaymentMethods = () => {
         {/* Security Features */}
         <div className="grid md:grid-cols-3 gap-8">
           {securityFeatures.map((feature, index) => <div key={index} className="text-center p-8 glass-card rounded-2xl animate-fade-in micro-interaction hover:scale-105 transition-all duration-500" style={{
-          animationDelay: `${(index + 3) * 100}ms`
+          animationDelay: `${(index + 2) * 100}ms`
         }}>
               <div className="inline-flex p-3 bg-primary/10 rounded-full mb-4">
                 <feature.icon className="w-6 h-6 text-primary" />
@@ -88,4 +91,5 @@ const PaymentMethods = () => {
       </div>
     </section>;
 };
+
 export default PaymentMethods;

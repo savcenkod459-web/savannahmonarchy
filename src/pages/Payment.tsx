@@ -118,12 +118,12 @@ const Payment = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               {/* Tabs */}
-              <div className="flex gap-2 md:gap-4 mb-8 border-b justify-center">
-                <button onClick={() => setActiveTab("crypto")} className={`px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
+              <div className="flex gap-2 md:gap-4 mb-8 border-b justify-center max-w-2xl mx-auto">
+                <button onClick={() => setActiveTab("crypto")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
                   <Bitcoin className="h-4 w-4 md:h-5 md:w-5" />
-                  Крипто
+                  Криптовалюта
                 </button>
-                <button onClick={() => setActiveTab("cash")} className={`px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center gap-1 md:gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
+                <button onClick={() => setActiveTab("cash")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"}`}>
                   <Banknote className="h-4 w-4 md:h-5 md:w-5" />
                   Наличные
                 </button>
