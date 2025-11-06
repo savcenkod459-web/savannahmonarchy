@@ -1,0 +1,193 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+
+const UpdatePassword = () => {
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Check if this is a valid password recovery session
+    const checkRecoverySession = async () => {
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const searchParams = new URLSearchParams(window.location.search);
+      
+      const type = hashParams.get('type') || searchParams.get('type');
+      const token = hashParams.get('access_token') || searchParams.get('access_token');
+      
+      if (type !== 'recovery' && !token) {
+        toast({
+          variant: "destructive",
+          title: "Недействительная ссылка",
+          description: "Пожалуйста, запросите новую ссылку для сброса пароля"
+        });
+        navigate("/reset-password");
+      }
+    };
+
+    checkRecoverySession();
+  }, [navigate, toast]);
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (newPassword !== confirmPassword) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: "Пароли не совпадают"
+      });
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: "Пароль должен быть не менее 8 символов"
+      });
+      return;
+    }
+
+    setLoading(true);
+    
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword
+      });
+      
+      if (error) {
+        if (error.message.includes('invalid token') || error.message.includes('signature')) {
+          toast({
+            variant: "destructive",
+            title: "Ссылка устарела",
+            description: "Ссылка для восстановления пароля истекла. Пожалуйста, запросите новую ссылку."
+          });
+          navigate("/reset-password");
+        } else {
+          throw error;
+        }
+        return;
+      }
+      
+      toast({
+        title: "Пароль обновлен",
+        description: "Ваш пароль успешно изменен. Теперь вы можете войти с новым паролем."
+      });
+      
+      window.location.hash = '';
+      
+      setTimeout(() => {
+        navigate("/auth");
+      }, 1500);
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: error.message || "Произошла ошибка при обновлении пароля"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
+      <Navigation />
+      
+      <main className="flex-1 flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+        <Card className="w-full max-w-xl glass-card border-2 border-primary/30 shadow-glow animate-scale-in backdrop-blur-xl">
+          <CardHeader className="space-y-3 pb-6 pt-10 px-8">
+            <div className="flex justify-center mb-4 animate-fade-in">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+                <svg className="w-10 h-10 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+            </div>
+            
+            <CardTitle className="text-3xl font-display font-black text-center text-luxury-gradient luxury-text-shadow">
+              Новый пароль
+            </CardTitle>
+            <CardDescription className="text-center text-foreground/70 text-base font-medium">
+              Введите новый пароль для вашего аккаунта
+            </CardDescription>
+          </CardHeader>
+          
+          <CardContent className="px-8 pb-10">
+            <form onSubmit={handleUpdatePassword} className="space-y-6">
+              <div className="space-y-3">
+                <Label htmlFor="new-password" className="text-sm font-semibold text-foreground/80">
+                  Новый пароль
+                </Label>
+                <Input
+                  id="new-password"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  minLength={8}
+                  className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
+                  placeholder="Введите новый пароль"
+                  autoFocus
+                />
+              </div>
+              
+              <div className="space-y-3">
+                <Label htmlFor="confirm-password" className="text-sm font-semibold text-foreground/80">
+                  Подтвердите пароль
+                </Label>
+                <Input
+                  id="confirm-password"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  minLength={8}
+                  className="h-12 px-4 glass-card border-2 border-primary/20 focus:border-primary/50 transition-all duration-300"
+                  placeholder="Повторите новый пароль"
+                />
+              </div>
+              
+              <Button
+                type="submit"
+                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-all duration-300"
+                disabled={loading}
+              >
+                {loading ? "Обновление..." : "Изменить пароль"}
+              </Button>
+              
+              <Button
+                type="button"
+                variant="ghost"
+                className="w-full text-sm hover:bg-secondary/50 transition-all duration-300"
+                onClick={() => navigate("/reset-password")}
+              >
+                Запросить новую ссылку
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default UpdatePassword;
