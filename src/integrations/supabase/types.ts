@@ -92,6 +92,33 @@ export type Database = {
         }
         Relationships: []
       }
+      password_reset_codes: {
+        Row: {
+          code: string
+          created_at: string | null
+          expires_at: string
+          id: string
+          used: boolean | null
+          user_email: string
+        }
+        Insert: {
+          code: string
+          created_at?: string | null
+          expires_at: string
+          id?: string
+          used?: boolean | null
+          user_email: string
+        }
+        Update: {
+          code?: string
+          created_at?: string | null
+          expires_at?: string
+          id?: string
+          used?: boolean | null
+          user_email?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string | null
@@ -139,6 +166,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      cleanup_expired_reset_codes: { Args: never; Returns: undefined }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
