@@ -119,11 +119,13 @@ const Pedigree = () => {
                     {fathers.map((parent) => (
                       <Card
                         key={parent.id}
-                        className="group animate-scale-in overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover:scale-105"
+                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
                       >
-                        <CardContent className="p-0">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
-                            <div className="aspect-[3/4] overflow-hidden">
+                            <div className="aspect-[3/4] overflow-hidden relative">
+                              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                               <img
                                 src={parent.parent_images[0]}
                                 alt={parent.parent_name}
@@ -131,11 +133,14 @@ const Pedigree = () => {
                               />
                             </div>
                           )}
-                          <div className="p-6 space-y-4">
-                            <h3 className="text-2xl font-display font-black text-luxury-gradient">
-                              {parent.parent_name}
-                            </h3>
-                            <p className="text-sm font-bold text-primary">
+                          <div className="p-6 space-y-4 bg-gradient-to-b from-background/80 to-background">
+                            <div className="flex items-center gap-2">
+                              <Crown className="w-5 h-5 text-primary animate-pulse" />
+                              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">
+                                {parent.parent_name}
+                              </h3>
+                            </div>
+                            <p className="text-sm font-bold text-primary px-3 py-1 bg-primary/10 rounded-full inline-block">
                               {parent.parent_breed}
                             </p>
                             {parent.parent_description && (
@@ -146,12 +151,14 @@ const Pedigree = () => {
                             {parent.parent_images && parent.parent_images.length > 1 && (
                               <div className="grid grid-cols-3 gap-2 pt-4">
                                 {parent.parent_images.slice(1, 4).map((img, idx) => (
-                                  <img
-                                    key={idx}
-                                    src={img}
-                                    alt={`${parent.parent_name} ${idx + 2}`}
-                                    className="aspect-square object-cover rounded-lg"
-                                  />
+                                  <div key={idx} className="relative group/img overflow-hidden rounded-lg">
+                                    <img
+                                      src={img}
+                                      alt={`${parent.parent_name} ${idx + 2}`}
+                                      className="aspect-square object-cover transition-transform duration-500 group-hover/img:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                  </div>
                                 ))}
                               </div>
                             )}
@@ -172,11 +179,13 @@ const Pedigree = () => {
                     {mothers.map((parent) => (
                       <Card
                         key={parent.id}
-                        className="group animate-scale-in overflow-hidden shadow-soft hover:shadow-glow transition-all duration-500 hover:scale-105"
+                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
                       >
-                        <CardContent className="p-0">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
-                            <div className="aspect-[3/4] overflow-hidden">
+                            <div className="aspect-[3/4] overflow-hidden relative">
+                              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                               <img
                                 src={parent.parent_images[0]}
                                 alt={parent.parent_name}
@@ -184,11 +193,14 @@ const Pedigree = () => {
                               />
                             </div>
                           )}
-                          <div className="p-6 space-y-4">
-                            <h3 className="text-2xl font-display font-black text-luxury-gradient">
-                              {parent.parent_name}
-                            </h3>
-                            <p className="text-sm font-bold text-primary">
+                          <div className="p-6 space-y-4 bg-gradient-to-b from-background/80 to-background">
+                            <div className="flex items-center gap-2">
+                              <Crown className="w-5 h-5 text-primary animate-pulse" />
+                              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">
+                                {parent.parent_name}
+                              </h3>
+                            </div>
+                            <p className="text-sm font-bold text-primary px-3 py-1 bg-primary/10 rounded-full inline-block">
                               {parent.parent_breed}
                             </p>
                             {parent.parent_description && (
@@ -199,12 +211,14 @@ const Pedigree = () => {
                             {parent.parent_images && parent.parent_images.length > 1 && (
                               <div className="grid grid-cols-3 gap-2 pt-4">
                                 {parent.parent_images.slice(1, 4).map((img, idx) => (
-                                  <img
-                                    key={idx}
-                                    src={img}
-                                    alt={`${parent.parent_name} ${idx + 2}`}
-                                    className="aspect-square object-cover rounded-lg"
-                                  />
+                                  <div key={idx} className="relative group/img overflow-hidden rounded-lg">
+                                    <img
+                                      src={img}
+                                      alt={`${parent.parent_name} ${idx + 2}`}
+                                      className="aspect-square object-cover transition-transform duration-500 group-hover/img:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                  </div>
                                 ))}
                               </div>
                             )}

@@ -127,7 +127,7 @@ const Navigation = () => {
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-gold hover:shadow-glow transition-all duration-500 group-hover:rotate-12">
               <Crown className="w-6 h-6 text-luxury-black" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow">SavannahDynasty</h1>
+            <h1 className="text-2xl md:text-[2.6rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow">SavannahDynasty</h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -136,7 +136,7 @@ const Navigation = () => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
-                      <button className={`text-sm font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+                      <button className={`text-[0.82rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                         {item.name}
                         <ChevronDown className="w-4 h-4" />
                         <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
@@ -161,13 +161,13 @@ const Navigation = () => {
                     </PopoverContent>
                   </Popover>;
             }
-            return <Link key={item.path} to={item.path} className={`text-sm font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+            return <Link key={item.path} to={item.path} className={`text-[0.82rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                   {item.name}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
                 </Link>;
           })}
             
-            {isAdmin && <Link to="/admin/cats" className={`text-sm font-semibold transition-all duration-300 relative group micro-interaction ${isActive("/admin/cats") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+            {isAdmin && <Link to="/admin/cats" className={`text-[0.82rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive("/admin/cats") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
                 ⚙️ Админ
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive("/admin/cats") ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
               </Link>}

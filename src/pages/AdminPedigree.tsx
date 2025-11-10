@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, Loader2, Plus, Trash2, X } from "lucide-react";
+import { Upload, Loader2, Plus, Trash2, X, Edit } from "lucide-react";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -48,6 +48,7 @@ const AdminPedigree = () => {
   const [parentDescription, setParentDescription] = useState("");
   const [uploadingImages, setUploadingImages] = useState(false);
   const [parentImages, setParentImages] = useState<string[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   useEffect(() => {
     const checkAdminStatus = async () => {
@@ -122,27 +123,39 @@ const AdminPedigree = () => {
         throw new Error("Заполните все обязательные поля");
       }
 
-      const { error } = await supabase.from("cat_pedigrees").insert([
-        {
-          cat_id: selectedCat,
-          parent_type: parentType,
-          parent_name: parentName,
-          parent_breed: parentBreed,
-          parent_description: parentDescription || null,
-          parent_images: parentImages,
-        },
-      ]);
+      if (editingId) {
+        const { error } = await supabase
+          .from("cat_pedigrees")
+          .update({
+            cat_id: selectedCat,
+            parent_type: parentType,
+            parent_name: parentName,
+            parent_breed: parentBreed,
+            parent_description: parentDescription || null,
+            parent_images: parentImages,
+          })
+          .eq("id", editingId);
 
-      if (error) throw error;
+        if (error) throw error;
+      } else {
+        const { error } = await supabase.from("cat_pedigrees").insert([
+          {
+            cat_id: selectedCat,
+            parent_type: parentType,
+            parent_name: parentName,
+            parent_breed: parentBreed,
+            parent_description: parentDescription || null,
+            parent_images: parentImages,
+          },
+        ]);
+
+        if (error) throw error;
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-pedigrees"] });
-      setSelectedCat("");
-      setParentName("");
-      setParentBreed("");
-      setParentDescription("");
-      setParentImages([]);
-      toast.success("Родословная добавлена!");
+      resetForm();
+      toast.success(editingId ? "Родословная обновлена!" : "Родословная добавлена!");
     },
     onError: (error: any) => {
       toast.error("Ошибка: " + error.message);
@@ -205,6 +218,26 @@ const AdminPedigree = () => {
     setParentImages((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const resetForm = () => {
+    setSelectedCat("");
+    setParentName("");
+    setParentBreed("");
+    setParentDescription("");
+    setParentImages([]);
+    setEditingId(null);
+  };
+
+  const editPedigree = (pedigree: PedigreeEntry) => {
+    setSelectedCat(pedigree.cat_id);
+    setParentType(pedigree.parent_type);
+    setParentName(pedigree.parent_name);
+    setParentBreed(pedigree.parent_breed);
+    setParentDescription(pedigree.parent_description || "");
+    setParentImages(pedigree.parent_images || []);
+    setEditingId(pedigree.id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen">
@@ -239,8 +272,8 @@ const AdminPedigree = () => {
           <Card className="mb-12 glass-card border-primary/20">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Plus className="w-5 h-5" />
-                Добавить родителя
+                {editingId ? <Edit className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                {editingId ? "Редактировать родителя" : "Добавить родителя"}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -344,18 +377,27 @@ const AdminPedigree = () => {
                 </div>
               </div>
 
-              <Button
-                onClick={() => addPedigreeMutation.mutate()}
-                disabled={addPedigreeMutation.isPending}
-                className="w-full"
-              >
-                {addPedigreeMutation.isPending ? (
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                ) : (
-                  <Plus className="w-4 h-4 mr-2" />
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => addPedigreeMutation.mutate()}
+                  disabled={addPedigreeMutation.isPending}
+                  className="flex-1"
+                >
+                  {addPedigreeMutation.isPending ? (
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  ) : editingId ? (
+                    <Edit className="w-4 h-4 mr-2" />
+                  ) : (
+                    <Plus className="w-4 h-4 mr-2" />
+                  )}
+                  {editingId ? "Обновить" : "Добавить родителя"}
+                </Button>
+                {editingId && (
+                  <Button variant="outline" onClick={resetForm}>
+                    Отмена
+                  </Button>
                 )}
-                Добавить родителя
-              </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -393,14 +435,23 @@ const AdminPedigree = () => {
                               <p className="text-sm">{pedigree.parent_description}</p>
                             )}
                           </div>
-                          <Button
-                            variant="destructive"
-                            size="icon"
-                            onClick={() => deletePedigreeMutation.mutate(pedigree.id)}
-                            disabled={deletePedigreeMutation.isPending}
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              onClick={() => editPedigree(pedigree)}
+                            >
+                              <Edit className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              size="icon"
+                              onClick={() => deletePedigreeMutation.mutate(pedigree.id)}
+                              disabled={deletePedigreeMutation.isPending}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
                         </div>
                         {pedigree.parent_images && pedigree.parent_images.length > 0 && (
                           <div className="grid grid-cols-4 gap-2 mt-2">
