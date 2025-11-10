@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState } from "react";
@@ -129,7 +129,7 @@ const Pedigree = () => {
               {/* Отец */}
               {fathers.length > 0 && (
                 <div>
-                  <h2 className="text-3xl font-display font-bold text-primary mb-6">
+                  <h2 className="text-3xl font-display font-bold text-primary mb-6 text-center">
                     Отец
                   </h2>
                   <div className="space-y-6">
@@ -202,7 +202,7 @@ const Pedigree = () => {
               {/* Мать */}
               {mothers.length > 0 && (
                 <div>
-                  <h2 className="text-3xl font-display font-bold text-primary mb-6">
+                  <h2 className="text-3xl font-display font-bold text-primary mb-6 text-center">
                     Мать
                   </h2>
                   <div className="space-y-6">
@@ -282,6 +282,14 @@ const Pedigree = () => {
       {/* Fullscreen Gallery */}
       <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-4 top-4 z-50 bg-black/50 hover:bg-black/70 text-white"
+            onClick={() => setGalleryOpen(false)}
+          >
+            <X className="w-6 h-6" />
+          </Button>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
             <img
               src={galleryImages[currentImageIndex]}
