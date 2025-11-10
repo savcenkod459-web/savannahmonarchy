@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Shield, Clock, Headphones, RefreshCw, Crown, Sparkles, Star, Award, HeartPulse, Stethoscope, Heart, FileText, DollarSign, ClipboardCheck, ListChecks, Package, ClipboardList, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 const Warranty = () => {
@@ -47,7 +48,8 @@ const Warranty = () => {
         </section>
 
         {/* Main Guarantees */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <h2 className="font-display font-black text-4xl text-center mb-16 flex items-center justify-center gap-3">
               <HeartPulse className="w-10 h-10 text-primary" />
@@ -112,9 +114,11 @@ const Warranty = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* What's Covered */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <h2 className="font-display font-black text-4xl text-center mb-16">
               Что покрывается?
@@ -206,9 +210,11 @@ const Warranty = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Claims Process */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="font-display font-black text-4xl text-center mb-12 flex items-center justify-center gap-3">
@@ -268,9 +274,11 @@ const Warranty = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Contact CTA */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h2 className="font-display font-black text-4xl flex items-center justify-center gap-3">
@@ -295,6 +303,7 @@ const Warranty = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Utensils, Home, Heart, Activity, Crown, Sparkles, Diamond, Star, Book, AlertCircle, Layers, Target, HandHeart } from "lucide-react";
 const ageStages = [{
   age: "1–3 месяца",
@@ -101,7 +102,8 @@ const Guide = () => {
         </section>
 
         {/* Age Stages */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="space-y-16">
               {ageStages.map((stage, index) => <div key={index} className="max-w-5xl mx-auto animate-fade-in" style={{
@@ -132,9 +134,11 @@ const Guide = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Important Notes */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
               <h2 className="font-display font-black text-4xl text-center mb-12 flex items-center justify-center gap-3">
@@ -185,9 +189,11 @@ const Guide = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Support Section */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <h2 className="font-display font-black text-4xl flex items-center justify-center gap-3">
@@ -229,6 +235,7 @@ const Guide = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -91,7 +92,8 @@ const Payment = () => {
         </section>
 
         {/* Security Features */}
-        <section className="py-12 border-b glass-effect">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-12 border-b glass-effect">
           <div className="container mx-auto px-6">
             <div className="flex flex-wrap justify-center gap-12 max-w-4xl mx-auto">
               <div className="text-center space-y-2 glass-card rounded-2xl px-6 py-4 micro-interaction hover-lift">
@@ -112,9 +114,11 @@ const Payment = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Payment Methods */}
-        <section className="py-12 md:py-20 px-4 md:px-0">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-12 md:py-20 px-4 md:px-0">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               {/* Tabs */}
@@ -193,9 +197,11 @@ const Payment = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Booking Section */}
-        <section id="booking" className="py-20 border-t glass-effect scroll-mt-24">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section id="booking" className="py-20 border-t glass-effect scroll-mt-24">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <div className="p-10 rounded-3xl shadow-soft bg-stone-100 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
@@ -217,9 +223,11 @@ const Payment = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Support Section */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="font-display font-black text-4xl text-center mb-12">
@@ -274,6 +282,7 @@ const Payment = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />

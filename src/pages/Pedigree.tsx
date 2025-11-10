@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -96,7 +97,8 @@ const Pedigree = () => {
       <Navigation />
 
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-6">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <div className="container mx-auto px-6">
           <Button
             variant="ghost-gold"
             onClick={() => navigate(-1)}
@@ -297,7 +299,8 @@ const Pedigree = () => {
               )}
             </div>
           )}
-        </div>
+          </div>
+        </ScrollAnimationWrapper>
       </main>
 
       <Footer />

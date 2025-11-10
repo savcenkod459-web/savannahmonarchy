@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Award, Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
 const features = [{
   icon: Award,
@@ -53,7 +54,8 @@ const Breeders = () => {
         </section>
 
         {/* Philosophy */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
               <h2 className="font-display font-black text-4xl text-center flex items-center justify-center gap-3">
@@ -69,9 +71,11 @@ const Breeders = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Features Grid */}
-        <section className="py-20 bg-secondary/30 relative overflow-hidden">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
             <Star className="absolute top-1/4 left-1/4 w-24 h-24 text-primary animate-pulse" />
             <Diamond className="absolute bottom-1/4 right-1/4 w-20 h-20 text-accent animate-pulse" style={{
@@ -98,9 +102,11 @@ const Breeders = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* Standards Section */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto space-y-12">
               <div className="text-center space-y-4 animate-fade-in">
@@ -157,9 +163,11 @@ const Breeders = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
 
         {/* CTA Section */}
-        <section className="py-20 bg-secondary/30">
+        <ScrollAnimationWrapper animation="fade" delay={150}>
+          <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
               <h2 className="font-display font-black text-4xl flex items-center justify-center gap-3">
@@ -178,6 +186,7 @@ const Breeders = () => {
             </div>
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />

@@ -112,7 +112,8 @@ const Catalog = () => {
         
 
         {/* Catalog Grid */}
-        <section className="py-20">
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <section className="py-20">
           <div className="container mx-auto px-6">
             {isLoading ? <div className="flex justify-center items-center py-20">
                 <Loader2 className="w-12 h-12 animate-spin text-primary" />
@@ -228,6 +229,7 @@ const Catalog = () => {
               </div>}
           </div>
         </section>
+        </ScrollAnimationWrapper>
       </main>
       
       <Footer />
