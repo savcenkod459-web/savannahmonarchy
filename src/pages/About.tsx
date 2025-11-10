@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { CheckCircle2, Crown, Sparkles, Diamond, Star, Award, HeartPulse, Users, Trophy, Headset, Apple, Home, PawPrint, Brain, Gem, Cat, Baby, AlertCircle, Wind, Drumstick, Snowflake, Activity, Heart, Scale, ArrowRight } from "lucide-react";
