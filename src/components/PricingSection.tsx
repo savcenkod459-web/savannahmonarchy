@@ -105,7 +105,7 @@ const PricingSection = () => {
                   <Cat className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold mb-2 text-foreground">Пол</h4>
-                    <p className="text-muted-foreground font-light text-sm">Кошки F1 и F2 ценятся дороже котов</p>
+                    <p className="text-muted-foreground font-light text-sm">Коты F1 и F2 ценятся дороже кошек</p>
                   </div>
                 </div>
               </div>
