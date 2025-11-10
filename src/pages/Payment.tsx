@@ -241,9 +241,7 @@ const Payment = () => {
                     </div>
                     <h4 className="font-bold luxury-text-shadow">Служба поддержки</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed">
-                    24/7 через чат или телефон
-                  </p>
+                  <p className="text-sm text-muted-foreground font-light leading-relaxed">24/7 через наши контакты</p>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction group">
                   <div className="flex items-center gap-3 mb-3">
