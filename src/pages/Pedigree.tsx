@@ -136,9 +136,10 @@ const Pedigree = () => {
                     {fathers.map((parent) => (
                       <Card
                         key={parent.id}
-                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
+                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.6)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10" />
                         <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
                             <div 
@@ -146,6 +147,17 @@ const Pedigree = () => {
                               onClick={() => openGallery(parent.parent_images, 0)}
                             >
                               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                              
+                              {/* Breed label with animation */}
+                              <div className="absolute top-4 left-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-[-20px] group-hover:translate-y-0">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground rounded-full shadow-lg backdrop-blur-md border border-white/20 animate-fade-in">
+                                  <Crown className="w-4 h-4 animate-pulse" />
+                                  <span className="text-sm font-bold uppercase tracking-wider">
+                                    {parent.parent_breed}
+                                  </span>
+                                </div>
+                              </div>
+                              
                               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
                               </div>
@@ -209,9 +221,10 @@ const Pedigree = () => {
                     {mothers.map((parent) => (
                       <Card
                         key={parent.id}
-                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
+                        className="group animate-scale-in overflow-hidden glass-card border-primary/20 shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.6)] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 relative"
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10" />
                         <CardContent className="p-0 relative">
                           {parent.parent_images && parent.parent_images.length > 0 && (
                             <div 
@@ -219,6 +232,17 @@ const Pedigree = () => {
                               onClick={() => openGallery(parent.parent_images, 0)}
                             >
                               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                              
+                              {/* Breed label with animation */}
+                              <div className="absolute top-4 left-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-[-20px] group-hover:translate-y-0">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground rounded-full shadow-lg backdrop-blur-md border border-white/20 animate-fade-in">
+                                  <Crown className="w-4 h-4 animate-pulse" />
+                                  <span className="text-sm font-bold uppercase tracking-wider">
+                                    {parent.parent_breed}
+                                  </span>
+                                </div>
+                              </div>
+                              
                               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
                               </div>

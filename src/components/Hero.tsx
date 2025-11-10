@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Crown } from "lucide-react";
-import heroImage from "@/assets/hero-savannah.jpg";
+import heroImage from "@/assets/hero-cat-new.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 const Hero = () => {
