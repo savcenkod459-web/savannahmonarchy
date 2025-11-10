@@ -5,18 +5,43 @@ const Preloader = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Prevent scrolling when preloader is visible
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
     const timer = setTimeout(() => {
       setIsVisible(false);
+      // Re-enable scrolling after preloader disappears
+      setTimeout(() => {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      }, 1000);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-background transition-opacity duration-1000"
-      style={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}>
+    <div 
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-background transition-opacity duration-1000"
+      style={{ 
+        opacity: isVisible ? 1 : 0, 
+        pointerEvents: isVisible ? 'auto' : 'none',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
+        height: '100dvh',
+        overflow: 'hidden'
+      }}>
       <div className="relative">
         {/* Animated circles */}
         <div className="absolute inset-0 flex items-center justify-center">
