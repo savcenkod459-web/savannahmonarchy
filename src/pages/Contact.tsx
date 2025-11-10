@@ -172,7 +172,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 luxury-text-shadow">Часы работы</h4>
-                        <p className="text-muted-foreground font-light">​UTC 8:30-23:00<br />
+                        <p className="text-muted-foreground font-light">​​UTC 8:30-23:00 <br />
                           Сб: 10:00 - 16:00<br />
                           Вс: По записи
                         </p>
