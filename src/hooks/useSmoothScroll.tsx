@@ -4,23 +4,26 @@ export const useSmoothScroll = () => {
   useEffect(() => {
     let isScrolling = false;
     let scrollTarget = window.scrollY;
+    let currentScroll = window.scrollY;
 
     const smoothScroll = () => {
-      const currentScroll = window.scrollY;
       const difference = scrollTarget - currentScroll;
       
-      if (Math.abs(difference) > 0.5) {
-        window.scrollTo(0, currentScroll + difference * 0.15);
+      if (Math.abs(difference) > 0.1) {
+        currentScroll += difference * 0.06; // Очень плавное сглаживание
+        window.scrollTo(0, currentScroll);
         requestAnimationFrame(smoothScroll);
       } else {
         isScrolling = false;
+        currentScroll = scrollTarget;
       }
     };
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
-      scrollTarget += e.deltaY;
+      // Уменьшаем шаг прокрутки для максимальной плавности
+      scrollTarget += e.deltaY * 0.4;
       scrollTarget = Math.max(0, Math.min(scrollTarget, document.documentElement.scrollHeight - window.innerHeight));
       
       if (!isScrolling) {
