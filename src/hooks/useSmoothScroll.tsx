@@ -22,6 +22,13 @@ export const useSmoothScroll = () => {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
+      // Синхронизируем с реальной позицией если была программная прокрутка
+      const actualScroll = window.scrollY;
+      if (Math.abs(actualScroll - currentScroll) > 50) {
+        scrollTarget = actualScroll;
+        currentScroll = actualScroll;
+      }
+      
       // Уменьшаем шаг прокрутки для максимальной плавности
       scrollTarget += e.deltaY * 0.4;
       scrollTarget = Math.max(0, Math.min(scrollTarget, document.documentElement.scrollHeight - window.innerHeight));
