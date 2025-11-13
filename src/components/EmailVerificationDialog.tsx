@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,6 +29,7 @@ export const EmailVerificationDialog = ({
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [sentCode, setSentCode] = useState<string | null>(null);
+  const [timer, setTimer] = useState(0);
   const { toast } = useToast();
 
   const sendVerificationCode = async () => {
@@ -44,6 +45,9 @@ export const EmailVerificationDialog = ({
       });
 
       if (error) throw error;
+
+      // Устанавливаем таймер на 60 секунд
+      setTimer(60);
 
       // Для разработки показываем код в toast
       if (data?.debug_code) {
@@ -68,6 +72,16 @@ export const EmailVerificationDialog = ({
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
 
   const verifyCode = () => {
     if (code === sentCode) {
@@ -124,10 +138,10 @@ export const EmailVerificationDialog = ({
                 <Button
                   variant="outline"
                   onClick={sendVerificationCode}
-                  disabled={loading}
+                  disabled={loading || timer > 0}
                   className="flex-1"
                 >
-                  Отправить снова
+                  {timer > 0 ? `Отправить снова (${timer}с)` : "Отправить снова"}
                 </Button>
                 <Button
                   onClick={verifyCode}

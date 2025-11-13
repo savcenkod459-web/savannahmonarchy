@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare } from "lucide-react";
+import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -216,12 +216,22 @@ const Navigation = () => {
               </Popover>
             )}
 
-            {user ? <Button onClick={handleLogout} variant="ghost" size="sm" className="micro-interaction">
-                <LogOut className="h-4 w-4 mr-2" />
-                Выйти
-              </Button> : <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction">
+            {user ? (
+              <div className="flex items-center gap-2">
+                <Button onClick={() => navigate("/profile")} variant="ghost" size="sm" className="micro-interaction">
+                  <User className="h-4 w-4 mr-2" />
+                  Профиль
+                </Button>
+                <Button onClick={handleLogout} variant="ghost" size="sm" className="micro-interaction">
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Выйти
+                </Button>
+              </div>
+            ) : (
+              <Button onClick={() => navigate("/auth")} variant="ghost" size="sm" className="micro-interaction">
                 Войти
-              </Button>}
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
