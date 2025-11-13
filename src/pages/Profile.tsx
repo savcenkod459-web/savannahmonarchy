@@ -42,7 +42,7 @@ const Profile = () => {
       <main className="flex-1 py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-display font-black text-luxury-gradient luxury-text-shadow py-[5px]">
+            <h1 className="text-4xl sm:text-5xl font-display font-black text-luxury-gradient luxury-text-shadow py-[10px] px-0">
               Профиль
             </h1>
             <p className="text-lg text-foreground/70">
