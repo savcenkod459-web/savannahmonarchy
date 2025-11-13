@@ -203,7 +203,7 @@ const Auth = () => {
               
               <Button
                 type="submit"
-                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-all duration-300 hover-lift"
+                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-glow transition-all duration-300 hover-lift"
                 disabled={loading}
               >
                 {loading ? "Загрузка..." : authMode === "signin" ? "Войти" : "Зарегистрироваться"}
@@ -212,7 +212,7 @@ const Auth = () => {
               <Button
                 type="button"
                 variant="ghost"
-                className="w-full h-12 text-base font-semibold glass-card border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                className="w-full h-12 text-base font-semibold glass-card border-2 border-primary/30 hover:border-primary text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 onClick={() => setAuthMode(authMode === "signin" ? "signup" : "signin")}
               >
                 {authMode === "signin" ? "Нет аккаунта? Зарегистрируйтесь" : "Уже есть аккаунт? Войдите"}
