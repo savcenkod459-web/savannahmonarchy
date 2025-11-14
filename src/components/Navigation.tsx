@@ -6,6 +6,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "@/components/LanguageSelector";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutPopoverOpen, setAboutPopoverOpen] = useState(false);
@@ -14,9 +16,8 @@ const Navigation = () => {
   const [user, setUser] = useState<any>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  const { t } = useTranslation();
   useEffect(() => {
     const checkAuth = async () => {
       const {
@@ -61,29 +62,29 @@ const Navigation = () => {
     navigate("/");
   };
   const navItems = [{
-    name: "Главная",
+    name: t('nav.home'),
     path: "/"
   }, {
-    name: "О кошках",
+    name: t('nav.about'),
     path: "/about",
     hasSubmenu: true
   }, {
-    name: "Каталог",
+    name: t('nav.catalog'),
     path: "/catalog"
   }, {
-    name: "Заводчики",
+    name: t('nav.breeders'),
     path: "/breeders"
   }, {
-    name: "Инструкция",
+    name: t('nav.guide'),
     path: "/guide"
   }, {
-    name: "Оплата",
+    name: t('nav.payment'),
     path: "/payment"
   }, {
-    name: "Гарантия",
+    name: t('nav.warranty'),
     path: "/warranty"
   }, {
-    name: "Контакты",
+    name: t('nav.contact'),
     path: "/contact"
   }];
   const aboutSections = [{
@@ -216,6 +217,8 @@ const Navigation = () => {
               </Popover>
             )}
 
+            <LanguageSelector />
+
             {user ? (
               <div className="flex items-center gap-1">
                 <Button 
@@ -320,6 +323,10 @@ const Navigation = () => {
                     </div>
                   </div>
                 )}
+
+                <div className="border-t border-primary/10 pt-4 mt-4">
+                  <LanguageSelector />
+                </div>
 
                 {user ? (
                   <>

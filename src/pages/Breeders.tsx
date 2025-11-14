@@ -2,21 +2,26 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
-import { Award, Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
-const features = [{
-  icon: Shield,
-  title: "Этичные практики",
-  description: "Приверженность гуманным методам разведения с упором на благополучие и здоровье кошек"
-}, {
-  icon: Trophy,
-  title: "Чемпионские линии",
-  description: "Специализация на кошках из призовых выставочных линий с документированными родословными"
-}, {
-  icon: MapPin,
-  title: "Местная экспертиза",
-  description: "Стратегически расположенные заводчики, обеспечивающие легкий доступ и постоянную поддержку"
-}];
+import { Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 const Breeders = () => {
+  const { t } = useTranslation();
+  
+  const features = [{
+    icon: Shield,
+    title: t('breeders.features.ethical.title'),
+    description: t('breeders.features.ethical.description')
+  }, {
+    icon: Trophy,
+    title: t('breeders.features.champion.title'),
+    description: t('breeders.features.champion.description')
+  }, {
+    icon: MapPin,
+    title: t('breeders.features.local.title'),
+    description: t('breeders.features.local.description')
+  }];
+  
   return <div className="min-h-screen">
       <Navigation />
       
@@ -35,15 +40,14 @@ const Breeders = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
-                <Award className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Профессионалы</span>
+                <Crown className="w-4 h-4 text-primary" />
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('breeders.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
-                Наши опытные заводчики
+                {t('breeders.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Познакомьтесь с увлеченными профессионалами, стоящими за нашими исключительными кошками. 
-                Наша сеть сертифицированных заводчиков представляет десятилетия опыта в области генетики и ухода за кошками.
+                {t('breeders.subtitle')}
               </p>
             </div>
           </div>
@@ -56,13 +60,10 @@ const Breeders = () => {
             <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
               <h2 className="font-display font-black text-4xl text-center flex items-center justify-center gap-3">
                 <Lightbulb className="w-10 h-10 text-primary" />
-                Наша философия разведения
+                {t('breeders.philosophy.title')}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed text-center">
-                Мы сотрудничаем исключительно с этичными заводчиками, которые ставят здоровье, темперамент 
-                и стандарты породы превыше всего. Каждый заводчик в нашей сети был тщательно проверен на 
-                предмет приверженности совершенству, гарантируя, что каждая кошка соответствует нашим 
-                строгим стандартам качества и ухода.
+                {t('breeders.philosophy.description')}
               </p>
             </div>
           </div>
@@ -80,7 +81,7 @@ const Breeders = () => {
           </div>
           
           <div className="container mx-auto px-6 relative z-10">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {features.map((feature, index) => <div key={index} className="group p-8 glass-card rounded-3xl shadow-soft hover:shadow-glow transition-all duration-500 hover-lift animate-scale-in micro-interaction" style={{
               animationDelay: `${index * 100}ms`
             }}>
