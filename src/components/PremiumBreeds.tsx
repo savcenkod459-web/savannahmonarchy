@@ -1,10 +1,14 @@
 import { Crown, Diamond, Sparkles, Star } from "lucide-react";
-const breeds = [{
-  name: "Саванна F1",
-  description: "Отличается экзотической внешностью, высоким интеллектом и энергичным темпераментом. Эти кошки — первые в поколении гибрида с африканским сервалом, сочетающие дикую грацию с преданностью домашнего питомца. Саванна F1 — выбор для тех, кто ищет не просто кошку, а настоящего компаньона с характером.",
-  traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
-}];
+import { useTranslation } from "react-i18next";
+
 const PremiumBreeds = () => {
+  const { t } = useTranslation();
+  
+  const breeds = [{
+    name: t('breeds.f1.name'),
+    description: t('breeds.f1.description'),
+    traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
+  }];
   return <section className="py-20 bg-secondary/30 relative overflow-hidden">
       <div className="absolute top-10 right-10 opacity-5">
         <Crown className="w-40 h-40 text-primary animate-float" />
@@ -14,9 +18,9 @@ const PremiumBreeds = () => {
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
             <Diamond className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">ЭКСКЛЮЗИВНАЯ КОЛЛЕКЦИЯ</span>
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('breeds.title')}</span>
           </div>
-          <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow">Наша избранная порода</h2>
+          <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow">{t('breeds.subtitle')}</h2>
         </div>
         
         <div className="max-w-3xl mx-auto">

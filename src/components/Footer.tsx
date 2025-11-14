@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  const { t } = useTranslation();
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynasty@gmail.com");
     toast({
@@ -58,31 +58,31 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Menu className="w-5 h-5 text-primary" />
-              Навигация
+              {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Info className="w-4 h-4 flex-shrink-0" />
-                  О кошках
+                  {t('nav.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/catalog" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <LayoutGrid className="w-4 h-4 flex-shrink-0" />
-                  Каталог
+                  {t('nav.catalog')}
                 </Link>
               </li>
               <li>
                 <Link to="/breeders" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Users className="w-4 h-4 flex-shrink-0" />
-                  Заводчики
+                  {t('nav.breeders')}
                 </Link>
               </li>
               <li>
                 <Link to="/guide" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <BookOpen className="w-4 h-4 flex-shrink-0" />
-                  Инструкция
+                  {t('nav.guide')}
                 </Link>
               </li>
             </ul>
@@ -92,25 +92,25 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Headphones className="w-5 h-5 text-primary" />
-              Поддержка
+              {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/payment" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <CreditCard className="w-4 h-4 flex-shrink-0" />
-                  Оплата
+                  {t('nav.payment')}
                 </Link>
               </li>
               <li>
                 <Link to="/warranty" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Shield className="w-4 h-4 flex-shrink-0" />
-                  Гарантия
+                  {t('nav.warranty')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  Контакты
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
