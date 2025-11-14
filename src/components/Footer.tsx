@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
+
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  
   const copyEmail = () => {
     navigator.clipboard.writeText("savannahdynasty@gmail.com");
     toast({
@@ -15,13 +15,13 @@ const Footer = () => {
       description: t('footer.emailCopiedDesc')
     });
   };
-  return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
+
+  return (
+    <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 opacity-5">
         <Crown className="absolute top-10 right-20 w-24 h-24 text-primary animate-float" />
-        <Sparkles className="absolute bottom-10 left-20 w-16 h-16 text-accent animate-float" style={{
-        animationDelay: '2s'
-      }} />
+        <Sparkles className="absolute bottom-10 left-20 w-16 h-16 text-accent animate-float" style={{ animationDelay: '2s' }} />
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
@@ -32,7 +32,7 @@ const Footer = () => {
               <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-full shadow-gold">
                 <Crown className="w-5 h-5 text-luxury-black" />
               </div>
-              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">{t('footer.brand')}</h3>
+              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahDynasty</h3>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
@@ -60,31 +60,37 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Menu className="w-5 h-5 text-primary" />
-              Навигация
+              {t('footer.navigation')}
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Info className="w-4 h-4 flex-shrink-0" />
-                  О кошках
+                  {t('footer.aboutCats')}
                 </Link>
               </li>
               <li>
                 <Link to="/catalog" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <LayoutGrid className="w-4 h-4 flex-shrink-0" />
-                  Каталог
+                  {t('footer.catalog')}
                 </Link>
               </li>
               <li>
                 <Link to="/breeders" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Users className="w-4 h-4 flex-shrink-0" />
-                  Заводчики
+                  {t('footer.breeders')}
                 </Link>
               </li>
               <li>
                 <Link to="/guide" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <BookOpen className="w-4 h-4 flex-shrink-0" />
-                  Инструкция
+                  {t('footer.careGuide')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/warranty" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
+                  <Shield className="w-4 h-4 flex-shrink-0" />
+                  {t('footer.warranty')}
                 </Link>
               </li>
             </ul>
@@ -94,25 +100,19 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Headphones className="w-5 h-5 text-primary" />
-              Поддержка
+              {t('footer.resources')}
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/payment" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <CreditCard className="w-4 h-4 flex-shrink-0" />
-                  Оплата
-                </Link>
-              </li>
-              <li>
-                <Link to="/warranty" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
-                  <Shield className="w-4 h-4 flex-shrink-0" />
-                  Гарантия
+                  {t('footer.paymentMethods')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  Контакты
+                  {t('footer.contacts')}
                 </Link>
               </li>
             </ul>
@@ -122,11 +122,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-lg luxury-text-shadow flex items-center gap-2">
               <Mail className="w-5 h-5 text-primary" />
-              Контакты
+              {t('footer.contacts')}
             </h4>
             <div className="space-y-4 py-0">
               <p className="text-sm text-muted-foreground font-light">
-                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynasty@gmail.com</button>
+                {t('footer.email')}: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-colors cursor-pointer font-normal">savannahdynasty@gmail.com</button>
               </p>
               
               <div className="flex gap-4 pt-2">
@@ -149,13 +149,16 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary/10 text-center space-y-4">
           <div className="flex items-center justify-center gap-2">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
-            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+            <Crown className="w-5 h-5 text-primary animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
           </div>
-          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahDynasty. Все права защищены.
+          <p className="text-sm text-muted-foreground font-light">
+            © {currentYear} SavannahDynasty. {t('footer.rights')}
           </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
