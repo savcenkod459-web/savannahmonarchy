@@ -7,10 +7,10 @@ const Footer = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const copyEmail = () => {
-    navigator.clipboard.writeText("savannahdynasty@gmail.com");
+    navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
     toast({
       title: "Email скопирован!",
-      description: "savannahdynasty@gmail.com скопирован в буфер обмена"
+      description: "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
     });
   };
   return <footer className="bg-secondary/30 border-t border-primary/10 relative overflow-hidden">
@@ -108,10 +108,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  {t('nav.contact')}
-                </Link>
+                <button onClick={copyEmail} className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction w-full">
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  savannahdynastyofficial@gmail.com
+                </button>
               </li>
             </ul>
           </div>

@@ -176,10 +176,10 @@ const Contact = () => {
   };
   
   const copyEmail = () => {
-    navigator.clipboard.writeText("savannahdynasty@gmail.com");
+    navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
     toast({
       title: "Email скопирован",
-      description: "savannahdynasty@gmail.com скопирован в буфер обмена"
+      description: "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
     });
   };
   
@@ -300,7 +300,7 @@ const Contact = () => {
                             onClick={copyEmail} 
                             className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer"
                           >
-                            savannahdynasty@gmail.com
+                            savannahdynastyofficial@gmail.com
                           </button>
                         </div>
                       </div>
