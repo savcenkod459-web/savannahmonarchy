@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Languages, Save, Search, Plus, Trash2, Download, Upload, Loader2 } from "lucide-react";
+import { Languages, Save, Search, Plus, Trash2, Loader2, Edit, X, Check, Globe } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
 
 type Translation = {
   id: string;
@@ -45,8 +46,10 @@ const AdminTranslations = () => {
   const [translations, setTranslations] = useState<Translation[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [editingKey, setEditingKey] = useState<string | null>(null);
+  const [editingValue, setEditingValue] = useState('');
   const [newKey, setNewKey] = useState('');
   const [newValue, setNewValue] = useState('');
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   useEffect(() => {
     checkAdminAccess();
@@ -95,6 +98,7 @@ const AdminTranslations = () => {
 
   const loadTranslations = async () => {
     try {
+      setLoading(true);
       const { data, error } = await supabase
         .from('translations')
         .select('*')
@@ -110,36 +114,33 @@ const AdminTranslations = () => {
         description: "Не удалось загрузить переводы",
         variant: "destructive"
       });
+    } finally {
+      setLoading(false);
     }
   };
 
-  const saveTranslation = async (key: string, value: string) => {
-    setSaving(true);
+  const handleUpdate = async (id: string, newValue: string) => {
     try {
+      setSaving(true);
       const { error } = await supabase
         .from('translations')
-        .upsert({
-          language_code: selectedLang,
-          translation_key: key,
-          translation_value: value
-        }, {
-          onConflict: 'language_code,translation_key'
-        });
+        .update({ translation_value: newValue })
+        .eq('id', id);
 
       if (error) throw error;
 
       toast({
-        title: "Успешно",
-        description: "Перевод сохранен"
+        title: "Успех",
+        description: "Перевод обновлен"
       });
-
-      await loadTranslations();
+      
       setEditingKey(null);
+      loadTranslations();
     } catch (error) {
-      console.error('Error saving translation:', error);
+      console.error('Error updating translation:', error);
       toast({
         title: "Ошибка",
-        description: "Не удалось сохранить перевод",
+        description: "Не удалось обновить перевод",
         variant: "destructive"
       });
     } finally {
@@ -147,8 +148,63 @@ const AdminTranslations = () => {
     }
   };
 
-  const deleteTranslation = async (id: string) => {
+  const handleAdd = async () => {
+    if (!newKey.trim() || !newValue.trim()) {
+      toast({
+        title: "Ошибка",
+        description: "Заполните все поля",
+        variant: "destructive"
+      });
+      return;
+    }
+
     try {
+      setSaving(true);
+      const { error } = await supabase
+        .from('translations')
+        .insert({
+          language_code: selectedLang,
+          translation_key: newKey.trim(),
+          translation_value: newValue.trim()
+        });
+
+      if (error) {
+        if (error.code === '23505') {
+          toast({
+            title: "Ошибка",
+            description: "Ключ перевода уже существует для этого языка",
+            variant: "destructive"
+          });
+        } else {
+          throw error;
+        }
+        return;
+      }
+
+      toast({
+        title: "Успех",
+        description: "Перевод добавлен"
+      });
+      
+      setNewKey('');
+      setNewValue('');
+      setIsAddDialogOpen(false);
+      loadTranslations();
+    } catch (error) {
+      console.error('Error adding translation:', error);
+      toast({
+        title: "Ошибка",
+        description: "Не удалось добавить перевод",
+        variant: "destructive"
+      });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    try {
+      setSaving(true);
       const { error } = await supabase
         .from('translations')
         .delete()
@@ -157,11 +213,11 @@ const AdminTranslations = () => {
       if (error) throw error;
 
       toast({
-        title: "Успешно",
+        title: "Успех",
         description: "Перевод удален"
       });
-
-      await loadTranslations();
+      
+      loadTranslations();
     } catch (error) {
       console.error('Error deleting translation:', error);
       toast({
@@ -169,62 +225,9 @@ const AdminTranslations = () => {
         description: "Не удалось удалить перевод",
         variant: "destructive"
       });
+    } finally {
+      setSaving(false);
     }
-  };
-
-  const addNewTranslation = async () => {
-    if (!newKey || !newValue) {
-      toast({
-        title: "Ошибка",
-        description: "Заполните ключ и значение",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    await saveTranslation(newKey, newValue);
-    setNewKey('');
-    setNewValue('');
-  };
-
-  const exportTranslations = () => {
-    const data = JSON.stringify(translations, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `translations-${selectedLang}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const importTranslations = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      try {
-        const json = JSON.parse(e.target?.result as string);
-        
-        for (const item of json) {
-          await saveTranslation(item.translation_key, item.translation_value);
-        }
-
-        toast({
-          title: "Успешно",
-          description: "Переводы импортированы"
-        });
-      } catch (error) {
-        console.error('Error importing translations:', error);
-        toast({
-          title: "Ошибка",
-          description: "Не удалось импортировать переводы",
-          variant: "destructive"
-        });
-      }
-    };
-    reader.readAsText(file);
   };
 
   const filteredTranslations = translations.filter(t =>
@@ -232,7 +235,7 @@ const AdminTranslations = () => {
     t.translation_value.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  if (loading) {
+  if (loading && !isAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -240,210 +243,274 @@ const AdminTranslations = () => {
     );
   }
 
-  if (!isAdmin) {
-    return null;
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
-      <main className="pt-24 pb-16">
+
+      <main className="pt-24 pb-12">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <Languages className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h1 className="text-3xl font-bold text-foreground">Управление переводами</h1>
-                  <p className="text-muted-foreground">Редактирование переводов для всех языков</p>
-                </div>
+              <div className="flex items-center gap-3 mb-2">
+                <Languages className="w-8 h-8 text-primary" />
+                <h1 className="text-4xl font-bold">Управление переводами</h1>
               </div>
+              <p className="text-muted-foreground">
+                Редактируйте переводы для всех языков сайта
+              </p>
             </div>
 
-            <Card className="p-6">
-              {/* Language Selector & Actions */}
-              <div className="flex flex-col md:flex-row gap-4 mb-6">
-                <Select value={selectedLang} onValueChange={setSelectedLang}>
-                  <SelectTrigger className="w-full md:w-[250px]">
-                    <SelectValue placeholder="Выберите язык" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {LANGUAGES.map(lang => (
-                      <SelectItem key={lang.code} value={lang.code}>
-                        <span className="flex items-center gap-2">
-                          <span>{lang.flag}</span>
-                          <span>{lang.name}</span>
-                        </span>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <div className="flex gap-2 flex-1">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            {/* Controls */}
+            <Card className="p-6 mb-6 bg-card/50 backdrop-blur-sm border-primary/10">
+              <div className="flex flex-col md:flex-row gap-4">
+                {/* Search */}
+                <div className="flex-1">
+                  <Label htmlFor="search" className="mb-2 block text-sm">
+                    Поиск по ключу или значению
+                  </Label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
-                      placeholder="Поиск по ключу или значению..."
+                      id="search"
+                      placeholder="Введите запрос..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="pl-10"
                     />
                   </div>
-                  
-                  <Button variant="outline" size="icon" onClick={exportTranslations}>
-                    <Download className="w-4 h-4" />
-                  </Button>
+                </div>
 
-                  <Button variant="outline" size="icon" asChild>
-                    <label className="cursor-pointer">
-                      <Upload className="w-4 h-4" />
-                      <input
-                        type="file"
-                        accept=".json"
-                        onChange={importTranslations}
-                        className="hidden"
-                      />
-                    </label>
-                  </Button>
+                {/* Language Selector */}
+                <div className="w-full md:w-[220px]">
+                  <Label htmlFor="language" className="mb-2 block text-sm">
+                    Выберите язык
+                  </Label>
+                  <Select value={selectedLang} onValueChange={setSelectedLang}>
+                    <SelectTrigger id="language">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {LANGUAGES.map((lang) => (
+                        <SelectItem key={lang.code} value={lang.code}>
+                          <span className="flex items-center gap-2">
+                            <span className="text-lg">{lang.flag}</span>
+                            <span>{lang.name}</span>
+                          </span>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Add Button */}
+                <div className="w-full md:w-auto">
+                  <Label className="mb-2 block text-sm opacity-0">
+                    Action
+                  </Label>
+                  <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button className="w-full md:w-auto">
+                        <Plus className="w-4 h-4 mr-2" />
+                        Добавить перевод
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Добавить новый перевод</DialogTitle>
+                        <DialogDescription>
+                          Язык: {LANGUAGES.find(l => l.code === selectedLang)?.name}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4 pt-4">
+                        <div>
+                          <Label htmlFor="newKey">Ключ перевода</Label>
+                          <Input
+                            id="newKey"
+                            placeholder="nav.home"
+                            value={newKey}
+                            onChange={(e) => setNewKey(e.target.value)}
+                          />
+                          <p className="text-xs text-muted-foreground mt-1">
+                            Используйте точки для вложенности (например: nav.home)
+                          </p>
+                        </div>
+                        <div>
+                          <Label htmlFor="newValue">Значение</Label>
+                          <Textarea
+                            id="newValue"
+                            placeholder="Главная"
+                            value={newValue}
+                            onChange={(e) => setNewValue(e.target.value)}
+                            rows={4}
+                          />
+                        </div>
+                        <Button
+                          onClick={handleAdd}
+                          disabled={saving}
+                          className="w-full"
+                        >
+                          {saving ? (
+                            <>
+                              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                              Добавление...
+                            </>
+                          ) : (
+                            <>
+                              <Plus className="w-4 h-4 mr-2" />
+                              Добавить
+                            </>
+                          )}
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
 
-              {/* Add New Translation */}
-              <Card className="p-4 mb-6 bg-muted/30">
-                <h3 className="font-semibold mb-3 flex items-center gap-2">
-                  <Plus className="w-4 h-4" />
-                  Добавить новый перевод
-                </h3>
-                <div className="grid md:grid-cols-2 gap-3">
-                  <Input
-                    placeholder="Ключ (например: nav.home)"
-                    value={newKey}
-                    onChange={(e) => setNewKey(e.target.value)}
-                  />
-                  <div className="flex gap-2">
-                    <Input
-                      placeholder="Значение перевода"
-                      value={newValue}
-                      onChange={(e) => setNewValue(e.target.value)}
-                    />
-                    <Button onClick={addNewTranslation} disabled={saving}>
-                      <Plus className="w-4 h-4 mr-2" />
-                      Добавить
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Translations List */}
-              <ScrollArea className="h-[600px] pr-4">
-                <div className="space-y-3">
-                  {filteredTranslations.length === 0 ? (
-                    <div className="text-center py-12 text-muted-foreground">
-                      {searchQuery ? 'Переводы не найдены' : 'Нет переводов для этого языка'}
-                    </div>
-                  ) : (
-                    filteredTranslations.map((translation) => (
-                      <Card key={translation.id} className="p-4">
-                        <div className="flex flex-col gap-3">
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex-1">
-                              <div className="text-sm font-mono text-muted-foreground mb-2">
-                                {translation.translation_key}
-                              </div>
-                              
-                              {editingKey === translation.translation_key ? (
-                                <Textarea
-                                  value={translation.translation_value}
-                                  onChange={(e) => {
-                                    const updated = translations.map(t =>
-                                      t.id === translation.id
-                                        ? { ...t, translation_value: e.target.value }
-                                        : t
-                                    );
-                                    setTranslations(updated);
-                                  }}
-                                  className="min-h-[100px]"
-                                />
-                              ) : (
-                                <div className="text-foreground whitespace-pre-wrap">
-                                  {translation.translation_value}
-                                </div>
-                              )}
-                            </div>
-
-                            <div className="flex gap-2">
-                              {editingKey === translation.translation_key ? (
-                                <>
-                                  <Button
-                                    size="sm"
-                                    onClick={() => saveTranslation(
-                                      translation.translation_key,
-                                      translation.translation_value
-                                    )}
-                                    disabled={saving}
-                                  >
-                                    <Save className="w-4 h-4" />
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    variant="outline"
-                                    onClick={() => {
-                                      setEditingKey(null);
-                                      loadTranslations();
-                                    }}
-                                  >
-                                    Отмена
-                                  </Button>
-                                </>
-                              ) : (
-                                <>
-                                  <Button
-                                    size="sm"
-                                    variant="outline"
-                                    onClick={() => setEditingKey(translation.translation_key)}
-                                  >
-                                    Изменить
-                                  </Button>
-                                  
-                                  <AlertDialog>
-                                    <AlertDialogTrigger asChild>
-                                      <Button size="sm" variant="destructive">
-                                        <Trash2 className="w-4 h-4" />
-                                      </Button>
-                                    </AlertDialogTrigger>
-                                    <AlertDialogContent>
-                                      <AlertDialogHeader>
-                                        <AlertDialogTitle>Удалить перевод?</AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                          Это действие нельзя отменить. Перевод будет удален из базы данных.
-                                        </AlertDialogDescription>
-                                      </AlertDialogHeader>
-                                      <AlertDialogFooter>
-                                        <AlertDialogCancel>Отмена</AlertDialogCancel>
-                                        <AlertDialogAction
-                                          onClick={() => deleteTranslation(translation.id)}
-                                          className="bg-destructive text-destructive-foreground"
-                                        >
-                                          Удалить
-                                        </AlertDialogAction>
-                                      </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                  </AlertDialog>
-                                </>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    ))
+              {/* Stats */}
+              <div className="mt-4 pt-4 border-t border-border/50">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <span>
+                    Всего переводов: <strong className="text-foreground">{translations.length}</strong>
+                  </span>
+                  {searchQuery && (
+                    <span>
+                      Найдено: <strong className="text-foreground">{filteredTranslations.length}</strong>
+                    </span>
                   )}
                 </div>
-              </ScrollArea>
+              </div>
             </Card>
+
+            {/* Translations List */}
+            {loading ? (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+              </div>
+            ) : filteredTranslations.length === 0 ? (
+              <Card className="p-12 text-center bg-card/50 backdrop-blur-sm border-primary/10">
+                <Globe className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                <p className="text-muted-foreground">
+                  {searchQuery ? "Переводы не найдены" : "Нет переводов для выбранного языка"}
+                </p>
+              </Card>
+            ) : (
+              <ScrollArea className="h-[600px]">
+                <div className="space-y-2 pr-4">
+                  {filteredTranslations.map((translation) => (
+                    <Card
+                      key={translation.id}
+                      className="p-4 hover:shadow-md transition-all bg-card/50 backdrop-blur-sm border-primary/10"
+                    >
+                      <div className="flex flex-col md:flex-row gap-4 items-start">
+                        {/* Key */}
+                        <div className="flex-1 w-full">
+                          <Label className="text-xs text-muted-foreground mb-1 block">
+                            Ключ
+                          </Label>
+                          <p className="font-mono text-sm bg-muted/50 px-3 py-2 rounded border border-border/50">
+                            {translation.translation_key}
+                          </p>
+                        </div>
+
+                        {/* Value */}
+                        <div className="flex-[2] w-full">
+                          <Label className="text-xs text-muted-foreground mb-1 block">
+                            Перевод
+                          </Label>
+                          {editingKey === translation.translation_key ? (
+                            <Textarea
+                              value={editingValue}
+                              onChange={(e) => setEditingValue(e.target.value)}
+                              rows={3}
+                              className="w-full"
+                              autoFocus
+                            />
+                          ) : (
+                            <p className="bg-muted/50 px-3 py-2 rounded whitespace-pre-wrap border border-border/50">
+                              {translation.translation_value}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex gap-2 w-full md:w-auto md:pt-5">
+                          {editingKey === translation.translation_key ? (
+                            <>
+                              <Button
+                                size="sm"
+                                onClick={() => handleUpdate(translation.id, editingValue)}
+                                disabled={saving}
+                              >
+                                {saving ? (
+                                  <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : (
+                                  <Check className="w-4 h-4" />
+                                )}
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => setEditingKey(null)}
+                              >
+                                <X className="w-4 h-4" />
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => {
+                                  setEditingKey(translation.translation_key);
+                                  setEditingValue(translation.translation_value);
+                                }}
+                              >
+                                <Edit className="w-4 h-4" />
+                              </Button>
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <Button
+                                    size="sm"
+                                    variant="destructive"
+                                    disabled={saving}
+                                  >
+                                    {saving ? (
+                                      <Loader2 className="w-4 h-4 animate-spin" />
+                                    ) : (
+                                      <Trash2 className="w-4 h-4" />
+                                    )}
+                                  </Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>Удалить перевод?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                      Вы действительно хотите удалить перевод для ключа "{translation.translation_key}"?
+                                      Это действие нельзя отменить.
+                                    </AlertDialogDescription>
+                                  </AlertDialogHeader>
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel>Отмена</AlertDialogCancel>
+                                    <AlertDialogAction
+                                      onClick={() => handleDelete(translation.id)}
+                                      className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                    >
+                                      Удалить
+                                    </AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </ScrollArea>
+            )}
           </div>
         </div>
       </main>
