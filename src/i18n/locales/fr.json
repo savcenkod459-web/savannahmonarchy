@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Élevage Premium",
     "title": "SavannahDynasty Cats",
-    "subtitle": "Découvrez votre compagnon félin idéal parmi notre collection exclusive de chats d'élite avec pedigree. Chaque chat est soigneusement sélectionné pour sa lignée exceptionnelle, sa santé et son tempérament.",
+    "subtitle": "Nous offrons le plus haut standard de chats Savannah d'élite avec une qualité et un soin inégalés",
     "cta": "Voir les Chatons Disponibles",
     "learn": "En Savoir Plus",
     "premiumClass": "Classe Premium"
@@ -265,5 +265,48 @@
       "contact": "Contact",
       "gallery": "Galerie"
     }
+  },
+  "about": {
+    "badge": "Races d'Élite",
+    "title": "À Propos de Nos Chats de Luxe",
+    "subtitle": "Découvrez le monde des compagnons félins premium. Nos chats représentent le plus haut standard de race, combinant beauté exotique et tempérament exceptionnel.",
+    "mission": {
+      "title": "Notre Mission",
+      "subtitle": "Excellence dans Chaque Détail"
+    },
+    "healthTitle": "Protocole de Santé",
+    "healthChecks": {
+      "check1": "Examen vétérinaire complet",
+      "check2": "Tests génétiques pour les maladies spécifiques à la race",
+      "check3": "Protocoles de vaccination",
+      "check4": "Prévention des parasites",
+      "check5": "Documentation de certification de santé"
+    },
+    "facilitiesTitle": "Nos Installations d'Élevage"
+  },
+  "guide": {
+    "badge": "Conseils d'Experts",
+    "title": "Guide de Soins Savannah",
+    "subtitle": "Guide complet pour élever un chat Savannah en bonne santé et heureux"
+  },
+  "payment": {
+    "badge": "Paiements Sécurisés",
+    "title": "Méthodes de Paiement Sécurisées",
+    "subtitle": "Choisissez parmi plusieurs méthodes de paiement pour acheter votre chat d'élite",
+    "crypto": "Cryptomonnaie",
+    "cash": "Paiement à la Livraison",
+    "securityTitle": "Sécurité",
+    "securityDesc": "Chiffrement de niveau militaire",
+    "verifiedTitle": "Vérifié",
+    "verifiedDesc": "Toutes les transactions vérifiées",
+    "supportTitle": "Support 24/7",
+    "supportDesc": "Assistance 24 heures sur 24"
+  },
+  "pedigree": {
+    "title": "Pedigree",
+    "backToCatalog": "Retour au Catalogue",
+    "father": "Père",
+    "mother": "Mère",
+    "noData": "Informations de pedigree non disponibles"
   }
 }

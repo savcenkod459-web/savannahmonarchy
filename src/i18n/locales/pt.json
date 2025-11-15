@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Gatil de Elite",
     "title": "SavannahDynasty",
-    "subtitle": "Descubra seu companheiro felino perfeito de nossa coleção exclusiva de gatos de elite com pedigree. Cada gato é cuidadosamente selecionado por sua linhagem excepcional, saúde e temperamento.",
+    "subtitle": "Fornecemos o mais alto padrão de gatos Savannah de elite com qualidade e cuidado incomparáveis",
     "cta": "Ver Nossos Gatinhos",
     "learn": "Saiba Mais",
     "premiumClass": "Classe Premium"
@@ -271,5 +271,48 @@
       "contact": "Contato",
       "gallery": "Galeria"
     }
+  },
+  "about": {
+    "badge": "Raças de Elite",
+    "title": "Sobre Nossos Gatos de Luxo",
+    "subtitle": "Descubra o mundo dos companheiros felinos premium. Nossos gatos representam o mais alto padrão de raça, combinando beleza exótica com temperamento excepcional.",
+    "mission": {
+      "title": "Nossa Missão",
+      "subtitle": "Excelência em Cada Detalhe"
+    },
+    "healthTitle": "Protocolo de Saúde",
+    "healthChecks": {
+      "check1": "Exame veterinário completo",
+      "check2": "Testes genéticos para doenças específicas da raça",
+      "check3": "Protocolos de vacinação",
+      "check4": "Prevenção de parasitas",
+      "check5": "Documentação de certificação de saúde"
+    },
+    "facilitiesTitle": "Nossas Instalações de Criação"
+  },
+  "guide": {
+    "badge": "Conselhos de Especialistas",
+    "title": "Guia de Cuidados Savannah",
+    "subtitle": "Guia abrangente para criar um gato Savannah saudável e feliz"
+  },
+  "payment": {
+    "badge": "Pagamentos Seguros",
+    "title": "Métodos de Pagamento Seguros",
+    "subtitle": "Escolha entre vários métodos de pagamento para comprar seu gato de elite",
+    "crypto": "Criptomoeda",
+    "cash": "Pagamento na Entrega",
+    "securityTitle": "Segurança",
+    "securityDesc": "Criptografia de nível militar",
+    "verifiedTitle": "Verificado",
+    "verifiedDesc": "Todas as transações verificadas",
+    "supportTitle": "Suporte 24/7",
+    "supportDesc": "Assistência 24 horas"
+  },
+  "pedigree": {
+    "title": "Pedigree",
+    "backToCatalog": "Voltar ao Catálogo",
+    "father": "Pai",
+    "mother": "Mãe",
+    "noData": "Informações de pedigree não disponíveis"
   }
 }
