@@ -1,7 +1,11 @@
 import { Crown, Diamond, Gem, Star, Heart, Trophy, Sparkles, Cat, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useTranslation } from "react-i18next";
+
 const PricingSection = () => {
+  const { t } = useTranslation();
+  
   return <section className="py-20 bg-secondary/30 relative overflow-hidden">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
@@ -13,13 +17,13 @@ const PricingSection = () => {
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full mb-6 micro-interaction">
               <Crown className="w-5 h-5 text-primary" />
-              <span className="text-base font-bold tracking-widest uppercase text-primary">ЦЕНООБРАЗОВАНИЕ</span>
+              <span className="text-base font-bold tracking-widest uppercase text-primary">{t('pricingSection.badge')}</span>
             </div>
             <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow mb-6">
-              Информация о цене
+              {t('pricingSection.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-              Когда речь идёт о породе Саванна, цена — это не просто цифра. Это отражение исключительности, происхождения и неповторимости каждой кошки.
+              {t('pricingSection.subtitle')}
             </p>
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6" />
           </div>
@@ -27,7 +31,7 @@ const PricingSection = () => {
           <div className="mb-16">
             <div className="flex items-center justify-center gap-4 mb-8">
               <Crown className="w-10 h-10 text-primary" />
-              <h3 className="text-3xl font-display font-bold luxury-text-shadow text-center">⚜️ Поколение имеет значение</h3>
+              <h3 className="text-3xl font-display font-bold luxury-text-shadow text-center">{t('pricingSection.generationTitle')}</h3>
             </div>
             
             <div className="space-y-6">
@@ -37,9 +41,9 @@ const PricingSection = () => {
                     <span className="text-3xl font-display font-black text-white">F1</span>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">Savannah F1</h4>
+                    <h4 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">{t('pricingSection.f1.title')}</h4>
                     <p className="text-muted-foreground font-light leading-relaxed">
-                      Первое поколение, потомок прямого скрещивания сервала и домашней кошки. Максимальный уровень дикости и схожести с сервалом.
+                      {t('pricingSection.f1.description')}
                     </p>
                   </div>
                 </div>
@@ -47,23 +51,23 @@ const PricingSection = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <Diamond className="w-6 h-6 text-primary" />
                     <span className="text-2xl font-display font-bold text-luxury-gradient">
-                      🐾 Цена: от 10 000 до 25 000 EUR
+                      {t('pricingSection.f1.price')}
                     </span>
                   </div>
                   <p className="text-muted-foreground font-light">
-                    Иногда доходит до <span className="text-foreground font-bold">35 000+ EUR</span> за кошек редкого окраса
+                    {t('pricingSection.f1.priceNote')}
                   </p>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-muted-foreground font-light">F1 — это статус, коллекционность и живая эксклюзивность</p>
+                    <p className="text-muted-foreground font-light">{t('pricingSection.f1.note')}</p>
                   </div>
                 </div>
                 
                 <Link to="/catalog?breed=Саванна F1" className="block mt-6">
                   <Button className="w-full text-sm md:text-lg py-6 group whitespace-normal h-auto min-h-[3rem]">
-                    Посмотреть наших котов породы Саванна F1
+                    {t('pricingSection.f1.button')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform flex-shrink-0" />
                   </Button>
                 </Link>
@@ -76,51 +80,26 @@ const PricingSection = () => {
           <div className="mb-12">
             <div className="flex items-center justify-center gap-4 mb-8">
               <Sparkles className="w-10 h-10 text-primary" />
-              <h3 className="text-3xl font-display font-bold luxury-text-shadow text-center">💫 Что влияет на стоимость</h3>
+              <h3 className="text-3xl font-display font-bold luxury-text-shadow text-center">{t('pricingSection.factorsTitle')}</h3>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
-                <div className="flex items-start gap-3">
-                  <Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold mb-2 text-foreground">Поколение (F1–F7)</h4>
-                    <p className="text-muted-foreground font-light text-sm">Чем ближе к сервалу, тем выше цена</p>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <div key={num} className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
+                  <div className="flex items-start gap-3">
+                    <Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-bold mb-2 text-foreground">
+                        {t(`pricingSection.factor${num}.title`)}
+                      </h4>
+                      <p className="text-muted-foreground font-light text-sm">
+                        {t(`pricingSection.factor${num}.description`)}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
-                <div className="flex items-start gap-3">
-                  <Sparkles className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold mb-2 text-foreground">Окрас и узор</h4>
-                    <p className="text-muted-foreground font-light text-sm">Gold spotted, silver, snow, melanistic — самые ценные</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
-                <div className="flex items-start gap-3">
-                  <Cat className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold mb-2 text-foreground">Пол</h4>
-                    <p className="text-muted-foreground font-light text-sm">Коты F1 и F2 ценятся дороже кошек</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction">
-                <div className="flex items-start gap-3">
-                  <Award className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold mb-2 text-foreground">Линия разведения</h4>
-                    <p className="text-muted-foreground font-light text-sm">Элитные питомники с родословными TICA, CFA</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
 
           <div className="p-10 glass-card rounded-3xl shadow-glow border-2 border-primary/30 text-center animate-scale-in">
             <Crown className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
