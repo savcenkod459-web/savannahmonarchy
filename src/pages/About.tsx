@@ -4,12 +4,15 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { CheckCircle2, Crown, Sparkles, Diamond, Star, Award, HeartPulse, Users, Trophy, Headset, Apple, Home, PawPrint, Brain, Gem, Cat, Baby, AlertCircle, Wind, Drumstick, Snowflake, Activity, Heart, Scale, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import breedingImage from "@/assets/breeding-facility-new.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+
 const About = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const {
     data: breedingImages
