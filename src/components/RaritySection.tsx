@@ -1,6 +1,9 @@
 import { Diamond, Gem, Sparkles, Crown, PawPrint, Heart, Star, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const RaritySection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute top-20 left-10 opacity-5">
@@ -15,13 +18,13 @@ const RaritySection = () => {
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full mb-6 micro-interaction">
               <Sparkles className="w-5 h-5 text-primary" />
-              <span className="text-base font-bold tracking-widest uppercase text-primary">ИСКЛЮЧИТЕЛЬНОСТЬ</span>
+              <span className="text-base font-bold tracking-widest uppercase text-primary">{t('raritySection.badge')}</span>
             </div>
             <h2 className="font-display font-black text-5xl md:text-6xl luxury-text-shadow mb-6">
-              Редкость и Уникальность
+              {t('raritySection.title')}
             </h2>
             <p className="text-3xl md:text-4xl font-display text-luxury-gradient mb-4">
-              Саванна — редчайший бриллиант в мире кошек
+              {t('raritySection.subtitle')}
             </p>
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
           </div>
@@ -33,7 +36,7 @@ const RaritySection = () => {
                   <Award className="w-8 h-8 text-primary animate-pulse" />
                 </div>
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light flex-1">
-                  Саванна — это не просто кошка. Это <span className="text-foreground font-bold">воплощение дикой грации, интеллекта и настоящего статуса</span>. Эти кошки — результат уникального скрещивания африканского сервала и домашней кошки, и каждая Саванна — это живое произведение искусства, рождённое природой и генной точностью.
+                  {t('raritySection.intro')}
                 </p>
               </div>
             </div>
@@ -45,11 +48,11 @@ const RaritySection = () => {
                     <Diamond className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">💫 Редкость, достойная коллекционеров</h3>
+                    <h3 className="text-2xl font-display font-bold mb-2 luxury-text-shadow">{t('raritySection.rarity.title')}</h3>
                   </div>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                  Саванна — одна из самых редких и дорогих пород в мире. Из-за сложного процесса разведения и строгих стандартов качества рождается очень ограниченное количество котят в год. Каждый представитель этой породы — буквально единичный экземпляр, и попасть в число владельцев Саванны — привилегия, доступная немногим.
+                  {t('raritySection.rarity.description')}
                 </p>
               </div>
 
