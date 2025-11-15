@@ -483,7 +483,6 @@
       "priceNote": "Atteint parfois 35 000+ EUR pour les chats de couleur rare",
       "note": "F1 — c'est le statut, la collection et l'exclusivité vivante",
       "button": "Voir nos chats Savannah F1"
-      "note": "F1 est statut, collection et exclusivité vivante"
     },
     "f2": {
       "title": "Savannah F2",
@@ -514,7 +513,7 @@
     },
     "factor3": {
       "title": "Sexe",
-      "description": "Les femelles F1-F3 sont généralement plus chères car elles peuvent se reproduire, tandis que les mâles sont souvent stériles"
+      "description": "Les mâles F1 et F2 sont plus valorisés que les femelles"
     },
     "factor4": {
       "title": "Pedigree et élevage",
@@ -523,6 +522,10 @@
     "factor5": {
       "title": "Âge",
       "description": "Les chatons sont plus chers que les chats adultes. Demande la plus élevée pour les chatons âgés de 3 à 6 mois"
+    },
+    "factor6": {
+      "title": "Génération (F1–F7)",
+      "description": "Plus proche du Serval (F1), plus le prix est élevé"
     },
     "valueTitle": "✨ Ce n'est pas seulement un achat - c'est un investissement",
     "valueDesc": "Savannah n'est pas un animal de compagnie. C'est émotion, unicité et statut vivant. Le prix reflète l'exclusivité, la rareté et les coûts d'élevage. Acquérir un Savannah est un investissement dans un compagnon qui restera avec vous pour toujours comme partie de votre histoire."
