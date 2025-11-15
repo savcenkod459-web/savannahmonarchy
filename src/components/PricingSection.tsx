@@ -100,15 +100,13 @@ const PricingSection = () => {
                 </div>
               ))}
             </div>
+          </div>
 
-          <div className="p-10 glass-card rounded-3xl shadow-glow border-2 border-primary/30 text-center animate-scale-in">
-            <Crown className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
-            <h3 className="text-3xl font-display font-bold mb-4 luxury-text-shadow">🌍 Цена — отражение статуса</h3>
-            <p className="text-xl text-muted-foreground leading-relaxed font-light mb-4">
-              Саванна не просто стоит дорого — она стоит настолько, насколько стоит редкость и настоящая природная роскошь.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              Это не покупка, а <span className="text-foreground font-bold text-luxury-gradient">инвестиция в исключительность</span>.
+          <div className="text-center p-10 glass-card rounded-3xl shadow-soft animate-fade-in">
+            <Gem className="w-16 h-16 text-primary mx-auto mb-6" />
+            <h3 className="text-3xl font-display font-bold luxury-text-shadow mb-4">{t('pricingSection.valueTitle')}</h3>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
+              {t('pricingSection.valueDesc')}
             </p>
           </div>
         </div>
