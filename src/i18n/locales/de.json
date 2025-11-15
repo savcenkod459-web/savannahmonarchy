@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Premium-Zucht",
     "title": "SavannahDynasty Cats",
-    "subtitle": "Entdecken Sie Ihren perfekten Katzenbegleiter aus unserer exklusiven Sammlung von Elite-Katzen mit Stammbaum. Jede Katze wird sorgfältig nach außergewöhnlicher Abstammung, Gesundheit und Temperament ausgewählt.",
+    "subtitle": "Wir bieten den höchsten Standard an Elite-Savannah-Katzen mit unübertroffener Qualität und Pflege",
     "cta": "Verfügbare Kätzchen Ansehen",
     "learn": "Mehr Erfahren",
     "premiumClass": "Premium-Klasse"
@@ -265,5 +265,48 @@
       "contact": "Kontakt",
       "gallery": "Galerie"
     }
+  },
+  "about": {
+    "badge": "Elite-Rassen",
+    "title": "Über Unsere Luxuskatzen",
+    "subtitle": "Entdecken Sie die Welt der Premium-Katzenbegleiter. Unsere Katzen repräsentieren den höchsten Rassestandard und kombinieren exotische Schönheit mit außergewöhnlichem Temperament.",
+    "mission": {
+      "title": "Unsere Mission",
+      "subtitle": "Exzellenz in Jedem Detail"
+    },
+    "healthTitle": "Gesundheitsprotokoll",
+    "healthChecks": {
+      "check1": "Vollständige tierärztliche Untersuchung",
+      "check2": "Genetische Tests für rassenspezifische Krankheiten",
+      "check3": "Impfprotokolle",
+      "check4": "Parasitenprävention",
+      "check5": "Gesundheitszertifizierungsdokumentation"
+    },
+    "facilitiesTitle": "Unsere Zuchtstätten"
+  },
+  "guide": {
+    "badge": "Expertenrat",
+    "title": "Savannah-Pflegeanleitung",
+    "subtitle": "Umfassende Anleitung zur Aufzucht einer gesunden und glücklichen Savannah-Katze"
+  },
+  "payment": {
+    "badge": "Sichere Zahlungen",
+    "title": "Sichere Zahlungsmethoden",
+    "subtitle": "Wählen Sie aus mehreren Zahlungsmethoden zum Kauf Ihrer Elite-Katze",
+    "crypto": "Kryptowährung",
+    "cash": "Barzahlung bei Lieferung",
+    "securityTitle": "Sicherheit",
+    "securityDesc": "Militärische Verschlüsselung",
+    "verifiedTitle": "Verifiziert",
+    "verifiedDesc": "Alle Transaktionen verifiziert",
+    "supportTitle": "24/7 Support",
+    "supportDesc": "Rund-um-die-Uhr-Unterstützung"
+  },
+  "pedigree": {
+    "title": "Stammbaum",
+    "backToCatalog": "Zurück zum Katalog",
+    "father": "Vater",
+    "mother": "Mutter",
+    "noData": "Stammbaumsinformationen nicht verfügbar"
   }
 }

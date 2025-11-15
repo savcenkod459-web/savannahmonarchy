@@ -17,7 +17,7 @@
   "hero": {
     "badge": "Elite Cattery",
     "title": "SavannahDynasty",
-    "subtitle": "Discover your perfect feline companion from our exclusive collection of pedigree elite cats. Each cat is carefully selected for exceptional lineage, health, and temperament.",
+    "subtitle": "We provide the highest standard of elite Savannah cats with unparalleled quality and care",
     "cta": "View Our Kittens",
     "learn": "Learn More",
     "premiumClass": "Premium Class"
@@ -271,5 +271,48 @@
       "contact": "Contact",
       "gallery": "Gallery"
     }
+  },
+  "about": {
+    "badge": "Elite Breeds",
+    "title": "About Our Luxury Cats",
+    "subtitle": "Discover the world of premium feline companions. Our cats represent the highest breed standard, combining exotic beauty with exceptional temperament.",
+    "mission": {
+      "title": "Our Mission",
+      "subtitle": "Excellence in Every Detail"
+    },
+    "healthTitle": "Health Protocol",
+    "healthChecks": {
+      "check1": "Complete veterinary examination",
+      "check2": "Genetic testing for breed-specific diseases",
+      "check3": "Vaccination protocols",
+      "check4": "Parasite prevention",
+      "check5": "Health certification documentation"
+    },
+    "facilitiesTitle": "Our Breeding Facilities"
+  },
+  "guide": {
+    "badge": "Expert Advice",
+    "title": "Savannah Care Guide",
+    "subtitle": "Comprehensive guide to raising a healthy and happy Savannah cat"
+  },
+  "payment": {
+    "badge": "Secure Payments",
+    "title": "Secure Payment Methods",
+    "subtitle": "Choose from multiple payment methods to purchase your elite cat",
+    "crypto": "Cryptocurrency",
+    "cash": "Cash on Delivery",
+    "securityTitle": "Security",
+    "securityDesc": "Military-grade encryption",
+    "verifiedTitle": "Verified",
+    "verifiedDesc": "All transactions verified",
+    "supportTitle": "24/7 Support",
+    "supportDesc": "Round-the-clock assistance"
+  },
+  "pedigree": {
+    "title": "Pedigree",
+    "backToCatalog": "Back to Catalog",
+    "father": "Father",
+    "mother": "Mother",
+    "noData": "Pedigree information not available"
   }
 }
