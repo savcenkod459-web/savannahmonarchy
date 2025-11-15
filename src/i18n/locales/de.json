@@ -456,7 +456,6 @@
       "priceNote": "Erreicht manchmal 35.000+ EUR für Katzen seltener Farbe",
       "note": "F1 — das ist Status, Sammlerwert und lebende Exklusivität",
       "button": "Unsere Savannah F1 Katzen ansehen"
-      "note": "F1 ist Status, Sammlerwert und lebende Exklusivität"
     },
     "f2": {
       "title": "Savannah F2",
@@ -487,7 +486,7 @@
     },
     "factor3": {
       "title": "Geschlecht",
-      "description": "Weibliche F1-F3 sind normalerweise teurer, da sie sich fortpflanzen können, während Männchen oft steril sind"
+      "description": "F1 und F2 Männchen werden höher geschätzt als Weibchen"
     },
     "factor4": {
       "title": "Stammbaum und Zucht",
@@ -496,6 +495,10 @@
     "factor5": {
       "title": "Alter",
       "description": "Kätzchen sind teurer als erwachsene Katzen. Höchste Nachfrage nach Kätzchen im Alter von 3-6 Monaten"
+    },
+    "factor6": {
+      "title": "Generation (F1–F7)",
+      "description": "Je näher am Serval (F1), desto höher der Preis"
     },
     "valueTitle": "✨ Es ist nicht nur ein Kauf - es ist eine Investition",
     "valueDesc": "Savannah ist kein Haustier. Es ist Emotion, Einzigartigkeit und lebender Status. Der Preis spiegelt Exklusivität, Seltenheit und Zuchtkosten wider. Der Erwerb einer Savannah ist eine Investition in einen Begleiter, der für immer als Teil Ihrer Geschichte bei Ihnen bleiben wird."

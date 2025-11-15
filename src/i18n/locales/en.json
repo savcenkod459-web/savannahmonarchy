@@ -488,7 +488,6 @@
       "priceNote": "Sometimes reaches 35,000+ EUR for rare color cats",
       "note": "F1 — it's status, collectibility and living exclusivity",
       "button": "View our Savannah F1 cats"
-      "note": "F1 is status, collectibility and living exclusivity"
     },
     "f2": {
       "title": "Savannah F2",
@@ -519,7 +518,7 @@
     },
     "factor3": {
       "title": "Gender",
-      "description": "Females F1-F3 are usually more expensive as they can reproduce, while males are often sterile"
+      "description": "F1 and F2 males are valued more than females"
     },
     "factor4": {
       "title": "Pedigree and cattery",
@@ -528,6 +527,10 @@
     "factor5": {
       "title": "Age",
       "description": "Kittens are more expensive than adult cats. Highest demand for kittens aged 3-6 months"
+    },
+    "factor6": {
+      "title": "Generation (F1–F7)",
+      "description": "The closer to the Serval (F1), the higher the price"
     },
     "valueTitle": "✨ It's not just a purchase - it's an investment",
     "valueDesc": "Savannah is not a pet. It's emotions, uniqueness and living status. The price reflects exclusivity, rarity and breeding costs. Acquiring a Savannah is an investment in a companion who will remain with you forever as part of your story."

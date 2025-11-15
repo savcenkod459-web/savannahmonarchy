@@ -461,7 +461,6 @@
       "priceNote": "Às vezes chega a 35.000+ EUR para gatos de cor rara",
       "note": "F1 — é status, colecionabilidade e exclusividade viva",
       "button": "Ver nossos gatos Savannah F1"
-      "note": "F1 é status, colecionabilidade e exclusividade viva"
     },
     "f2": {
       "title": "Savannah F2",
@@ -492,7 +491,7 @@
     },
     "factor3": {
       "title": "Gênero",
-      "description": "Fêmeas F1-F3 geralmente são mais caras pois podem reproduzir, enquanto machos são frequentemente estéreis"
+      "description": "Machos F1 e F2 são mais valorizados que fêmeas"
     },
     "factor4": {
       "title": "Pedigree e gatil",
@@ -501,6 +500,10 @@
     "factor5": {
       "title": "Idade",
       "description": "Filhotes são mais caros que gatos adultos. Maior demanda por filhotes de 3-6 meses de idade"
+    },
+    "factor6": {
+      "title": "Geração (F1–F7)",
+      "description": "Quanto mais próximo do Serval (F1), maior o preço"
     },
     "valueTitle": "✨ Não é apenas uma compra - é um investimento",
     "valueDesc": "Savannah não é um animal de estimação. É emoção, singularidade e status vivo. O preço reflete exclusividade, raridade e custos de criação. Adquirir um Savannah é um investimento em um companheiro que permanecerá com você para sempre como parte de sua história."
