@@ -12,6 +12,35 @@ export const useAutoTranslation = () => {
   useEffect(() => {
     let translationMap: TranslationMap = {};
     
+    // Функция для обработки текстовых узлов
+    const processTextNode = (node: Text, currentLang: string) => {
+      const text = node.textContent?.trim();
+      if (!text) return;
+
+      // Проверяем, есть ли этот текст в карте переводов
+      if (translationMap[text]) {
+        const translationKey = translationMap[text];
+        
+        // Получаем переведенный текст из i18next
+        const translatedText = i18n.t(translationKey);
+        
+        // Если перевод найден и отличается от ключа, заменяем
+        if (translatedText && translatedText !== translationKey) {
+          console.log('✅ Заменяем:', text.substring(0, 50), '→', translatedText.substring(0, 50));
+          node.textContent = translatedText;
+        }
+      }
+    };
+
+    // Рекурсивная функция для обхода всех узлов DOM
+    const walkDOM = (node: Node, currentLang: string) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        processTextNode(node as Text, currentLang);
+      } else {
+        node.childNodes.forEach((child) => walkDOM(child, currentLang));
+      }
+    };
+    
     const loadTranslationMap = async () => {
       try {
         // Загружаем русские переводы (они содержат оригинальный текст)
@@ -34,7 +63,7 @@ export const useAutoTranslation = () => {
           
           console.log('📋 Карта переводов загружена:', Object.keys(translationMap).length, 'записей');
           
-          // Запускаем замену текста
+          // Запускаем замену текста сразу после загрузки
           replaceTextInDOM();
         }
       } catch (error) {
@@ -43,46 +72,25 @@ export const useAutoTranslation = () => {
     };
 
     const replaceTextInDOM = () => {
-      if (Object.keys(translationMap).length === 0) return;
+      if (Object.keys(translationMap).length === 0) {
+        console.log('⚠️ Карта переводов пустая, пропускаем замену');
+        return;
+      }
       
       const currentLang = i18n.language;
       
       // Если текущий язык русский, ничего не делаем
-      if (currentLang === 'ru') return;
+      if (currentLang === 'ru') {
+        console.log('ℹ️ Текущий язык русский, автозамена не требуется');
+        return;
+      }
 
       console.log('🔄 Запускаем автозамену текста для языка:', currentLang);
 
-      // Функция для обработки текстовых узлов
-      const processTextNode = (node: Text) => {
-        const text = node.textContent?.trim();
-        if (!text) return;
-
-        // Проверяем, есть ли этот текст в карте переводов
-        if (translationMap[text]) {
-          const translationKey = translationMap[text];
-          
-          // Получаем переведенный текст из i18next
-          const translatedText = i18n.t(translationKey);
-          
-          // Если перевод найден и отличается от ключа, заменяем
-          if (translatedText && translatedText !== translationKey) {
-            console.log('✅ Заменяем:', text.substring(0, 50), '→', translatedText.substring(0, 50));
-            node.textContent = translatedText;
-          }
-        }
-      };
-
-      // Рекурсивная функция для обхода всех узлов DOM
-      const walkDOM = (node: Node) => {
-        if (node.nodeType === Node.TEXT_NODE) {
-          processTextNode(node as Text);
-        } else {
-          node.childNodes.forEach(walkDOM);
-        }
-      };
-
       // Обходим весь документ
-      walkDOM(document.body);
+      walkDOM(document.body, currentLang);
+      
+      console.log('✅ Автозамена завершена');
     };
 
     // Загружаем карту переводов при монтировании
@@ -115,30 +123,17 @@ export const useAutoTranslation = () => {
 
     // MutationObserver для отслеживания динамических изменений DOM
     const observer = new MutationObserver((mutations) => {
+      const currentLang = i18n.language;
+      if (currentLang === 'ru' || Object.keys(translationMap).length === 0) return;
+      
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
-            walkDOM(node);
+            walkDOM(node, currentLang);
           }
         });
       });
     });
-
-    // Функция для обхода DOM (нужна в observer)
-    const walkDOM = (node: Node) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const text = node.textContent?.trim();
-        if (text && translationMap[text]) {
-          const translationKey = translationMap[text];
-          const translatedText = i18n.t(translationKey);
-          if (translatedText && translatedText !== translationKey && i18n.language !== 'ru') {
-            (node as Text).textContent = translatedText;
-          }
-        }
-      } else {
-        node.childNodes.forEach(walkDOM);
-      }
-    };
 
     observer.observe(document.body, {
       childList: true,
