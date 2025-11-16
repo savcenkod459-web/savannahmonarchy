@@ -33,7 +33,9 @@ const imageMap: Record<string, string> = {
   '/src/assets/savannah-kitten-1.jpg': kitten
 };
 const Catalog = () => {
-  const { t } = useTranslation();
+  const {
+    t
+  } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const breedFromUrl = searchParams.get('breed') || 'all';
@@ -100,7 +102,7 @@ const Catalog = () => {
                 <Sparkles className="w-4 h-4 text-primary" />
                 <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('catalog.badge')}</span>
               </div>
-              <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow">
+              <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow py-[8px]">
                 {t('catalog.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
@@ -129,9 +131,12 @@ const Catalog = () => {
                 </p>
               </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                  {filteredCats.map((cat, index) => <div key={cat.id} onClick={() => openCatDetail(cat)} className="group animate-scale-in cursor-pointer" style={{
-              animationDelay: `${index * 100}ms`
-            }}>
-                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
+                animationDelay: `${index * 100}ms`
+              }}>
+                    <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{
+                  transform: 'translateZ(0)',
+                  willChange: 'transform'
+                }}>
                       {/* Gradient border effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/40 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
                       <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
@@ -203,9 +208,9 @@ const Catalog = () => {
                                     <Star className="h-5 w-5 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
                                   </div>
                                   <div onClick={e => {
-                              e.stopPropagation();
-                              navigate('/contact');
-                            }} className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer">
+                                e.stopPropagation();
+                                navigate('/contact');
+                              }} className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 cursor-pointer">
                                     <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                                   </div>
                                 </div>
