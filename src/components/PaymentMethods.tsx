@@ -45,7 +45,7 @@ const PaymentMethods = () => {
             <Lock className="w-4 h-4 text-primary" />
             <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('paymentMethods.badge')}</span>
           </div>
-          <h2 className="font-display font-black text-luxury-gradient luxury-text-shadow py-[5px]">
+          <h2 className="font-display font-black text-luxury-gradient luxury-text-shadow py-[8px]">
             {t('paymentMethods.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
