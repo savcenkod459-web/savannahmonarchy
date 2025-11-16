@@ -92,7 +92,7 @@ const Navigation = () => {
     hash: "#luxury-cats",
     icon: Crown
   }, {
-    name: "Наши избранные породы",
+    name: t("nav.featured_breeds"),
     hash: "#featured-breeds",
     icon: Award
   }, {
@@ -104,15 +104,15 @@ const Navigation = () => {
     hash: "#pricing",
     icon: DollarSign
   }, {
-    name: "Важная информация",
+    name: t("nav.important_info"),
     hash: "#important-info",
     icon: AlertCircle
   }, {
-    name: "Взрослые коты",
+    name: t("nav.adult_cats"),
     hash: "#adult-cats",
     icon: Cat
   }, {
-    name: "Котята",
+    name: t("nav.kittens"),
     hash: "#kittens",
     icon: Baby
   }];
