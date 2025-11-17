@@ -217,18 +217,35 @@
     },
     "signup": {
       "title": "Створити акаунт",
-      "subtitle": "Зареєструйтеся, щоб почати"
+      "subtitle": "Зареєструйтеся для доступу",
+      "success": "Успішна реєстрація",
+      "successDescription": "Перевірте пошту для підтвердження акаунта"
     },
     "email": "Email",
     "password": "Пароль",
     "signinButton": "Увійти",
     "signupButton": "Зареєструватися",
     "loading": "Завантаження...",
-    "noAccount": "Немає акаунта?",
-    "hasAccount": "Вже є акаунт?",
-    "register": "Зареєструйтеся",
-    "signin": "Увійдіть",
+    "noAccount": "Немає акаунта? Зареєструйтеся",
+    "hasAccount": "Вже є акаунт? Увійдіть",
     "forgotPassword": "Забули пароль?",
+    "errors": {
+      "invalidCredentials": "Невірні дані для входу",
+      "invalidCredentialsDescription": "Email або пароль невірні. Якщо ви забули пароль, натисніть 'Забули пароль?'",
+      "userExists": "Користувач вже існує",
+      "userExistsDescription": "Цей email вже зареєстрований. Спробуйте увійти замість реєстрації.",
+      "weakPassword": "Слабкий пароль",
+      "weakPasswordDescription": "Пароль повинен містити мінімум 8 символів, включаючи літери, цифри та спеціальні символи. Спробуйте інший пароль.",
+      "signInError": "Помилка входу",
+      "signUpError": "Помилка реєстрації",
+      "error": "Помилка"
+    },
+    "success": {
+      "signInTitle": "Успішний вхід",
+      "signInDescription": "Ви успішно увійшли в систему",
+      "signOutTitle": "Вихід виконано",
+      "signOutDescription": "Ви успішно вийшли з системи"
+    },
     "verification": {
       "title": "Підтвердіть email",
       "subtitle": "Введіть 6-значний код, надісланий на",

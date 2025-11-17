@@ -223,18 +223,35 @@
     },
     "signup": {
       "title": "Create Account",
-      "subtitle": "Register to get started"
+      "subtitle": "Register to get started",
+      "success": "Registration Successful",
+      "successDescription": "Check your email to confirm your account"
     },
     "email": "Email",
     "password": "Password",
     "signinButton": "Sign In",
     "signupButton": "Sign Up",
     "loading": "Loading...",
-    "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?",
-    "register": "Register",
-    "signin": "Sign In",
+    "noAccount": "Don't have an account? Register",
+    "hasAccount": "Already have an account? Sign In",
     "forgotPassword": "Forgot password?",
+    "errors": {
+      "invalidCredentials": "Invalid Login Credentials",
+      "invalidCredentialsDescription": "Email or password is incorrect. If you forgot your password, click 'Forgot password?'",
+      "userExists": "User Already Exists",
+      "userExistsDescription": "This email is already registered. Try signing in instead.",
+      "weakPassword": "Weak Password",
+      "weakPasswordDescription": "Password must contain at least 8 characters, including letters, numbers and special characters. Try another password.",
+      "signInError": "Sign In Error",
+      "signUpError": "Sign Up Error",
+      "error": "Error"
+    },
+    "success": {
+      "signInTitle": "Successful Sign In",
+      "signInDescription": "You have successfully signed in",
+      "signOutTitle": "Signed Out",
+      "signOutDescription": "You have successfully signed out"
+    },
     "verification": {
       "title": "Verify Email",
       "subtitle": "Enter the 6-digit code sent to",
