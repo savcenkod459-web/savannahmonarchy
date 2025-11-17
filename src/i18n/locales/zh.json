@@ -717,5 +717,22 @@
     },
     "resendSuccess": "代码已重新发送",
     "resendSuccessDescription": "查看您的电子邮件以获取新代码"
+  },
+  "errors": {
+    "validationError": "验证错误",
+    "error": "错误",
+    "checkError": "检查错误",
+    "rateLimitCheckError": "无法检查消息限制。请稍后再试。",
+    "tooManyMessages": "消息过多",
+    "tooManyMessagesDescription": "您每小时最多可以发送 3 条消息。请稍后再试。",
+    "checkErrorGeneric": "验证过程中发生错误。请稍后再试。",
+    "messageError": "发送消息失败。请稍后再试。",
+    "fillField": "请填写此字段"
+  },
+  "contact": {
+    "messageSent": "消息已发送",
+    "messageSentDescription": "感谢您的消息！我们将尽快与您联系。",
+    "emailCopied": "电子邮件已复制",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com 已复制到剪贴板"
   }
 }

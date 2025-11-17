@@ -688,5 +688,22 @@
     },
     "resendSuccess": "تم إعادة إرسال الرمز",
     "resendSuccessDescription": "تحقق من بريدك الإلكتروني للحصول على الرمز الجديد"
+  },
+  "errors": {
+    "validationError": "خطأ في التحقق",
+    "error": "خطأ",
+    "checkError": "خطأ في الفحص",
+    "rateLimitCheckError": "فشل التحقق من حد الرسائل. يرجى المحاولة لاحقًا.",
+    "tooManyMessages": "عدد كبير جدًا من الرسائل",
+    "tooManyMessagesDescription": "يمكنك إرسال حد أقصى 3 رسائل في الساعة. يرجى المحاولة لاحقًا.",
+    "checkErrorGeneric": "حدث خطأ أثناء التحقق. يرجى المحاولة لاحقًا.",
+    "messageError": "فشل إرسال الرسالة. يرجى المحاولة لاحقًا.",
+    "fillField": "يرجى ملء هذا الحقل"
+  },
+  "contact": {
+    "messageSent": "تم إرسال الرسالة",
+    "messageSentDescription": "شكرًا لرسالتك! سنتواصل معك قريبًا.",
+    "emailCopied": "تم نسخ البريد الإلكتروني",
+    "emailCopiedDescription": "تم نسخ savannahdynastyofficial@gmail.com إلى الحافظة"
   }
 }
