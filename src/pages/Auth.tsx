@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { EmailVerificationDialog } from "@/components/EmailVerificationDialog";
+import { useTranslation } from "react-i18next";
 
 const Auth = () => {
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
@@ -19,6 +20,7 @@ const Auth = () => {
   const [pendingEmail, setPendingEmail] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const getRedirectUrl = (path: string = "/") => {
     const origin = window.location.origin;
@@ -61,13 +63,13 @@ const Auth = () => {
           if (error.message.includes("Invalid login credentials")) {
             toast({
               variant: "destructive",
-              title: "Неверные данные для входа",
-              description: "Email или пароль неверны. Если вы забыли пароль, нажмите 'Забыли пароль?'"
+              title: t("auth.errors.invalidCredentials"),
+              description: t("auth.errors.invalidCredentialsDescription")
             });
           } else {
             toast({
               variant: "destructive",
-              title: "Ошибка входа",
+              title: t("auth.errors.signInError"),
               description: error.message
             });
           }
@@ -75,8 +77,8 @@ const Auth = () => {
         }
         
         toast({
-          title: "Успешный вход",
-          description: "Вы успешно вошли в систему"
+          title: t("auth.success.signInTitle"),
+          description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
         const { error } = await supabase.auth.signUp({
@@ -91,20 +93,20 @@ const Auth = () => {
           if (error.message.includes("User already registered") || error.message.includes("user_already_exists")) {
             toast({
               variant: "destructive",
-              title: "Пользователь уже существует",
-              description: "Этот email уже зарегистрирован. Попробуйте войти вместо регистрации."
+              title: t("auth.errors.userExists"),
+              description: t("auth.errors.userExistsDescription")
             });
             setAuthMode("signin");
           } else if (error.message.includes("weak_password") || error.message.includes("Password")) {
             toast({
               variant: "destructive",
-              title: "Слабый пароль",
-              description: "Пароль должен содержать минимум 8 символов, включая буквы, цифры и специальные символы. Попробуйте другой пароль."
+              title: t("auth.errors.weakPassword"),
+              description: t("auth.errors.weakPasswordDescription")
             });
           } else {
             toast({
               variant: "destructive",
-              title: "Ошибка регистрации",
+              title: t("auth.errors.signUpError"),
               description: error.message
             });
           }
@@ -118,7 +120,7 @@ const Auth = () => {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
+        title: t("auth.errors.error"),
         description: error.message
       });
     } finally {
@@ -148,10 +150,10 @@ const Auth = () => {
             </div>
             
             <CardTitle className="text-3xl font-display font-black text-center text-luxury-gradient luxury-text-shadow">
-              {authMode === "signup" ? "Создать аккаунт" : "Добро пожаловать"}
+              {authMode === "signup" ? t("auth.signup.title") : t("auth.signin.title")}
             </CardTitle>
             <CardDescription className="text-center text-foreground/70 text-base font-medium">
-              {authMode === "signup" ? "Зарегистрируйтесь для доступа" : "Войдите в свой аккаунт"}
+              {authMode === "signup" ? t("auth.signup.subtitle") : t("auth.signin.subtitle")}
             </CardDescription>
           </CardHeader>
           
@@ -159,7 +161,7 @@ const Auth = () => {
             <form onSubmit={handleEmailAuth} className="space-y-6">
               <div className="space-y-3">
                 <Label htmlFor="email" className="text-sm font-semibold text-foreground/80">
-                  Email
+                  {t("auth.email")}
                 </Label>
                 <Input
                   id="email"
@@ -174,7 +176,7 @@ const Auth = () => {
               
               <div className="space-y-3">
                 <Label htmlFor="password" className="text-sm font-semibold text-foreground/80">
-                  Пароль
+                  {t("auth.password")}
                 </Label>
                 <Input
                   id="password"
@@ -196,7 +198,7 @@ const Auth = () => {
                     className="text-sm text-primary hover:text-primary/80 p-0 h-auto hover-lift"
                     onClick={() => navigate("/reset-password")}
                   >
-                    Забыли пароль?
+                    {t("auth.forgotPassword")}
                   </Button>
                 </div>
               )}
@@ -206,7 +208,7 @@ const Auth = () => {
                 className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-glow transition-all duration-300 hover-lift"
                 disabled={loading}
               >
-                {loading ? "Загрузка..." : authMode === "signin" ? "Войти" : "Зарегистрироваться"}
+                {loading ? t("auth.loading") : authMode === "signin" ? t("auth.signinButton") : t("auth.signupButton")}
               </Button>
               
               <Button
@@ -215,7 +217,7 @@ const Auth = () => {
                 className="w-full h-12 text-base font-semibold glass-card border-2 border-primary/30 hover:border-primary text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 onClick={() => setAuthMode(authMode === "signin" ? "signup" : "signin")}
               >
-                {authMode === "signin" ? "Нет аккаунта? Зарегистрируйтесь" : "Уже есть аккаунт? Войдите"}
+                {authMode === "signin" ? t("auth.noAccount") : t("auth.hasAccount")}
               </Button>
             </form>
           </CardContent>

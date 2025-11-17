@@ -222,18 +222,35 @@
     },
     "signup": {
       "title": "Criar Conta",
-      "subtitle": "Registre-se para começar"
+      "subtitle": "Registre-se para acessar",
+      "success": "Registro Bem-sucedido",
+      "successDescription": "Verifique seu e-mail para confirmar sua conta"
     },
     "email": "E-mail",
     "password": "Senha",
     "signinButton": "Entrar",
     "signupButton": "Registrar",
     "loading": "Carregando...",
-    "noAccount": "Não tem conta?",
-    "hasAccount": "Já tem conta?",
-    "register": "Registre-se",
-    "signin": "Entre",
+    "noAccount": "Não tem conta? Registre-se",
+    "hasAccount": "Já tem conta? Entre",
     "forgotPassword": "Esqueceu a senha?",
+    "errors": {
+      "invalidCredentials": "Credenciais Inválidas",
+      "invalidCredentialsDescription": "E-mail ou senha incorretos. Se você esqueceu sua senha, clique em 'Esqueceu a senha?'",
+      "userExists": "Usuário Já Existe",
+      "userExistsDescription": "Este e-mail já está registrado. Tente fazer login.",
+      "weakPassword": "Senha Fraca",
+      "weakPasswordDescription": "A senha deve conter pelo menos 8 caracteres, incluindo letras, números e caracteres especiais. Tente outra senha.",
+      "signInError": "Erro ao Entrar",
+      "signUpError": "Erro de Registro",
+      "error": "Erro"
+    },
+    "success": {
+      "signInTitle": "Login Bem-sucedido",
+      "signInDescription": "Você entrou com sucesso",
+      "signOutTitle": "Sessão Encerrada",
+      "signOutDescription": "Você saiu com sucesso"
+    },
     "verification": {
       "title": "Verificar E-mail",
       "subtitle": "Digite o código de 6 dígitos enviado para",
