@@ -269,6 +269,7 @@
       "required": "Por favor complete este campo",
       "emailInvalid": "La dirección de correo electrónico debe contener el símbolo \"@\"",
       "emailMissing": "Falta el símbolo \"@\" en la dirección",
+      "phoneInvalid": "Por favor ingrese un número de teléfono válido (mínimo 10 dígitos)",
       "minLength": "Caracteres mínimos permitidos: {{min}}. Longitud actual: {{current}}",
       "passwordMinLength": "La contraseña debe contener al menos 8 caracteres"
     },

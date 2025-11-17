@@ -35,6 +35,8 @@ const contactFormSchema = z.object({
     .max(255, "Email must be less than 255 characters"),
   phone: z.string()
     .trim()
+    .regex(/^[\d\s\+\-\(\)]+$/, "Invalid phone number format")
+    .min(10, "Phone must be at least 10 digits")
     .max(20, "Phone must be less than 20 characters")
     .optional()
     .or(z.literal("")),
@@ -300,6 +302,8 @@ const Contact = () => {
                         value={formData.phone} 
                         onChange={e => setFormData({ ...formData, phone: e.target.value })} 
                         placeholder={t('contact.form.phone_placeholder')}
+                        pattern="[\d\s\+\-\(\)]+"
+                        minLength={10}
                       />
                     </div>
                     
@@ -316,7 +320,7 @@ const Contact = () => {
                     </div>
                     
                     <Button type="submit" size="lg" className="w-full relative overflow-hidden group/submit hover:shadow-[0_0_60px_rgba(217,179,112,0.8),_0_0_100px_rgba(217,179,112,0.6)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-700 ease-out hover:brightness-110 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/30 before:to-primary/0 before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000">
-                      <span className="relative z-10">Отправить сообщение</span>
+                      <span className="relative z-10">{t('contact.sendMessage')}</span>
                     </Button>
                   </form>
                 </div>

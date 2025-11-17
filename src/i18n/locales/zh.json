@@ -251,6 +251,7 @@
       "required": "请填写此字段",
       "emailInvalid": "电子邮件地址必须包含\"@\"符号",
       "emailMissing": "地址中缺少\"@\"符号",
+      "phoneInvalid": "请输入有效的电话号码（至少10位数字）",
       "minLength": "最少允许字符数：{{min}}。当前长度：{{current}}",
       "passwordMinLength": "密码必须至少包含8个字符"
     },

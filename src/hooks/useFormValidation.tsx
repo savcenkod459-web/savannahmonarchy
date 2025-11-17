@@ -16,6 +16,8 @@ export const useFormValidation = () => {
         target.setCustomValidity(t('auth.validation.required'));
       } else if (target.validity.typeMismatch && target.type === 'email') {
         target.setCustomValidity(t('auth.validation.emailInvalid'));
+      } else if (target.validity.patternMismatch && target.type === 'tel') {
+        target.setCustomValidity(t('auth.validation.phoneInvalid'));
       } else if (target.validity.tooShort) {
         const minLength = target.getAttribute('minlength') || '8';
         const currentLength = target.value.length;
@@ -37,7 +39,7 @@ export const useFormValidation = () => {
     };
 
     // Добавляем обработчики ко всем полям формы
-    const inputs = document.querySelectorAll('input[required], input[type="email"], input[minlength], textarea[required]');
+    const inputs = document.querySelectorAll('input[required], input[type="email"], input[type="tel"], input[minlength], textarea[required]');
     
     inputs.forEach((input) => {
       input.addEventListener('invalid', handleInvalid);
