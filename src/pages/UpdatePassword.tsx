@@ -10,6 +10,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useFormValidation } from "@/hooks/useFormValidation";
 
 const UpdatePassword = () => {
   const [searchParams] = useSearchParams();
@@ -23,6 +24,9 @@ const UpdatePassword = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
+  
+  // Подключаем кастомную валидацию с переводами
+  useFormValidation();
 
   useEffect(() => {
     const emailParam = searchParams.get("email");

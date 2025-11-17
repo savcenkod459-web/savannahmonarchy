@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
+import { useFormValidation } from "@/hooks/useFormValidation";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,9 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
+  
+  // Подключаем кастомную валидацию с переводами
+  useFormValidation();
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
