@@ -217,18 +217,35 @@
     },
     "signup": {
       "title": "Créer un Compte",
-      "subtitle": "Inscrivez-vous pour commencer"
+      "subtitle": "Inscrivez-vous pour accéder",
+      "success": "Inscription Réussie",
+      "successDescription": "Vérifiez votre email pour confirmer votre compte"
     },
     "email": "Email",
     "password": "Mot de Passe",
     "signinButton": "Se Connecter",
     "signupButton": "S'Inscrire",
     "loading": "Chargement...",
-    "noAccount": "Pas de compte?",
-    "hasAccount": "Vous avez déjà un compte?",
-    "register": "Inscrivez-vous",
-    "signin": "Connectez-vous",
+    "noAccount": "Pas de compte? Inscrivez-vous",
+    "hasAccount": "Vous avez déjà un compte? Connectez-vous",
     "forgotPassword": "Mot de passe oublié?",
+    "errors": {
+      "invalidCredentials": "Identifiants Invalides",
+      "invalidCredentialsDescription": "Email ou mot de passe incorrect. Si vous avez oublié votre mot de passe, cliquez sur 'Mot de passe oublié?'",
+      "userExists": "L'Utilisateur Existe Déjà",
+      "userExistsDescription": "Cet email est déjà enregistré. Essayez de vous connecter à la place.",
+      "weakPassword": "Mot de Passe Faible",
+      "weakPasswordDescription": "Le mot de passe doit contenir au moins 8 caractères, y compris des lettres, des chiffres et des caractères spéciaux. Essayez un autre mot de passe.",
+      "signInError": "Erreur de Connexion",
+      "signUpError": "Erreur d'Inscription",
+      "error": "Erreur"
+    },
+    "success": {
+      "signInTitle": "Connexion Réussie",
+      "signInDescription": "Vous êtes connecté avec succès",
+      "signOutTitle": "Déconnecté",
+      "signOutDescription": "Vous êtes déconnecté avec succès"
+    },
     "verification": {
       "title": "Vérifier l'Email",
       "subtitle": "Entrez le code à 6 chiffres envoyé à",

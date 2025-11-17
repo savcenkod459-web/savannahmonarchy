@@ -217,18 +217,35 @@
     },
     "signup": {
       "title": "创建账户",
-      "subtitle": "注册以开始"
+      "subtitle": "注册以访问",
+      "success": "注册成功",
+      "successDescription": "请查看您的电子邮件以确认您的账户"
     },
     "email": "电子邮件",
     "password": "密码",
     "signinButton": "登录",
     "signupButton": "注册",
     "loading": "加载中...",
-    "noAccount": "没有账户？",
-    "hasAccount": "已有账户？",
-    "register": "注册",
-    "signin": "登录",
+    "noAccount": "没有账户？注册",
+    "hasAccount": "已有账户？登录",
     "forgotPassword": "忘记密码？",
+    "errors": {
+      "invalidCredentials": "无效的登录凭据",
+      "invalidCredentialsDescription": "电子邮件或密码不正确。如果您忘记了密码，请点击'忘记密码？'",
+      "userExists": "用户已存在",
+      "userExistsDescription": "此电子邮件已注册。请尝试登录。",
+      "weakPassword": "密码太弱",
+      "weakPasswordDescription": "密码必须包含至少8个字符，包括字母、数字和特殊字符。请尝试其他密码。",
+      "signInError": "登录错误",
+      "signUpError": "注册错误",
+      "error": "错误"
+    },
+    "success": {
+      "signInTitle": "登录成功",
+      "signInDescription": "您已成功登录",
+      "signOutTitle": "已登出",
+      "signOutDescription": "您已成功登出"
+    },
     "verification": {
       "title": "验证电子邮件",
       "subtitle": "输入发送至的6位数字代码",

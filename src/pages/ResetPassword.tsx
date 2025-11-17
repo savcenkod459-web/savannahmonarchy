@@ -8,12 +8,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useTranslation } from "react-i18next";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,15 +33,15 @@ const ResetPassword = () => {
       }
       
       toast({
-        title: "Код отправлен",
-        description: "Проверьте почту и введите код для сброса пароля"
+        title: t("resetPassword.codeSent"),
+        description: t("resetPassword.codeSentDescription")
       });
       
       setTimeout(() => navigate(`/update-password?email=${encodeURIComponent(email)}`), 1500);
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Ошибка",
+        title: t("resetPassword.error"),
         description: error.message
       });
     } finally {
@@ -68,10 +70,10 @@ const ResetPassword = () => {
             </div>
             
             <CardTitle className="text-3xl font-display font-black text-center text-luxury-gradient luxury-text-shadow">
-              Сброс пароля
+              {t("resetPassword.title")}
             </CardTitle>
             <CardDescription className="text-center text-foreground/70 text-base font-medium">
-              Введите ваш email для получения ссылки сброса пароля
+              {t("resetPassword.subtitle")}
             </CardDescription>
           </CardHeader>
           
@@ -79,7 +81,7 @@ const ResetPassword = () => {
             <form onSubmit={handlePasswordReset} className="space-y-6">
               <div className="space-y-3">
                 <Label htmlFor="email" className="text-sm font-semibold text-foreground/80">
-                  Email
+                  {t("resetPassword.emailLabel")}
                 </Label>
                 <Input
                   id="email"
@@ -98,7 +100,7 @@ const ResetPassword = () => {
                 className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-glow transition-all duration-300"
                 disabled={loading}
               >
-                {loading ? "Отправка..." : "Отправить ссылку"}
+                {loading ? t("auth.loading") : t("resetPassword.sendLink")}
               </Button>
               
               <Button
@@ -107,7 +109,7 @@ const ResetPassword = () => {
                 className="w-full text-sm hover:bg-secondary/50 hover:text-foreground transition-all duration-300"
                 onClick={() => navigate("/auth")}
               >
-                Вернуться к входу
+                {t("resetPassword.backToSignIn")}
               </Button>
             </form>
           </CardContent>
