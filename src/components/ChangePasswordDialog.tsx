@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { KeyRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useFormValidation } from "@/hooks/useFormValidation";
 
 export const ChangePasswordDialog = () => {
   const { t } = useTranslation();
@@ -23,6 +24,9 @@ export const ChangePasswordDialog = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { toast } = useToast();
+  
+  // Подключаем кастомную валидацию с переводами
+  useFormValidation();
 
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -10,6 +10,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { EmailVerificationDialog } from "@/components/EmailVerificationDialog";
 import { useTranslation } from "react-i18next";
+import { useFormValidation } from "@/hooks/useFormValidation";
 
 const Auth = () => {
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
@@ -21,6 +22,9 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
+  
+  // Подключаем кастомную валидацию с переводами
+  useFormValidation();
   
   const getRedirectUrl = (path: string = "/") => {
     const origin = window.location.origin;

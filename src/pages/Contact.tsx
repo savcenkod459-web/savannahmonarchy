@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { User } from "@supabase/supabase-js";
 import { useTranslation } from "react-i18next";
+import { useFormValidation } from "@/hooks/useFormValidation";
 import {
   Dialog,
   DialogContent,
@@ -56,6 +57,9 @@ const Contact = () => {
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [pendingSubmit, setPendingSubmit] = useState(false);
   const { toast } = useToast();
+  
+  // Подключаем кастомную валидацию с переводами
+  useFormValidation();
 
   useEffect(() => {
     const checkUser = async () => {
