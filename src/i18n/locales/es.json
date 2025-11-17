@@ -242,6 +242,10 @@
       "description": "Por favor, inicia sesión o regístrate para enviar un mensaje",
       "button": "Iniciar sesión"
     },
+    "authRequired": "Autenticación requerida",
+    "authRequiredDescription": "Por favor, inicia sesión o regístrate para enviar un mensaje",
+    "login": "Iniciar sesión",
+    "logoutSuccess": "Has cerrado sesión exitosamente",
     "errors": {
       "invalidCredentials": "Credenciales Inválidas",
       "invalidCredentialsDescription": "Email o contraseña incorrectos. Si olvidó su contraseña, haga clic en '¿Olvidó su contraseña?'",
@@ -280,12 +284,17 @@
     "confirmPassword": "Confirmar nueva contraseña",
     "cancel": "Cancelar",
     "save": "Guardar",
+    "saving": "Guardando...",
     "errors": {
       "title": "Error",
       "mismatch": "Confirmó incorrectamente la nueva contraseña, por favor intente nuevamente",
       "wrongCurrent": "Ingresó incorrectamente su contraseña actual, por favor intente nuevamente",
+      "wrongPassword": "Ingresó incorrectamente su contraseña actual, por favor intente nuevamente",
       "minLength": "La contraseña debe contener al menos 8 caracteres",
-      "general": "Ocurrió un error al cambiar la contraseña"
+      "tooShort": "La contraseña debe contener al menos 8 caracteres",
+      "userNotFound": "Usuario no encontrado",
+      "general": "Ocurrió un error al cambiar la contraseña",
+      "generic": "Ocurrió un error al cambiar la contraseña"
     },
     "success": {
       "title": "Éxito",
@@ -295,7 +304,8 @@
   "captcha": {
     "title": "Confirmación de seguridad",
     "description": "Ingrese el código de la imagen",
-    "placeholder": "6 CARACTERES",
+    "enterCode": "Ingrese el código de la imagen",
+    "placeholder": "6 caracteres",
     "cancel": "Cancelar",
     "submit": "Enviar"
   },
@@ -681,5 +691,22 @@
     },
     "resendSuccess": "Código reenviado",
     "resendSuccessDescription": "Revise su correo para el nuevo código"
+  },
+  "errors": {
+    "validationError": "Error de validación",
+    "error": "Error",
+    "checkError": "Error de verificación",
+    "rateLimitCheckError": "No se pudo verificar el límite de mensajes. Por favor, intente más tarde.",
+    "tooManyMessages": "Demasiados mensajes",
+    "tooManyMessagesDescription": "Puede enviar un máximo de 3 mensajes por hora. Por favor, intente más tarde.",
+    "checkErrorGeneric": "Se produjo un error durante la verificación. Por favor, intente más tarde.",
+    "messageError": "No se pudo enviar el mensaje. Por favor, intente más tarde.",
+    "fillField": "Por favor complete este campo"
+  },
+  "contact": {
+    "messageSent": "Mensaje enviado",
+    "messageSentDescription": "¡Gracias por su mensaje! Nos pondremos en contacto con usted en breve.",
+    "emailCopied": "Email copiado",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles"
   }
 }

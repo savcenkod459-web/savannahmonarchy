@@ -695,5 +695,22 @@
     },
     "resendSuccess": "Código reenviado",
     "resendSuccessDescription": "Verifique seu email para o novo código"
+  },
+  "errors": {
+    "validationError": "Erro de validação",
+    "error": "Erro",
+    "checkError": "Erro de verificação",
+    "rateLimitCheckError": "Falha ao verificar o limite de mensagens. Por favor, tente novamente mais tarde.",
+    "tooManyMessages": "Muitas mensagens",
+    "tooManyMessagesDescription": "Você pode enviar um máximo de 3 mensagens por hora. Por favor, tente novamente mais tarde.",
+    "checkErrorGeneric": "Ocorreu um erro durante a verificação. Por favor, tente novamente mais tarde.",
+    "messageError": "Falha ao enviar mensagem. Por favor, tente novamente mais tarde.",
+    "fillField": "Por favor, preencha este campo"
+  },
+  "contact": {
+    "messageSent": "Mensagem enviada",
+    "messageSentDescription": "Obrigado pela sua mensagem! Entraremos em contato em breve.",
+    "emailCopied": "E-mail copiado",
+    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado para a área de transferência"
   }
 }
