@@ -9,15 +9,15 @@ import {
 import { Button } from "@/components/ui/button";
 
 const languages = [
-  { code: 'en', name: 'UK English', flag: '🇬🇧', label: 'UK' },
-  { code: 'ru', name: 'RU Русский', flag: '🇷🇺', label: 'RU' },
-  { code: 'ar', name: 'SA العربية', flag: '🇸🇦', label: 'SA' },
-  { code: 'fr', name: 'FR Français', flag: '🇫🇷', label: 'FR' },
-  { code: 'de', name: 'DE Deutsch', flag: '🇩🇪', label: 'DE' },
-  { code: 'es', name: 'ES Español', flag: '🇪🇸', label: 'ES' },
-  { code: 'pt', name: 'BR Português', flag: '🇧🇷', label: 'BR' },
-  { code: 'zh', name: 'CN 中文', flag: '🇨🇳', label: 'CN' },
-  { code: 'uk', name: 'UA Українська', flag: '🇺🇦', label: 'UA' },
+  { code: 'en', name: 'English', flag: '🇬🇧', label: 'UK' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺', label: 'RU' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', label: 'SA' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷', label: 'FR' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪', label: 'DE' },
+  { code: 'es', name: 'Español', flag: '🇪🇸', label: 'ES' },
+  { code: 'pt', name: 'Português', flag: '🇧🇷', label: 'BR' },
+  { code: 'zh', name: '中文', flag: '🇨🇳', label: 'CN' },
+  { code: 'uk', name: 'Українська', flag: '🇺🇦', label: 'UA' },
 ];
 
 const LanguageSelector = () => {
@@ -59,7 +59,7 @@ const LanguageSelector = () => {
             }`}
           >
             <span className="text-xl">{language.flag}</span>
-            <span>{language.name}</span>
+            <span>{language.label} {language.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
