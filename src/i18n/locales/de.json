@@ -217,18 +217,35 @@
     },
     "signup": {
       "title": "Konto Erstellen",
-      "subtitle": "Registrieren Sie sich, um zu beginnen"
+      "subtitle": "Registrieren Sie sich für Zugriff",
+      "success": "Registrierung Erfolgreich",
+      "successDescription": "Überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen"
     },
     "email": "E-Mail",
     "password": "Passwort",
     "signinButton": "Anmelden",
     "signupButton": "Registrieren",
     "loading": "Wird geladen...",
-    "noAccount": "Kein Konto?",
-    "hasAccount": "Bereits ein Konto?",
-    "register": "Registrieren",
-    "signin": "Anmelden",
+    "noAccount": "Kein Konto? Registrieren",
+    "hasAccount": "Bereits ein Konto? Anmelden",
     "forgotPassword": "Passwort vergessen?",
+    "errors": {
+      "invalidCredentials": "Ungültige Anmeldedaten",
+      "invalidCredentialsDescription": "E-Mail oder Passwort ist falsch. Wenn Sie Ihr Passwort vergessen haben, klicken Sie auf 'Passwort vergessen?'",
+      "userExists": "Benutzer Existiert Bereits",
+      "userExistsDescription": "Diese E-Mail ist bereits registriert. Versuchen Sie stattdessen sich anzumelden.",
+      "weakPassword": "Schwaches Passwort",
+      "weakPasswordDescription": "Das Passwort muss mindestens 8 Zeichen enthalten, einschließlich Buchstaben, Zahlen und Sonderzeichen. Versuchen Sie ein anderes Passwort.",
+      "signInError": "Anmeldefehler",
+      "signUpError": "Registrierungsfehler",
+      "error": "Fehler"
+    },
+    "success": {
+      "signInTitle": "Erfolgreiche Anmeldung",
+      "signInDescription": "Sie haben sich erfolgreich angemeldet",
+      "signOutTitle": "Abgemeldet",
+      "signOutDescription": "Sie haben sich erfolgreich abgemeldet"
+    },
     "verification": {
       "title": "E-Mail Verifizieren",
       "subtitle": "Geben Sie den 6-stelligen Code ein, der an gesendet wurde",

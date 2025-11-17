@@ -219,18 +219,35 @@
     },
     "signup": {
       "title": "Crear Cuenta",
-      "subtitle": "Regístrese para comenzar"
+      "subtitle": "Regístrese para acceder",
+      "success": "Registro Exitoso",
+      "successDescription": "Revise su correo para confirmar su cuenta"
     },
     "email": "Email",
     "password": "Contraseña",
     "signinButton": "Iniciar Sesión",
     "signupButton": "Registrarse",
     "loading": "Cargando...",
-    "noAccount": "¿No tiene cuenta?",
-    "hasAccount": "¿Ya tiene cuenta?",
-    "register": "Regístrese",
-    "signin": "Inicie Sesión",
+    "noAccount": "¿No tiene cuenta? Regístrese",
+    "hasAccount": "¿Ya tiene cuenta? Inicie Sesión",
     "forgotPassword": "¿Olvidó su contraseña?",
+    "errors": {
+      "invalidCredentials": "Credenciales Inválidas",
+      "invalidCredentialsDescription": "Email o contraseña incorrectos. Si olvidó su contraseña, haga clic en '¿Olvidó su contraseña?'",
+      "userExists": "El Usuario Ya Existe",
+      "userExistsDescription": "Este email ya está registrado. Intente iniciar sesión en su lugar.",
+      "weakPassword": "Contraseña Débil",
+      "weakPasswordDescription": "La contraseña debe contener al menos 8 caracteres, incluyendo letras, números y caracteres especiales. Intente otra contraseña.",
+      "signInError": "Error al Iniciar Sesión",
+      "signUpError": "Error de Registro",
+      "error": "Error"
+    },
+    "success": {
+      "signInTitle": "Inicio de Sesión Exitoso",
+      "signInDescription": "Ha iniciado sesión correctamente",
+      "signOutTitle": "Sesión Cerrada",
+      "signOutDescription": "Ha cerrado sesión correctamente"
+    },
     "verification": {
       "title": "Verificar Email",
       "subtitle": "Ingrese el código de 6 dígitos enviado a",

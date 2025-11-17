@@ -424,18 +424,35 @@
     },
     "signup": {
       "title": "Создать аккаунт",
-      "subtitle": "Зарегистрируйтесь, чтобы начать"
+      "subtitle": "Зарегистрируйтесь для доступа",
+      "success": "Успешная регистрация",
+      "successDescription": "Проверьте почту для подтверждения аккаунта"
     },
     "email": "Email",
     "password": "Пароль",
     "signinButton": "Войти",
     "signupButton": "Зарегистрироваться",
     "loading": "Загрузка...",
-    "noAccount": "Нет аккаунта?",
-    "hasAccount": "Уже есть аккаунт?",
-    "register": "Зарегистрируйтесь",
-    "signin": "Войдите",
+    "noAccount": "Нет аккаунта? Зарегистрируйтесь",
+    "hasAccount": "Уже есть аккаунт? Войдите",
     "forgotPassword": "Забыли пароль?",
+    "errors": {
+      "invalidCredentials": "Неверные данные для входа",
+      "invalidCredentialsDescription": "Email или пароль неверны. Если вы забыли пароль, нажмите 'Забыли пароль?'",
+      "userExists": "Пользователь уже существует",
+      "userExistsDescription": "Этот email уже зарегистрирован. Попробуйте войти вместо регистрации.",
+      "weakPassword": "Слабый пароль",
+      "weakPasswordDescription": "Пароль должен содержать минимум 8 символов, включая буквы, цифры и специальные символы. Попробуйте другой пароль.",
+      "signInError": "Ошибка входа",
+      "signUpError": "Ошибка регистрации",
+      "error": "Ошибка"
+    },
+    "success": {
+      "signInTitle": "Успешный вход",
+      "signInDescription": "Вы успешно вошли в систему",
+      "signOutTitle": "Выход выполнен",
+      "signOutDescription": "Вы успешно вышли из системы"
+    },
     "verification": {
       "title": "Подтвердите email",
       "subtitle": "Введите 6-значный код, отправленный на",
@@ -455,6 +472,7 @@
     "email": "Email",
     "emailNote": "Email не может быть изменен",
     "changePassword": "Изменить пароль",
+    "signOut": "Выйти",
     "password": {
       "title": "Изменить пароль",
       "current": "Текущий пароль",
@@ -466,6 +484,9 @@
       "errorCurrent": "Неверный текущий пароль",
       "errorMatch": "Новые пароли не совпадают",
       "errorGeneral": "Не удалось изменить пароль"
+    },
+    "validation": {
+      "minChars": "Минимально допустимое количество символов: {min}. Длина текста сейчас {current}."
     }
   },
   "guide": {
@@ -497,41 +518,47 @@
     "noData": "Информация о родословной недоступна"
   },
   "captcha": {
+    "title": "Подтверждение безопасности",
+    "instruction": "Введите код с картинки",
     "label": "Введите код с изображения",
-    "placeholder": "Введите код",
-    "refresh": "Обновить"
+    "placeholder": "6 символов",
+    "refresh": "Обновить",
+    "submit": "Отправить",
+    "cancel": "Отмена"
   },
   "resetPassword": {
     "title": "Сброс пароля",
     "subtitle": "Введите ваш email для получения ссылки сброса пароля",
     "emailLabel": "Email",
-    "sendButton": "Отправить ссылку сброса",
-    "backToLogin": "Вернуться к входу",
+    "sendLink": "Отправить ссылку",
+    "backToSignIn": "Вернуться к входу",
     "codeSent": "Код отправлен",
-    "codeDescription": "Проверьте почту и введите код для сброса пароля",
+    "codeSentDescription": "Проверьте почту и введите код для сброса пароля",
     "error": "Ошибка"
   },
   "updatePassword": {
     "title": "Обновление пароля",
-    "subtitle": "Введите код подтверждения и новый пароль",
+    "subtitle": "Введите код из письма и новый пароль",
     "emailLabel": "Email",
-    "codeLabel": "Код подтверждения",
-    "codePlaceholder": "Введите 6-значный код",
-    "newPasswordLabel": "Новый пароль",
-    "confirmPasswordLabel": "Подтвердите пароль",
-    "updateButton": "Обновить пароль",
+    "verificationCode": "Код подтверждения",
+    "codePlaceholder": "Введите 6-значный код из письма",
+    "newPassword": "Новый пароль",
+    "newPasswordPlaceholder": "Введите новый пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "confirmPasswordPlaceholder": "Повторите новый пароль",
+    "changePasswordButton": "Изменить пароль",
     "resendCode": "Отправить код повторно",
-    "resendIn": "Отправить повторно через",
-    "backToLogin": "Вернуться к входу",
-    "error": "Ошибка",
-    "errorEmail": "Введите email адрес",
-    "errorCode": "Введите email и код подтверждения",
-    "errorMatch": "Пароли не совпадают",
-    "errorLength": "Пароль должен быть не менее 8 символов",
-    "successTitle": "Пароль успешно изменен",
-    "successDescription": "Теперь вы можете войти с новым паролем",
-    "resendSuccessTitle": "Код отправлен повторно",
-    "resendSuccessDescription": "Проверьте почту для получения нового кода"
+    "waitTimer": "Подождите {timer}с",
+    "back": "Назад",
+    "success": "Успешно",
+    "successDescription": "Пароль успешно изменен. Используйте новый пароль при следующем входе.",
+    "resendSuccess": "Код отправлен повторно",
+    "resendSuccessDescription": "Проверьте почту для получения нового кода",
+    "enterEmail": "Введите email адрес",
+    "enterEmailAndCode": "Введите email и код подтверждения",
+    "passwordsDontMatch": "Пароли не совпадают",
+    "passwordTooShort": "Пароль должен быть не менее 8 символов",
+    "error": "Ошибка"
   },
   "warranty": {
     "badge": "Премиум защита",
