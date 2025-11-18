@@ -315,16 +315,25 @@
   "changePassword": {
     "title": "Alterar Senha",
     "description": "Digite sua senha atual e a nova senha duas vezes",
+    "button": "Alterar Senha",
     "currentPassword": "Senha Atual",
+    "currentPasswordPlaceholder": "Digite a senha atual",
     "newPassword": "Nova Senha",
+    "newPasswordPlaceholder": "Digite a nova senha",
     "confirmPassword": "Confirmar Nova Senha",
+    "confirmPasswordPlaceholder": "Repita a nova senha",
+    "cancel": "Cancelar",
+    "save": "Salvar",
     "saving": "Salvando...",
     "errors": {
       "title": "Erro",
       "mismatch": "As senhas não correspondem",
-      "tooShort": "A senha deve ter pelo menos 8 caracteres",
+      "wrongCurrent": "Senha atual incorreta",
       "wrongPassword": "Senha atual incorreta",
+      "minLength": "A senha deve ter pelo menos 8 caracteres",
+      "tooShort": "A senha deve ter pelo menos 8 caracteres",
       "userNotFound": "Usuário não encontrado",
+      "general": "Erro ao alterar senha",
       "generic": "Erro ao alterar senha"
     },
     "success": {
