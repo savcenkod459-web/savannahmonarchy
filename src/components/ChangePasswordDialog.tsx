@@ -14,7 +14,6 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { KeyRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useFormValidation } from "@/hooks/useFormValidation";
 
 export const ChangePasswordDialog = () => {
   const { t } = useTranslation();
@@ -25,8 +24,82 @@ export const ChangePasswordDialog = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const { toast } = useToast();
   
-  // Подключаем кастомную валидацию с переводами
-  useFormValidation();
+  // Инициализация валидации при открытии диалога
+  useEffect(() => {
+    if (!open) return;
+
+    const validateField = (input: HTMLInputElement | HTMLTextAreaElement): boolean => {
+      let errorMessage = '';
+
+      if (input.validity.valueMissing) {
+        errorMessage = t('auth.validation.required');
+      } else if (input.validity.tooShort) {
+        const minLength = input.getAttribute('minlength') || '8';
+        const currentLength = input.value.length;
+        errorMessage = t('auth.validation.minLength', { 
+          min: minLength, 
+          current: currentLength.toString() 
+        });
+      }
+
+      input.setCustomValidity(errorMessage);
+      return input.validity.valid;
+    };
+
+    const handleInvalid = (e: Event) => {
+      e.preventDefault();
+      const input = e.target as HTMLInputElement | HTMLTextAreaElement;
+      validateField(input);
+      
+      const errorSpan = input.parentElement?.querySelector('.validation-error');
+      if (errorSpan) {
+        errorSpan.textContent = input.validationMessage;
+      } else {
+        const span = document.createElement('span');
+        span.className = 'validation-error text-sm text-destructive mt-1 block';
+        span.textContent = input.validationMessage;
+        input.parentElement?.appendChild(span);
+      }
+    };
+
+    const handleInput = (e: Event) => {
+      const input = e.target as HTMLInputElement | HTMLTextAreaElement;
+      input.setCustomValidity('');
+      
+      const errorSpan = input.parentElement?.querySelector('.validation-error');
+      if (errorSpan) {
+        errorSpan.remove();
+      }
+      
+      if (input.value.length > 0) {
+        validateField(input);
+      }
+    };
+
+    const form = document.querySelector('#change-password-form') as HTMLFormElement;
+    if (!form) return;
+
+    const inputs = form.querySelectorAll<HTMLInputElement>(
+      'input[required], input[minlength]'
+    );
+    
+    inputs.forEach((input) => {
+      input.addEventListener('invalid', handleInvalid);
+      input.addEventListener('input', handleInput);
+      input.addEventListener('blur', () => {
+        if (input.value.length > 0) {
+          validateField(input);
+        }
+      });
+    });
+
+    return () => {
+      inputs.forEach((input) => {
+        input.removeEventListener('invalid', handleInvalid);
+        input.removeEventListener('input', handleInput);
+      });
+    };
+  }, [open, t]);
 
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,14 +110,7 @@ export const ChangePasswordDialog = () => {
     const newPasswordInput = form.querySelector('#new-password') as HTMLInputElement;
     const confirmPasswordInput = form.querySelector('#confirm-password') as HTMLInputElement;
     
-    if (!currentPasswordInput.validity.valid || !newPasswordInput.validity.valid || !confirmPasswordInput.validity.valid) {
-      if (!currentPasswordInput.validity.valid) {
-        currentPasswordInput.reportValidity();
-      } else if (!newPasswordInput.validity.valid) {
-        newPasswordInput.reportValidity();
-      } else {
-        confirmPasswordInput.reportValidity();
-      }
+    if (!currentPasswordInput?.validity.valid || !newPasswordInput?.validity.valid || !confirmPasswordInput?.validity.valid) {
       return;
     }
     
@@ -127,7 +193,7 @@ export const ChangePasswordDialog = () => {
             {t("changePassword.description")}
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleChangePassword} className="space-y-4">
+        <form id="change-password-form" onSubmit={handleChangePassword} className="space-y-4" noValidate>
           <div className="space-y-2">
             <Label htmlFor="current-password">{t("changePassword.currentPassword")}</Label>
             <Input
