@@ -297,16 +297,19 @@
     "description": "Enter your current password and the new password twice",
     "button": "Change Password",
     "currentPassword": "Current Password",
+    "currentPasswordPlaceholder": "Enter current password",
     "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
     "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Repeat new password",
     "cancel": "Cancel",
     "save": "Save",
     "saving": "Saving...",
     "errors": {
       "title": "Error",
-      "mismatch": "You incorrectly confirmed the new password, please try again",
-      "wrongCurrent": "You entered your current password incorrectly, please try again",
-      "wrongPassword": "You entered your current password incorrectly, please try again",
+      "mismatch": "Passwords do not match",
+      "wrongCurrent": "Incorrect current password",
+      "wrongPassword": "Incorrect current password",
       "minLength": "Password must contain at least 8 characters",
       "tooShort": "Password must contain at least 8 characters",
       "userNotFound": "User not found",
@@ -315,7 +318,7 @@
     },
     "success": {
       "title": "Success",
-      "description": "Password successfully changed. Use the new password on your next login."
+      "description": "Password successfully changed"
     }
   },
   "captcha": {

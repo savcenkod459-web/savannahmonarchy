@@ -297,16 +297,19 @@
     "description": "Ingrese su contraseña actual y la nueva contraseña dos veces",
     "button": "Cambiar contraseña",
     "currentPassword": "Contraseña actual",
+    "currentPasswordPlaceholder": "Ingrese contraseña actual",
     "newPassword": "Nueva contraseña",
+    "newPasswordPlaceholder": "Ingrese nueva contraseña",
     "confirmPassword": "Confirmar nueva contraseña",
+    "confirmPasswordPlaceholder": "Repita nueva contraseña",
     "cancel": "Cancelar",
     "save": "Guardar",
     "saving": "Guardando...",
     "errors": {
       "title": "Error",
-      "mismatch": "Confirmó incorrectamente la nueva contraseña, por favor intente nuevamente",
-      "wrongCurrent": "Ingresó incorrectamente su contraseña actual, por favor intente nuevamente",
-      "wrongPassword": "Ingresó incorrectamente su contraseña actual, por favor intente nuevamente",
+      "mismatch": "Las contraseñas no coinciden",
+      "wrongCurrent": "Contraseña actual incorrecta",
+      "wrongPassword": "Contraseña actual incorrecta",
       "minLength": "La contraseña debe contener al menos 8 caracteres",
       "tooShort": "La contraseña debe contener al menos 8 caracteres",
       "userNotFound": "Usuario no encontrado",
@@ -315,7 +318,7 @@
     },
     "success": {
       "title": "Éxito",
-      "description": "Contraseña cambiada exitosamente. Use la nueva contraseña en su próximo inicio de sesión."
+      "description": "Contraseña cambiada exitosamente"
     }
   },
   "captcha": {
