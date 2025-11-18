@@ -261,10 +261,8 @@
       "maxLength": "Máximo de caracteres permitidos: {{max}}",
       "passwordMinLength": "A senha deve conter pelo menos 8 caracteres"
     },
-    "password": {
-      "show": "Mostrar senha",
-      "hide": "Ocultar senha"
-    },
+    "showPassword": "Mostrar senha",
+    "hidePassword": "Ocultar senha",
     "success": {
       "signInTitle": "Login Bem-sucedido",
       "signInDescription": "Você entrou com sucesso",

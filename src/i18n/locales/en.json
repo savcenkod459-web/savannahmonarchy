@@ -241,6 +241,8 @@
     "noAccount": "Don't have an account? Register",
     "hasAccount": "Already have an account? Sign In",
     "forgotPassword": "Forgot password?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "logout": {
       "title": "Logged Out",
       "description": "You have successfully logged out"
@@ -273,10 +275,6 @@
       "minLength": "Minimum allowed characters: {{min}}. Current length: {{current}}",
       "maxLength": "Maximum allowed characters: {{max}}",
       "passwordMinLength": "Password must contain at least 8 characters"
-    },
-    "password": {
-      "show": "Show password",
-      "hide": "Hide password"
     },
     "success": {
       "signInTitle": "Successful Sign In",
