@@ -24,8 +24,9 @@ const handler = async (req: Request): Promise<Response> => {
     console.log(`Sending verification code to ${email}`);
 
     // Отправляем email через Resend
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahDynasty <onboarding@resend.dev>";
     const emailResponse = await resend.emails.send({
-      from: "SavannahDynasty <onboarding@resend.dev>",
+      from: fromEmail,
       to: [email],
       subject: "Код подтверждения email",
       html: `

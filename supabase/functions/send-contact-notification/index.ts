@@ -185,9 +185,10 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     // Отправляем email всем администраторам
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahDynasty <onboarding@resend.dev>";
     const emailPromises = adminEmails.map(adminEmail =>
       resend.emails.send({
-        from: "SavannahDynasty <onboarding@resend.dev>",
+        from: fromEmail,
         to: [adminEmail],
         subject: `🔔 Новое сообщение от ${name}`,
         html: htmlContent,
