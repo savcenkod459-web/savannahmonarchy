@@ -104,8 +104,9 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Send email with the reset code
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahDynasty <onboarding@resend.dev>";
     const emailResponse = await resend.emails.send({
-      from: "SavannahDynasty <onboarding@resend.dev>",
+      from: fromEmail,
       to: [email],
       subject: "Код сброса пароля - SavannahDynasty",
       html: `
