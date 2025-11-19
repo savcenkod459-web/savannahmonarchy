@@ -151,6 +151,33 @@ All colors MUST be HSL.
     left: 100%;
   }
   
+  .text-shimmer {
+    @apply relative;
+    background: linear-gradient(90deg, 
+      hsl(var(--foreground)), 
+      hsl(var(--primary)), 
+      hsl(var(--foreground))
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .hover-text-glow:hover {
+    animation: textGlow 0.5s ease-in-out;
+  }
+  
+  @keyframes textGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px hsl(43 96% 56% / 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px hsl(43 96% 56% / 0.6), 0 0 30px hsl(43 96% 56% / 0.4);
+    }
+  }
+  
   .glass-effect {
     @apply backdrop-blur-xl bg-card/80 border border-primary/10;
     box-shadow: var(--shadow-elegant);
