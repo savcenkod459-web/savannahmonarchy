@@ -316,7 +316,7 @@ export const VideoPlayer = ({
           variant="ghost" 
           size="icon" 
           onClick={handlePlayClick} 
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
         >
           <Play className="h-6 w-6" />
         </Button>
