@@ -361,10 +361,10 @@ All colors MUST be HSL.
 
   @keyframes textGoldPulse {
     0%, 100% {
-      filter: drop-shadow(0 0 2px hsl(43 96% 56% / 0.2)) drop-shadow(0 0 2px hsl(43 96% 56% / 0.2));
+      filter: drop-shadow(2px 0 2px hsl(43 96% 56% / 0.2));
     }
     50% {
-      filter: drop-shadow(0 0 5px hsl(43 96% 56% / 0.35)) drop-shadow(0 0 5px hsl(43 96% 56% / 0.35));
+      filter: drop-shadow(5px 0 5px hsl(43 96% 56% / 0.35));
     }
   }
 
