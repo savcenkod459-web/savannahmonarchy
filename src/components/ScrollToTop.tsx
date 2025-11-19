@@ -20,8 +20,20 @@ const ScrollToTop = () => {
       behavior: "smooth"
     });
   };
-  return <>
-      {isVisible}
-    </>;
+  return (
+    <>
+      {isVisible && (
+        <Button
+          onClick={scrollToTop}
+          size="icon"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 hover:scale-110 md:w-14 md:h-14"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="h-5 w-5 md:h-6 md:w-6" />
+        </Button>
+      )}
+    </>
+  );
 };
+
 export default ScrollToTop;
