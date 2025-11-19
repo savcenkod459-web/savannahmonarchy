@@ -491,6 +491,17 @@ All colors MUST be HSL.
     }
   }
   
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
   @keyframes slide-up {
     from {
       opacity: 0;
