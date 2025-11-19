@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
+
 type Cat = {
   id: string;
   name: string;
@@ -26,10 +27,40 @@ type Cat = {
   additional_images: string[];
   video?: string;
 };
+
 const imageMap: Record<string, string> = {
   '/src/assets/savannah-f1-1.jpg': savannah1,
   '/src/assets/savannah-f2-1.jpg': savannah2,
   '/src/assets/savannah-kitten-1.jpg': kitten
+};
+
+// Preload images for next/previous cards
+const preloadImages = (cats: Cat[], currentIndex: number) => {
+  const imagesToPreload: string[] = [];
+  
+  // Preload next card images
+  if (currentIndex < cats.length - 1) {
+    const nextCat = cats[currentIndex + 1];
+    imagesToPreload.push(nextCat.image);
+    if (nextCat.additional_images) {
+      imagesToPreload.push(...nextCat.additional_images);
+    }
+  }
+  
+  // Preload previous card images
+  if (currentIndex > 0) {
+    const prevCat = cats[currentIndex - 1];
+    imagesToPreload.push(prevCat.image);
+    if (prevCat.additional_images) {
+      imagesToPreload.push(...prevCat.additional_images);
+    }
+  }
+  
+  // Create image objects to trigger preloading
+  imagesToPreload.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
 };
 const Catalog = () => {
   const { t } = useTranslation();
@@ -51,6 +82,12 @@ const Catalog = () => {
     setModalImages(allImages);
     setModalVideo(cat.video);
     setModalOpen(true);
+    
+    // Preload adjacent cat images for faster navigation
+    const currentIndex = filteredCats.findIndex(c => c.id === cat.id);
+    if (currentIndex !== -1) {
+      preloadImages(filteredCats, currentIndex);
+    }
   };
 
   // Fetch cats from Supabase
@@ -136,12 +173,19 @@ const Catalog = () => {
               ) : (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredCats.map((cat, index) => (
-                    <CatCard 
+                    <div
                       key={cat.id}
-                      cat={cat} 
-                      onCardClick={openCatDetail}
-                      animationDelay={index * 100}
-                    />
+                      onMouseEnter={() => {
+                        // Preload images when hovering over card
+                        preloadImages(filteredCats, index);
+                      }}
+                    >
+                      <CatCard 
+                        cat={cat} 
+                        onCardClick={openCatDetail}
+                        animationDelay={index * 100}
+                      />
+                    </div>
                   ))}
                 </div>
               )}
