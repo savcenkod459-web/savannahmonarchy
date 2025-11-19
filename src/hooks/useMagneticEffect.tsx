@@ -43,7 +43,9 @@ export const useMagneticEffect = (strength: number = 0.3) => {
       currentX += (targetX - currentX) * 0.2;
       currentY += (targetY - currentY) * 0.2;
       
-      element.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      // Use translate3d for better performance and to not override CSS transforms
+      element.style.setProperty('--magnetic-x', `${currentX}px`);
+      element.style.setProperty('--magnetic-y', `${currentY}px`);
       animationFrameId = requestAnimationFrame(animate);
     };
 

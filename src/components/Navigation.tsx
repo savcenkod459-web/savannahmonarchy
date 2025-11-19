@@ -163,7 +163,7 @@ const Navigation = () => {
             if (item.hasSubmenu) {
               return <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
-                      <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+                      <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}>
                         {item.name}
                         <ChevronDown className="w-4 h-4" />
                         <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
@@ -188,7 +188,7 @@ const Navigation = () => {
                     </PopoverContent>
                   </Popover>;
             }
-            return <Link key={item.path} to={item.path} className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+            return <Link key={item.path} to={item.path} className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}>
                   {item.name}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
                 </Link>;
@@ -197,7 +197,7 @@ const Navigation = () => {
             {isAdmin && (
               <Popover open={adminPopoverOpen} onOpenChange={setAdminPopoverOpen}>
                 <PopoverTrigger asChild>
-                  <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(217,179,112,0.3)] ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary"}`}>
+                  <button className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}>
                     ⚙️ Админ
                     <ChevronDown className="w-4 h-4" />
                     <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${location.pathname.startsWith("/admin") ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`} />
