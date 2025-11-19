@@ -79,9 +79,12 @@ const Preloader = () => {
         {/* Crown logo with enhanced glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="relative">
-            <Crown className="w-20 h-20 text-primary drop-shadow-[0_0_40px_rgba(217,179,112,1)]" style={{ animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite' }} />
-            <div className="absolute inset-0 bg-primary/30 blur-3xl animate-pulse" />
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/30 to-primary/20 blur-2xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+            <Crown className="w-20 h-20 text-primary" style={{ 
+              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
+              filter: 'drop-shadow(0 0 20px rgba(217,179,112,0.8)) drop-shadow(0 0 40px rgba(217,179,112,0.6)) drop-shadow(0 0 60px rgba(217,179,112,0.4))'
+            }} />
+            <div className="absolute -inset-8 bg-primary/20 blur-3xl rounded-full animate-pulse" />
+            <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-accent/20 to-primary/10 blur-3xl rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
           </div>
           
           <div className="text-center space-y-3">
