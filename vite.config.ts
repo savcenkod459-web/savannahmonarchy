@@ -40,6 +40,7 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,avif,mp4}'],
+        // Стратегия кеширования для мобильных устройств
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -86,8 +87,20 @@ export default defineConfig(({ mode }) => ({
             options: {
               cacheName: 'videos-cache',
               expiration: {
-                maxEntries: 20,
+                maxEntries: 10, // Уменьшаем для мобильных
                 maxAgeSeconds: 60 * 60 * 24 * 7 // 7 дней
+              }
+            }
+          },
+          {
+            // Кешируем изображения из Supabase Storage
+            urlPattern: /^https:\/\/.*\.supabase\.co\/storage\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'supabase-images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 14 // 14 дней
               }
             }
           }
@@ -103,25 +116,31 @@ export default defineConfig(({ mode }) => ({
         optimizationLevel: 7
       },
       mozjpeg: {
-        quality: 80
+        quality: 85, // Увеличено для лучшего качества
+        progressive: true
       },
       pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4
+        quality: [0.85, 0.95], // Увеличено для лучшего качества
+        speed: 3 // Быстрее для мобильных
       },
       svgo: {
         plugins: [
           {
-            name: 'removeViewBox'
+            name: 'removeViewBox',
+            active: false // Сохраняем viewBox для адаптивности
           },
           {
             name: 'removeEmptyAttrs',
             active: false
+          },
+          {
+            name: 'cleanupIDs',
+            active: true
           }
         ]
       },
       webp: {
-        quality: 85
+        quality: 90 // Увеличено для лучшего качества
       }
     })
   ].filter(Boolean),
