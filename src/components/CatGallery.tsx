@@ -39,10 +39,10 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-full"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToPrevious}
             >
-              <ChevronLeft className="h-8 w-8" />
+              <ChevronLeft className="h-10 w-10" />
             </Button>
           )}
 
@@ -58,10 +58,10 @@ export const CatGallery = ({ images, isOpen, onClose, initialIndex = 0 }: CatGal
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-white hover:bg-white/20 rounded-full"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToNext}
             >
-              <ChevronRight className="h-8 w-8" />
+              <ChevronRight className="h-10 w-10" />
             </Button>
           )}
 

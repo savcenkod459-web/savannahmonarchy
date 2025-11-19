@@ -53,15 +53,15 @@ export const CatDetailModal = ({
                   <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="w-full h-full object-contain cursor-pointer rounded-lg" onClick={handleImageClick} />
                   
                   {images.length > 1 && <>
-                      <Button variant="ghost" size="icon" onClick={goToPreviousImage} className="absolute left-2 top-1/2 -translate-y-1/2 hover:bg-primary/20 rounded-full text-gray-50">
-                        <ChevronLeft className="h-8 w-8" />
+                      <Button variant="ghost" size="icon" onClick={goToPreviousImage} className="absolute left-2 top-1/2 -translate-y-1/2 z-40 hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110">
+                        <ChevronLeft className="h-10 w-10" />
                       </Button>
                       
-                      <Button variant="ghost" size="icon" onClick={goToNextImage} className="absolute right-2 top-1/2 -translate-y-1/2 hover:bg-primary/20 rounded-full text-gray-50">
-                        <ChevronRight className="h-8 w-8" />
+                      <Button variant="ghost" size="icon" onClick={goToNextImage} className="absolute right-2 top-1/2 -translate-y-1/2 z-40 hover:bg-white/30 rounded-full text-white bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110">
+                        <ChevronRight className="h-10 w-10" />
                       </Button>
 
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm">
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm z-30">
                         {currentImageIndex + 1} / {images.length}
                       </div>
                     </>}
@@ -89,18 +89,18 @@ export const CatDetailModal = ({
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
-            {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-full" onClick={goToPreviousImage}>
-                <ChevronLeft className="h-8 w-8" />
+            {images.length > 1 && <Button variant="ghost" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" onClick={goToPreviousImage}>
+                <ChevronLeft className="h-10 w-10" />
               </Button>}
 
             <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" />
 
             {images.length > 1 && <>
-                <Button variant="ghost" size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-white hover:bg-white/20 rounded-full" onClick={goToNextImage}>
-                  <ChevronRight className="h-8 w-8" />
+                <Button variant="ghost" size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" onClick={goToNextImage}>
+                  <ChevronRight className="h-10 w-10" />
                 </Button>
 
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm z-30">
                   {currentImageIndex + 1} / {images.length}
                 </div>
               </>}
