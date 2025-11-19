@@ -77,14 +77,16 @@ const Hero = () => {
               {/* Logo with Crown - appears on hover */}
               <div className="absolute top-4 left-4 opacity-0 group-hover/hero:opacity-100 transition-all duration-700 transform group-hover/hero:scale-110 flex items-center gap-3">
                 <div className="relative animate-[goldPulse_1.5s_ease-in-out_infinite]">
-                  <Crown className="w-10 h-10 text-primary" style={{ 
-                    filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 1)) drop-shadow(0 0 16px hsl(43 96% 56% / 0.8)) drop-shadow(0 0 24px hsl(43 96% 56% / 0.6))',
+                  <Crown className="w-10 h-10" style={{ 
+                    color: 'hsl(43, 96%, 56%)',
+                    filter: 'drop-shadow(0 0 12px hsl(43 96% 56% / 1)) drop-shadow(0 0 20px hsl(43 96% 56% / 0.9))',
                   }} />
                 </div>
                 <span 
-                  className="font-display font-black text-3xl bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent"
+                  className="font-display font-black text-3xl"
                   style={{ 
-                    filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 1)) drop-shadow(0 0 16px hsl(43 96% 56% / 0.8)) drop-shadow(0 0 24px hsl(43 96% 56% / 0.6))',
+                    color: 'hsl(43, 96%, 56%)',
+                    filter: 'drop-shadow(0 0 12px hsl(43 96% 56% / 1)) drop-shadow(0 0 20px hsl(43 96% 56% / 0.9))',
                     animation: 'goldPulse 1.5s ease-in-out infinite'
                   }}
                 >
