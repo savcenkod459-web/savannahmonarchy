@@ -200,7 +200,12 @@ export const VideoPlayer = ({
         playsInline
       />
       
-      {onToggleFullscreen && <Button variant="ghost" size="icon" onClick={onToggleFullscreen} className="absolute bottom-4 right-4 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-full">
+      {onToggleFullscreen && <Button 
+        variant="ghost" 
+        size="icon" 
+        onClick={onToggleFullscreen} 
+        className="absolute bottom-4 right-4 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10 rounded-full"
+      >
           <Maximize className="h-5 w-5" />
         </Button>}
 
