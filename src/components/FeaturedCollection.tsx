@@ -103,9 +103,7 @@ const FeaturedCollection = () => {
                     <img 
                       src={cat.image} 
                       alt={cat.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      loading="lazy"
-                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                     />
                     
                     {/* Gradient overlay on hover - softer colors */}

@@ -1,8 +1,7 @@
-import { memo } from 'react';
 import { Crown, Diamond, Sparkles, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const PremiumBreeds = memo(() => {
+const PremiumBreeds = () => {
   const { t } = useTranslation();
   
   const breeds = [{
@@ -45,8 +44,5 @@ const PremiumBreeds = memo(() => {
         </div>
       </div>
     </section>;
-});
-
-PremiumBreeds.displayName = 'PremiumBreeds';
-
+};
 export default PremiumBreeds;
