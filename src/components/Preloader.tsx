@@ -15,7 +15,7 @@ const Preloader = () => {
       setTimeout(() => {
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
-      }, 1000);
+      }, 800);
     }, 2000);
 
     return () => {
@@ -31,9 +31,10 @@ const Preloader = () => {
     <>
       {/* Full screen background overlay */}
       <div 
-        className="fixed inset-0 z-[99998] bg-background"
+        className="fixed inset-0 z-[99998] bg-background transition-all duration-800"
         style={{ 
           opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'scale(1)' : 'scale(1.1)',
           pointerEvents: isVisible ? 'auto' : 'none',
           position: 'fixed',
           top: 0,
@@ -47,9 +48,10 @@ const Preloader = () => {
       
       {/* Preloader content */}
       <div 
-        className="fixed inset-0 z-[99999] flex items-center justify-center bg-background transition-opacity duration-1000"
+        className="fixed inset-0 z-[99999] flex items-center justify-center bg-background transition-all duration-800"
         style={{ 
-          opacity: isVisible ? 1 : 0, 
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'scale(1)' : 'scale(0.95)',
           pointerEvents: isVisible ? 'auto' : 'none',
           position: 'fixed',
           top: 0,
@@ -78,13 +80,14 @@ const Preloader = () => {
         
         {/* Crown logo with enhanced glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative">
-            <Crown className="w-20 h-20 text-primary" style={{ 
+          <div className="relative flex items-center justify-center w-32 h-32">
+            <Crown className="w-20 h-20 text-primary relative z-10" style={{ 
               animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
-              filter: 'drop-shadow(0 0 20px rgba(217,179,112,0.8)) drop-shadow(0 0 40px rgba(217,179,112,0.6)) drop-shadow(0 0 60px rgba(217,179,112,0.4))'
+              filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))'
             }} />
-            <div className="absolute -inset-8 bg-primary/20 blur-3xl rounded-full animate-pulse" />
-            <div className="absolute -inset-12 bg-gradient-to-r from-primary/10 via-accent/20 to-primary/10 blur-3xl rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full animate-pulse" style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }} />
+            <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-accent/25 to-transparent blur-2xl rounded-full animate-pulse" style={{ width: '180%', height: '180%', left: '-40%', top: '-40%', animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 bg-primary/15 blur-3xl rounded-full animate-pulse" style={{ width: '220%', height: '220%', left: '-60%', top: '-60%', animationDelay: '1s' }} />
           </div>
           
           <div className="text-center space-y-3">
