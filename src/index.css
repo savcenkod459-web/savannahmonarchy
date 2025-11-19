@@ -460,6 +460,21 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes shimmer-pulse {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-shimmer-pulse {
+    animation: shimmer-pulse ease-in-out infinite;
+  }
+
   
   @keyframes fadeIn {
     from {
@@ -535,5 +550,34 @@ All colors MUST be HSL.
 
   .animate-float-up {
     animation: float-up linear infinite;
+  }
+
+  /* Custom scrollbar styles for dark theme */
+  .dark ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-radius: 10px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 10px;
+    border: 2px solid hsl(var(--background));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.8);
+  }
+
+  /* Firefox scrollbar */
+  .dark * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
   }
 }
