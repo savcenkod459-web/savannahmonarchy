@@ -130,13 +130,11 @@ export const VideoPlayer = memo(({
       setIsPlaying(false);
     }
   };
-
   const handleFullscreen = () => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
-
     if (!document.fullscreenElement) {
-      videoElement.requestFullscreen().catch((err) => {
+      videoElement.requestFullscreen().catch(err => {
         console.error('Error attempting to enable fullscreen:', err);
       });
     } else {
@@ -236,82 +234,40 @@ export const VideoPlayer = memo(({
         </div>}
       
       {/* Progress bar - always visible, positioned at bottom */}
-      {isVideoLoaded && (
-        <div className="absolute bottom-20 left-4 right-4 z-40 touch-auto">
+      {isVideoLoaded && <div className="absolute bottom-20 left-4 right-4 z-40 touch-auto">
           <div className="bg-black/70 backdrop-blur-sm rounded-lg p-2 md:p-3">
-            <Slider 
-              value={[currentTime]} 
-              max={duration || 100} 
-              step={0.1} 
-              onValueChange={handleSeek} 
-              className="cursor-pointer touch-auto"
-            />
+            <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
           </div>
-        </div>
-      )}
+        </div>}
 
       {/* Play button and time display - always visible, positioned at bottom left */}
       <div className="absolute bottom-4 left-4 z-40 flex items-center gap-2 md:gap-3 touch-auto">
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={handlePlayClick} 
-          className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform"
-        >
+        <Button variant="ghost" size="icon" onClick={handlePlayClick} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
           {isPlaying ? <Pause className="h-5 w-5 md:h-6 md:w-6" /> : <Play className="h-5 w-5 md:h-6 md:w-6" />}
         </Button>
-        {isVideoLoaded && (
-          <div className="text-white text-xs md:text-sm font-medium bg-black/70 backdrop-blur-sm px-2 py-1 md:px-3 md:py-2 rounded-full whitespace-nowrap">
+        {isVideoLoaded && <div className="text-white text-xs md:text-sm font-medium bg-black/70 backdrop-blur-sm px-2 py-1 md:px-3 md:py-2 rounded-full whitespace-nowrap">
             {formatTime(currentTime)} / {formatTime(duration)}
-          </div>
-        )}
+          </div>}
       </div>
       
       {/* Volume and fullscreen controls - always visible, positioned at bottom right */}
       <div className="absolute bottom-4 right-4 z-40 flex items-center gap-1 md:gap-2 touch-auto">
-        {isVideoLoaded && (
-          <>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleMute} 
-              className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform"
-            >
+        {isVideoLoaded && <>
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
               {isMuted ? <VolumeX className="h-5 w-5 md:h-6 md:w-6" /> : <Volume2 className="h-5 w-5 md:h-6 md:w-6" />}
             </Button>
             <div className="hidden md:flex bg-black/70 backdrop-blur-sm rounded-full px-2 py-1 md:px-3 md:py-2">
-              <Slider 
-                value={[isMuted ? 0 : volume]} 
-                max={1} 
-                step={0.01} 
-                onValueChange={handleVolumeChange} 
-                className="w-16 md:w-20 cursor-pointer touch-auto"
-              />
+              <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="w-16 md:w-20 cursor-pointer touch-auto" />
             </div>
-          </>
-        )}
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={handleFullscreen} 
-          className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform"
-        >
+          </>}
+        <Button variant="ghost" size="icon" onClick={handleFullscreen} className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform">
           <Maximize className="h-5 w-5 md:h-6 md:w-6" />
         </Button>
       </div>
 
       {/* Stop button - always visible on mobile */}
-      {isVideoLoaded && (
-        <div className="absolute top-4 right-4 z-40 touch-auto">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={handleStop} 
-            className="text-white hover:bg-white/20 active:scale-95 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 backdrop-blur-sm touch-auto transition-transform"
-          >
-            <Square className="h-4 w-4 md:h-5 md:w-5" />
-          </Button>
-        </div>
-      )}
+      {isVideoLoaded && <div className="absolute top-4 right-4 z-40 touch-auto">
+          
+        </div>}
     </div>;
 });
