@@ -1,5 +1,6 @@
 import { ReactNode, memo } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useMobileOptimization } from '@/hooks/useMobileOptimization';
 
 interface ScrollAnimationWrapperProps {
   children: ReactNode;
@@ -18,9 +19,11 @@ const ScrollAnimationWrapper = ({
     threshold: 0.1, 
     triggerOnce: true 
   });
+  const { shouldReduceAnimations } = useMobileOptimization();
 
   const getAnimationClass = () => {
-    if (!isVisible || animation === 'none') return 'opacity-0';
+    // Если нужно уменьшить анимации или элемент не видим, возвращаем базовый класс
+    if (shouldReduceAnimations || !isVisible || animation === 'none') return 'opacity-0';
     
     switch (animation) {
       case 'fade':
