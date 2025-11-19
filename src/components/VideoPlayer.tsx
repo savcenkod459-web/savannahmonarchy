@@ -133,6 +133,13 @@ export const VideoPlayer = memo(({
     }
   };
   const handleFullscreen = () => {
+    // On mobile or when onToggleFullscreen is provided, use custom fullscreen
+    if (isMobile || onToggleFullscreen) {
+      onToggleFullscreen?.();
+      return;
+    }
+    
+    // Fallback to native fullscreen API for desktop
     const videoElement = videoRef.current;
     if (!videoElement) return;
     if (!document.fullscreenElement) {
