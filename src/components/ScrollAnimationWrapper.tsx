@@ -20,11 +20,11 @@ const ScrollAnimationWrapper = ({
   });
 
   const getAnimationClass = () => {
-    if (!isVisible || animation === 'none') return 'opacity-0 translate-y-8';
+    if (!isVisible || animation === 'none') return 'opacity-0';
     
     switch (animation) {
       case 'fade':
-        return 'animate-[fadeInUp_0.8s_ease-out_forwards]';
+        return 'animate-fade-in';
       case 'slide-up':
         return 'animate-[slide-up_0.8s_ease-out_forwards]';
       case 'slide-left':
@@ -32,7 +32,7 @@ const ScrollAnimationWrapper = ({
       case 'slide-right':
         return 'animate-[slide-right_0.8s_ease-out_forwards]';
       case 'scale':
-        return 'animate-[scaleIn_0.8s_ease-out_forwards]';
+        return 'animate-scale-in';
       default:
         return '';
     }
@@ -41,9 +41,9 @@ const ScrollAnimationWrapper = ({
   return (
     <div 
       ref={elementRef}
-      className={`${getAnimationClass()} ${className}`}
+      className={`transition-all duration-1000 ${getAnimationClass()} ${className}`}
       style={{
-        animationDelay: `${delay}ms`
+        transitionDelay: `${delay}ms`
       }}
     >
       {children}
