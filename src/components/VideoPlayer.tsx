@@ -218,16 +218,7 @@ export const VideoPlayer = ({
           </Button>}
         
         {/* Fullscreen button */}
-        {onToggleFullscreen && (
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={onToggleFullscreen} 
-            className="text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full"
-          >
-            <Maximize className="h-5 w-5" />
-          </Button>
-        )}
+        {onToggleFullscreen}
       </div>
 
       {/* Pause button - appears in center when playing */}
