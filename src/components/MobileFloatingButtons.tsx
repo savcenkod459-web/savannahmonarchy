@@ -1,36 +1,112 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ThemeToggle } from "./ThemeToggle";
-import LanguageSelector from "./LanguageSelector";
 import { useMagneticEffect } from "@/hooks/useMagneticEffect";
+import { Globe, Moon, Sun } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const languages = [
+  { code: 'en', name: 'English', flag: '🇬🇧', buttonLabel: 'UK' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺', buttonLabel: 'RU' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', buttonLabel: 'SA' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷', buttonLabel: 'FR' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪', buttonLabel: 'DE' },
+  { code: 'es', name: 'Español', flag: '🇪🇸', buttonLabel: 'ES' },
+  { code: 'pt', name: 'Português', flag: '🇧🇷', buttonLabel: 'BR' },
+  { code: 'zh', name: '中文', flag: '🇨🇳', buttonLabel: 'CN' },
+  { code: 'uk', name: 'Українська', flag: '🇺🇦', buttonLabel: 'UA' },
+];
 
 const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
-  const languageRef = useMagneticEffect(0.4);
-  const themeToggleRef = useMagneticEffect(0.4);
+  const languageRef = useMagneticEffect(0.5);
+  const themeToggleRef = useMagneticEffect(0.5);
+  const { i18n, t } = useTranslation();
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  const changeLanguage = async (code: string) => {
+    await i18n.changeLanguage(code);
+    localStorage.setItem('i18nextLng', code);
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+    
+    window.location.reload();
+  };
 
   if (!isMobile) return null;
 
   return (
     <div className="fixed bottom-28 right-4 z-30 flex flex-col gap-2 animate-fade-in pointer-events-auto" style={{ animation: 'fadeInLeft 0.6s ease-out' }}>
-      <div 
-        ref={languageRef as React.RefObject<HTMLDivElement>}
-        className="bg-background/80 backdrop-blur-md rounded-full p-1 shadow-glow border border-primary/20 pointer-events-auto cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95"
-        style={{ 
-          transform: 'translate(var(--magnetic-x, 0), var(--magnetic-y, 0))',
-          willChange: 'transform'
-        }}
-      >
-        <LanguageSelector />
-      </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <div 
+            ref={languageRef as React.RefObject<HTMLDivElement>}
+            className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95 flex items-center gap-1.5"
+            style={{ 
+              transform: 'translate(var(--magnetic-x, 0), var(--magnetic-y, 0))',
+              willChange: 'transform'
+            }}
+          >
+            <Globe className="w-3.5 h-3.5 text-foreground" />
+            <span className="text-sm text-foreground">{currentLanguage.buttonLabel}</span>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-44 bg-background/95 backdrop-blur-lg border-primary/20">
+          {languages.map((language) => (
+            <DropdownMenuItem
+              key={language.code}
+              onClick={() => changeLanguage(language.code)}
+              className={`cursor-pointer gap-2 hover:bg-primary/10 focus:bg-primary/10 text-foreground hover:text-foreground focus:text-foreground ${
+                i18n.language === language.code ? 'bg-primary font-semibold text-primary-foreground' : ''
+              }`}
+            >
+              <span className="text-xl">{language.flag}</span>
+              <span>{language.name}</span>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
       <div 
         ref={themeToggleRef as React.RefObject<HTMLDivElement>}
-        className="bg-background/80 backdrop-blur-md rounded-full p-1 shadow-glow border border-primary/20 pointer-events-auto cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95"
+        onClick={toggleTheme}
+        className="bg-background/80 backdrop-blur-md rounded-full p-2 shadow-glow border border-primary/20 cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:border-primary/40 active:scale-95 flex items-center justify-center"
         style={{ 
           transform: 'translate(var(--magnetic-x, 0), var(--magnetic-y, 0))',
           willChange: 'transform'
         }}
+        title={theme === "light" ? t("theme.switchToDark") : t("theme.switchToLight")}
       >
-        <ThemeToggle />
+        {theme === "light" ? (
+          <Moon className="h-4 w-4 text-foreground" />
+        ) : (
+          <Sun className="h-4 w-4 text-foreground" />
+        )}
       </div>
     </div>
   );
