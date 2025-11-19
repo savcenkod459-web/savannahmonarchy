@@ -226,7 +226,7 @@ export const VideoPlayer = memo(({
       {!shouldLoadVideo && posterImage && <img src={posterImage} alt="Video preview" className="w-full h-full object-contain rounded-lg blur-sm" loading="lazy" />}
       
       {/* Video element - lazy load on play */}
-      {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg touch-none" preload={isMobile ? "none" : "metadata"} playsInline webkit-playsinline="true" onClick={togglePlay} />}
+      {shouldLoadVideo && <video ref={videoRef} src={videoUrl} className="w-full h-full object-contain rounded-lg touch-none" preload={isMobile ? "none" : "metadata"} playsInline onClick={togglePlay} />}
 
       {/* Loading spinner */}
       {isLoading && <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-20">
@@ -242,7 +242,7 @@ export const VideoPlayer = memo(({
       
       {/* Desktop: Progress bar at bottom, controls unified */}
       {/* Mobile: All controls unified at bottom like desktop */}
-      {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
+      {shouldLoadVideo && <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/90 to-transparent z-40 touch-auto">
           {/* Progress bar */}
           <div className="mb-3">
             <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="cursor-pointer touch-auto" />
