@@ -272,38 +272,24 @@ export const VideoPlayer = ({
   }
   return (
     <div className="relative w-full h-full group flex items-center justify-center bg-black/5 rounded-lg overflow-hidden">
-      {/* Placeholder image */}
-      {posterImage && !isVideoLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img 
-            src={posterImage} 
-            alt="Video placeholder" 
-            className="w-full h-full object-contain blur-sm"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-      )}
-
-      {/* Video element */}
-      {shouldLoadVideo && (
-        <video 
-          ref={videoRef} 
-          src={videoUrl} 
-          className="w-full h-full object-contain rounded-lg"
-          preload="metadata"
-          playsInline
-          poster={posterImage}
-        />
-      )}
+      {/* Video element - always render to show first frame */}
+      <video 
+        ref={videoRef} 
+        src={shouldLoadVideo ? videoUrl : undefined}
+        className={`w-full h-full object-contain rounded-lg ${!shouldLoadVideo ? 'pointer-events-none' : ''}`}
+        preload="metadata"
+        playsInline
+        poster={posterImage}
+      />
 
       {/* Loading spinner */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
           <Loader2 className="w-8 h-8 text-primary animate-spin" />
         </div>
       )}
       
-      {/* Fullscreen button - always visible on mobile */}
+      {/* Fullscreen button - always visible on mobile, positioned at bottom right */}
       {onToggleFullscreen && (
         <Button 
           variant="ghost" 
@@ -315,15 +301,29 @@ export const VideoPlayer = ({
         </Button>
       )}
 
-      {/* Play button */}
-      <Button 
-        variant="ghost" 
-        size="icon" 
-        onClick={handlePlayClick} 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm"
-      >
-        {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8" />}
-      </Button>
+      {/* Play button - centered at bottom */}
+      {!isPlaying && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={handlePlayClick} 
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white hover:bg-white/20 bg-black/50 backdrop-blur-sm rounded-full w-14 h-14 transition-all hover:scale-110"
+        >
+          <Play className="h-6 w-6" />
+        </Button>
+      )}
+
+      {/* Pause button - appears in center when playing */}
+      {isPlaying && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={togglePlay} 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hover:bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm"
+        >
+          <Pause className="h-8 w-8" />
+        </Button>
+      )}
 
       {/* Video controls */}
       {isVideoLoaded && (

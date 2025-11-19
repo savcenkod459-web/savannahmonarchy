@@ -1,8 +1,9 @@
 import { useState, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoPlayer } from "./VideoPlayer";
+import { ProgressiveImage } from "./ProgressiveImage";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 interface CatDetailModalProps {
   images: string[];
@@ -50,13 +51,11 @@ const CatDetailModalComponent = ({
             <div className="w-full md:w-1/2 h-[45vh] md:h-full relative md:border-r border-b md:border-b-0 border-primary/20">
               <div className="h-full flex items-center justify-center p-4 md:p-6">
                 <div className="relative w-full h-full">
-                  <img 
+                  <ProgressiveImage
                     src={images[currentImageIndex]} 
                     alt={`Gallery ${currentImageIndex + 1}`} 
                     className="w-full h-full object-contain cursor-pointer rounded-lg" 
-                    onClick={handleImageClick} 
-                    loading="lazy"
-                    decoding="async"
+                    onClick={handleImageClick}
                   />
                   
                   {images.length > 1 && <>
@@ -97,7 +96,6 @@ const CatDetailModalComponent = ({
                     isOpen={true} 
                     onClose={() => {}} 
                     onToggleFullscreen={() => setIsVideoFullscreen(true)}
-                    posterImage={images[0]}
                   />
                 </div>
               ) : (
@@ -118,17 +116,23 @@ const CatDetailModalComponent = ({
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
-            {images.length > 1 && <Button 
-              variant="ghost" 
-              size="icon" 
-              className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
-              onClick={goToPreviousImage}
-              style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
-            >
+            {images.length > 1 && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
+                onClick={goToPreviousImage}
+                style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
+              >
                 <ChevronLeft className="h-10 w-10" />
-              </Button>}
+              </Button>
+            )}
 
-            <img src={images[currentImageIndex]} alt={`Gallery ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" />
+            <ProgressiveImage 
+              src={images[currentImageIndex]} 
+              alt={`Gallery ${currentImageIndex + 1}`} 
+              className="max-w-full max-h-full object-contain" 
+            />
 
             {images.length > 1 && <>
                 <Button 
@@ -156,7 +160,6 @@ const CatDetailModalComponent = ({
         onClose={() => setIsVideoFullscreen(false)} 
         isFullscreen={true} 
         onToggleFullscreen={() => setIsVideoFullscreen(false)}
-        posterImage={images[0]}
       />
     </>;
 };
