@@ -12,6 +12,7 @@ import GoldenParticles from "./components/GoldenParticles";
 import InteractiveParticles from "./components/InteractiveParticles";
 import SparkEffect from "./components/SparkEffect";
 import GoldShimmer from "./components/GoldShimmer";
+import PageLoadWave from "./components/PageLoadWave";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -60,6 +61,7 @@ const App = () => {
       <InteractiveParticles />
       <SparkEffect />
       <GoldShimmer />
+      <PageLoadWave />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
