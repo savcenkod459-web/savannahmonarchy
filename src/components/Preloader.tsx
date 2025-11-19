@@ -70,63 +70,24 @@ const Preloader = () => {
           <div className="absolute w-24 h-24 border-2 border-primary/50 rounded-full" style={{ animation: 'spin 3s linear infinite' }} />
         </div>
         
-        {/* Floating sparkles and light particles */}
+        {/* Floating sparkles */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-2 h-2 bg-primary rounded-full shadow-[0_0_15px_rgba(217,179,112,0.8)]" style={{ animation: 'floatParticle 3s ease-in-out infinite, twinkle 1.5s ease-in-out infinite', animationDelay: '0s' }} />
-          <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,215,0,0.6)]" style={{ animation: 'floatParticle 4s ease-in-out infinite, twinkle 2s ease-in-out infinite', animationDelay: '0.5s' }} />
-          <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary rounded-full shadow-[0_0_15px_rgba(217,179,112,0.8)]" style={{ animation: 'floatParticle 3.5s ease-in-out infinite, twinkle 1.8s ease-in-out infinite', animationDelay: '1s' }} />
-          <div className="absolute bottom-0 right-1/3 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,215,0,0.6)]" style={{ animation: 'floatParticle 4.5s ease-in-out infinite, twinkle 2.2s ease-in-out infinite', animationDelay: '1.5s' }} />
-          
-          {/* Additional floating particles */}
-          <div className="absolute top-1/3 left-1/2 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(217,179,112,0.7)]" style={{ animation: 'floatParticle 5s ease-in-out infinite, twinkle 1.6s ease-in-out infinite', animationDelay: '0.3s' }} />
-          <div className="absolute top-2/3 right-1/2 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_12px_rgba(255,215,0,0.6)]" style={{ animation: 'floatParticle 4.2s ease-in-out infinite, twinkle 2.4s ease-in-out infinite', animationDelay: '0.8s' }} />
-          <div className="absolute top-1/2 left-1/5 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(217,179,112,0.7)]" style={{ animation: 'floatParticle 3.8s ease-in-out infinite, twinkle 1.7s ease-in-out infinite', animationDelay: '1.2s' }} />
-          <div className="absolute top-1/2 right-1/5 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(255,215,0,0.6)]" style={{ animation: 'floatParticle 4.8s ease-in-out infinite, twinkle 2.1s ease-in-out infinite', animationDelay: '1.8s' }} />
-          <div className="absolute top-3/4 left-2/5 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_12px_rgba(217,179,112,0.8)]" style={{ animation: 'floatParticle 3.3s ease-in-out infinite, twinkle 1.9s ease-in-out infinite', animationDelay: '2.2s' }} />
+          <div className="absolute top-0 left-1/4 w-2 h-2 bg-primary rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute bottom-0 right-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '2s' }} />
         </div>
         
         {/* Crown logo with enhanced glow */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="relative flex items-center justify-center" style={{ width: '80px', height: '80px' }}>
-            <Crown 
-              className="w-20 h-20 text-foreground relative z-10" 
-              fill="transparent"
-              strokeWidth={2.5}
-              style={{ 
-                animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
-                filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))',
-                background: 'transparent'
-              }} 
-            />
-            <div className="absolute rounded-full blur-3xl animate-pulse pointer-events-none" style={{ 
-              width: '180px', 
-              height: '180px', 
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              background: 'radial-gradient(circle, rgba(217,179,112,0.5) 0%, rgba(255,215,0,0.3) 40%, transparent 70%)',
-              animation: 'colorGlow 4s ease-in-out infinite'
+          <div className="relative flex items-center justify-center w-32 h-32">
+            <Crown className="w-20 h-20 text-primary relative z-10" style={{ 
+              animation: 'goldPulse 2s ease-in-out infinite, float 3s ease-in-out infinite',
+              filter: 'drop-shadow(0 0 25px rgba(217,179,112,0.9)) drop-shadow(0 0 50px rgba(217,179,112,0.7))'
             }} />
-            <div className="absolute rounded-full blur-2xl animate-pulse pointer-events-none" style={{ 
-              width: '240px', 
-              height: '240px', 
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              background: 'radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(218,165,32,0.2) 40%, transparent 70%)',
-              animation: 'colorGlow 4s ease-in-out infinite',
-              animationDelay: '1s'
-            }} />
-            <div className="absolute rounded-full blur-3xl animate-pulse pointer-events-none" style={{ 
-              width: '300px', 
-              height: '300px', 
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              background: 'radial-gradient(circle, rgba(217,179,112,0.3) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)',
-              animation: 'colorGlow 4s ease-in-out infinite',
-              animationDelay: '2s'
-            }} />
+            <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full animate-pulse" style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }} />
+            <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-accent/25 to-transparent blur-2xl rounded-full animate-pulse" style={{ width: '180%', height: '180%', left: '-40%', top: '-40%', animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 bg-primary/15 blur-3xl rounded-full animate-pulse" style={{ width: '220%', height: '220%', left: '-60%', top: '-60%', animationDelay: '1s' }} />
           </div>
           
           <div className="text-center space-y-3">
