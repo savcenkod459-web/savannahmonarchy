@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
+import logoBlue from "@/assets/logo-blue.jpg";
+import logoBlack from "@/assets/logo-black.jpg";
+import logoWhite from "@/assets/logo-white.jpg";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { toast } = useToast();
@@ -123,6 +127,22 @@ const Footer = () => {
               Контакты
             </h4>
             <div className="space-y-4 py-0">
+              {/* Logo Avatars */}
+              <div className="flex gap-3 mb-4">
+                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
+                  <AvatarImage src={logoBlue} alt="Savannah Dynasty Logo Blue" className="object-cover" />
+                  <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
+                </Avatar>
+                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
+                  <AvatarImage src={logoBlack} alt="Savannah Dynasty Logo Black" className="object-cover" />
+                  <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
+                </Avatar>
+                <Avatar className="w-12 h-12 border-2 border-primary/30 shadow-glow hover:border-primary/60 transition-all duration-300 hover:scale-110 micro-interaction">
+                  <AvatarImage src={logoWhite} alt="Savannah Dynasty Logo White" className="object-cover" />
+                  <AvatarFallback className="bg-primary/10 text-primary">SD</AvatarFallback>
+                </Avatar>
+              </div>
+
               <p className="text-sm text-muted-foreground font-light">
                 Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:-translate-y-0.5 micro-interaction outline-none focus:outline-none hover:[text-shadow:0_0_20px_hsl(43_96%_56%/0.8),0_0_40px_hsl(43_96%_56%/0.5)]">savannahdynastyofficial@gmail.com</button>
               </p>
