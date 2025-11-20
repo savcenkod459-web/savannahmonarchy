@@ -366,18 +366,6 @@ export const VideoPlayer = memo(({
                       {showQualityMenu && (
                         <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px]">
                           
-                          {/* Data Saver Toggle */}
-                          <button
-                            onClick={toggleDataSaver}
-                            className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 ${
-                              isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
-                            }`}
-                          >
-                            🔋 Экономия данных
-                          </button>
-                          
-                          <div className="h-px bg-white/10 my-1" />
-                          
                           <button
                             onClick={toggleAutoQuality}
                             disabled={isDataSaverEnabled}
@@ -522,18 +510,6 @@ export const VideoPlayer = memo(({
               
               {showQualityMenu && (
                 <div className="absolute bottom-full right-0 mb-2 bg-black/95 rounded-lg p-2 min-w-[160px] border border-white/10">
-                  
-                  {/* Data Saver Toggle */}
-                  <button
-                    onClick={toggleDataSaver}
-                    className={`w-full text-left px-2 py-1.5 text-sm rounded mb-1 transition-colors ${
-                      isDataSaverEnabled ? 'bg-blue-500/20 text-blue-400' : 'text-white hover:bg-white/10'
-                    }`}
-                  >
-                    🔋 Экономия данных
-                  </button>
-                  
-                  <div className="h-px bg-white/10 my-1" />
                   
                   <button
                     onClick={toggleAutoQuality}
