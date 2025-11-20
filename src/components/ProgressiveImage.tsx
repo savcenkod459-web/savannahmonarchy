@@ -1,6 +1,5 @@
-import { useState, useEffect, memo } from "react";
-import { useMediaOptimization } from "@/hooks/useMediaOptimization";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { memo } from "react";
+import { useOptimizedImage } from "@/hooks/useOptimizedImage";
 
 interface ProgressiveImageProps {
   src: string;
@@ -17,42 +16,10 @@ const ProgressiveImageComponent = ({
   lowQualitySrc,
   onClick 
 }: ProgressiveImageProps) => {
-  const [currentSrc, setCurrentSrc] = useState(lowQualitySrc || src);
-  const [isLoading, setIsLoading] = useState(true);
-  const { imageQuality } = useMediaOptimization();
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    setIsLoading(true);
-    
-    // Create a new image to preload the high-quality version
-    const img = new Image();
-    img.src = src;
-    
-    img.onload = () => {
-      setCurrentSrc(src);
-      setIsLoading(false);
-    };
-    
-    img.onerror = () => {
-      setIsLoading(false);
-    };
-
-    return () => {
-      img.onload = null;
-      img.onerror = null;
-    };
-  }, [src]);
-
-  // Генерируем srcset для адаптивных изображений
-  const generateSrcSet = () => {
-    if (!isMobile) return undefined;
-    
-    const baseUrl = src.replace(/\.(jpg|jpeg|png|webp)$/i, '');
-    const extension = src.match(/\.(jpg|jpeg|png|webp)$/i)?.[0] || '.jpg';
-    
-    return `${baseUrl}-small${extension} 480w, ${baseUrl}-medium${extension} 768w, ${src} 1200w`;
-  };
+  const { currentSrc, isLoading, imageQuality, isMobile, generateSrcSet } = useOptimizedImage({ 
+    src, 
+    lowQualitySrc: lowQualitySrc || src 
+  });
 
   return (
     <img

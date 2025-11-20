@@ -8,12 +8,18 @@
     <meta name="author" content="SavannahDynasty" />
     <meta name="theme-color" content="#D9B370" />
     
-    <!-- Critical CSS for faster first render -->
+    <!-- Critical CSS for instant first render -->
     <style>
       /* Critical Layout & Typography */
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html { font-size: 16px; -webkit-font-smoothing: antialiased; }
-      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #e5e5e5; background: #0A0A0A; }
+      html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+      body { 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+        line-height: 1.5; 
+        color: #e5e5e5; 
+        background: #0A0A0A;
+        overscroll-behavior-y: none;
+      }
       
       /* Critical Loading State */
       #root { min-height: 100vh; }
@@ -26,9 +32,15 @@
         --foreground: 0 0% 90%;
       }
       
+      /* Performance optimizations */
+      img, video { 
+        content-visibility: auto;
+        contain: layout style paint;
+      }
+      
       /* Hide content until loaded */
-      .animate-fade-in { animation: fadeIn 0.6s ease-out; }
-      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
     
     <!-- PWA Meta Tags -->
@@ -38,20 +50,22 @@
     <meta name="apple-mobile-web-app-title" content="SavannahDynasty" />
     <link rel="apple-touch-icon" href="/placeholder.svg" />
     
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
     
-    <!-- Preload critical fonts -->
-    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2" crossorigin>
+    <!-- Preload critical fonts with high priority -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" crossorigin fetchpriority="high">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2" crossorigin fetchpriority="high">
     
-    <!-- Load fonts with display=swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load fonts asynchronously with display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Preload critical images -->
-    <link rel="preload" as="image" href="/src/assets/hero-cat-new.png" type="image/png">
-    <link rel="preload" as="image" href="/src/assets/hero-savannah.jpg" type="image/jpeg">
+    <!-- Preload critical hero images with high priority -->
+    <link rel="preload" as="image" href="/src/assets/hero-cat-new.png" type="image/png" fetchpriority="high">
+    <link rel="preload" as="image" href="/src/assets/hero-savannah.jpg" type="image/jpeg" fetchpriority="high">
 
     <meta property="og:title" content="SavannahDynasty - Элитные кошки породы Саванна" />
     <meta property="og:description" content="Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной коллекции породистых элитных кошек." />
@@ -65,10 +79,7 @@
 
   <body>
     <div id="root"></div>
-    <!-- Main script loads as module (deferred by default) -->
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Prefetch DNS for external resources -->
-    <link rel="dns-prefetch" href="https://rujvbcxpnzpikkmgdkfs.supabase.co">
+    <!-- Main script loads as module (deferred by default) with high priority -->
+    <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
   </body>
 </html>

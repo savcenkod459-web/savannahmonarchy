@@ -1,10 +1,15 @@
 import { useEffect } from 'react';
+import { useIsMobile } from './use-mobile';
 
 export const useSmoothScroll = () => {
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
-    // Отключаем на мобильных для лучшей производительности
-    const isMobile = window.innerWidth < 768;
+    // Полностью отключаем на мобильных для максимальной производительности
     if (isMobile) return;
+    
+    // Отключаем на устройствах с слабым процессором
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) return;
 
     let isScrolling = false;
     let scrollTarget = window.scrollY;
@@ -14,7 +19,7 @@ export const useSmoothScroll = () => {
       const difference = scrollTarget - currentScroll;
       
       if (Math.abs(difference) > 0.1) {
-        currentScroll += difference * 0.08;
+        currentScroll += difference * 0.1; // Быстрее для лучшей отзывчивости
         window.scrollTo(0, currentScroll);
         requestAnimationFrame(smoothScroll);
       } else {
@@ -32,7 +37,7 @@ export const useSmoothScroll = () => {
         currentScroll = actualScroll;
       }
       
-      scrollTarget += e.deltaY * 0.5;
+      scrollTarget += e.deltaY * 0.6; // Увеличили для более естественного скролла
       scrollTarget = Math.max(0, Math.min(scrollTarget, document.documentElement.scrollHeight - window.innerHeight));
       
       if (!isScrolling) {
@@ -46,5 +51,5 @@ export const useSmoothScroll = () => {
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, []);
+  }, [isMobile]);
 };

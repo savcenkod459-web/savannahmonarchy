@@ -58,10 +58,10 @@ const App = () => {
   useAutoTranslation(); // Автоматическая замена текста на переводы
 
   useEffect(() => {
-    // Wait for preloader to finish (2000ms) + small delay
+    // Shorter delay for better perceived performance
     const timer = setTimeout(() => {
       setIsContentVisible(true);
-    }, 2100);
+    }, 1600);
 
     return () => clearTimeout(timer);
   }, []);

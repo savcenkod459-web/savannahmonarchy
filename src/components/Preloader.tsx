@@ -35,14 +35,15 @@ const Preloader = () => {
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
     
+    // Shorter preloader time for better perceived performance
     const timer = setTimeout(() => {
       setIsVisible(false);
       // Re-enable scrolling after preloader disappears
       setTimeout(() => {
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
-      }, 800);
-    }, 2000);
+      }, 500);
+    }, 1500);
 
     return () => {
       clearTimeout(timer);
