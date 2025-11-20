@@ -6,6 +6,10 @@
 
 **Live Site**: https://preview--savannahdynasty.lovable.app/
 
+**GitHub Repository**: [github.com/your-username/savannah-dynasty](https://github.com/your-username/savannah-dynasty)
+
+**GitHub Pages**: Coming soon (configure in repository settings)
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
@@ -64,7 +68,19 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Deploy on Lovable
+
 Simply open [Lovable](https://savannahdynasty.lovable.app) and click on Share -> Publish.
+
+### Deploy on GitHub Pages
+
+1. Push your code to GitHub repository
+2. Go to repository Settings → Pages
+3. Under "Build and deployment", select "GitHub Actions" as source
+4. The site will automatically deploy on push to main branch
+5. Your site will be available at `https://your-username.github.io/savannah-dynasty/`
+
+Note: The GitHub Actions workflow is already configured in `.github/workflows/deploy.yml`
 
 ## Can I connect a custom domain to my Lovable project?
 
