@@ -7,7 +7,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useNetworkSpeed, VideoQuality } from "@/hooks/useNetworkSpeed";
 import { useDataSaver } from "@/hooks/useDataSaver";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import videoPosterFallback from "@/assets/video-poster-fallback.jpg";
 
 // Video quality is controlled but uses the same source URL
 // In production, you would have actual different quality files
@@ -288,7 +287,7 @@ export const VideoPlayer = memo(({
             <video
               ref={videoRef}
               key={videoUrl}
-              poster={posterImage || videoPosterFallback}
+              poster={posterImage}
               src={currentVideoUrl}
               className="max-w-full max-h-full object-contain"
               onClick={togglePlay}
@@ -424,7 +423,7 @@ export const VideoPlayer = memo(({
       <video 
         ref={videoRef}
         key={videoUrl}
-        poster={posterImage || videoPosterFallback}
+        poster={posterImage}
         src={currentVideoUrl}
         className="w-full h-full object-contain rounded-lg" 
         preload={isDataSaverEnabled ? "none" : (isSlowConnection ? "metadata" : "auto")}

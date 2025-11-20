@@ -5,6 +5,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoPlayer } from "./VideoPlayer";
 import { OptimizedImage } from "./OptimizedImage";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import videoPoster1 from "@/assets/video-poster-1.png";
+import videoPoster2 from "@/assets/video-poster-2.png";
+import videoPoster3 from "@/assets/video-poster-3.png";
+
+// Mapping video URLs to poster images
+const videoPosters: Record<string, string> = {
+  "video-1762099803107-ivy9gi.mp4": videoPoster1,
+  "video-1762099781562-bbln3k.mp4": videoPoster2,
+  "video-1762099756072-8uf0vc.mp4": videoPoster3,
+};
+
 interface CatDetailModalProps {
   images: string[];
   video?: string;
@@ -20,6 +31,13 @@ const CatDetailModalComponent = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageFullscreen, setIsImageFullscreen] = useState(false);
   const [isVideoFullscreen, setIsVideoFullscreen] = useState(false);
+  
+  // Get poster for current video
+  const getVideoPoster = (videoUrl?: string) => {
+    if (!videoUrl) return undefined;
+    const videoFileName = videoUrl.split('/').pop() || '';
+    return videoPosters[videoFileName];
+  };
   const goToNextImage = () => {
     setCurrentImageIndex(prev => (prev + 1) % images.length);
   };
@@ -96,6 +114,7 @@ const CatDetailModalComponent = ({
                     isOpen={true} 
                     onClose={() => {}} 
                     onToggleFullscreen={() => setIsVideoFullscreen(true)}
+                    posterImage={getVideoPoster(video)}
                   />
                 </div>
               ) : (
@@ -160,6 +179,7 @@ const CatDetailModalComponent = ({
         onClose={() => setIsVideoFullscreen(false)} 
         isFullscreen={true} 
         onToggleFullscreen={() => setIsVideoFullscreen(false)}
+        posterImage={getVideoPoster(video)}
       />
     </>;
 };
