@@ -6,9 +6,9 @@ export function registerServiceWorker() {
 
     wb.addEventListener('installed', (event) => {
       if (event.isUpdate) {
-        console.log('New content is available; please refresh.');
-        // Можно показать toast с предложением обновить страницу
-        if (confirm('Доступна новая версия сайта. Обновить сейчас?')) {
+        console.log('New content is available; refresh recommended.');
+        // Silent update - auto reload after user finishes current session
+        if (document.visibilityState === 'hidden') {
           window.location.reload();
         }
       } else {
@@ -17,12 +17,11 @@ export function registerServiceWorker() {
     });
 
     wb.addEventListener('waiting', () => {
-      console.log('A new service worker has installed, but it is waiting to activate.');
+      console.log('A new service worker is waiting to activate.');
     });
 
     wb.addEventListener('controlling', () => {
-      console.log('Service worker is now controlling the page.');
-      window.location.reload();
+      console.log('Service worker now controlling the page.');
     });
 
     wb.addEventListener('activated', (event) => {
