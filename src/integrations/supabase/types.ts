@@ -73,6 +73,7 @@ export type Database = {
           traits: string[]
           updated_at: string | null
           video: string | null
+          video_poster: string | null
         }
         Insert: {
           additional_images?: string[] | null
@@ -88,6 +89,7 @@ export type Database = {
           traits: string[]
           updated_at?: string | null
           video?: string | null
+          video_poster?: string | null
         }
         Update: {
           additional_images?: string[] | null
@@ -103,6 +105,7 @@ export type Database = {
           traits?: string[]
           updated_at?: string | null
           video?: string | null
+          video_poster?: string | null
         }
         Relationships: []
       }
