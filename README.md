@@ -2,13 +2,13 @@
 
 ## Project info
 
-**URL**: https://savannahdynasty.lovable.app
+**URL**: https://savcenkod459-web.github.io/SavannahDynasty/
 
-**Live Site**: https://preview--savannahdynasty.lovable.app/
+**Live Site**: https://savcenkod459-web.github.io/SavannahDynasty/
 
-**GitHub Repository**: [github.com/your-username/savannah-dynasty](https://github.com/your-username/savannah-dynasty)
+**GitHub Repository**: [github.com/savcenkod459-web/SavannahDynasty](https://github.com/savcenkod459-web/SavannahDynasty)
 
-**GitHub Pages**: Coming soon (configure in repository settings)
+**GitHub Pages**: https://savcenkod459-web.github.io/SavannahDynasty/
 
 ## How can I edit this code?
 
@@ -16,7 +16,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://savannahdynasty.lovable.app) and start prompting.
+Simply visit the [Lovable Project](https://savcenkod459-web.github.io/SavannahDynasty/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
@@ -70,7 +70,7 @@ This project is built with:
 
 ### Deploy on Lovable
 
-Simply open [Lovable](https://savannahdynasty.lovable.app) and click on Share -> Publish.
+Simply open [Lovable](https://savcenkod459-web.github.io/SavannahDynasty/) and click on Share -> Publish.
 
 ### Deploy on GitHub Pages
 
@@ -83,9 +83,7 @@ Simply open [Lovable](https://savannahdynasty.lovable.app) and click on Share ->
 4. Go to repository Settings → Pages
 5. Under "Build and deployment", select "GitHub Actions" as source
 6. The site will automatically deploy on push to main branch
-7. Your site will be available at `https://your-username.github.io/savannah-dynasty/`
-
-**Important:** If your repository name is different from `savannah-dynasty`, update the `VITE_BASE_PATH` variable in `.github/workflows/deploy.yml` (line 34) to match your repository name.
+7. Your site will be available at `https://savcenkod459-web.github.io/SavannahDynasty/`
 
 Note: The GitHub Actions workflow is already configured in `.github/workflows/deploy.yml`
 
