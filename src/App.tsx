@@ -8,6 +8,7 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { useTranslations } from "./hooks/useTranslations";
 import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
+import Preloader from "./components/Preloader";
 
 // Lazy load эффектов для улучшения производительности
 const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
@@ -65,6 +66,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <Preloader />
       <Toaster />
       <Sonner />
       <Suspense fallback={null}>
