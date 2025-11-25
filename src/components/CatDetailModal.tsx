@@ -173,14 +173,16 @@ const CatDetailModalComponent = ({
       </Dialog>
 
       {/* Fullscreen Video */}
-      <VideoPlayer 
-        videoUrl={video || ""} 
-        isOpen={isVideoFullscreen} 
-        onClose={() => setIsVideoFullscreen(false)} 
-        isFullscreen={true} 
-        onToggleFullscreen={() => setIsVideoFullscreen(false)}
-        posterImage={getVideoPoster(video)}
-      />
+      {video && isVideoFullscreen && (
+        <VideoPlayer 
+          videoUrl={video} 
+          isOpen={isVideoFullscreen} 
+          onClose={() => setIsVideoFullscreen(false)} 
+          isFullscreen={true} 
+          onToggleFullscreen={() => setIsVideoFullscreen(false)}
+          posterImage={getVideoPoster(video)}
+        />
+      )}
     </>;
 };
 
