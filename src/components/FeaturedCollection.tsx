@@ -96,7 +96,11 @@ const FeaturedCollection = () => {
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer" onClick={(e) => {
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer border-2 border-primary/60 group-hover:border-primary/80 transition-all duration-500" 
+                    style={{
+                      boxShadow: '0 0 30px rgba(217, 179, 112, 0.5), 0 0 50px rgba(217, 179, 112, 0.3), inset 0 0 20px rgba(217, 179, 112, 0.1)',
+                    }}
+                    onClick={(e) => {
                     e.stopPropagation();
                     openGallery(cat.image, cat.additional_images);
                   }}>
