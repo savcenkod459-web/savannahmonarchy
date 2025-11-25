@@ -52,15 +52,6 @@ const About = () => {
       <main className="pt-24">
         {/* Hero Section */}
         <section id="luxury-cats" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
-          {/* Декоративные элементы */}
-          <div className="absolute top-20 left-10 opacity-5">
-            <Crown className="w-32 h-32 text-primary animate-float" />
-          </div>
-          <div className="absolute bottom-20 right-10 opacity-5">
-            <Diamond className="w-40 h-40 text-accent animate-float" style={{
-            animationDelay: '2s'
-          }} />
-          </div>
           
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
@@ -82,10 +73,6 @@ const About = () => {
         {/* Breeding Standards */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section className="py-20 relative overflow-hidden">
-          <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
-            animationDelay: '3s'
-          }} />
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -115,12 +102,6 @@ const About = () => {
         {/* Health & Wellness */}
         <ScrollAnimationWrapper animation="fade" delay={150}>
           <section className="py-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <Star className="absolute top-1/4 left-1/4 w-24 h-24 text-primary animate-pulse" />
-            <Sparkles className="absolute bottom-1/4 right-1/4 w-20 h-20 text-accent animate-pulse" style={{
-              animationDelay: '1.5s'
-            }} />
-          </div>
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -180,9 +161,6 @@ const About = () => {
         {/* Featured Breeds */}
         <ScrollAnimationWrapper animation="fade" delay={150}>
           <section id="featured-breeds" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
-          <div className="absolute top-10 right-10 opacity-5">
-            <Crown className="w-40 h-40 text-primary animate-float" />
-          </div>
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
@@ -218,14 +196,6 @@ const About = () => {
         {/* Редкость и Уникальность */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section id="rarity" className="py-20 relative overflow-hidden scroll-mt-24">
-          <div className="absolute top-20 left-10 opacity-5">
-            <Diamond className="w-40 h-40 text-primary animate-float" />
-          </div>
-          <div className="absolute bottom-20 right-10 opacity-5">
-            <Gem className="w-48 h-48 text-accent animate-float" style={{
-              animationDelay: '2s'
-            }} />
-          </div>
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-5xl mx-auto">
@@ -329,10 +299,6 @@ const About = () => {
         {/* Информация о цене */}
         <ScrollAnimationWrapper animation="fade" delay={150}>
           <section id="pricing" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
-          <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{
-            animationDelay: '3s'
-          }} />
           
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-5xl mx-auto">
@@ -502,9 +468,7 @@ const About = () => {
 
         {/* Дополнительная важная информация */}
         <section id="important-info" className="py-20 relative overflow-hidden scroll-mt-24">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
-            <Sparkles className="w-64 h-64 text-primary animate-float" />
-          </div>
+          
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">
               <div className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full mb-6 micro-interaction">
@@ -560,7 +524,7 @@ const About = () => {
 
         {/* Условия жизни и содержание */}
         <section className="py-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+          
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-8 flex items-center gap-4 luxury-text-shadow">
@@ -645,9 +609,7 @@ const About = () => {
 
         {/* Характер */}
         <section className="py-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute bottom-10 right-10 opacity-5">
-            <Star className="w-40 h-40 text-accent animate-float" />
-          </div>
+          
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-8 flex items-center gap-4 luxury-text-shadow">
@@ -700,9 +662,7 @@ const About = () => {
         {/* Взрослые коты */}
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <section id="adult-cats" className="py-20 bg-secondary/30 relative overflow-hidden scroll-mt-24">
-          <div className="absolute top-20 left-10 opacity-5">
-            <Cat className="w-32 h-32 text-primary animate-float" />
-          </div>
+          
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto animate-fade-in">
               <h2 className="font-display font-black text-4xl md:text-5xl mb-6 luxury-text-shadow flex items-center gap-4">

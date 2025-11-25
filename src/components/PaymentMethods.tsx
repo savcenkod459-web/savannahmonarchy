@@ -31,14 +31,6 @@ const PaymentMethods = () => {
     description: t('paymentMethods.privacy.description')
   }];
   return <section className="py-16 md:py-32 bg-secondary/30 relative overflow-visible">
-      {/* Декоративный фон безопасности */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-float" style={{
-        animationDelay: '2s'
-      }} />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">

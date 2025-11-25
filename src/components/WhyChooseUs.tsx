@@ -22,16 +22,6 @@ const WhyChooseUs = () => {
     description: t('whyChoose.support.description')
   }];
   return <section className="py-16 md:py-32 bg-secondary/30 relative overflow-visible">
-      {/* Декоративные элементы люкса */}
-      <div className="absolute top-20 left-10 opacity-5">
-        <Crown className="w-32 h-32 text-primary animate-float" />
-      </div>
-      <div className="absolute bottom-20 right-10 opacity-5">
-        <Diamond className="w-40 h-40 text-accent animate-float" style={{
-        animationDelay: '2s'
-      }} />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">

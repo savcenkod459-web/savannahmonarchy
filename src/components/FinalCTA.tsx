@@ -6,14 +6,6 @@ import { useTranslation } from "react-i18next";
 const FinalCTA = () => {
   const { t } = useTranslation();
   return <section className="py-16 md:py-32 relative overflow-visible">
-      {/* Декоративные элементы */}
-      <div className="absolute inset-0 opacity-5 bg-stone-950">
-        <Crown className="absolute top-20 left-20 w-32 h-32 text-primary animate-float" />
-        <Sparkles className="absolute bottom-20 right-20 w-24 h-24 text-accent animate-float" style={{
-        animationDelay: '2s'
-      }} />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-accent to-primary p-8 md:p-12 lg:p-20 shadow-glow image-blur-edges">
           {/* Glassmorphism overlay */}
@@ -47,12 +39,6 @@ const FinalCTA = () => {
               </Link>
             </div>
           </div>
-          
-          {/* Decorative elements with animation */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '3s'
-        }} />
           
           {/* Floating luxury icons */}
           <div className="absolute top-10 left-10 opacity-20">
