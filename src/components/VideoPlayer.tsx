@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square } from "lucide-react";
+import { X, Play, Pause, Volume2, VolumeX, Maximize, Loader2, Square, PictureInPicture, RotateCcw, RotateCw } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
@@ -228,6 +228,14 @@ export const VideoPlayer = memo(({
       setIsMuted(!isMuted);
     }
   };
+  const handleSkip = (seconds: number) => {
+    if (videoRef.current && duration > 0) {
+      const newTime = Math.max(0, Math.min(duration, videoRef.current.currentTime + seconds));
+      videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+  
   const formatTime = (time: number): string => {
     if (!isFinite(time)) return '0:00';
     const minutes = Math.floor(time / 60);
@@ -236,18 +244,75 @@ export const VideoPlayer = memo(({
   };
   if (isFullscreen && isOpen) {
     return <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 bg-black/95 border-primary/20">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 bg-black border-none">
           <VisuallyHidden.Root>
             <DialogTitle>Video Player</DialogTitle>
             <DialogDescription>Fullscreen video player</DialogDescription>
           </VisuallyHidden.Root>
           
           <div className="relative w-full h-full flex items-center justify-center">
-            <Button variant="ghost" size="icon" onClick={onClose} className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full">
-              <X className="h-6 w-6" />
-            </Button>
+            {/* Mobile: Top bar with icons */}
+            {isMobile ? (
+              <div className="absolute top-0 left-0 right-0 z-50 p-4 flex items-center justify-between bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={onClose} 
+                  className="text-white hover:bg-white/20 rounded-full pointer-events-auto touch-manipulation w-12 h-12"
+                  style={{ touchAction: 'manipulation' }}
+                >
+                  <X className="h-7 w-7" />
+                </Button>
+                
+                <div className="flex items-center gap-3 pointer-events-auto">
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => {
+                      if (videoRef.current && 'requestPictureInPicture' in videoRef.current) {
+                        videoRef.current.requestPictureInPicture();
+                      }
+                    }}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-12 h-12"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    <PictureInPicture className="h-6 w-6" />
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={handleFullscreen}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-12 h-12"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    <Maximize className="h-6 w-6" />
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={toggleMute}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-12 h-12"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    {isMuted ? <VolumeX className="h-6 w-6" /> : <Volume2 className="h-6 w-6" />}
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              // Desktop: Close button only
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={onClose} 
+                className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 rounded-full"
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            )}
 
-            {/* Video element with optimizations */}
+            {/* Video element */}
             <video
               ref={videoRef}
               key={videoUrl}
@@ -270,35 +335,103 @@ export const VideoPlayer = memo(({
             </video>
 
             {/* Loading spinner */}
-            {isLoading && <div className="absolute inset-0 flex items-center justify-center">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <Loader2 className="h-12 w-12 text-white animate-spin" />
-              </div>}
+              </div>
+            )}
 
-            {/* Video controls */}
-            {isVideoLoaded && <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center gap-4 text-white">
-                  <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20">
-                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+            {/* Mobile: Center controls with skip buttons */}
+            {isMobile && isVideoLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="flex items-center gap-8 pointer-events-auto">
+                  {/* Skip backward 10s */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleSkip(-10)}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-16 h-16 active:scale-95 transition-transform"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    <div className="relative flex items-center justify-center">
+                      <RotateCcw className="h-8 w-8" />
+                      <span className="absolute text-xs font-bold">10</span>
+                    </div>
                   </Button>
-                  
-                  <Button variant="ghost" size="icon" onClick={handleStop} className="hover:bg-white/20">
-                    <Square className="h-6 w-6" />
+
+                  {/* Play/Pause */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={togglePlay}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-20 h-20 active:scale-95 transition-transform"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    {isPlaying ? <Pause className="h-10 w-10" /> : <Play className="h-10 w-10" />}
                   </Button>
 
-                  <div className="flex items-center gap-2 flex-1">
-                    <span className="text-sm min-w-[45px]">{formatTime(currentTime)}</span>
-                    <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="flex-1" />
-                    <span className="text-sm min-w-[45px]">{formatTime(duration)}</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20">
-                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-                    </Button>
-                    <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="w-24" />
-                  </div>
+                  {/* Skip forward 10s */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleSkip(10)}
+                    className="text-white hover:bg-white/20 rounded-full touch-manipulation w-16 h-16 active:scale-95 transition-transform"
+                    style={{ touchAction: 'manipulation' }}
+                  >
+                    <div className="relative flex items-center justify-center">
+                      <RotateCw className="h-8 w-8" />
+                      <span className="absolute text-xs font-bold">10</span>
+                    </div>
+                  </Button>
                 </div>
-              </div>}
+              </div>
+            )}
+
+            {/* Bottom controls */}
+            {isVideoLoaded && (
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
+                {isMobile ? (
+                  // Mobile: Simple progress bar with time
+                  <div className="space-y-3 pointer-events-auto">
+                    <Slider 
+                      value={[currentTime]} 
+                      max={duration || 100} 
+                      step={0.1} 
+                      onValueChange={handleSeek} 
+                      className="cursor-pointer touch-auto" 
+                    />
+                    <div className="flex items-center justify-between text-white text-sm">
+                      <span>{formatTime(currentTime)}</span>
+                      <span>-{formatTime(duration - currentTime)}</span>
+                    </div>
+                  </div>
+                ) : (
+                  // Desktop: Full controls
+                  <div className="flex items-center gap-4 text-white pointer-events-auto">
+                    <Button variant="ghost" size="icon" onClick={togglePlay} className="hover:bg-white/20">
+                      {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+                    </Button>
+                    
+                    <Button variant="ghost" size="icon" onClick={handleStop} className="hover:bg-white/20">
+                      <Square className="h-6 w-6" />
+                    </Button>
+
+                    <div className="flex items-center gap-2 flex-1">
+                      <span className="text-sm min-w-[45px]">{formatTime(currentTime)}</span>
+                      <Slider value={[currentTime]} max={duration || 100} step={0.1} onValueChange={handleSeek} className="flex-1" />
+                      <span className="text-sm min-w-[45px]">{formatTime(duration)}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-white/20">
+                        {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                      </Button>
+                      <Slider value={[isMuted ? 0 : volume]} max={1} step={0.01} onValueChange={handleVolumeChange} className="w-24" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>;
