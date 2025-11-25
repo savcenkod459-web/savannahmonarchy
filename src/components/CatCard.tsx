@@ -32,14 +32,19 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
     <div
       onClick={() => onCardClick(cat)}
       className="group animate-scale-in cursor-pointer"
-      style={{ animationDelay: `${animationDelay}ms` }}
+      style={{ 
+        animationDelay: `${animationDelay}ms`,
+        transform: 'translateZ(0)',
+        willChange: 'transform'
+      }}
     >
       <div
         className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3"
         style={{
           transform: 'translateZ(0)',
-          willChange: 'transform',
-          touchAction: 'manipulation'
+          willChange: 'transform, box-shadow',
+          touchAction: 'manipulation',
+          backfaceVisibility: 'hidden' as const
         }}
       >
         {/* Gradient border effect */}
