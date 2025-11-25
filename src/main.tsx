@@ -3,7 +3,6 @@ import App from "./App.tsx";
 import "./index.css";
 import { registerServiceWorker } from "./registerServiceWorker";
 import "./i18n/config";
-import Preloader from "./components/Preloader.tsx";
 
 // Initialize theme from localStorage
 const savedTheme = localStorage.getItem("theme");
@@ -20,9 +19,4 @@ if (savedTheme === "dark" || !savedTheme) {
 // Register service worker for PWA and offline support
 registerServiceWorker();
 
-createRoot(document.getElementById("root")!).render(
-  <>
-    <Preloader />
-    <App />
-  </>
-);
+createRoot(document.getElementById("root")!).render(<App />);
