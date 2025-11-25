@@ -76,9 +76,6 @@ const Hero = () => {
                 fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-primary/10" />
-              
-              {/* Gold accent overlay */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full" />
             </div>
             
             {/* Floating Badge */}
