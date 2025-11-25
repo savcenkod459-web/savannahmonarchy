@@ -117,7 +117,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
             </div>
 
             {/* Price section */}
-            <div className="pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent py-0">
+            <div className="pt-6 py-0">
               <div className="space-y-4 pb-2">
                 <div className="flex items-end justify-between">
                   <div className="space-y-1">
