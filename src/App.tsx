@@ -47,25 +47,22 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+const AppContent = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
   
   useSmoothScroll();
-  useTranslations(); // Загружаем переводы из базы данных
-  useAutoTranslation(); // Автоматическая замена текста на переводы
+  useTranslations();
+  useAutoTranslation();
 
   useEffect(() => {
-    // Shorter delay for better perceived performance
     const timer = setTimeout(() => {
       setIsContentVisible(true);
     }, 1600);
-
     return () => clearTimeout(timer);
   }, []);
   
   return (
-    <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <>
       <Preloader />
       <Toaster />
       <Sonner />
@@ -105,8 +102,17 @@ const App = () => {
           </div>
         </AdminTranslationWrapper>
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <AppContent />
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
