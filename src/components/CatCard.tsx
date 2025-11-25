@@ -39,7 +39,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
       }}
     >
       <div
-        className="relative rounded-3xl overflow-hidden shadow-soft transition-all duration-500 hover:scale-105 hover:-translate-y-3"
+        className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3"
         style={{
           transform: 'translateZ(0)',
           willChange: 'transform, box-shadow',
