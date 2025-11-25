@@ -49,14 +49,6 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
         {/* Content */}
         <div className="relative">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted transition-all duration-500">
-            {/* Top border with glow */}
-            <div 
-              className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-10"
-              style={{
-                boxShadow: '0 0 10px rgba(217, 179, 112, 0.6)',
-              }}
-            />
-            
             <OptimizedImage
               src={cat.image}
               alt={cat.name}
@@ -66,14 +58,6 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
 
             {/* Gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* Bottom border with glow */}
-            <div 
-              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent z-10"
-              style={{
-                boxShadow: '0 0 10px rgba(217, 179, 112, 0.6)',
-              }}
-            />
 
             {/* Crown icon with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
