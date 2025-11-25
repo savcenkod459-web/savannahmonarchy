@@ -206,17 +206,8 @@ export const VideoPlayer = memo(({
   };
 
   const triggerFullscreen = () => {
-    // На мобильных устройствах всегда используем нативный fullscreen браузера
-    if (isMobile) {
-      handleFullscreen();
-      return;
-    }
-
-    if (onToggleFullscreen) {
-      onToggleFullscreen();
-    } else {
-      handleFullscreen();
-    }
+    // Для всех устройств используем нативный fullscreen браузера
+    handleFullscreen();
   };
   const handleSeek = (value: number[]) => {
     if (videoRef.current && duration > 0) {
