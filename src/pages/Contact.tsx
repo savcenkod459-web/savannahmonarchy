@@ -264,9 +264,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
               <ScrollAnimationWrapper animation="fade" delay={100}>
-                <div className="p-8 glass-card rounded-3xl border-2 border-primary/60 transition-all duration-500 group" style={{
-                  boxShadow: '0 0 25px rgba(217, 179, 112, 0.4), 0 0 50px rgba(217, 179, 112, 0.2)',
-                }}>
+                <div className="p-8 glass-card rounded-3xl transition-all duration-500 group">
                   <div className="flex items-center gap-3 mb-8">
                     <Send className="w-6 w-6 text-primary" />
                     <h2 className="font-display font-black text-3xl">{t('contact.form.title')}</h2>
@@ -281,7 +279,7 @@ const Contact = () => {
                         onChange={e => setFormData({ ...formData, name: e.target.value })} 
                         placeholder={t('contact.form.name_placeholder')} 
                         required 
-                        className="border-primary/30 focus:border-primary/60 transition-all"
+                        className="transition-all"
                       />
                     </div>
                     
@@ -294,7 +292,7 @@ const Contact = () => {
                         onChange={e => setFormData({ ...formData, email: e.target.value })} 
                         placeholder={t('contact.form.email_placeholder')}
                         required 
-                        className="border-primary/30 focus:border-primary/60 transition-all"
+                        className="transition-all"
                       />
                     </div>
                     
@@ -308,7 +306,7 @@ const Contact = () => {
                         placeholder={t('contact.form.phone_placeholder')}
                         pattern="[\d\s\+\-\(\)]+"
                         minLength={10}
-                        className="border-primary/30 focus:border-primary/60 transition-all"
+                        className="transition-all"
                       />
                     </div>
                     
@@ -321,19 +319,16 @@ const Contact = () => {
                         placeholder={t('contact.form.message_placeholder')}
                         rows={6} 
                         required 
-                        className="border-primary/30 focus:border-primary/60 transition-all"
+                        className="transition-all"
                       />
                     </div>
                     
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full relative overflow-hidden group/submit border-2 border-primary/60 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/30 before:to-primary/0 before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000"
-                      style={{
-                        boxShadow: '0 0 20px rgba(217, 179, 112, 0.3)',
-                      }}
+                      className="w-full transition-all duration-300 hover:-translate-y-1"
                     >
-                      <span className="relative z-10">{t('contact.form.submit')}</span>
+                      {t('contact.form.submit')}
                     </Button>
                   </form>
                 </div>
@@ -349,10 +344,8 @@ const Contact = () => {
                     </div>
                     
                     <div className="space-y-6">
-                      <div className="flex items-start gap-4 p-4 glass-card rounded-2xl border-2 border-primary/50 transition-all duration-300 hover:border-primary/70" style={{
-                        boxShadow: '0 0 20px rgba(217, 179, 112, 0.3)',
-                      }}>
-                        <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-primary/30">
+                      <div className="flex items-start gap-4 p-4 glass-card rounded-2xl transition-all duration-300">
+                        <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl">
                           <Mail className="h-6 w-6 text-primary" />
                         </div>
                         <div>
@@ -366,10 +359,8 @@ const Contact = () => {
                         </div>
                       </div>
                       
-                      <div className="flex items-start gap-4 p-4 glass-card rounded-2xl border-2 border-primary/50 transition-all duration-300 hover:border-primary/70" style={{
-                        boxShadow: '0 0 20px rgba(217, 179, 112, 0.3)',
-                      }}>
-                        <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-primary/30">
+                      <div className="flex items-start gap-4 p-4 glass-card rounded-2xl transition-all duration-300">
+                        <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl">
                           <Clock className="h-6 w-6 text-primary" />
                         </div>
                         <div>
@@ -381,9 +372,7 @@ const Contact = () => {
                   </div>
 
                   {/* Social Media */}
-                  <div className="p-8 glass-card rounded-3xl border-2 border-primary/60 transition-all duration-500" style={{
-                    boxShadow: '0 0 25px rgba(217, 179, 112, 0.4), 0 0 50px rgba(217, 179, 112, 0.2)',
-                  }}>
+                  <div className="p-8 glass-card rounded-3xl transition-all duration-500">
                     <div className="flex items-center gap-3 mb-4">
                       <Star className="w-5 h-5 text-primary animate-pulse" />
                       <h3 className="font-display font-bold text-2xl">Подписывайтесь на нас</h3>
@@ -397,10 +386,7 @@ const Contact = () => {
                         href="https://www.instagram.com/savannahdynasty?igsh=cjRvbTM5Y3p1N3Uz&utm_source=qr" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl border-2 border-purple-400/50 transition-all duration-500 hover:-translate-y-1 hover:scale-105"
-                        style={{
-                          boxShadow: '0 0 15px rgba(168, 85, 247, 0.4)',
-                        }}
+                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl transition-all duration-300 hover:-translate-y-1"
                       >
                         <Instagram className="h-5 w-5 transition-transform duration-500 group-hover:rotate-12" />
                         <span className="font-medium">@savannahdynasty</span>
@@ -410,10 +396,7 @@ const Contact = () => {
                         href="https://t.me/SavannahDynasty_bot" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl border-2 border-blue-400/50 transition-all duration-500 hover:-translate-y-1 hover:scale-105"
-                        style={{
-                          boxShadow: '0 0 15px rgba(59, 130, 246, 0.4)',
-                        }}
+                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl transition-all duration-300 hover:-translate-y-1"
                       >
                         <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
                         <span className="font-medium">@SavannahDynasty_bot</span>
@@ -423,10 +406,7 @@ const Contact = () => {
                         href="https://www.tiktok.com/@savannahdynasty?_r=1&_t=ZM-9163yTY9hWK" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl border-2 border-gray-600/50 transition-all duration-500 hover:-translate-y-1 hover:scale-105"
-                        style={{
-                          boxShadow: '0 0 15px rgba(75, 85, 99, 0.4)',
-                        }}
+                        className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl transition-all duration-300 hover:-translate-y-1"
                       >
                         <svg className="h-5 w-5 transition-transform duration-500 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
