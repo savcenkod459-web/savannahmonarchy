@@ -90,7 +90,7 @@ const App = () => {
           <PageLoadWave />
           <MobileFloatingButtons />
         </Suspense>
-        <BrowserRouter basename="/savannahdynasty">
+        <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
           <div 
