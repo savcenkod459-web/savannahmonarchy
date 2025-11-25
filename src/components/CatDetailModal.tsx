@@ -9,12 +9,8 @@ import videoPoster1 from "@/assets/video-poster-1.png";
 import videoPoster2 from "@/assets/video-poster-2.png";
 import videoPoster3 from "@/assets/video-poster-3.png";
 
-// Mapping video URLs to poster images
-const videoPosters: Record<string, string> = {
-  "video-1762099803107-ivy9gi.mp4": videoPoster1,
-  "video-1762099781562-bbln3k.mp4": videoPoster2,
-  "video-1762099756072-8uf0vc.mp4": videoPoster3,
-};
+// Mapping video URLs to poster images - no longer needed for YouTube
+const videoPosters: Record<string, string> = {};
 
 interface CatDetailModalProps {
   images: string[];

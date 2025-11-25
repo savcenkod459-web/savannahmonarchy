@@ -144,7 +144,7 @@ const FeaturedCollection = () => {
                     </div>
                     
                     {/* Price section with enhanced styling */}
-                    <div className="pt-4 md:pt-6 border-t border-gradient-to-r from-transparent via-primary/30 to-transparent">
+                    <div className="pt-4 md:pt-6">
                       <div className="space-y-3 md:space-y-4 pb-2 cursor-pointer" onClick={() => navigate('/catalog')}>
                         <div className="flex items-end justify-between">
                           <div className="space-y-1">
