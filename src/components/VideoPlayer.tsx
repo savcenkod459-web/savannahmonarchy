@@ -169,20 +169,24 @@ export const VideoPlayer = memo(({
     }
   };
   const handleFullscreen = async () => {
-    const container = containerRef.current;
-    if (!container) return;
+    // Для мобильных используем video element для fullscreen
+    const element = isMobile ? videoRef.current : containerRef.current;
+    if (!element) return;
     
     try {
       if (!document.fullscreenElement) {
         // Входим в fullscreen
-        if (container.requestFullscreen) {
-          await container.requestFullscreen();
-        } else if ((container as any).webkitRequestFullscreen) {
-          await (container as any).webkitRequestFullscreen();
-        } else if ((container as any).mozRequestFullScreen) {
-          await (container as any).mozRequestFullScreen();
-        } else if ((container as any).msRequestFullscreen) {
-          await (container as any).msRequestFullscreen();
+        if (element.requestFullscreen) {
+          await element.requestFullscreen();
+        } else if ((element as any).webkitRequestFullscreen) {
+          await (element as any).webkitRequestFullscreen();
+        } else if ((element as any).webkitEnterFullscreen) {
+          // iOS Safari
+          (element as any).webkitEnterFullscreen();
+        } else if ((element as any).mozRequestFullScreen) {
+          await (element as any).mozRequestFullScreen();
+        } else if ((element as any).msRequestFullscreen) {
+          await (element as any).msRequestFullscreen();
         }
       } else {
         // Выходим из fullscreen
@@ -318,7 +322,7 @@ export const VideoPlayer = memo(({
               key={videoUrl}
               poster={posterImage}
               src={videoUrl}
-              className="max-w-full max-h-full object-contain"
+              className={`${isMobile ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}`}
               onClick={togglePlay}
               preload="metadata"
               playsInline
@@ -446,7 +450,7 @@ export const VideoPlayer = memo(({
         key={videoUrl}
         poster={posterImage}
         src={videoUrl}
-        className="w-full h-full object-contain rounded-lg" 
+        className={`w-full h-full rounded-lg ${isInFullscreen ? 'object-cover' : 'object-contain'}`}
         preload="metadata"
         playsInline
         onClick={togglePlay}
