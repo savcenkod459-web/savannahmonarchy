@@ -200,6 +200,15 @@ export const VideoPlayer = memo(({
       console.error('Error toggling fullscreen:', err);
     }
   };
+
+  const triggerFullscreen = () => {
+    if (onToggleFullscreen) {
+      onToggleFullscreen();
+    } else {
+      handleFullscreen();
+    }
+  };
+
   const handleSeek = (value: number[]) => {
     if (videoRef.current && duration > 0) {
       videoRef.current.currentTime = value[0];
@@ -348,7 +357,7 @@ export const VideoPlayer = memo(({
             <Button 
               variant="ghost" 
               size="icon" 
-              onClick={handleFullscreen} 
+              onClick={triggerFullscreen} 
               className="hover:bg-white/20 active:scale-95 w-14 h-14 rounded-full transition-transform text-white pointer-events-auto touch-manipulation"
               style={{ touchAction: 'manipulation' }}
             >
@@ -382,7 +391,7 @@ export const VideoPlayer = memo(({
             </div>
             
             {/* Fullscreen button */}
-            <Button variant="ghost" size="icon" onClick={handleFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform pointer-events-auto">
+            <Button variant="ghost" size="icon" onClick={triggerFullscreen} className="hover:bg-white/20 active:scale-95 w-10 h-10 rounded-full transition-transform pointer-events-auto">
               <Maximize className="h-6 w-6" />
             </Button>
           </div>
