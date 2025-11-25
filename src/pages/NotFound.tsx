@@ -13,17 +13,11 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-[150px] animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[200px] animate-pulse" />
-      </div>
-
+      
       <div className="relative z-10 text-center px-6 max-w-2xl mx-auto animate-fade-in">
         {/* 404 Icon */}
         <div className="mb-8 relative inline-block">
-          <div className="absolute inset-0 bg-primary/20 blur-3xl animate-pulse" />
+          
           <div className="relative bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl rounded-full p-8 border-2 border-primary/30 shadow-glow animate-scale-in">
             <AlertCircle className="w-24 h-24 text-primary animate-gold-pulse" strokeWidth={1.5} />
           </div>

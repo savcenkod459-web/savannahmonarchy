@@ -6,13 +6,6 @@ const RaritySection = () => {
   
   return (
     <section className="py-12 md:py-20 relative overflow-visible">
-      <div className="absolute top-20 left-10 opacity-5">
-        <Diamond className="w-40 h-40 text-primary animate-float" />
-      </div>
-      <div className="absolute bottom-20 right-10 opacity-5">
-        <Gem className="w-48 h-48 text-accent animate-float" style={{animationDelay: '2s'}} />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16 animate-fade-in">

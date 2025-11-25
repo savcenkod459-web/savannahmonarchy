@@ -61,14 +61,6 @@ const FeaturedCollection = () => {
     }
   });
   return <section className="py-16 md:py-32 pb-24 md:pb-40 relative overflow-visible">
-      {/* Декоративный фон */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{
-        animationDelay: '3s'
-      }} />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
