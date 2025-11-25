@@ -39,7 +39,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
       }}
     >
       <div
-        className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3"
+        className="relative rounded-3xl overflow-hidden shadow-soft transition-all duration-500 hover:scale-105 hover:-translate-y-3"
         style={{
           transform: 'translateZ(0)',
           willChange: 'transform, box-shadow',
@@ -48,14 +48,12 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
         }}
       >
         {/* Gradient border effect */}
-        <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" style={{
-          boxShadow: '0 0 20px rgba(217, 179, 112, 0.4), inset 0 0 20px rgba(217, 179, 112, 0.1)'
-        }} />
+        <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" />
         <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
 
         {/* Content */}
         <div className="relative">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted transition-all duration-500 border-2 border-primary/60 border-b-0" style={{ boxShadow: '0 0 20px rgba(217, 179, 112, 0.4)' }}>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted transition-all duration-500 border-2 border-primary/60 border-b-0">
             <OptimizedImage
               src={cat.image}
               alt={cat.name}

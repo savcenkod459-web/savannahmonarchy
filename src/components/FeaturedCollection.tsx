@@ -81,16 +81,14 @@ const FeaturedCollection = () => {
             </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
         }} className="group animate-scale-in py-6 md:py-[30px]">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-soft transition-all duration-500 hover:scale-105 hover:-translate-y-3" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
                 {/* Gradient border effect */}
-                <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" style={{
-                  boxShadow: '0 0 20px rgba(217, 179, 112, 0.4), inset 0 0 20px rgba(217, 179, 112, 0.1)'
-                }} />
+                <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer border-2 border-primary/60 border-b-0" style={{ boxShadow: '0 0 20px rgba(217, 179, 112, 0.4)' }} onClick={(e) => {
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer border-2 border-primary/60 border-b-0" onClick={(e) => {
                     e.stopPropagation();
                     openGallery(cat.image, cat.additional_images);
                   }}>
