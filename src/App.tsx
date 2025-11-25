@@ -32,15 +32,16 @@ import UpdatePassword from "./pages/UpdatePassword";
 import NotFound from "./pages/NotFound";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
-// Оптимизированная конфигурация QueryClient
+// Оптимизированная конфигурация QueryClient для максимального кэширования
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000, // 5 минут
-      gcTime: 10 * 60 * 1000, // 10 минут
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 минут - данные остаются свежими
+      gcTime: 30 * 60 * 1000, // 30 минут - время хранения в кэше
+      retry: 2,
+      refetchOnWindowFocus: false, // Уменьшаем ненужные перезагрузки
+      refetchOnMount: false, // Используем кэшированные данные когда возможно
+      refetchOnReconnect: true, // Перезагрузка при восстановлении соединения
     },
   },
 });

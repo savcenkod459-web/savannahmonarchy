@@ -46,7 +46,9 @@ const ScrollAnimationWrapperComponent = ({
       style={{
         transitionDelay: `${delay}ms`,
         willChange: isVisible ? 'auto' : 'opacity, transform',
-        contain: 'layout style paint'
+        contain: 'layout style paint',
+        transform: 'translateZ(0)', // GPU acceleration
+        backfaceVisibility: 'hidden' as const, // Prevent flickering
       }}
     >
       {children}
