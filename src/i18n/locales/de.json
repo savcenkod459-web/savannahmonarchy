@@ -704,6 +704,11 @@
     "tooManyMessagesDescription": "Sie können maximal 3 Nachrichten pro Stunde senden. Bitte versuchen Sie es später erneut.",
     "checkErrorGeneric": "Bei der Überprüfung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
     "messageError": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
-    "fillField": "Bitte füllen Sie dieses Feld aus"
+    "fillField": "Bitte füllen Sie dieses Feld aus",
+    "nameRequired": "Name ist erforderlich",
+    "emailInvalid": "Ungültige E-Mail-Adresse",
+    "phoneInvalid": "Ungültiges Telefonnummernformat",
+    "messageRequired": "Nachricht ist erforderlich",
+    "edgeFunctionError": "Edge-Funktion hat einen Nicht-2xx-Statuscode zurückgegeben"
   }
 }

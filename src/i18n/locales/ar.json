@@ -735,6 +735,11 @@
     "tooManyMessagesDescription": "يمكنك إرسال حد أقصى 3 رسائل في الساعة. يرجى المحاولة لاحقًا.",
     "checkErrorGeneric": "حدث خطأ أثناء التحقق. يرجى المحاولة لاحقًا.",
     "messageError": "فشل إرسال الرسالة. يرجى المحاولة لاحقًا.",
-    "fillField": "يرجى ملء هذا الحقل"
+    "fillField": "يرجى ملء هذا الحقل",
+    "nameRequired": "الاسم مطلوب",
+    "emailInvalid": "عنوان البريد الإلكتروني غير صالح",
+    "phoneInvalid": "تنسيق رقم الهاتف غير صالح",
+    "messageRequired": "الرسالة مطلوبة",
+    "edgeFunctionError": "أرجعت دالة Edge رمز حالة غير 2xx"
   }
 }
