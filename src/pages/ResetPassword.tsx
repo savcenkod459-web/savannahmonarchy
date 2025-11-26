@@ -76,10 +76,14 @@ const ResetPassword = () => {
       }
       setTimeout(() => navigate(`/update-password?${urlParams.toString()}`), 1500);
     } catch (error: any) {
+      const errorMessage = error.message?.includes('non-2xx') || error.message?.includes('Edge Function') 
+        ? t("errors.edgeFunctionError")
+        : error.message;
+      
       toast({
         variant: "destructive",
         title: t("resetPassword.error"),
-        description: error.message
+        description: errorMessage
       });
     } finally {
       setLoading(false);

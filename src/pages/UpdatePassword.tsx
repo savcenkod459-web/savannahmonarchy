@@ -110,10 +110,14 @@ const UpdatePassword = () => {
       
       setResendTimer(60); // 1 minute timer
     } catch (error: any) {
+      const errorMessage = error.message?.includes('non-2xx') || error.message?.includes('Edge Function')
+        ? t("errors.edgeFunctionError")
+        : error.message;
+      
       toast({
         variant: "destructive",
         title: t("auth.error"),
-        description: error.message
+        description: errorMessage
       });
     } finally {
       setResendLoading(false);
@@ -187,10 +191,14 @@ const UpdatePassword = () => {
         navigate("/auth");
       }, 1500);
     } catch (error: any) {
+      const errorMessage = error.message?.includes('non-2xx') || error.message?.includes('Edge Function')
+        ? t("errors.edgeFunctionError")
+        : (error.message || t("updatePassword.errors.generic"));
+      
       toast({
         variant: "destructive",
         title: t("auth.error"),
-        description: error.message || "Произошла ошибка при обновлении пароля"
+        description: errorMessage
       });
     } finally {
       setLoading(false);
