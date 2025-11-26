@@ -700,6 +700,15 @@
     "emailCopied": "Email скопирован!",
     "emailCopiedDesc": "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
   },
+  "errors": {
+    "validationError": "Ошибка валидации",
+    "error": "Ошибка",
+    "nameRequired": "Name is required",
+    "emailInvalid": "Invalid email address",
+    "phoneInvalid": "Invalid phone number format",
+    "messageRequired": "Message is required",
+    "edgeFunctionError": "Edge Function returned a non-2xx status code"
+  },
   "featuredCollection": {
     "badge": "Эксклюзив",
     "title": "Наша роскошная коллекция",

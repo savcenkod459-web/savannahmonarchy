@@ -762,6 +762,11 @@
     "tooManyMessagesDescription": "您每小时最多可以发送 3 条消息。请稍后再试。",
     "checkErrorGeneric": "验证过程中发生错误。请稍后再试。",
     "messageError": "发送消息失败。请稍后再试。",
-    "fillField": "请填写此字段"
+    "fillField": "请填写此字段",
+    "nameRequired": "姓名为必填项",
+    "emailInvalid": "电子邮件地址无效",
+    "phoneInvalid": "电话号码格式无效",
+    "messageRequired": "消息为必填项",
+    "edgeFunctionError": "Edge 函数返回了非 2xx 状态码"
   }
 }

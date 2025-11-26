@@ -732,6 +732,11 @@
     "tooManyMessagesDescription": "Puede enviar un máximo de 3 mensajes por hora. Por favor, intente más tarde.",
     "checkErrorGeneric": "Se produjo un error durante la verificación. Por favor, intente más tarde.",
     "messageError": "No se pudo enviar el mensaje. Por favor, intente más tarde.",
-    "fillField": "Por favor complete este campo"
+    "fillField": "Por favor complete este campo",
+    "nameRequired": "El nombre es obligatorio",
+    "emailInvalid": "Dirección de correo electrónico no válida",
+    "phoneInvalid": "Formato de número de teléfono no válido",
+    "messageRequired": "El mensaje es obligatorio",
+    "edgeFunctionError": "La función Edge devolvió un código de estado que no es 2xx"
   }
 }

@@ -740,6 +740,11 @@
     "tooManyMessagesDescription": "You can send a maximum of 3 messages per hour. Please try again later.",
     "checkErrorGeneric": "An error occurred during verification. Please try again later.",
     "messageError": "Failed to send message. Please try again later.",
-    "fillField": "Please fill in this field"
+    "fillField": "Please fill in this field",
+    "nameRequired": "Name is required",
+    "emailInvalid": "Invalid email address",
+    "phoneInvalid": "Invalid phone number format",
+    "messageRequired": "Message is required",
+    "edgeFunctionError": "Edge Function returned a non-2xx status code"
   }
 }
