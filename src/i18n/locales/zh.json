@@ -767,6 +767,11 @@
     "emailInvalid": "电子邮件地址无效",
     "phoneInvalid": "电话号码格式无效",
     "messageRequired": "消息为必填项",
-    "edgeFunctionError": "Edge 函数返回了非 2xx 状态码"
+    "edgeFunctionError": "发送时服务器错误",
+    "nameTooLong": "姓名必须少于100个字符",
+    "emailTooLong": "电子邮件必须少于255个字符",
+    "phoneMinLength": "电话号码必须至少包含10位数字",
+    "phoneTooLong": "电话号码必须少于20个字符",
+    "messageTooLong": "消息必须少于2000个字符"
   }
 }

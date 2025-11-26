@@ -732,6 +732,11 @@
     "emailInvalid": "Adresse e-mail invalide",
     "phoneInvalid": "Format de numéro de téléphone invalide",
     "messageRequired": "Le message est requis",
-    "edgeFunctionError": "La fonction Edge a renvoyé un code d'état non-2xx"
+    "edgeFunctionError": "Erreur du serveur lors de l'envoi",
+    "nameTooLong": "Le nom doit contenir moins de 100 caractères",
+    "emailTooLong": "L'e-mail doit contenir moins de 255 caractères",
+    "phoneMinLength": "Le téléphone doit contenir au moins 10 chiffres",
+    "phoneTooLong": "Le téléphone doit contenir moins de 20 caractères",
+    "messageTooLong": "Le message doit contenir moins de 2000 caractères"
   }
 }

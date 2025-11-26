@@ -709,6 +709,11 @@
     "emailInvalid": "Ungültige E-Mail-Adresse",
     "phoneInvalid": "Ungültiges Telefonnummernformat",
     "messageRequired": "Nachricht ist erforderlich",
-    "edgeFunctionError": "Edge-Funktion hat einen Nicht-2xx-Statuscode zurückgegeben"
+    "edgeFunctionError": "Serverfehler beim Senden",
+    "nameTooLong": "Name muss weniger als 100 Zeichen haben",
+    "emailTooLong": "E-Mail muss weniger als 255 Zeichen haben",
+    "phoneMinLength": "Telefonnummer muss mindestens 10 Ziffern haben",
+    "phoneTooLong": "Telefonnummer muss weniger als 20 Zeichen haben",
+    "messageTooLong": "Nachricht muss weniger als 2000 Zeichen haben"
   }
 }

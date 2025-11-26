@@ -28,22 +28,22 @@ const getContactFormSchema = (t: (key: string) => string) => z.object({
   name: z.string()
     .trim()
     .min(1, t("errors.nameRequired"))
-    .max(100, "Name must be less than 100 characters"),
+    .max(100, t("errors.nameTooLong")),
   email: z.string()
     .trim()
     .email(t("errors.emailInvalid"))
-    .max(255, "Email must be less than 255 characters"),
+    .max(255, t("errors.emailTooLong")),
   phone: z.string()
     .trim()
     .regex(/^[\d\s\+\-\(\)]+$/, t("errors.phoneInvalid"))
-    .min(10, "Phone must be at least 10 digits")
-    .max(20, "Phone must be less than 20 characters")
+    .min(10, t("errors.phoneMinLength"))
+    .max(20, t("errors.phoneTooLong"))
     .optional()
     .or(z.literal("")),
   message: z.string()
     .trim()
     .min(1, t("errors.messageRequired"))
-    .max(2000, "Message must be less than 2000 characters")
+    .max(2000, t("errors.messageTooLong"))
 });
 
 const Contact = () => {
