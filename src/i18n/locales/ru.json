@@ -703,11 +703,23 @@
   "errors": {
     "validationError": "Ошибка валидации",
     "error": "Ошибка",
-    "nameRequired": "Name is required",
-    "emailInvalid": "Invalid email address",
-    "phoneInvalid": "Invalid phone number format",
-    "messageRequired": "Message is required",
-    "edgeFunctionError": "Edge Function returned a non-2xx status code"
+    "checkError": "Ошибка проверки",
+    "rateLimitCheckError": "Не удалось проверить лимит сообщений. Пожалуйста, попробуйте позже.",
+    "tooManyMessages": "Слишком много сообщений",
+    "tooManyMessagesDescription": "Вы можете отправить максимум 3 сообщения в час. Пожалуйста, попробуйте позже.",
+    "checkErrorGeneric": "Произошла ошибка во время проверки. Пожалуйста, попробуйте позже.",
+    "messageError": "Не удалось отправить сообщение. Пожалуйста, попробуйте позже.",
+    "fillField": "Пожалуйста, заполните это поле",
+    "nameRequired": "Имя обязательно",
+    "emailInvalid": "Неверный адрес электронной почты",
+    "phoneInvalid": "Неверный формат номера телефона",
+    "messageRequired": "Сообщение обязательно",
+    "edgeFunctionError": "Ошибка сервера при отправке",
+    "nameTooLong": "Имя должно быть менее 100 символов",
+    "emailTooLong": "Email должен быть менее 255 символов",
+    "phoneMinLength": "Номер телефона должен содержать минимум 10 цифр",
+    "phoneTooLong": "Номер телефона должен быть менее 20 символов",
+    "messageTooLong": "Сообщение должно быть менее 2000 символов"
   },
   "featuredCollection": {
     "badge": "Эксклюзив",

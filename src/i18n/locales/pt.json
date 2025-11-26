@@ -741,6 +741,11 @@
     "emailInvalid": "Endereço de e-mail inválido",
     "phoneInvalid": "Formato de número de telefone inválido",
     "messageRequired": "A mensagem é obrigatória",
-    "edgeFunctionError": "A função Edge retornou um código de status não-2xx"
+    "edgeFunctionError": "Erro do servidor ao enviar",
+    "nameTooLong": "O nome deve ter menos de 100 caracteres",
+    "emailTooLong": "O e-mail deve ter menos de 255 caracteres",
+    "phoneMinLength": "O telefone deve ter pelo menos 10 dígitos",
+    "phoneTooLong": "O telefone deve ter menos de 20 caracteres",
+    "messageTooLong": "A mensagem deve ter menos de 2000 caracteres"
   }
 }

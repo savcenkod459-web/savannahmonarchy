@@ -745,6 +745,11 @@
     "emailInvalid": "Invalid email address",
     "phoneInvalid": "Invalid phone number format",
     "messageRequired": "Message is required",
-    "edgeFunctionError": "Edge Function returned a non-2xx status code"
+    "edgeFunctionError": "Edge Function returned a non-2xx status code",
+    "nameTooLong": "Name must be less than 100 characters",
+    "emailTooLong": "Email must be less than 255 characters",
+    "phoneMinLength": "Phone must be at least 10 digits",
+    "phoneTooLong": "Phone must be less than 20 characters",
+    "messageTooLong": "Message must be less than 2000 characters"
   }
 }
