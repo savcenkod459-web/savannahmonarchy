@@ -12,6 +12,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface EmailVerificationDialogProps {
   email: string;
@@ -31,6 +32,7 @@ export const EmailVerificationDialog = ({
   const [sentCode, setSentCode] = useState<string | null>(null);
   const [timer, setTimer] = useState(0);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const sendVerificationCode = async () => {
     setLoading(true);
@@ -63,9 +65,13 @@ export const EmailVerificationDialog = ({
         });
       }
     } catch (error: any) {
+      const errorMessage = error.message?.includes('non-2xx') || error.message?.includes('Edge Function')
+        ? t("errors.edgeFunctionError")
+        : error.message;
+      
       toast({
-        title: "Ошибка",
-        description: error.message,
+        title: t("auth.error"),
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
