@@ -1,5 +1,4 @@
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from './locales/en.json';
@@ -60,13 +59,13 @@ const customLanguageDetector = {
   }
 };
 
+// Initialize without React integration first
 i18n
   .use({
     type: 'languageDetector',
     detect: customLanguageDetector.lookup,
     cacheUserLanguage: customLanguageDetector.cacheUserLanguage,
   } as any)
-  .use(initReactI18next)
   .init({
     resources,
     fallbackLng: 'en',
