@@ -30,9 +30,8 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none"
+        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button:first-of-type]:hidden"
         onKeyDown={handleKeyDown}
-        hideCloseButton
       >
         <div className="relative w-full h-[90vh] flex items-center justify-center">
           {/* Close button - top right */}

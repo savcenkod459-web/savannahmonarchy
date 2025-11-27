@@ -125,7 +125,7 @@ const CatDetailModalComponent = ({
 
       {/* Fullscreen Image Gallery */}
       <Dialog open={isImageFullscreen} onOpenChange={setIsImageFullscreen}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none" onKeyDown={handleKeyDown} hideCloseButton>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button:first-of-type]:hidden" onKeyDown={handleKeyDown}>
           <VisuallyHidden.Root>
             <DialogTitle>Полноэкранный просмотр</DialogTitle>
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
