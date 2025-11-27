@@ -30,18 +30,10 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button:first-of-type]:hidden"
+        className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button]:top-4 [&>button]:right-4 [&>button]:text-white [&>button]:hover:bg-white/20"
         onKeyDown={handleKeyDown}
       >
-        <div className="relative w-full h-[90vh] flex items-center justify-center">
-          {/* Close button - top right */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-[100] rounded-full bg-black/50 backdrop-blur-sm p-2 opacity-90 transition-all hover:opacity-100 hover:bg-black/70 hover:scale-110"
-          >
-            <X className="h-5 w-5 text-white" />
-          </button>
-
+        <div className="relative w-full h-[95vh] flex items-center justify-center">
           {/* Previous button */}
           {images.length > 1 && (
             <Button
@@ -59,7 +51,7 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
           <img
             src={images[currentIndex]}
             alt={`Gallery image ${currentIndex + 1}`}
-            className="max-w-full max-h-[85vh] object-contain"
+            className="max-w-full max-h-full object-contain"
             loading="lazy"
             decoding="async"
           />
