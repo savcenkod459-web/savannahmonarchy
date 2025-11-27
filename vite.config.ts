@@ -130,10 +130,13 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "react": path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
-    dedupe: ['react', 'react-dom', 'react-i18next', 'i18next'],
+    dedupe: ['react', 'react-dom', 'react-i18next', 'i18next', 'next-themes'],
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-i18next', 'i18next'],
+    include: ['react', 'react-dom', 'react-i18next', 'i18next', 'next-themes'],
+    force: true,
   },
 }));
