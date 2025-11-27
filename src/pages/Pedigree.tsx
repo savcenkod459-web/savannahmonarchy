@@ -308,27 +308,25 @@ const Pedigree = () => {
 
       {/* Fullscreen Gallery */}
       <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4 z-50 bg-black/50 hover:bg-black/70 text-white"
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none" hideCloseButton>
+          <button
             onClick={() => setGalleryOpen(false)}
+            className="absolute top-4 right-4 z-[100] rounded-full bg-black/50 backdrop-blur-sm p-2 opacity-90 transition-all hover:opacity-100 hover:bg-black/70 hover:scale-110"
           >
-            <X className="w-6 h-6" />
-          </Button>
-          <div className="relative w-full h-[95vh] flex items-center justify-center">
+            <X className="h-5 w-5 text-white" />
+          </button>
+          <div className="relative w-full h-[90vh] flex items-center justify-center">
             <img
               src={galleryImages[currentImageIndex]}
               alt={`Изображение ${currentImageIndex + 1}`}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-[85vh] object-contain"
             />
             {galleryImages.length > 1 && (
               <>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white z-[60]"
                   onClick={prevImage}
                 >
                   <ChevronLeft className="w-8 h-8" />
@@ -336,12 +334,12 @@ const Pedigree = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white z-[60]"
                   onClick={nextImage}
                 >
                   <ChevronRight className="w-8 h-8" />
                 </Button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-4 py-2 rounded-full text-white">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 px-4 py-2 rounded-full text-white text-sm z-30">
                   {currentImageIndex + 1} / {galleryImages.length}
                 </div>
               </>
