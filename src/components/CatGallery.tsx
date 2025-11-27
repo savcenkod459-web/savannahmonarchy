@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import * as React from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -11,7 +11,7 @@ interface CatGalleryProps {
 }
 
 const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatGalleryProps) => {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -88,4 +88,4 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
   );
 };
 
-export const CatGallery = memo(CatGalleryComponent);
+export const CatGallery = React.memo(CatGalleryComponent);
