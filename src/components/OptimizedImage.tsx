@@ -32,11 +32,15 @@ const OptimizedImageComponent = ({
       srcSet={generateSrcSet()}
       sizes={generateSizes()}
       alt={alt}
-      className={`${className} transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'} [backface-visibility:hidden]`}
+      className={`${className} transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       onClick={onClick}
       loading="lazy"
       decoding="async"
       fetchPriority={imageQuality === 'high' ? 'high' : 'low'}
+      style={{
+        transform: 'translateZ(0)',
+        willChange: 'opacity'
+      }}
     />
   );
 };
