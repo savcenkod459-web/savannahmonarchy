@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import * as React from "react";
 import { Crown } from "lucide-react";
 
 const Preloader = () => {
   // Add keyframes for glow fade-in and pulse animations
-  useEffect(() => {
+  React.useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes fadeInGlow {
@@ -28,9 +28,9 @@ const Preloader = () => {
       document.head.removeChild(style);
     };
   }, []);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Prevent scrolling when preloader is visible
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';

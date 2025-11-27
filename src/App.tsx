@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense, memo } from "react";
+import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -10,7 +10,7 @@ import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import Preloader from "./components/Preloader";
 
 // Lazy load эффектов для улучшения производительности
-const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
+const MobileFloatingButtons = React.lazy(() => import("./components/MobileFloatingButtons"));
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -47,14 +47,14 @@ const queryClient = new QueryClient({
 });
 
 const AppContent = () => {
-  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isContentVisible, setIsContentVisible] = React.useState(false);
   
   // Временное отключение пользовательского smooth scroll из-за проблем с хуками
   // useSmoothScroll();
   useTranslations();
   useAutoTranslation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsContentVisible(true);
     }, 1600);
@@ -66,9 +66,9 @@ const AppContent = () => {
       <Preloader />
       <Toaster />
       <Sonner />
-      <Suspense fallback={null}>
+      <React.Suspense fallback={null}>
         <MobileFloatingButtons />
-      </Suspense>
+      </React.Suspense>
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
