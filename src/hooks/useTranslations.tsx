@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import i18n from '@/i18n/config';
 
@@ -73,10 +73,10 @@ const loadTranslationsFromDatabase = async () => {
 };
 
 export const useTranslations = () => {
-  const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
-  const [initialized, setInitialized] = useState(false);
+  const channelRef = React.useRef<ReturnType<typeof supabase.channel> | null>(null);
+  const [initialized, setInitialized] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Инициализация переводов при первом рендере
     const initTranslations = async () => {
       if (i18n.isInitialized) {
@@ -94,7 +94,7 @@ export const useTranslations = () => {
     };
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!initialized) return;
 
     // Подписываемся на изменения переводов в реальном времени
