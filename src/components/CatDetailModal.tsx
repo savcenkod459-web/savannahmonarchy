@@ -52,19 +52,13 @@ const CatDetailModalComponent = ({
   };
   return <>
       <Dialog open={isOpen && !isImageFullscreen && !isVideoFullscreen} onOpenChange={onClose}>
-        <DialogContent className="max-w-[90vw] md:max-w-[85vw] max-h-[90vh] p-0 bg-background border-primary/20" hideCloseButton>
+        <DialogContent className="max-w-[90vw] md:max-w-[85vw] max-h-[90vh] p-0 bg-background border-primary/20">
           <VisuallyHidden.Root>
             <DialogTitle>Просмотр фото и видео</DialogTitle>
             <DialogDescription>Галерея изображений и видео кота</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[90vh] flex flex-col md:flex-row">
-            {/* Close button - top right */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-[100] rounded-full bg-black/50 backdrop-blur-sm p-2 opacity-90 transition-all hover:opacity-100 hover:bg-black/70 hover:scale-110"
-            >
-              <X className="h-5 w-5 text-white" />
-            </button>
+            {/* Close button */}
             
 
             {/* Left panel - Images */}
@@ -136,7 +130,7 @@ const CatDetailModalComponent = ({
             <DialogTitle>Полноэкранный просмотр</DialogTitle>
             <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
           </VisuallyHidden.Root>
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-[90vh] flex items-center justify-center">
             {/* Close button */}
             <button
               onClick={() => setIsImageFullscreen(false)}
@@ -149,8 +143,9 @@ const CatDetailModalComponent = ({
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
+                className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
                 onClick={goToPreviousImage}
+                style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
               >
                 <ChevronLeft className="h-10 w-10" />
               </Button>
@@ -159,15 +154,16 @@ const CatDetailModalComponent = ({
             <OptimizedImage 
               src={images[currentImageIndex]} 
               alt={`Gallery ${currentImageIndex + 1}`} 
-              className="max-w-[90%] max-h-[90%] object-contain" 
+              className="max-w-full max-h-[85vh] object-contain" 
             />
 
             {images.length > 1 && <>
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
+                  className="!absolute !right-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110" 
                   onClick={goToNextImage}
+                  style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
                 >
                   <ChevronRight className="h-10 w-10" />
                 </Button>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import i18n from '@/i18n/config';
 
@@ -72,30 +72,21 @@ const loadTranslationsFromDatabase = async () => {
   }
 };
 
+// Инициализация при загрузке модуля
+if (i18n.isInitialized) {
+  loadTranslationsFromDatabase();
+} else {
+  i18n.on('initialized', loadTranslationsFromDatabase);
+}
+
 export const useTranslations = () => {
-  const channelRef = React.useRef<ReturnType<typeof supabase.channel> | null>(null);
-  const [initialized, setInitialized] = React.useState(false);
+  const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
-  React.useEffect(() => {
-    // Инициализация переводов при первом рендере
-    const initTranslations = async () => {
-      if (i18n.isInitialized) {
-        await loadTranslationsFromDatabase();
-      } else {
-        i18n.on('initialized', loadTranslationsFromDatabase);
-      }
-      setInitialized(true);
-    };
-
-    initTranslations();
-
-    return () => {
-      i18n.off('initialized', loadTranslationsFromDatabase);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    if (!initialized) return;
+  useEffect(() => {
+    // Загружаем переводы если ещё не загружены
+    if (!isLoaded && !isLoading) {
+      loadTranslationsFromDatabase();
+    }
 
     // Подписываемся на изменения переводов в реальном времени
     if (!channelRef.current) {
@@ -122,5 +113,5 @@ export const useTranslations = () => {
         channelRef.current = null;
       }
     };
-  }, [initialized]);
+  }, []);
 };
