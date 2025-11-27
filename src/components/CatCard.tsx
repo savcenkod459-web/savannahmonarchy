@@ -22,29 +22,26 @@ interface CatCardProps {
   cat: Cat;
   onCardClick: (cat: Cat) => void;
   animationDelay?: number;
+  onHover?: () => void;
 }
 
-const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps) => {
+const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: CatCardProps) => {
   const navigate = useNavigate();
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div
       onClick={() => onCardClick(cat)}
-      className="group animate-scale-in cursor-pointer"
+      onMouseEnter={onHover}
+      onTouchStart={onHover}
+      className="group animate-scale-in cursor-pointer py-4"
       style={{ 
         animationDelay: `${animationDelay}ms`,
-        transform: 'translateZ(0)',
-        willChange: 'transform'
       }}
     >
       <div
-        className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 ease-out hover:scale-[1.02] hover:translate-y-2"
+        className="relative rounded-3xl overflow-visible shadow-soft transition-all duration-500 ease-out group-hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] group-hover:translate-y-3"
         style={{
-          transform: 'translateZ(0)',
-          willChange: 'transform, box-shadow',
-          touchAction: 'manipulation',
-          backfaceVisibility: 'hidden' as const,
           transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
         }}
       >
@@ -53,12 +50,12 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
         <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
 
         {/* Content */}
-        <div className="relative">
+        <div className="relative overflow-hidden rounded-3xl">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted transition-all duration-500 border-2 border-primary/60 border-b-0">
             <OptimizedImage
               src={cat.image}
               alt={cat.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               lowQualitySrc={cat.image}
             />
 

@@ -80,14 +80,14 @@ const FeaturedCollection = () => {
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
             </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
-        }} className="group animate-scale-in py-6 md:py-[30px]">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 ease-out hover:scale-[1.02] hover:translate-y-2" style={{ transform: 'translateZ(0)', willChange: 'transform, box-shadow', touchAction: 'manipulation', backfaceVisibility: 'hidden', transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
+        }} className="group animate-scale-in py-6 md:py-[30px] cursor-pointer">
+              <div className="relative rounded-3xl overflow-visible shadow-soft transition-all duration-500 ease-out group-hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] group-hover:translate-y-3" style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
                 
                 {/* Content */}
-                <div className="relative">
+                <div className="relative overflow-hidden rounded-3xl">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl cursor-pointer border-2 border-primary/60 border-b-0" onClick={(e) => {
                     e.stopPropagation();
                     openGallery(cat.image, cat.additional_images);
@@ -95,7 +95,7 @@ const FeaturedCollection = () => {
                     <img 
                       src={cat.image} 
                       alt={cat.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                       loading="lazy"
                       decoding="async"
                     />
