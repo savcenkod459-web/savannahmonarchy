@@ -1,12 +1,12 @@
-import * as React from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { ArrowUp } from "lucide-react";
 
-const ScrollToTop = React.memo(() => {
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [shouldRender, setShouldRender] = React.useState(false);
-  const [isLeaving, setIsLeaving] = React.useState(false);
+const ScrollToTop = memo(() => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
   
-  React.useEffect(() => {
+  useEffect(() => {
     let timeoutId: number;
     
     const toggleVisibility = () => {
@@ -26,6 +26,7 @@ const ScrollToTop = React.memo(() => {
       }
     };
     
+    // Use passive listener for better scroll performance
     window.addEventListener("scroll", toggleVisibility, { passive: true });
     
     return () => {
@@ -34,7 +35,7 @@ const ScrollToTop = React.memo(() => {
     };
   }, [isVisible]);
   
-  const scrollToTop = React.useCallback(() => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth"

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaOptimization } from './useMediaOptimization';
 import { useIsMobile } from './use-mobile';
 
@@ -8,13 +8,13 @@ interface UseOptimizedImageProps {
 }
 
 export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps) => {
-  const [currentSrc, setCurrentSrc] = React.useState(lowQualitySrc || src);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
+  const [currentSrc, setCurrentSrc] = useState(lowQualitySrc || src);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const { imageQuality } = useMediaOptimization();
   const isMobile = useIsMobile();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!src) return;
     
     const img = new Image();
@@ -30,6 +30,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
       setIsLoading(false);
     };
     
+    // Start loading high quality image
     img.src = src;
     
     return () => {
@@ -40,6 +41,7 @@ export const useOptimizedImage = ({ src, lowQualitySrc }: UseOptimizedImageProps
 
   const generateSrcSet = () => {
     if (!src) return undefined;
+    // Generate responsive srcset for different screen sizes
     return `${src} 1x, ${src} 2x`;
   };
   

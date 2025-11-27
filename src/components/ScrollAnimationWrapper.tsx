@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { ReactNode, memo } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface ScrollAnimationWrapperProps {
-  children: React.ReactNode;
+  children: ReactNode;
   animation?: 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'scale' | 'none';
   className?: string;
   delay?: number;
@@ -15,9 +15,9 @@ const ScrollAnimationWrapperComponent = ({
   delay = 0
 }: ScrollAnimationWrapperProps) => {
   const { elementRef, isVisible } = useScrollAnimation({ 
-    threshold: 0.1,
+    threshold: 0.1, // Оптимизированный порог
     triggerOnce: true,
-    rootMargin: '100px'
+    rootMargin: '100px' // Ранняя предзагрузка для плавности
   });
 
   const getAnimationClass = () => {
@@ -47,8 +47,8 @@ const ScrollAnimationWrapperComponent = ({
         transitionDelay: `${delay}ms`,
         willChange: isVisible ? 'auto' : 'opacity, transform',
         contain: 'layout style paint',
-        transform: 'translateZ(0)',
-        backfaceVisibility: 'hidden' as const,
+        transform: 'translateZ(0)', // GPU acceleration
+        backfaceVisibility: 'hidden' as const, // Prevent flickering
       }}
     >
       {children}
@@ -56,4 +56,4 @@ const ScrollAnimationWrapperComponent = ({
   );
 };
 
-export default React.memo(ScrollAnimationWrapperComponent);
+export default memo(ScrollAnimationWrapperComponent);

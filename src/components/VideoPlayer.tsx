@@ -1,11 +1,14 @@
-import * as React from "react";
+import { memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
+// Extract YouTube video ID from various URL formats
 const getYouTubeVideoId = (url: string): string | null => {
+  // Handle youtu.be format
   const shortMatch = url.match(/youtu\.be\/([^?]+)/);
   if (shortMatch) return shortMatch[1];
   
+  // Handle youtube.com/watch?v= format
   const longMatch = url.match(/[?&]v=([^&]+)/);
   if (longMatch) return longMatch[1];
   
@@ -21,7 +24,7 @@ interface VideoPlayerProps {
   posterImage?: string;
 }
 
-export const VideoPlayer = React.memo(({
+export const VideoPlayer = memo(({
   videoUrl,
   isOpen,
   onClose,
@@ -63,6 +66,7 @@ export const VideoPlayer = React.memo(({
     );
   }
 
+  // Non-fullscreen mode - embedded player
   return (
     <div className="relative w-full h-full bg-black/5 rounded-lg overflow-hidden">
       <iframe

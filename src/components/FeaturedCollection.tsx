@@ -1,10 +1,10 @@
-import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Crown, Sparkles, Loader2, Star, Calendar, Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatGallery } from "@/components/CatGallery";
+import { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
@@ -29,9 +29,9 @@ const imageMap: Record<string, string> = {
 const FeaturedCollection = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [galleryOpen, setGalleryOpen] = React.useState(false);
-  const [galleryImages, setGalleryImages] = React.useState<string[]>([]);
-  const [galleryInitialIndex, setGalleryInitialIndex] = React.useState(0);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
   const openGallery = (image: string, additionalImages: string[]) => {
     const allImages = [image, ...(additionalImages || [])];
     setGalleryImages(allImages);
@@ -196,4 +196,4 @@ const FeaturedCollection = () => {
       <CatGallery images={galleryImages} isOpen={galleryOpen} onClose={() => setGalleryOpen(false)} initialIndex={galleryInitialIndex} />
     </section>;
 };
-export default React.memo(FeaturedCollection);
+export default memo(FeaturedCollection);

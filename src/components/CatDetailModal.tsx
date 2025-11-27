@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -24,9 +24,9 @@ const CatDetailModalComponent = ({
   isOpen,
   onClose
 }: CatDetailModalProps) => {
-  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
-  const [isImageFullscreen, setIsImageFullscreen] = React.useState(false);
-  const [isVideoFullscreen, setIsVideoFullscreen] = React.useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageFullscreen, setIsImageFullscreen] = useState(false);
+  const [isVideoFullscreen, setIsVideoFullscreen] = useState(false);
   
   // Get poster for current video
   const getVideoPoster = (videoUrl?: string) => {
@@ -194,4 +194,4 @@ const CatDetailModalComponent = ({
     </>;
 };
 
-export const CatDetailModal = React.memo(CatDetailModalComponent);
+export const CatDetailModal = memo(CatDetailModalComponent);

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,9 +11,9 @@ interface SimpleCaptchaProps {
 
 const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
   const { t } = useTranslation();
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
-  const [captchaCode, setCaptchaCode] = React.useState("");
-  const [userInput, setUserInput] = React.useState("");
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [captchaCode, setCaptchaCode] = useState("");
+  const [userInput, setUserInput] = useState("");
 
   const generateCaptcha = () => {
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789";
@@ -145,7 +145,7 @@ const SimpleCaptcha = ({ onVerify }: SimpleCaptchaProps) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const code = generateCaptcha();
     drawCaptcha(code);
   }, []);

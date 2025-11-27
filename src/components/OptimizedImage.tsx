@@ -1,4 +1,4 @@
-import * as React from "react";
+import { memo } from "react";
 import { useOptimizedImage } from "@/hooks/useOptimizedImage";
 
 interface OptimizedImageProps {
@@ -41,4 +41,4 @@ const OptimizedImageComponent = ({
   );
 };
 
-export const OptimizedImage = React.memo(OptimizedImageComponent);
+export const OptimizedImage = memo(OptimizedImageComponent);

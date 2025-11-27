@@ -1,6 +1,6 @@
-import * as React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Crown, ChevronDown, Star, Diamond, DollarSign, AlertCircle, Cat, Baby, Award, LogOut, Settings, Image, FileText, MessageSquare, User, Languages } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -21,17 +21,17 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 const Navigation = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [aboutPopoverOpen, setAboutPopoverOpen] = React.useState(false);
-  const [adminPopoverOpen, setAdminPopoverOpen] = React.useState(false);
-  const [logoutDialogOpen, setLogoutDialogOpen] = React.useState(false);
-  const [isAdmin, setIsAdmin] = React.useState(false);
-  const [user, setUser] = React.useState<any>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [aboutPopoverOpen, setAboutPopoverOpen] = useState(false);
+  const [adminPopoverOpen, setAdminPopoverOpen] = useState(false);
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
-  React.useEffect(() => {
+  useEffect(() => {
     const checkAuth = async () => {
       const {
         data: {

@@ -1,13 +1,13 @@
-import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const { t } = useTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
   }, []);

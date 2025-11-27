@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Crown } from "lucide-react";
@@ -6,6 +5,7 @@ import heroImage from "@/assets/hero-cat-new.png";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
+import { memo } from "react";
 const Hero = () => {
   const { t } = useTranslation();
   
@@ -91,4 +91,4 @@ const Hero = () => {
       </div>
     </section>;
 };
-export default React.memo(Hero);
+export default memo(Hero);
