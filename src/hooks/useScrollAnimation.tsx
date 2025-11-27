@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 
 interface ScrollAnimationOptions {
   threshold?: number;
@@ -8,10 +8,10 @@ interface ScrollAnimationOptions {
 
 export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', triggerOnce = false } = options;
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const elementRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -42,10 +42,10 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
 };
 
 export const useParallax = (speed: number = 0.5) => {
-  const [offsetY, setOffsetY] = useState(0);
-  const elementRef = useRef<HTMLDivElement>(null);
+  const [offsetY, setOffsetY] = React.useState(0);
+  const elementRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       if (elementRef.current) {
         const rect = elementRef.current.getBoundingClientRect();
