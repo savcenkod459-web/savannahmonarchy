@@ -1,4 +1,4 @@
-import { memo } from "react";
+import * as React from "react";
 import { useOptimizedImage } from "@/hooks/useOptimizedImage";
 
 interface ProgressiveImageProps {
@@ -40,4 +40,4 @@ const ProgressiveImageComponent = ({
   );
 };
 
-export const ProgressiveImage = memo(ProgressiveImageComponent);
+export const ProgressiveImage = React.memo(ProgressiveImageComponent);

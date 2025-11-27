@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import * as React from "react";
 
 const PageLoadWave = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = React.useState(true);
 
-  useEffect(() => {
-    // Hide the wave after animation completes
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 2000);
@@ -16,7 +15,6 @@ const PageLoadWave = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[100] overflow-hidden">
-      {/* Золотая волна света */}
       <div 
         className="absolute inset-x-0 h-[200vh] -top-[100vh] animate-wave-down"
         style={{
@@ -25,7 +23,6 @@ const PageLoadWave = () => {
         }}
       />
       
-      {/* Дополнительные блики */}
       <div 
         className="absolute inset-x-0 h-[150vh] -top-[75vh] animate-wave-down-delayed"
         style={{
@@ -34,7 +31,6 @@ const PageLoadWave = () => {
         }}
       />
       
-      {/* Светящиеся частицы */}
       {[...Array(8)].map((_, i) => (
         <div
           key={i}

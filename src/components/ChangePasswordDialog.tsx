@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
@@ -18,15 +18,14 @@ import { useTranslation } from "react-i18next";
 
 export const ChangePasswordDialog = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [currentPassword, setCurrentPassword] = React.useState("");
+  const [newPassword, setNewPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
   const { toast } = useToast();
   
-  // Инициализация валидации при открытии диалога
-  useEffect(() => {
+  React.useEffect(() => {
     if (!open) return;
 
     const validateField = (input: HTMLInputElement | HTMLTextAreaElement): boolean => {
