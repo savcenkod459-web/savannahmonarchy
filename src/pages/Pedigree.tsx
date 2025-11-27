@@ -308,7 +308,7 @@ const Pedigree = () => {
 
       {/* Fullscreen Gallery */}
       <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20 [&>button]:hidden">
           <Button
             variant="ghost"
             size="icon"
@@ -317,11 +317,11 @@ const Pedigree = () => {
           >
             <X className="w-6 h-6" />
           </Button>
-          <div className="relative w-full h-[95vh] flex items-center justify-center">
+          <div className="relative w-full h-[90vh] flex items-center justify-center">
             <img
               src={galleryImages[currentImageIndex]}
               alt={`Изображение ${currentImageIndex + 1}`}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-[85vh] object-contain"
             />
             {galleryImages.length > 1 && (
               <>
