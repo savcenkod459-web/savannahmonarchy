@@ -34,7 +34,7 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
         onKeyDown={handleKeyDown}
         hideCloseButton
       >
-        <div className="relative w-full h-[90vh] flex items-center justify-center">
+        <div className="relative w-full h-full flex items-center justify-center">
           {/* Close button - top right */}
           <button
             onClick={onClose}
@@ -48,9 +48,8 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
             <Button
               variant="ghost"
               size="icon"
-              className="!absolute !left-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToPrevious}
-              style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
             >
               <ChevronLeft className="h-10 w-10" />
             </Button>
@@ -60,7 +59,7 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
           <img
             src={images[currentIndex]}
             alt={`Gallery image ${currentIndex + 1}`}
-            className="max-w-full max-h-[85vh] object-contain"
+            className="max-w-[90%] max-h-[90%] object-contain"
             loading="lazy"
             decoding="async"
           />
@@ -70,9 +69,8 @@ const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatG
             <Button
               variant="ghost"
               size="icon"
-              className="!absolute !right-4 !top-[50%] !-translate-y-1/2 !z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:bg-white/30 rounded-full bg-black/50 backdrop-blur-sm p-3 transition-all hover:scale-110"
               onClick={goToNext}
-              style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 60 }}
             >
               <ChevronRight className="h-10 w-10" />
             </Button>
