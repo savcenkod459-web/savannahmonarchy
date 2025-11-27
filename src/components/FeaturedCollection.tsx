@@ -81,7 +81,7 @@ const FeaturedCollection = () => {
             </div> : cats && cats.length > 0 ? cats.map((cat, index) => <div key={cat.id} style={{
           animationDelay: `${index * 100}ms`
         }} className="group animate-scale-in py-6 md:py-[30px]">
-              <div className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 ease-out hover:scale-[1.02] hover:translate-y-2" style={{ transform: 'translateZ(0)', willChange: 'transform, box-shadow', touchAction: 'manipulation', backfaceVisibility: 'hidden', transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
+              <div className="card-hover-animation relative rounded-3xl overflow-hidden shadow-soft">
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-3xl border-2 border-primary/60" />
                 <div className="absolute inset-[2px] bg-background/95 backdrop-blur-xl rounded-3xl" />
