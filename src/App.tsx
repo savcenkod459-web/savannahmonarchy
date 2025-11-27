@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { useTranslations } from "./hooks/useTranslations";
-import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import Preloader from "./components/Preloader";
 
@@ -52,7 +51,6 @@ const AppContent = () => {
   // Временное отключение пользовательского smooth scroll из-за проблем с хуками
   // useSmoothScroll();
   useTranslations();
-  useAutoTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
