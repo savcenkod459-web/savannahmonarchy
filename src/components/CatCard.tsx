@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Crown, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ interface CatCardProps {
 
 const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: CatCardProps) => {
   const navigate = useNavigate();
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   return (
     <div
@@ -163,4 +163,4 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
   );
 };
 
-export const CatCard = memo(CatCardComponent);
+export const CatCard = React.memo(CatCardComponent);

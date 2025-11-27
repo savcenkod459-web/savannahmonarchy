@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,10 +27,10 @@ export const EmailVerificationDialog = ({
   onOpenChange,
   onVerified
 }: EmailVerificationDialogProps) => {
-  const [code, setCode] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [sentCode, setSentCode] = useState<string | null>(null);
-  const [timer, setTimer] = useState(0);
+  const [code, setCode] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [sentCode, setSentCode] = React.useState<string | null>(null);
+  const [timer, setTimer] = React.useState(0);
   const { toast } = useToast();
   const { t } = useTranslation();
 
@@ -79,7 +79,7 @@ export const EmailVerificationDialog = ({
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     let interval: NodeJS.Timeout;
     if (timer > 0) {
       interval = setInterval(() => {

@@ -1,7 +1,7 @@
+import * as React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Globe, Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,11 +24,11 @@ const languages = [
 const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
   const { i18n, t } = useTranslation();
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
   
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
-  useEffect(() => {
+  React.useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
   }, []);
