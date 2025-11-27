@@ -1,16 +1,7 @@
-import * as React from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSmoothScroll } from "./hooks/useSmoothScroll";
-import { useTranslations } from "./hooks/useTranslations";
-import { useAutoTranslation } from "./hooks/useAutoTranslation";
-import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
-import Preloader from "./components/Preloader";
 
-// Lazy load эффектов для улучшения производительности
-const MobileFloatingButtons = React.lazy(() => import("./components/MobileFloatingButtons"));
+// Pages
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Catalog from "./pages/Catalog";
@@ -30,54 +21,25 @@ import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 import NotFound from "./pages/NotFound";
-import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
-// Оптимизированная конфигурация QueryClient для максимального кэширования
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000, // 5 минут - данные остаются свежими
-      gcTime: 30 * 60 * 1000, // 30 минут - время хранения в кэше
+      staleTime: 5 * 60 * 1000,
+      gcTime: 30 * 60 * 1000,
       retry: 2,
-      refetchOnWindowFocus: false, // Уменьшаем ненужные перезагрузки
-      refetchOnMount: false, // Используем кэшированные данные когда возможно
-      refetchOnReconnect: true, // Перезагрузка при восстановлении соединения
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: true,
     },
   },
 });
 
-const AppContent = () => {
-  const [isContentVisible, setIsContentVisible] = React.useState(false);
-  
-  // Временное отключение пользовательского smooth scroll из-за проблем с хуками
-  // useSmoothScroll();
-  useTranslations();
-  useAutoTranslation();
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsContentVisible(true);
-    }, 1600);
-    return () => clearTimeout(timer);
-  }, []);
-  
+const App = () => {
   return (
-    <>
-      <Preloader />
-      <Toaster />
-      <Sonner />
-      <React.Suspense fallback={null}>
-        <MobileFloatingButtons />
-      </React.Suspense>
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <ScrollToTopOnRouteChange />
-        <AdminTranslationWrapper>
-          <div 
-            className={`transition-opacity duration-1000 ${
-              isContentVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <Routes>
+        <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/catalog" element={<Catalog />} />
@@ -96,20 +58,9 @@ const AppContent = () => {
           <Route path="/admin/images" element={<AdminImages />} />
           <Route path="/admin/messages" element={<AdminMessages />} />
           <Route path="/admin/translations" element={<AdminTranslations />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </AdminTranslationWrapper>
+        </Routes>
       </BrowserRouter>
-    </>
-  );
-};
-
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <AppContent />
     </QueryClientProvider>
   );
 };
