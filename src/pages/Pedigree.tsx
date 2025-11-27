@@ -309,12 +309,14 @@ const Pedigree = () => {
       {/* Fullscreen Gallery */}
       <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-primary/20 [&>button]:hidden">
-          <button
-            className="absolute right-4 top-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-            onClick={() => setGalleryOpen(false)}
-          >
-            <X className="w-6 h-6" />
-          </button>
+          <div className="absolute right-4 top-4 z-[100]">
+            <button
+              className="p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+              onClick={() => setGalleryOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
           <div className="relative w-full h-[90vh] flex items-center justify-center">
             <img
               src={galleryImages[currentImageIndex]}
