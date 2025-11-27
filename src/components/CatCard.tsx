@@ -39,12 +39,13 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0 }: CatCardProps
       }}
     >
       <div
-        className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 hover:scale-105 hover:-translate-y-3"
+        className="relative rounded-3xl overflow-hidden shadow-soft hover:shadow-[0_0_60px_rgba(217,179,112,0.8)] transition-all duration-500 ease-out hover:scale-[1.02] hover:translate-y-2"
         style={{
           transform: 'translateZ(0)',
           willChange: 'transform, box-shadow',
           touchAction: 'manipulation',
-          backfaceVisibility: 'hidden' as const
+          backfaceVisibility: 'hidden' as const,
+          transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
         }}
       >
         {/* Gradient border effect */}
