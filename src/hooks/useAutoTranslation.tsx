@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import i18n from '@/i18n/config';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -7,7 +7,7 @@ interface TranslationMap {
 }
 
 export const useAutoTranslation = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     let translationMap: TranslationMap = {};
     let normalizedMap: Map<string, string> = new Map(); // нормализованный текст -> ключ перевода
     
