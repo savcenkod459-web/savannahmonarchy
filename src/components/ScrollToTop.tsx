@@ -1,12 +1,10 @@
 import { useState, useEffect, useCallback, memo } from "react";
 import { ArrowUp } from "lucide-react";
-import { useGallery } from "@/contexts/GalleryContext";
 
 const ScrollToTop = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
-  const { isGalleryOpen } = useGallery();
   
   useEffect(() => {
     let timeoutId: number;
@@ -44,8 +42,7 @@ const ScrollToTop = memo(() => {
     });
   }, []);
   
-  // Hide when gallery is open
-  if (!shouldRender || isGalleryOpen) return null;
+  if (!shouldRender) return null;
   
   return (
     <button

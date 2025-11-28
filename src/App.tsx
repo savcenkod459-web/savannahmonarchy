@@ -8,7 +8,6 @@ import { useTranslations } from "./hooks/useTranslations";
 import { useAutoTranslation } from "./hooks/useAutoTranslation";
 import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import Preloader from "./components/Preloader";
-import { GalleryProvider } from "./contexts/GalleryContext";
 
 // Lazy load эффектов для улучшения производительности
 const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
@@ -110,9 +109,7 @@ const AppContent = () => {
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <GalleryProvider>
-        <AppContent />
-      </GalleryProvider>
+      <AppContent />
     </QueryClientProvider>
   );
 };
