@@ -1,9 +1,10 @@
 import { memo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, Crown, Sparkles, Star, Calendar, Users } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "./OptimizedImage";
 import { useTranslation } from "react-i18next";
+import smLogo from "@/assets/sm-logo-transparent.png";
 
 type Cat = {
   id: string;
@@ -70,10 +71,10 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
             {/* Gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* Crown icon with glow */}
+            {/* SM logo with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
               <div className="relative">
-                <Crown className="w-8 h-8 text-primary animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+                <img src={smLogo} alt="SM" className="w-10 h-10 animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
               </div>
             </div>
 

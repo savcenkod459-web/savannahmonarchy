@@ -28,7 +28,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "@/components/LanguageSelector";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import smLogo from "@/assets/sm-logo.png";
+import smLogo from "@/assets/sm-logo-transparent.png";
 import {
   AlertDialog,
   AlertDialogAction,
