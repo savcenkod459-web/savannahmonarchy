@@ -28,6 +28,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "@/components/LanguageSelector";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import smLogo from "@/assets/sm-logo.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -190,8 +191,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center space-x-2 group micro-interaction ml-1">
-            <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-gold hover:shadow-glow transition-all duration-500 group-hover:rotate-12">
-              <Crown className="w-5 h-5 md:w-6 md:h-6 text-luxury-black" />
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden shadow-gold hover:shadow-glow transition-all duration-500 group-hover:rotate-12">
+              <img src={smLogo} alt="SM Logo" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px]">
               SavannahMonarchy
