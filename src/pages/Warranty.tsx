@@ -299,7 +299,7 @@ const Warranty = () => {
                     </div>
                     <p className="font-bold font-display luxury-text-shadow">Напишите нам:</p>
                   </div>
-                  <button onClick={copyEmail} className="text-primary font-semibold text-lg hover:text-primary/80 transition-colors cursor-pointer">savannahdynastyofficial@gmail.com</button>
+                  <button onClick={copyEmail} className="text-primary font-semibold text-lg hover:text-primary/80 transition-colors cursor-pointer">savannahmonarchy@gmail.com</button>
                 </div>
               </div>
             </div>

@@ -20,14 +20,14 @@
   },
   "hero": {
     "badge": "Criadero de Élite",
-    "title": "SavannahDynasty",
+    "title": "SavannahMonarchy",
     "subtitle": "Descubra su compañero felino ideal de nuestra exclusiva colección de gatos de élite con pedigrí. Cada gato es cuidadosamente seleccionado por su excepcional pedigrí, salud y temperamento.",
     "cta": "Ver Nuestros Gatitos",
     "learn": "Saber Más",
     "premiumClass": "Clase Premium"
   },
   "whyChoose": {
-    "title": "¿Por Qué Elegir SavannahDynasty?",
+    "title": "¿Por Qué Elegir SavannahMonarchy?",
     "badge": "Calidad Premium",
     "subtitle": "Proporcionamos el más alto estándar de gatos de raza Savannah de élite con calidad y cuidado incomparables",
     "quality": {
@@ -141,7 +141,7 @@
     "terms": "Términos de Servicio",
     "rights": "Todos los derechos reservados.",
     "emailCopiedTitle": "¡Correo copiado!",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles"
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copiado al portapapeles"
   },
   "breeders": {
     "badge": "Profesionales",
@@ -196,7 +196,7 @@
     "messageSent": "Mensaje enviado",
     "messageSentDescription": "¡Gracias por su mensaje! Nos pondremos en contacto con usted en breve.",
     "emailCopied": "Email copiado",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copiado al portapapeles",
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copiado al portapapeles",
     "form": {
       "title": "Envíanos un mensaje",
       "name": "Nombre",
@@ -474,7 +474,7 @@
     "contactTitle": "¿Tiene preguntas?",
     "contactDesc": "Contáctenos para obtener más información sobre nuestras garantías",
     "emailCopied": "¡Correo electrónico copiado!",
-    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copiado al portapapeles"
+    "emailCopiedDesc": "savannahmonarchy@gmail.com copiado al portapapeles"
   },
   "catalog": {
     "badge": "Colección Exclusiva",
