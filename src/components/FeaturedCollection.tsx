@@ -106,13 +106,13 @@ const FeaturedCollection = () => {
                     
                     {/* SM logo top left - always visible */}
                     <div className="absolute top-4 left-4 transition-all duration-500 transform hover:scale-110">
-                      <SMLogoSVG className="w-20 h-20 drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" />
+                      <SMLogoSVG className="w-24 h-24 drop-shadow-[0_0_28px_rgba(217,179,112,0.95)]" />
                     </div>
                     
                     {/* SM logo with SavannahMonarchy text - right side on hover */}
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-4">
                       <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahMonarchy</span>
-                      <SMLogoSVG className="w-20 h-20 animate-pulse drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" />
+                      <SMLogoSVG className="w-24 h-24 animate-pulse drop-shadow-[0_0_28px_rgba(217,179,112,0.95)]" />
                     </div>
                     
                     {/* Bottom gradient fade */}
