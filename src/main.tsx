@@ -1,9 +1,13 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import App from "./App.tsx";
 import "./index.css";
 import { registerServiceWorker } from "./registerServiceWorker";
 import i18n from "./i18n/config";
+
+// Ensure React is available globally for Vite HMR
+(window as any).React = React;
 
 // Initialize theme from localStorage
 const savedTheme = localStorage.getItem("theme");
