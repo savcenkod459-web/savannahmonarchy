@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 flex-shrink-0">
-                <img src={smLogo} alt="SM Logo" className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+                <img src={smLogo} alt="SM Logo" className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(217,179,112,0.6)] dark:mix-blend-lighten mix-blend-multiply" />
               </div>
               <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahMonarchy</h3>
             </div>

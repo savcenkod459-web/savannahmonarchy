@@ -95,7 +95,7 @@ const Preloader = () => {
           <img 
             src={smLogo}
             alt="SM Logo"
-            className="w-24 h-24 animate-fade-in" 
+            className="w-24 h-24 animate-fade-in dark:mix-blend-lighten mix-blend-multiply" 
             style={{
               filter: 'drop-shadow(0 0 12px hsl(43 96% 56% / 0.6))',
               animation: 'fadeInGlow 1.2s ease-out forwards, pulseGlow 2s ease-in-out infinite 1.2s'
