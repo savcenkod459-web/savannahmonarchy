@@ -110,7 +110,7 @@ const Preloader = () => {
                 opacity: 0
               }}
             >
-              SavannahDynasty
+              SavannahMonarchy
             </h1>
             <p 
               className="text-sm text-muted-foreground tracking-[0.3em] uppercase font-semibold"
