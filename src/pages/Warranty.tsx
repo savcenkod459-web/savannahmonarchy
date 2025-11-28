@@ -11,7 +11,7 @@ const Warranty = () => {
   } = useToast();
   const { t } = useTranslation();
   const copyEmail = () => {
-    navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
+    navigator.clipboard.writeText("savannahmonarchy@gmail.com");
     toast({
       title: t('footer.emailCopiedTitle'),
       description: t('footer.emailCopiedDescription')

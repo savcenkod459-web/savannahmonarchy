@@ -222,7 +222,7 @@ const Contact = () => {
   };
   
   const copyEmail = () => {
-    navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
+    navigator.clipboard.writeText("savannahmonarchy@gmail.com");
     toast({
       title: t("contact.emailCopied"),
       description: t("contact.emailCopiedDescription")
@@ -347,7 +347,7 @@ const Contact = () => {
                             onClick={copyEmail} 
                             className="text-muted-foreground font-light hover:text-primary transition-colors cursor-pointer"
                           >
-                            savannahdynastyofficial@gmail.com
+                            savannahmonarchy@gmail.com
                           </button>
                         </div>
                       </div>

@@ -10,7 +10,7 @@ const Footer = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const copyEmail = () => {
-    navigator.clipboard.writeText("savannahdynastyofficial@gmail.com");
+    navigator.clipboard.writeText("savannahmonarchy@gmail.com");
     toast({
       title: t('footer.emailCopiedTitle'),
       description: t('footer.emailCopiedDescription')
@@ -25,7 +25,7 @@ const Footer = () => {
               <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-full shadow-gold">
                 <Crown className="w-5 h-5 text-luxury-black" />
               </div>
-              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahDynasty</h3>
+              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahMonarchy</h3>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
@@ -121,18 +121,18 @@ const Footer = () => {
               {/* Avatars */}
               <div className="flex gap-3 mb-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-glow hover:ring-primary/50 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <img src={logoBlue} alt="SavannahDynasty Blue" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={logoBlue} alt="SavannahMonarchy Blue" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-glow hover:ring-primary/50 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <img src={logoBlack} alt="SavannahDynasty Black" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={logoBlack} alt="SavannahMonarchy Black" className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-glow hover:ring-primary/50 transition-all duration-300 hover:scale-110 micro-interaction">
-                  <img src={logoWhite} alt="SavannahDynasty White" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={logoWhite} alt="SavannahMonarchy White" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>
               
               <p className="text-sm text-muted-foreground font-light">
-                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:-translate-y-0.5 micro-interaction outline-none focus:outline-none hover:[text-shadow:0_0_20px_hsl(43_96%_56%/0.8),0_0_40px_hsl(43_96%_56%/0.5)]">savannahdynastyofficial@gmail.com</button>
+                Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:-translate-y-0.5 micro-interaction outline-none focus:outline-none hover:[text-shadow:0_0_20px_hsl(43_96%_56%/0.8),0_0_40px_hsl(43_96%_56%/0.5)]">savannahmonarchy@gmail.com</button>
               </p>
               
               <div className="flex gap-4 pt-2">
@@ -158,7 +158,7 @@ const Footer = () => {
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
           </div>
-          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahDynasty. Все права защищены.
+          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahMonarchy. Все права защищены.
           </p>
         </div>
       </div>
