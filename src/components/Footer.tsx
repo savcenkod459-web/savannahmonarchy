@@ -22,8 +22,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3 mb-4">
-              <SMLogoSVG className="w-12 h-12 drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+            <div className="flex items-center gap-4 mb-4">
+              <SMLogoSVG className="w-14 h-14 drop-shadow-[0_0_10px_rgba(217,179,112,0.7)]" />
               <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahMonarchy</h3>
             </div>
             <div className="space-y-3">

@@ -53,7 +53,8 @@ const SMLogoSVG = ({ className = "w-12 h-12" }: { className?: string }) => {
     <img 
       src={processedSrc} 
       alt="SM Logo" 
-      className={className}
+      className={`${className} object-contain`}
+      style={{ aspectRatio: '1/1' }}
     />
   );
 };
