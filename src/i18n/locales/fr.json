@@ -756,5 +756,18 @@
     "767e2da6-a802-4fce-824c-fdd17231df79": "Un garçon magnifique avec un motif tacheté frappant et la posture fière d'un serval. Sociable, confiant et dévoué — un vrai roi parmi les chats, rayonnant d'énergie et de luxe.",
     "49448daa-a2f0-4959-b917-4dd09697d82e": "Une fille élégante avec un doux éclat de pelage et le caractère d'un serval. Observatrice, persistante et extraordinairement intelligente — l'incarnation de l'éclat naturel et de l'harmonie.",
     "df1042ed-5f48-440e-8ebe-e4e316f2a247": "Un garçon rare combinant la sauvagerie raffinée d'un serval avec un tempérament domestique, avec un pelage magnifique et un regard expressif qui en fait un véritable joyau."
+  },
+  "catTraits": {
+    "Престижный": "Prestigieux",
+    "Преданный": "Dévoué",
+    "Уверенный": "Confiant",
+    "Динамичный": "Dynamique",
+    "Блестящая": "Brillante",
+    "Наблюдательная": "Observatrice",
+    "Умная": "Intelligente",
+    "Непокорная": "Intrépide",
+    "Великолепный": "Magnifique",
+    "Добрый": "Gentil",
+    "Ласковый": "Affectueux"
   }
 }

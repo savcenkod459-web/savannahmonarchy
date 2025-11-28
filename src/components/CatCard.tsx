@@ -114,7 +114,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
                 <div key={i} className="flex items-center gap-2 text-sm font-semibold text-foreground/90 group/trait">
                   <Sparkles className="w-4 h-4 text-primary group-hover/trait:animate-pulse drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
                   <span className="group-hover/trait:text-primary group-hover/trait:drop-shadow-[0_0_8px_rgba(217,179,112,0.4)] transition-all duration-300">
-                    {trait}
+                    {t(`catTraits.${trait}`, { defaultValue: trait })}
                   </span>
                 </div>
               ))}
