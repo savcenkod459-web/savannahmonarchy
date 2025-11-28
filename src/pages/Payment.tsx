@@ -52,6 +52,17 @@ const Payment = () => {
     } else if (tab === "cash") {
       setActiveTab("cash");
     }
+    
+    // Scroll to booking section if hash is present
+    const hash = window.location.hash;
+    if (hash === "#booking") {
+      setTimeout(() => {
+        const bookingSection = document.getElementById("booking");
+        if (bookingSection) {
+          bookingSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
   }, [searchParams]);
   const copyToClipboard = (address: string) => {
     navigator.clipboard.writeText(address);
