@@ -6,6 +6,7 @@ import { VideoPlayer } from "./VideoPlayer";
 import { OptimizedImage } from "./OptimizedImage";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { useGallery } from "@/contexts/GalleryContext";
+import { useTranslation } from "react-i18next";
 import videoPoster1 from "@/assets/video-poster-1.png";
 import videoPoster2 from "@/assets/video-poster-2.png";
 import videoPoster3 from "@/assets/video-poster-3.png";
@@ -29,6 +30,7 @@ const CatDetailModalComponent = ({
   const [isImageFullscreen, setIsImageFullscreen] = useState(false);
   const [isVideoFullscreen, setIsVideoFullscreen] = useState(false);
   const { setIsGalleryOpen } = useGallery();
+  const { t } = useTranslation();
 
   // Notify context when modal or fullscreen is open
   useEffect(() => {
@@ -63,8 +65,8 @@ const CatDetailModalComponent = ({
       <Dialog open={isOpen && !isImageFullscreen && !isVideoFullscreen} onOpenChange={onClose}>
         <DialogContent className="max-w-[90vw] md:max-w-[85vw] max-h-[90vh] p-0 bg-background border-primary/20">
           <VisuallyHidden.Root>
-            <DialogTitle>Просмотр фото и видео</DialogTitle>
-            <DialogDescription>Галерея изображений и видео кота</DialogDescription>
+            <DialogTitle>{t('catModal.galleryTitle')}</DialogTitle>
+            <DialogDescription>{t('catModal.galleryDescription')}</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[90vh] flex flex-col md:flex-row">
             {/* Close button */}
@@ -124,7 +126,7 @@ const CatDetailModalComponent = ({
                 </div>
               ) : (
                 <div className="text-center text-muted-foreground">
-                  <p>Видео не загружено</p>
+                  <p>{t('catModal.noVideo')}</p>
                 </div>
               )}
             </div>
@@ -136,8 +138,8 @@ const CatDetailModalComponent = ({
       <Dialog open={isImageFullscreen} onOpenChange={setIsImageFullscreen}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none [&>button]:top-4 [&>button]:right-4 [&>button]:text-white [&>button]:hover:bg-white/20" onKeyDown={handleKeyDown}>
           <VisuallyHidden.Root>
-            <DialogTitle>Полноэкранный просмотр</DialogTitle>
-            <DialogDescription>Изображение в полноэкранном режиме</DialogDescription>
+            <DialogTitle>{t('catModal.fullscreenTitle')}</DialogTitle>
+            <DialogDescription>{t('catModal.fullscreenDescription')}</DialogDescription>
           </VisuallyHidden.Root>
           <div className="relative w-full h-[95vh] flex items-center justify-center">
             {images.length > 1 && (

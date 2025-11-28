@@ -751,5 +751,22 @@
     "phoneMinLength": "Phone must be at least 10 digits",
     "phoneTooLong": "Phone must be less than 20 characters",
     "messageTooLong": "Message must be less than 2000 characters"
+  },
+  "catCard": {
+    "price": "Price",
+    "pedigree": "Pedigree",
+    "book": "Book Now"
+  },
+  "catModal": {
+    "galleryTitle": "Photo and video viewing",
+    "galleryDescription": "Cat photo and video gallery",
+    "noVideo": "No video uploaded",
+    "fullscreenTitle": "Fullscreen view",
+    "fullscreenDescription": "Image in fullscreen mode"
+  },
+  "catDescriptions": {
+    "767e2da6-a802-4fce-824c-fdd17231df79": "A gorgeous boy with a striking spotted pattern and the proud stance of a serval. Sociable, confident, and devoted — a true king among cats, radiating energy and luxury.",
+    "49448daa-a2f0-4959-b917-4dd09697d82e": "An elegant girl with a soft sheen to her coat and the character of a serval. Observant, persistent, and extraordinarily intelligent — the embodiment of natural brilliance and harmony.",
+    "df1042ed-5f48-440e-8ebe-e4e316f2a247": "A rare boy combining the refined wildness of a serval with a domestic temperament, featuring a magnificent coat and expressive gaze that makes him a true jewel."
   }
 }

@@ -715,5 +715,22 @@
     "phoneMinLength": "Telefonnummer muss mindestens 10 Ziffern haben",
     "phoneTooLong": "Telefonnummer muss weniger als 20 Zeichen haben",
     "messageTooLong": "Nachricht muss weniger als 2000 Zeichen haben"
+  },
+  "catCard": {
+    "price": "Preis",
+    "pedigree": "Stammbaum",
+    "book": "Reservieren"
+  },
+  "catModal": {
+    "galleryTitle": "Foto- und Videoansicht",
+    "galleryDescription": "Foto- und Videogalerie der Katze",
+    "noVideo": "Kein Video hochgeladen",
+    "fullscreenTitle": "Vollbildansicht",
+    "fullscreenDescription": "Bild im Vollbildmodus"
+  },
+  "catDescriptions": {
+    "767e2da6-a802-4fce-824c-fdd17231df79": "Ein prächtiger Junge mit auffälligem Fleckenmuster und der stolzen Haltung eines Servals. Kontaktfreudig, selbstbewusst und treu — ein wahrer König unter den Katzen, der Energie und Luxus ausstrahlt.",
+    "49448daa-a2f0-4959-b917-4dd09697d82e": "Ein elegantes Mädchen mit sanftem Fellglanz und dem Charakter eines Servals. Aufmerksam, beharrlich und außerordentlich intelligent — die Verkörperung natürlicher Brillanz und Harmonie.",
+    "df1042ed-5f48-440e-8ebe-e4e316f2a247": "Ein seltener Junge, der die raffinierte Wildheit eines Servals mit einem häuslichen Temperament verbindet, mit prächtigem Fell und ausdrucksstarkem Blick, der ihn zu einem wahren Schmuckstück macht."
   }
 }
