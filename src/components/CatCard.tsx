@@ -74,7 +74,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
             {/* SM logo with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
               <div className="relative">
-                <img src={smLogo} alt="SM" className="w-10 h-10 animate-pulse drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+                <img src={smLogo} alt="SM" className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)]" />
               </div>
             </div>
 
