@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Crown, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "./OptimizedImage";
+import { useTranslation } from "react-i18next";
 
 type Cat = {
   id: string;
@@ -28,6 +29,13 @@ interface CatCardProps {
 const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: CatCardProps) => {
   const navigate = useNavigate();
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { t } = useTranslation();
+
+  // Get translated description by cat ID
+  const getDescription = () => {
+    const translatedDesc = t(`catDescriptions.${cat.id}`, { defaultValue: '' });
+    return translatedDesc || cat.description;
+  };
 
   return (
     <div
@@ -86,7 +94,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
                 {cat.name}
               </h3>
               <p className="text-foreground/80 text-base leading-relaxed font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] group-hover:text-foreground transition-colors duration-300">
-                {cat.description}
+                {getDescription()}
               </p>
               <div className="flex gap-3 text-sm font-bold">
                 <span className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/30 backdrop-blur-sm shadow-sm hover:shadow-[0_0_16px_rgba(217,179,112,0.4)] transition-all duration-300 hover:scale-105">
@@ -118,7 +126,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
                 <div className="flex items-end justify-between">
                   <div className="space-y-1">
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
-                      Цена
+                      {t('catCard.price')}
                     </span>
                     <div className="font-display font-black text-luxury-gradient text-5xl leading-none drop-shadow-[0_4px_16px_rgba(217,179,112,0.5)] group-hover:drop-shadow-[0_4px_24px_rgba(217,179,112,0.7)] transition-all duration-300">
                       {cat.price.toLocaleString("en-US")} €
@@ -143,7 +151,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
               <div className="flex gap-2 mt-8">
                 <Link to={`/pedigree/${cat.id}`} onClick={(e) => e.stopPropagation()} className="flex-1">
                   <Button variant="ghost-gold" size="sm" className="w-full py-[20px] hover:-translate-y-1 transition-all duration-300">
-                    Родословная
+                    {t('catCard.pedigree')}
                   </Button>
                 </Link>
                 <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="flex-1">
@@ -151,7 +159,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
                     size="sm"
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(217,179,112,0.7)] hover:-translate-y-1 transition-all duration-300 py-[20px]"
                   >
-                    Забронировать
+                    {t('catCard.book')}
                   </Button>
                 </Link>
               </div>
