@@ -105,9 +105,9 @@ const FeaturedCollection = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     {/* SM logo with SavannahMonarchy text */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-4">
                       <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahMonarchy</span>
-                      <SMLogoSVG className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)]" />
+                      <SMLogoSVG className="w-16 h-16 animate-pulse drop-shadow-[0_0_20px_rgba(217,179,112,0.9)]" />
                     </div>
                     
                     {/* Bottom gradient fade */}
