@@ -761,5 +761,18 @@
     "767e2da6-a802-4fce-824c-fdd17231df79": "Un chico espléndido con un llamativo patrón moteado y la orgullosa postura de un serval. Sociable, seguro y leal — un verdadero rey entre los gatos, irradiando energía y lujo.",
     "49448daa-a2f0-4959-b917-4dd09697d82e": "Una chica elegante con un suave brillo en su pelaje y el carácter de un serval. Observadora, persistente y extraordinariamente inteligente — la encarnación del brillo natural y la armonía.",
     "df1042ed-5f48-440e-8ebe-e4e316f2a247": "Un chico raro que combina la salvajería refinada de un serval con un temperamento doméstico, con un pelaje magnífico y una mirada expresiva que lo convierte en una verdadera joya."
+  },
+  "catTraits": {
+    "Престижный": "Prestigioso",
+    "Преданный": "Leal",
+    "Уверенный": "Seguro",
+    "Динамичный": "Dinámico",
+    "Блестящая": "Brillante",
+    "Наблюдательная": "Observadora",
+    "Умная": "Inteligente",
+    "Непокорная": "Intrépida",
+    "Великолепный": "Magnífico",
+    "Добрый": "Amable",
+    "Ласковый": "Cariñoso"
   }
 }

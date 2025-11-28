@@ -769,5 +769,18 @@
     "767e2da6-a802-4fce-824c-fdd17231df79": "A gorgeous boy with a striking spotted pattern and the proud stance of a serval. Sociable, confident, and devoted — a true king among cats, radiating energy and luxury.",
     "49448daa-a2f0-4959-b917-4dd09697d82e": "An elegant girl with a soft sheen to her coat and the character of a serval. Observant, persistent, and extraordinarily intelligent — the embodiment of natural brilliance and harmony.",
     "df1042ed-5f48-440e-8ebe-e4e316f2a247": "A rare boy combining the refined wildness of a serval with a domestic temperament, featuring a magnificent coat and expressive gaze that makes him a true jewel."
+  },
+  "catTraits": {
+    "Престижный": "Prestigious",
+    "Преданный": "Devoted",
+    "Уверенный": "Confident",
+    "Динамичный": "Dynamic",
+    "Блестящая": "Brilliant",
+    "Наблюдательная": "Observant",
+    "Умная": "Intelligent",
+    "Непокорная": "Spirited",
+    "Великолепный": "Magnificent",
+    "Добрый": "Kind",
+    "Ласковый": "Affectionate"
   }
 }
