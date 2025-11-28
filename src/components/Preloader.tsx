@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Crown } from "lucide-react";
+import smLogo from "@/assets/sm-logo.png";
 
 const Preloader = () => {
   // Add keyframes for glow fade-in and pulse animations
@@ -90,11 +90,12 @@ const Preloader = () => {
           overflow: 'hidden'
         }}>
       <div className="relative">
-        {/* Crown logo - clean without any effects */}
+        {/* SM logo */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <Crown 
-            className="w-20 h-20 text-primary animate-fade-in" 
-            strokeWidth={2}
+          <img 
+            src={smLogo}
+            alt="SM Logo"
+            className="w-20 h-20 animate-fade-in rounded-full" 
             style={{
               filter: 'drop-shadow(0 0 8px hsl(43 96% 56% / 0.4))',
               animation: 'fadeInGlow 1.2s ease-out forwards, pulseGlow 2s ease-in-out infinite 1.2s'
