@@ -776,8 +776,9 @@
   },
   "catCard": {
     "price": "价格",
-    "pedigree": "血统",
-    "book": "预订"
+    "heritage": "血统",
+    "book": "立即预订",
+    "viewCollection": "查看完整收藏"
   },
   "catModal": {
     "galleryTitle": "照片和视频查看",
