@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import i18n from '@/i18n/config';
 
@@ -80,9 +80,9 @@ if (i18n.isInitialized) {
 }
 
 export const useTranslations = () => {
-  const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
+  const channelRef = React.useRef<ReturnType<typeof supabase.channel> | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Загружаем переводы если ещё не загружены
     if (!isLoaded && !isLoading) {
       loadTranslationsFromDatabase();
