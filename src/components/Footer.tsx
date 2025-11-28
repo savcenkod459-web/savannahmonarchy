@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { Instagram, Send, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield } from "lucide-react";
+import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import logoBlue from "@/assets/logo-blue.jpg";
 import logoBlack from "@/assets/logo-black.jpg";
 import logoWhite from "@/assets/logo-white.jpg";
-import smLogo from "@/assets/sm-logo.png";
+import smLogo from "@/assets/sm-logo-transparent.png";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { toast } = useToast();
@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
-                <img src={smLogo} alt="SM" className="w-5 h-5 mt-0.5 flex-shrink-0 rounded-full" />
+                <Crown className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-foreground/90 leading-relaxed font-light">
                   {t('footer.tagline')}
                 </p>

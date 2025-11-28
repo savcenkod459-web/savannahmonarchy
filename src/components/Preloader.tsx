@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import smLogo from "@/assets/sm-logo.png";
+import smLogo from "@/assets/sm-logo-transparent.png";
 
 const Preloader = () => {
   // Add keyframes for glow fade-in and pulse animations
