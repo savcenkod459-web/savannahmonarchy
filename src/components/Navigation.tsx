@@ -192,7 +192,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center space-x-2 group micro-interaction ml-1">
             <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0">
-              <img src={smLogo} alt="SM Logo" className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(217,179,112,0.6)]" />
+              <img src={smLogo} alt="SM Logo" className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(217,179,112,0.6)] dark:mix-blend-lighten mix-blend-multiply" />
             </div>
             <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px]">
               SavannahMonarchy
