@@ -718,8 +718,9 @@
   },
   "catCard": {
     "price": "Preis",
-    "pedigree": "Stammbaum",
-    "book": "Reservieren"
+    "heritage": "Herkunft",
+    "book": "Jetzt buchen",
+    "viewCollection": "Gesamte Kollektion ansehen"
   },
   "catModal": {
     "galleryTitle": "Foto- und Videoansicht",

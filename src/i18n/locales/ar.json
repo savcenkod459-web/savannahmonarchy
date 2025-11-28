@@ -749,8 +749,9 @@
   },
   "catCard": {
     "price": "السعر",
-    "pedigree": "النسب",
-    "book": "احجز الآن"
+    "heritage": "الأصل",
+    "book": "احجز الآن",
+    "viewCollection": "عرض المجموعة الكاملة"
   },
   "catModal": {
     "galleryTitle": "عرض الصور والفيديو",

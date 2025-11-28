@@ -151,7 +151,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
               <div className="flex gap-2 mt-8">
                 <Link to={`/pedigree/${cat.id}`} onClick={(e) => e.stopPropagation()} className="flex-1">
                   <Button variant="ghost-gold" size="sm" className="w-full py-[20px] hover:-translate-y-1 transition-all duration-300">
-                    {t('catCard.pedigree')}
+                    {t('catCard.heritage')}
                   </Button>
                 </Link>
                 <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="flex-1">

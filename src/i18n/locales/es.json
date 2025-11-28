@@ -746,8 +746,9 @@
   },
   "catCard": {
     "price": "Precio",
-    "pedigree": "Pedigrí",
-    "book": "Reservar"
+    "heritage": "Herencia",
+    "book": "Reservar ahora",
+    "viewCollection": "Ver toda la colección"
   },
   "catModal": {
     "galleryTitle": "Vista de fotos y videos",

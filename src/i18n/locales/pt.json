@@ -750,8 +750,9 @@
   },
   "catCard": {
     "price": "Preço",
-    "pedigree": "Pedigree",
-    "book": "Reservar"
+    "heritage": "Linhagem",
+    "book": "Reservar agora",
+    "viewCollection": "Ver toda a coleção"
   },
   "catModal": {
     "galleryTitle": "Visualização de fotos e vídeos",

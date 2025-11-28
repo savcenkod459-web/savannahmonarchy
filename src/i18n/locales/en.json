@@ -754,8 +754,9 @@
   },
   "catCard": {
     "price": "Price",
-    "pedigree": "Pedigree",
-    "book": "Book Now"
+    "heritage": "Heritage",
+    "book": "Book Now",
+    "viewCollection": "View Full Collection"
   },
   "catModal": {
     "galleryTitle": "Photo and video viewing",

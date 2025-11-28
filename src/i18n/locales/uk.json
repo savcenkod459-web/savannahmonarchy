@@ -714,8 +714,9 @@
   },
   "catCard": {
     "price": "Ціна",
-    "pedigree": "Родовід",
-    "book": "Забронювати"
+    "heritage": "Родовід",
+    "book": "Забронювати",
+    "viewCollection": "Переглянути всю колекцію"
   },
   "catModal": {
     "galleryTitle": "Перегляд фото та відео",
