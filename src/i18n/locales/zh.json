@@ -20,14 +20,14 @@
   },
   "hero": {
     "badge": "精英猫舍",
-    "title": "SavannahDynasty",
+    "title": "SavannahMonarchy",
     "subtitle": "从我们的纯种精英猫独家收藏中发现您理想的猫科伴侣。每只猫都经过精心挑选，拥有卓越的血统、健康和性情。",
     "cta": "查看可用小猫",
     "learn": "了解更多",
     "premiumClass": "高级类别"
   },
   "whyChoose": {
-    "title": "为什么选择 SavannahDynasty",
+    "title": "为什么选择 SavannahMonarchy",
     "badge": "高品质",
     "subtitle": "我们提供最高标准的精英萨凡纳猫，具有无与伦比的质量和护理",
     "quality": {
@@ -140,7 +140,7 @@
     "terms": "服务条款",
     "rights": "版权所有。",
     "emailCopiedTitle": "邮箱已复制！",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com 已复制到剪贴板"
+    "emailCopiedDescription": "savannahmonarchy@gmail.com 已复制到剪贴板"
   },
   "about": {
     "badge": "精英品种",
@@ -195,7 +195,7 @@
     "messageSent": "消息已发送",
     "messageSentDescription": "感谢您的消息！我们将尽快与您联系。",
     "emailCopied": "电子邮件已复制",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com 已复制到剪贴板",
+    "emailCopiedDescription": "savannahmonarchy@gmail.com 已复制到剪贴板",
     "form": {
       "title": "给我们留言",
       "name": "姓名",
@@ -504,7 +504,7 @@
     "contactTitle": "有疑问吗？",
     "contactDesc": "联系我们以获取有关我们保证的更多信息",
     "emailCopied": "电子邮件已复制！",
-    "emailCopiedDesc": "savannahdynastyofficial@gmail.com已复制到剪贴板"
+    "emailCopiedDesc": "savannahmonarchy@gmail.com已复制到剪贴板"
   },
   "catalog": {
     "badge": "独家系列",

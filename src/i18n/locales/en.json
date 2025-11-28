@@ -20,14 +20,14 @@
   },
   "hero": {
     "badge": "Elite Cattery",
-    "title": "SavannahDynasty",
+    "title": "SavannahMonarchy",
     "subtitle": "Discover your ideal feline companion from our exclusive collection of pedigreed elite cats. Each cat is carefully selected for exceptional pedigree, health and temperament.",
     "cta": "View Our Kittens",
     "learn": "Learn More",
     "premiumClass": "Premium Class"
   },
   "whyChoose": {
-    "title": "Why Choose SavannahDynasty?",
+    "title": "Why Choose SavannahMonarchy?",
     "badge": "Premium Quality",
     "subtitle": "We provide the highest standard of elite Savannah breed cats with unparalleled quality and care",
     "quality": {
@@ -141,7 +141,7 @@
     "terms": "Terms of Service",
     "rights": "All rights reserved.",
     "emailCopiedTitle": "Email copied!",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copied to clipboard"
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copied to clipboard"
   },
   "about": {
     "badge": "Elite Breeds",
@@ -196,7 +196,7 @@
     "messageSent": "Message Sent",
     "messageSentDescription": "Thank you for your message! We will contact you shortly.",
     "emailCopied": "Email Copied",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copied to clipboard",
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copied to clipboard",
     "form": {
       "title": "Send us a message",
       "name": "Name",
@@ -482,7 +482,7 @@
     "contactTitle": "Have questions?",
     "contactDesc": "Contact us for more information about our guarantees",
     "emailCopied": "Email copied!",
-    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copied to clipboard"
+    "emailCopiedDesc": "savannahmonarchy@gmail.com copied to clipboard"
   },
   "catalog": {
     "badge": "Exclusive Collection",

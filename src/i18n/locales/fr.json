@@ -20,14 +20,14 @@
   },
   "hero": {
     "badge": "Élevage d'Élite",
-    "title": "SavannahDynasty",
+    "title": "SavannahMonarchy",
     "subtitle": "Découvrez votre compagnon félin idéal dans notre collection exclusive de chats d'élite avec pedigree. Chaque chat est soigneusement sélectionné pour son pedigree exceptionnel, sa santé et son tempérament.",
     "cta": "Voir Nos Chatons",
     "learn": "En Savoir Plus",
     "premiumClass": "Classe Premium"
   },
   "whyChoose": {
-    "title": "Pourquoi Choisir SavannahDynasty",
+    "title": "Pourquoi Choisir SavannahMonarchy",
     "badge": "Haute Qualité",
     "subtitle": "Nous fournissons le plus haut standard de chats de race Savannah d'élite avec une qualité et des soins inégalés",
     "quality": {
@@ -140,7 +140,7 @@
     "terms": "Conditions d'Utilisation",
     "rights": "Tous droits réservés.",
     "emailCopiedTitle": "Email copié !",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copié dans le presse-papiers"
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copié dans le presse-papiers"
   },
   "about": {
     "badge": "Races d'élite",
@@ -195,7 +195,7 @@
     "messageSent": "Message envoyé",
     "messageSentDescription": "Merci pour votre message! Nous vous contacterons sous peu.",
     "emailCopied": "E-mail copié",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com copié dans le presse-papiers",
+    "emailCopiedDescription": "savannahmonarchy@gmail.com copié dans le presse-papiers",
     "form": {
       "title": "Envoyez-nous un message",
       "name": "Nom",
@@ -469,7 +469,7 @@
     "contactTitle": "Des questions?",
     "contactDesc": "Contactez-nous pour plus d'informations sur nos garanties",
     "emailCopied": "E-mail copié!",
-    "emailCopiedDesc": "savannahdynastyofficial@gmail.com copié dans le presse-papiers"
+    "emailCopiedDesc": "savannahmonarchy@gmail.com copié dans le presse-papiers"
   },
   "catalog": {
     "badge": "Collection Exclusive",

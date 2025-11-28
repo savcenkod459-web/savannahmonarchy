@@ -20,14 +20,14 @@
   },
   "hero": {
     "badge": "Элитный питомник",
-    "title": "SavannahDynasty",
+    "title": "SavannahMonarchy",
     "subtitle": "Откройте для себя своего идеального кошачьего друга из нашей эксклюзивной коллекции породистых элитных кошек. Каждая кошка тщательно отобрана по исключительной родословной, здоровью и темпераменту.",
     "cta": "Посмотреть наших котят",
     "learn": "Узнать Больше",
     "premiumClass": "Премиум Класс"
   },
   "whyChoose": {
-    "title": "Почему выбирают SavannahDynasty?",
+    "title": "Почему выбирают SavannahMonarchy?",
     "badge": "Премиум качество",
     "subtitle": "Мы предоставляем высочайший стандарт элитных кошек породы Саванна с непревзойденным качеством и заботой",
     "quality": {
@@ -143,7 +143,7 @@
     "terms": "Условия использования",
     "rights": "Все права защищены.",
     "emailCopiedTitle": "Email скопирован!",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
+    "emailCopiedDescription": "savannahmonarchy@gmail.com скопирован в буфер обмена"
   },
   "about": {
     "badge": "Элитные породы",
@@ -395,7 +395,7 @@
     "messageSent": "Сообщение отправлено",
     "messageSentDescription": "Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.",
     "emailCopied": "Email скопирован",
-    "emailCopiedDescription": "savannahdynastyofficial@gmail.com скопирован в буфер обмена",
+    "emailCopiedDescription": "savannahmonarchy@gmail.com скопирован в буфер обмена",
     "form": {
       "title": "Отправить сообщение",
       "name": "Имя",
@@ -698,7 +698,7 @@
       "email": "Напишите нам:"
     },
     "emailCopied": "Email скопирован!",
-    "emailCopiedDesc": "savannahdynastyofficial@gmail.com скопирован в буфер обмена"
+    "emailCopiedDesc": "savannahmonarchy@gmail.com скопирован в буфер обмена"
   },
   "errors": {
     "validationError": "Ошибка валидации",
