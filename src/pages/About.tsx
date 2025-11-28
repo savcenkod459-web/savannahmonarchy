@@ -95,7 +95,7 @@ const About = () => {
               <div className="rounded-3xl overflow-hidden shadow-glow animate-scale-in hover-lift micro-interaction image-blur-edges relative">
                 {/* SM Logo - top right */}
                 <div className="absolute top-4 right-4 z-20">
-                  <SMLogoSVG className="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" />
+                  <SMLogoSVG className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" />
                 </div>
                 <img src={displayBreedingImage} alt={breedingImages?.alt_text || "Breeding Facility"} className="w-full h-[400px] object-cover hover-scale" />
               </div>

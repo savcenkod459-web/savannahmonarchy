@@ -70,7 +70,7 @@ const Hero = () => {
             }}>
               {/* SM Logo - top left */}
               <div className="absolute top-4 left-4 z-20">
-                <SMLogoSVG className="w-24 h-24 md:w-28 md:h-28 drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" />
+                <SMLogoSVG className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" />
               </div>
               
               <img 
