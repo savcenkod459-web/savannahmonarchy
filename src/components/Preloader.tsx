@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import smLogo from "@/assets/sm-logo-transparent.png";
+import SMLogoSVG from "./SMLogoSVG";
 
 const Preloader = () => {
   // Add keyframes for glow fade-in and pulse animations
@@ -92,14 +92,8 @@ const Preloader = () => {
       <div className="relative">
         {/* SM logo */}
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <img 
-            src={smLogo}
-            alt="SM Logo"
-            className="w-24 h-24 animate-fade-in dark:mix-blend-lighten mix-blend-multiply" 
-            style={{
-              filter: 'drop-shadow(0 0 12px hsl(43 96% 56% / 0.6))',
-              animation: 'fadeInGlow 1.2s ease-out forwards, pulseGlow 2s ease-in-out infinite 1.2s'
-            }}
+          <SMLogoSVG 
+            className="w-24 h-24 animate-fade-in drop-shadow-[0_0_12px_rgba(217,179,112,0.6)]" 
           />
           
           <div className="text-center space-y-3">

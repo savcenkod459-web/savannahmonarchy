@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "./OptimizedImage";
 import { useTranslation } from "react-i18next";
-import smLogo from "@/assets/sm-logo-transparent.png";
+import SMLogoSVG from "./SMLogoSVG";
 
 type Cat = {
   id: string;
@@ -73,9 +73,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
 
             {/* SM logo with glow */}
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-              <div className="relative">
-                <img src={smLogo} alt="SM" className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)] mix-blend-lighten" />
-              </div>
+              <SMLogoSVG className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)]" />
             </div>
 
             {/* Breed tag with glass effect */}

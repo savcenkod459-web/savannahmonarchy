@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
-import smLogo from "@/assets/sm-logo-transparent.png";
+import SMLogoSVG from "./SMLogoSVG";
 type Cat = {
   id: string;
   name: string;
@@ -107,9 +107,7 @@ const FeaturedCollection = () => {
                     {/* SM logo with SavannahMonarchy text */}
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 flex items-center gap-3">
                       <span className="font-display font-black text-2xl text-primary drop-shadow-[0_0_20px_rgba(217,179,112,0.8)] luxury-text-shadow">SavannahMonarchy</span>
-                      <div className="relative">
-                        <img src={smLogo} alt="SM" className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)] mix-blend-lighten" />
-                      </div>
+                      <SMLogoSVG className="w-14 h-14 animate-pulse drop-shadow-[0_0_16px_rgba(217,179,112,0.9)]" />
                     </div>
                     
                     {/* Bottom gradient fade */}
