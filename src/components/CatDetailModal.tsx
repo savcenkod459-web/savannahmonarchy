@@ -1,11 +1,10 @@
-import { useState, memo, useEffect } from "react";
+import { useState, memo } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { VideoPlayer } from "./VideoPlayer";
 import { OptimizedImage } from "./OptimizedImage";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import { useGallery } from "@/contexts/GalleryContext";
 import videoPoster1 from "@/assets/video-poster-1.png";
 import videoPoster2 from "@/assets/video-poster-2.png";
 import videoPoster3 from "@/assets/video-poster-3.png";
@@ -28,14 +27,6 @@ const CatDetailModalComponent = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageFullscreen, setIsImageFullscreen] = useState(false);
   const [isVideoFullscreen, setIsVideoFullscreen] = useState(false);
-  const { setIsGalleryOpen } = useGallery();
-
-  // Notify context when modal or fullscreen is open
-  useEffect(() => {
-    const isAnyOpen = isOpen || isImageFullscreen || isVideoFullscreen;
-    setIsGalleryOpen(isAnyOpen);
-    return () => setIsGalleryOpen(false);
-  }, [isOpen, isImageFullscreen, isVideoFullscreen, setIsGalleryOpen]);
   
   // Get poster for current video
   const getVideoPoster = (videoUrl?: string) => {
