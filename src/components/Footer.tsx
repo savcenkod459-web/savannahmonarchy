@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-4 mb-4">
-              <SMLogoSVG className="w-16 h-16 drop-shadow-[0_0_12px_rgba(217,179,112,0.8)]" />
+              <SMLogoSVG className="w-20 h-20 drop-shadow-[0_0_14px_rgba(217,179,112,0.8)]" />
               <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow">SavannahMonarchy</h3>
             </div>
             <div className="space-y-3">

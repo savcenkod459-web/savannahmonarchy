@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
+import SMLogoSVG from "./SMLogoSVG";
 const Hero = () => {
   const { t } = useTranslation();
   
@@ -67,6 +68,11 @@ const Hero = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-deep transition-all duration-700 hover:scale-[1.02] border-2 border-primary/40 hover:border-primary/60" style={{
               boxShadow: '0 0 30px rgba(217, 179, 112, 0.3), 0 0 60px rgba(217, 179, 112, 0.2)',
             }}>
+              {/* SM Logo - top left */}
+              <div className="absolute top-4 left-4 z-20">
+                <SMLogoSVG className="w-24 h-24 md:w-28 md:h-28 drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" />
+              </div>
+              
               <img 
                 src={displayImage} 
                 alt={heroImages?.alt_text || "Элитная кошка Саванна F1"} 
