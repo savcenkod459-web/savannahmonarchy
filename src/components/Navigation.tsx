@@ -190,9 +190,9 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-0 group micro-interaction">
-            <SMLogoSVG className="w-16 h-16 md:w-20 md:h-20 drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
-            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px] -ml-1">
+          <Link to="/" className="flex items-center gap-0 group micro-interaction -ml-4">
+            <SMLogoSVG className="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
+            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px] -ml-3">
               SavannahMonarchy
             </h1>
           </Link>
