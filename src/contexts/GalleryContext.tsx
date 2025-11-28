@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
 
 interface GalleryContextType {
   isGalleryOpen: boolean;
@@ -8,7 +8,7 @@ interface GalleryContextType {
 const GalleryContext = createContext<GalleryContextType | undefined>(undefined);
 
 export const GalleryProvider = ({ children }: { children: ReactNode }) => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
 
   return (
     <GalleryContext.Provider value={{ isGalleryOpen, setIsGalleryOpen }}>
