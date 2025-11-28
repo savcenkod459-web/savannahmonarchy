@@ -1,7 +1,8 @@
-import { useState, memo } from "react";
+import { useState, memo, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useGallery } from "@/contexts/GalleryContext";
 
 interface CatGalleryProps {
   images: string[];
@@ -12,6 +13,13 @@ interface CatGalleryProps {
 
 const CatGalleryComponent = ({ images, isOpen, onClose, initialIndex = 0 }: CatGalleryProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const { setIsGalleryOpen } = useGallery();
+
+  // Notify context when gallery opens/closes
+  useEffect(() => {
+    setIsGalleryOpen(isOpen);
+    return () => setIsGalleryOpen(false);
+  }, [isOpen, setIsGalleryOpen]);
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);

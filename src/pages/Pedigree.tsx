@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useGallery } from "@/contexts/GalleryContext";
 
 type PedigreeEntry = {
   id: string;
@@ -32,6 +33,13 @@ const Pedigree = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { setIsGalleryOpen } = useGallery();
+
+  // Notify context when gallery opens/closes
+  useEffect(() => {
+    setIsGalleryOpen(galleryOpen);
+    return () => setIsGalleryOpen(false);
+  }, [galleryOpen, setIsGalleryOpen]);
 
   const openGallery = (images: string[], index: number) => {
     setGalleryImages(images);
