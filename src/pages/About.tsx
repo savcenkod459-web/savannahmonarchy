@@ -94,8 +94,8 @@ const About = () => {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-glow animate-scale-in hover-lift micro-interaction image-blur-edges relative group/about">
                 {/* SM Logo - top right corner, appears on hover */}
-                <div className="absolute top-0 right-0 z-20 opacity-0 group-hover/about:opacity-100 transition-all duration-500 transform scale-90 group-hover/about:scale-100">
-                  <SMLogoSVG className="w-44 h-44 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
+                <div className="absolute -top-4 -right-4 z-20 opacity-0 group-hover/about:opacity-100 transition-all duration-500 transform scale-90 group-hover/about:scale-100">
+                  <SMLogoSVG className="w-48 h-48 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
                 </div>
                 <img src={displayBreedingImage} alt={breedingImages?.alt_text || "Breeding Facility"} className="w-full h-[400px] object-cover hover-scale" />
               </div>
