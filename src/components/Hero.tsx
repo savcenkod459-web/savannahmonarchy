@@ -68,9 +68,9 @@ const Hero = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-deep transition-all duration-700 hover:scale-[1.02] border-2 border-primary/40 hover:border-primary/60" style={{
               boxShadow: '0 0 30px rgba(217, 179, 112, 0.3), 0 0 60px rgba(217, 179, 112, 0.2)',
             }}>
-              {/* SM Logo - top left corner, appears on hover */}
-              <div className="absolute -top-4 -left-4 z-20 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform scale-90 group-hover/hero:scale-100">
-                <SMLogoSVG className="w-56 h-56 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
+              {/* SM Logo - top left */}
+              <div className="absolute top-4 left-4 z-20">
+                <SMLogoSVG className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" />
               </div>
               
               <img 

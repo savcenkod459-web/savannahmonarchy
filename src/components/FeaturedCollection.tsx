@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
-import SMLogoSVG from "./SMLogoSVG";
 type Cat = {
   id: string;
   name: string;
@@ -104,10 +103,6 @@ const FeaturedCollection = () => {
                     {/* Gradient overlay on hover - softer colors */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
-                    {/* SM Logo - top right, appears on hover */}
-                    <div className="absolute -top-3 -right-3 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
-                      <SMLogoSVG className="w-44 h-44 drop-shadow-[0_0_30px_rgba(217,179,112,0.95)]" />
-                    </div>
                     
                     {/* Bottom gradient fade */}
                     <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />

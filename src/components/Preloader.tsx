@@ -93,7 +93,7 @@ const Preloader = () => {
         {/* SM logo */}
         <div className="relative z-10 flex flex-col items-center gap-6">
           <SMLogoSVG 
-            className="w-56 h-56 md:w-64 md:h-64 animate-fade-in drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" 
+            className="w-44 h-44 animate-fade-in drop-shadow-[0_0_24px_rgba(217,179,112,0.9)]" 
           />
           
           <div className="text-center space-y-3">
