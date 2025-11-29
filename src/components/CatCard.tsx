@@ -6,6 +6,7 @@ import { OptimizedImage } from "./OptimizedImage";
 import { useTranslation } from "react-i18next";
 import SMLogoSVG from "./SMLogoSVG";
 
+
 type Cat = {
   id: string;
   name: string;
@@ -71,9 +72,9 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
             {/* Gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* SM logo with glow */}
-            <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-              <SMLogoSVG className="w-44 h-44 animate-pulse drop-shadow-[0_0_28px_rgba(217,179,112,0.95)]" />
+            {/* SM Logo - top right, appears on hover */}
+            <div className="absolute top-2 right-2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+              <SMLogoSVG className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 drop-shadow-[0_0_30px_rgba(217,179,112,0.95)]" />
             </div>
 
             {/* Breed tag with glass effect */}
