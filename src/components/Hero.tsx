@@ -70,7 +70,7 @@ const Hero = () => {
             }}>
               {/* SM Logo - top left corner, appears on hover */}
               <div className="absolute top-1 left-1 z-20 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform scale-90 group-hover/hero:scale-100">
-                <SMLogoSVG className="w-36 h-36 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
+                <SMLogoSVG className="w-36 h-36 dark:drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
               </div>
               
               <img 

@@ -53,11 +53,11 @@ All colors MUST be HSL.
     --gradient-shine: linear-gradient(90deg, transparent, hsl(48 100% 88% / 0.8), transparent);
     
     /* Luxury Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(43 96% 56% / 0.15);
-    --shadow-elegant: 0 10px 40px -10px hsl(43 96% 56% / 0.25);
-    --shadow-glow: 0 0 60px hsl(43 96% 56% / 0.3);
-    --shadow-gold: 0 8px 32px hsl(43 96% 56% / 0.2);
-    --shadow-deep: 0 20px 60px -15px hsl(0 0% 0% / 0.3);
+    --shadow-soft: 0 4px 20px -2px hsl(43 96% 56% / 0.08);
+    --shadow-elegant: 0 10px 40px -10px hsl(43 96% 56% / 0.12);
+    --shadow-glow: 0 0 30px hsl(43 96% 56% / 0.1);
+    --shadow-gold: 0 8px 32px hsl(43 96% 56% / 0.1);
+    --shadow-deep: 0 20px 60px -15px hsl(0 0% 0% / 0.15);
     
     /* Luxury Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,21 +109,31 @@ All colors MUST be HSL.
     --border: 0 0% 28%;
     --input: 0 0% 22%;
     --ring: 43 96% 56%;
+    
+    /* Dark mode shadows - stronger glow effect */
+    --shadow-soft: 0 4px 20px -2px hsl(43 96% 56% / 0.15);
+    --shadow-elegant: 0 10px 40px -10px hsl(43 96% 56% / 0.25);
+    --shadow-glow: 0 0 60px hsl(43 96% 56% / 0.3);
+    --shadow-gold: 0 8px 32px hsl(43 96% 56% / 0.2);
+    --shadow-deep: 0 20px 60px -15px hsl(0 0% 0% / 0.3);
   }
 }
 
 @layer utilities {
   .text-luxury-gradient {
     @apply bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent;
-    animation: textGoldPulse 3s ease-in-out infinite;
   }
   
   .dark .text-luxury-gradient {
+    animation: textGoldPulse 3s ease-in-out infinite;
     filter: drop-shadow(0 0 2px hsl(43 96% 56% / 0.2));
   }
   
   .text-gold {
     @apply text-primary;
+  }
+  
+  .dark .text-gold {
     text-shadow: 0 0 20px hsl(43 96% 56% / 0.3);
   }
   
