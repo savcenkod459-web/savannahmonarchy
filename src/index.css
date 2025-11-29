@@ -121,10 +121,11 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-luxury-gradient {
-    @apply bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
   }
   
   .dark .text-luxury-gradient {
+    @apply bg-gradient-to-r from-[hsl(48,100%,88%)] via-primary to-accent bg-clip-text text-transparent;
     animation: textGoldPulse 3s ease-in-out infinite;
     filter: drop-shadow(0 0 2px hsl(43 96% 56% / 0.2));
   }
