@@ -191,7 +191,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-1 group micro-interaction">
-            <SMLogoSVG className="w-[72px] h-[72px] drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
+            <SMLogoSVG className="w-20 h-20 drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
             <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow ml-0.5">
               SavannahMonarchy
             </h1>
