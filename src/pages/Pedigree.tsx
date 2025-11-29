@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
 import { useGallery } from "@/contexts/GalleryContext";
+import SMLogoSVG from "@/components/SMLogoSVG";
 
 type PedigreeEntry = {
   id: string;
@@ -167,6 +168,11 @@ const Pedigree = () => {
                                   </span>
                                 </div>
                               </div>
+
+                              {/* SM Logo - top right, appears on hover */}
+                              <div className="absolute top-1 right-1 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                                <SMLogoSVG className="w-24 h-24 drop-shadow-[0_0_30px_rgba(217,179,112,0.95)]" />
+                              </div>
                               
                               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
@@ -251,6 +257,11 @@ const Pedigree = () => {
                                     {parent.parent_breed}
                                   </span>
                                 </div>
+                              </div>
+
+                              {/* SM Logo - top right, appears on hover */}
+                              <div className="absolute top-1 right-1 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                                <SMLogoSVG className="w-24 h-24 drop-shadow-[0_0_30px_rgba(217,179,112,0.95)]" />
                               </div>
                               
                               <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
