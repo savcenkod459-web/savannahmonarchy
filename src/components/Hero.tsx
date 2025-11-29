@@ -69,8 +69,8 @@ const Hero = () => {
               boxShadow: '0 0 30px rgba(217, 179, 112, 0.3), 0 0 60px rgba(217, 179, 112, 0.2)',
             }}>
               {/* SM Logo - top left */}
-              <div className="absolute top-4 left-4 z-20">
-                <SMLogoSVG className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" />
+              <div className="absolute top-0 left-0 z-20">
+                <SMLogoSVG className="w-56 h-56 drop-shadow-[0_0_32px_rgba(217,179,112,0.95)]" />
               </div>
               
               <img 
