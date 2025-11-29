@@ -69,8 +69,8 @@ const Hero = () => {
               boxShadow: '0 0 30px rgba(217, 179, 112, 0.3), 0 0 60px rgba(217, 179, 112, 0.2)',
             }}>
               {/* SM Logo - top left corner, appears on hover */}
-              <div className="absolute top-0 left-0 z-20 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform scale-90 group-hover/hero:scale-100">
-                <SMLogoSVG className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
+              <div className="absolute -top-2 -left-2 z-20 opacity-0 group-hover/hero:opacity-100 transition-all duration-500 transform scale-90 group-hover/hero:scale-100">
+                <SMLogoSVG className="w-36 h-36 drop-shadow-[0_0_50px_rgba(217,179,112,0.95)]" />
               </div>
               
               <img 
