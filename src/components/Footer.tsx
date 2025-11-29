@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
-import logoBlue from "@/assets/logo-blue.jpg";
-import logoBlack from "@/assets/logo-black.jpg";
-import logoWhite from "@/assets/logo-white.jpg";
 import SMLogoSVG from "./SMLogoSVG";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
