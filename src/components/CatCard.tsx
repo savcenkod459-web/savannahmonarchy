@@ -72,8 +72,8 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* SM logo with glow */}
-            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-              <SMLogoSVG className="w-24 h-24 animate-pulse drop-shadow-[0_0_28px_rgba(217,179,112,0.95)]" />
+            <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+              <SMLogoSVG className="w-44 h-44 animate-pulse drop-shadow-[0_0_28px_rgba(217,179,112,0.95)]" />
             </div>
 
             {/* Breed tag with glass effect */}

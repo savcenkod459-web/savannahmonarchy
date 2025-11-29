@@ -188,11 +188,11 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
-      <div className="container mx-auto px-6 py-5">
+      <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center space-x-3 group micro-interaction ml-1">
-            <SMLogoSVG className="w-20 h-20 md:w-24 md:h-24 drop-shadow-[0_0_14px_rgba(217,179,112,0.8)]" />
-            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow py-[5px]">
+          <Link to="/" className="flex items-center space-x-1 group micro-interaction ml-1">
+            <SMLogoSVG className="w-12 h-12 md:w-14 md:h-14 drop-shadow-[0_0_14px_rgba(217,179,112,0.8)]" />
+            <h1 className="text-base md:text-lg font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow">
               SavannahMonarchy
             </h1>
           </Link>
