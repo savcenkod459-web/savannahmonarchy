@@ -111,7 +111,7 @@ const Pedigree = () => {
           <Button
             variant="ghost-gold"
             onClick={() => navigate(-1)}
-            className="mb-8"
+            className="mt-6 mb-8"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Назад
