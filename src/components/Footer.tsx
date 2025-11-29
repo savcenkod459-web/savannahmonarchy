@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="space-y-4 -mt-[20px]">
             <div className="flex items-center gap-1">
               <SMLogoSVG className="w-[60px] h-[60px] dark:drop-shadow-[0_0_18px_rgba(217,179,112,0.85)] -ml-2" />
-              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow pr-1">SavannahMonarchy</h3>
+              <h3 className="text-2xl font-display font-black text-luxury-gradient luxury-text-shadow pr-2 pb-1">SavannahMonarchy</h3>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 glass-card rounded-lg border border-primary/20 shadow-glow">
