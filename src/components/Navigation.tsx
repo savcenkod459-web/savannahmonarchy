@@ -191,7 +191,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-1 group micro-interaction">
-            <SMLogoSVG className="w-20 h-20 drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
+            <SMLogoSVG className="w-20 h-20 dark:drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
             <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow ml-0.5">
               SavannahMonarchy
             </h1>
@@ -205,7 +205,7 @@ const Navigation = () => {
                   <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
                       <button
-                        className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                        className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                       >
                         {item.name}
                         <ChevronDown className="w-4 h-4" />
@@ -247,7 +247,7 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                  className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                 >
                   {item.name}
                   <span
@@ -260,8 +260,8 @@ const Navigation = () => {
             {isAdmin && (
               <Popover open={adminPopoverOpen} onOpenChange={setAdminPopoverOpen}>
                 <PopoverTrigger asChild>
-                  <button
-                    className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                <button
+                    className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                   >
                     ⚙️ Админ
                     <ChevronDown className="w-4 h-4" />
