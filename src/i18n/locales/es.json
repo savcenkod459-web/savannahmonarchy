@@ -1,4 +1,7 @@
 {
+  "catCard": {
+    "sold": "Vendido"
+  },
   "nav": {
     "home": "Inicio",
     "about": "Acerca de",
