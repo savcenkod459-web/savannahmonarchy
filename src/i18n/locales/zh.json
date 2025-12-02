@@ -1,4 +1,7 @@
 {
+  "catCard": {
+    "sold": "已售出"
+  },
   "nav": {
     "home": "首页",
     "about": "关于",
