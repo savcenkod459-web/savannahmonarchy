@@ -63,7 +63,7 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
         <div className="relative overflow-hidden rounded-3xl">
           {/* SOLD Banner for specific cat */}
           {cat.id === '767e2da6-a802-4fce-824c-fdd17231df79' && (
-            <div className="absolute top-20 -left-10 z-30 rotate-[-45deg] w-52">
+            <div className="absolute top-10 -left-10 z-30 rotate-[-45deg] w-72">
               <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-center py-2.5 px-6 font-bold uppercase tracking-widest text-base shadow-[0_4px_20px_rgba(220,38,38,0.5)] border-y-2 border-red-400/50">
                 {t('catCard.sold')}
               </div>
