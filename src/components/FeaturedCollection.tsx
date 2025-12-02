@@ -59,7 +59,9 @@ const FeaturedCollection = () => {
         image: imageMap[cat.image] || cat.image,
         price: `${cat.price.toLocaleString("en-US")} €`
       }));
-    }
+    },
+    staleTime: 0,
+    refetchOnMount: 'always'
   });
   return <section className="py-16 md:py-32 pb-24 md:pb-40 relative overflow-visible">
       <div className="container mx-auto px-4 md:px-6 relative z-10">

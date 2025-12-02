@@ -46,7 +46,7 @@ const Catalog = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState<string[]>([]);
   const [modalVideo, setModalVideo] = useState<string | undefined>();
-  const { getFromCache, saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000);
+  const { saveToCache } = useDataCache<Cat[]>('catalog_cats', 30 * 60 * 1000);
   const { prefetchImages } = useImagePrefetch();
   
   // Infinite scroll state
@@ -67,7 +67,7 @@ const Catalog = () => {
     setModalOpen(true);
   };
 
-  // Fetch cats from Supabase with caching
+  // Fetch cats from Supabase - всегда загружаем свежие данные
   const {
     data: cats,
     isLoading,
@@ -75,12 +75,6 @@ const Catalog = () => {
   } = useQuery({
     queryKey: ['cats'],
     queryFn: async () => {
-      // Проверяем кэш
-      const cached = getFromCache();
-      if (cached) {
-        return cached;
-      }
-
       const {
         data,
         error
@@ -94,12 +88,13 @@ const Catalog = () => {
         image: imageMap[cat.image] || cat.image
       }));
       
-      // Сохраняем в кэш
+      // Сохраняем в кэш для оффлайн-доступа
       saveToCache(processedData);
       
       return processedData;
     },
-    staleTime: 5 * 60 * 1000, // 5 минут
+    staleTime: 0,
+    refetchOnMount: 'always'
   });
   const allCats = cats || [];
   const filteredCats = allCats.filter(cat => {
