@@ -85,7 +85,7 @@ const Catalog = () => {
         data,
         error
       } = await supabase.from('cats').select('*').order('created_at', {
-        ascending: true
+        ascending: false
       });
       if (error) throw error;
       
