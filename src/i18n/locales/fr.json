@@ -1,7 +1,4 @@
 {
-  "catCard": {
-    "sold": "Vendu"
-  },
   "nav": {
     "home": "Accueil",
     "about": "À propos",
@@ -743,6 +740,7 @@
     "messageTooLong": "Le message doit contenir moins de 2000 caractères"
   },
   "catCard": {
+    "sold": "Vendu",
     "price": "Prix",
     "heritage": "Héritage",
     "book": "Réserver maintenant",

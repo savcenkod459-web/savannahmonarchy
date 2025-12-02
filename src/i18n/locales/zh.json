@@ -1,7 +1,4 @@
 {
-  "catCard": {
-    "sold": "已售出"
-  },
   "nav": {
     "home": "首页",
     "about": "关于",
@@ -778,6 +775,7 @@
     "messageTooLong": "消息必须少于2000个字符"
   },
   "catCard": {
+    "sold": "已售出",
     "price": "价格",
     "heritage": "血统",
     "book": "立即预订",
