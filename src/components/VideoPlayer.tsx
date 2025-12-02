@@ -4,6 +4,10 @@ import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 // Extract YouTube video ID from various URL formats
 const getYouTubeVideoId = (url: string): string | null => {
+  // Handle embed format: https://www.youtube.com/embed/VIDEO_ID
+  const embedMatch = url.match(/youtube\.com\/embed\/([^?&]+)/);
+  if (embedMatch) return embedMatch[1];
+  
   // Handle youtu.be format
   const shortMatch = url.match(/youtu\.be\/([^?]+)/);
   if (shortMatch) return shortMatch[1];
