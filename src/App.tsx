@@ -50,9 +50,8 @@ const queryClient = new QueryClient({
 const AppContent = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
   
-  // Временное отключение пользовательского smooth scroll из-за проблем с хуками
-  // useSmoothScroll();
-  useTranslations();
+  // Загружаем переводы из БД
+  const { isLoaded: translationsLoaded } = useTranslations();
   useAutoTranslation();
 
   useEffect(() => {
