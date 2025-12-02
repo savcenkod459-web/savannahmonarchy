@@ -71,6 +71,7 @@ const AppContent = () => {
         <MobileFloatingButtons />
       </Suspense>
       <BrowserRouter>
+        <GalleryProvider>
         <ScrollToTopOnRouteChange />
         <AdminTranslationWrapper>
           <div 
@@ -102,6 +103,7 @@ const AppContent = () => {
             </Routes>
           </div>
         </AdminTranslationWrapper>
+        </GalleryProvider>
       </BrowserRouter>
     </>
   );
@@ -110,9 +112,7 @@ const AppContent = () => {
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <GalleryProvider>
-        <AppContent />
-      </GalleryProvider>
+      <AppContent />
     </QueryClientProvider>
   );
 };
