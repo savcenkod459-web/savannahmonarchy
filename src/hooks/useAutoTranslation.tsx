@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import i18n from '@/i18n/config';
 import { supabase } from '@/integrations/supabase/client';
 
-interface TranslationMap {
+// Updated: Force cache invalidation
+type TranslationMap = {
   [originalText: string]: string; // originalText -> translationKey
-}
+};
 
 export const useAutoTranslation = () => {
   useEffect(() => {
