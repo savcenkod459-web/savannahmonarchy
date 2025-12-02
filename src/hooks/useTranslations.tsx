@@ -6,6 +6,22 @@ import i18n from '@/i18n/config';
 let isLoading = false;
 let isLoaded = false;
 
+// Функция для преобразования плоского ключа в вложенный объект
+const setNestedValue = (obj: Record<string, any>, path: string, value: string) => {
+  const keys = path.split('.');
+  let current = obj;
+  
+  for (let i = 0; i < keys.length - 1; i++) {
+    const key = keys[i];
+    if (!current[key] || typeof current[key] !== 'object') {
+      current[key] = {};
+    }
+    current = current[key];
+  }
+  
+  current[keys[keys.length - 1]] = value;
+};
+
 const loadTranslationsFromDatabase = async () => {
   if (isLoading || isLoaded) return;
   isLoading = true;
@@ -32,15 +48,19 @@ const loadTranslationsFromDatabase = async () => {
 
     console.log(`📊 Найдено ${data.length} переводов в базе данных`);
 
-    // Группируем переводы по языкам
-    const translationsByLang: Record<string, Record<string, string>> = {};
+    // Группируем переводы по языкам с вложенной структурой
+    const translationsByLang: Record<string, Record<string, any>> = {};
 
     data.forEach((translation) => {
       if (!translationsByLang[translation.language_code]) {
         translationsByLang[translation.language_code] = {};
       }
-      translationsByLang[translation.language_code][translation.translation_key] = 
-        translation.translation_value;
+      // Преобразуем плоский ключ в вложенный объект
+      setNestedValue(
+        translationsByLang[translation.language_code],
+        translation.translation_key,
+        translation.translation_value
+      );
     });
 
     console.log('📦 Переводы по языкам:', Object.keys(translationsByLang).map(lang => 
@@ -50,10 +70,9 @@ const loadTranslationsFromDatabase = async () => {
     // Добавляем переводы в i18next для каждого языка
     Object.keys(translationsByLang).forEach((lang) => {
       const existingResources = i18n.getResourceBundle(lang, 'translation') || {};
-      const mergedResources = {
-        ...existingResources,
-        ...translationsByLang[lang]
-      };
+      
+      // Глубокое слияние объектов
+      const mergedResources = deepMerge(existingResources, translationsByLang[lang]);
       
       i18n.addResourceBundle(lang, 'translation', mergedResources, true, true);
       console.log(`✅ Добавлены переводы для языка ${lang}`);
@@ -72,12 +91,34 @@ const loadTranslationsFromDatabase = async () => {
   }
 };
 
+// Функция глубокого слияния объектов
+const deepMerge = (target: Record<string, any>, source: Record<string, any>): Record<string, any> => {
+  const result = { ...target };
+  
+  for (const key in source) {
+    if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+      result[key] = deepMerge(result[key] || {}, source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  
+  return result;
+};
+
 // Инициализация при загрузке модуля
 if (i18n.isInitialized) {
   loadTranslationsFromDatabase();
 } else {
   i18n.on('initialized', loadTranslationsFromDatabase);
 }
+
+// Экспорт функции для принудительной перезагрузки переводов
+export const forceReloadTranslations = async () => {
+  isLoaded = false;
+  isLoading = false;
+  await loadTranslationsFromDatabase();
+};
 
 export const useTranslations = () => {
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
