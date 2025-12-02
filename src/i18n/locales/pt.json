@@ -764,7 +764,8 @@
   "catDescriptions": {
     "767e2da6-a802-4fce-824c-fdd17231df79": "Um garoto magnífico com um padrão manchado marcante e a postura orgulhosa de um serval. Sociável, confiante e dedicado — um verdadeiro rei entre os gatos, irradiando energia e luxo.",
     "49448daa-a2f0-4959-b917-4dd09697d82e": "Uma garota elegante com um brilho suave no pelo e o caráter de um serval. Observadora, persistente e extraordinariamente inteligente — a personificação do brilho natural e da harmonia.",
-    "df1042ed-5f48-440e-8ebe-e4e316f2a247": "Um garoto raro que combina a selvageria refinada de um serval com um temperamento doméstico, com uma pelagem magnífica e um olhar expressivo que o torna uma verdadeira joia."
+    "df1042ed-5f48-440e-8ebe-e4e316f2a247": "Um garoto raro que combina a selvageria refinada de um serval com um temperamento doméstico, com uma pelagem magnífica e um olhar expressivo que o torna uma verdadeira joia.",
+    "eebd023b-5565-48da-a0e7-6e3efbf2fb42": "Um menino único com energia serval delicada, caráter doméstico, coloração luxuosa e carisma confiante — cria um sotaque refinado e destaca o gosto de um verdadeiro conhecedor."
   },
   "catTraits": {
     "Престижный": "Prestigioso",
@@ -777,6 +778,10 @@
     "Непокорная": "Intrépida",
     "Великолепный": "Magnífico",
     "Добрый": "Gentil",
-    "Ласковый": "Carinhoso"
+    "Ласковый": "Carinhoso",
+    "Sociable": "Sociável",
+    "Gentle": "Gentil",
+    "Harmonious": "Harmonioso",
+    "Calmly Confident": "Calmamente Confiante"
   }
 }
