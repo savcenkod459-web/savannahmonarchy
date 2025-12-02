@@ -51,7 +51,7 @@ const FeaturedCollection = () => {
         data,
         error
       } = await supabase.from('cats').select('*').order('created_at', {
-        ascending: true
+        ascending: false
       }).limit(3);
       if (error) throw error;
       return (data as Cat[]).map(cat => ({
