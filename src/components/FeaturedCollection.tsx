@@ -4,8 +4,9 @@ import { ArrowRight, Crown, Sparkles, Loader2, Star, Calendar, Users } from "luc
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { CatGallery } from "@/components/CatGallery";
-import { useState, memo } from "react";
+import { useState, memo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import i18n from "@/i18n/config";
 import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
@@ -33,6 +34,29 @@ const FeaturedCollection = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryInitialIndex, setGalleryInitialIndex] = useState(0);
+  const [, setForceUpdate] = useState(0);
+  
+  // Принудительное обновление при загрузке переводов
+  useEffect(() => {
+    const handleLoaded = () => {
+      console.log('🔄 FeaturedCollection: переводы загружены, обновляем...');
+      setForceUpdate(prev => prev + 1);
+    };
+    
+    const handleLanguageChanged = () => {
+      console.log('🌍 FeaturedCollection: язык изменён, обновляем...');
+      setForceUpdate(prev => prev + 1);
+    };
+    
+    i18n.on('loaded', handleLoaded);
+    i18n.on('languageChanged', handleLanguageChanged);
+    
+    return () => {
+      i18n.off('loaded', handleLoaded);
+      i18n.off('languageChanged', handleLanguageChanged);
+    };
+  }, []);
+  
   const openGallery = (image: string, additionalImages: string[]) => {
     const allImages = [image, ...(additionalImages || [])];
     setGalleryImages(allImages);
