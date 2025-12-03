@@ -7,12 +7,12 @@ const ShareButtons = () => {
   const currentUrl = window.location.href;
 
   const shareToTwitter = () => {
-    const text = "Посмотрите эту роскошную кошку на LuxuryCats!";
+    const text = "Посмотрите эту роскошную кошку на SavannahMonarchy!";
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}`, "_blank");
   };
 
   const shareToTelegram = () => {
-    const text = "Посмотрите эту роскошную кошку на LuxuryCats!";
+    const text = "Посмотрите эту роскошную кошку на SavannahMonarchy!";
     window.open(`https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(text)}`, "_blank");
   };
 
