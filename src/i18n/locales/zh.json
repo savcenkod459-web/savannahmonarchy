@@ -256,6 +256,15 @@
         "confirm": "登出"
       }
     },
+    "required": {
+      "title": "需要登录",
+      "description": "请登录或注册以发送消息",
+      "button": "登录"
+    },
+    "authRequired": "需要登录",
+    "authRequiredDescription": "请登录或注册以发送消息",
+    "login": "登录",
+    "logoutSuccess": "您已成功登出",
     "errors": {
       "invalidCredentials": "无效的登录凭据",
       "invalidCredentialsDescription": "电子邮件或密码不正确。如果您忘记了密码，请点击'忘记密码？'",

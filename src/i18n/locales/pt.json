@@ -257,6 +257,15 @@
         "confirm": "Sair"
       }
     },
+    "required": {
+      "title": "Autenticação necessária",
+      "description": "Por favor, faça login ou cadastre-se para enviar uma mensagem",
+      "button": "Entrar"
+    },
+    "authRequired": "Autenticação necessária",
+    "authRequiredDescription": "Por favor, faça login ou cadastre-se para enviar uma mensagem",
+    "login": "Entrar",
+    "logoutSuccess": "Você saiu da sua conta com sucesso",
     "errors": {
       "invalidCredentials": "Credenciais Inválidas",
       "invalidCredentialsDescription": "E-mail ou senha incorretos. Se você esqueceu sua senha, clique em 'Esqueceu a senha?'",
