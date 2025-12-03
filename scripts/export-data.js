@@ -3,23 +3,31 @@
  * 
  * Запуск: node scripts/export-data.js
  * 
+ * Для экспорта profiles и user_roles установите SERVICE_ROLE_KEY:
+ *   SERVICE_ROLE_KEY=your_key node scripts/export-data.js
+ * 
  * Требования: Node.js 18+ (для fetch API)
  */
 
 const SUPABASE_URL = 'https://rujvbcxpnzpikkmgdkfs.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1anZiY3hwbnpwaWtrbWdka2ZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMTc2NzUsImV4cCI6MjA3NTU5MzY3NX0.hD3auiGF0hLclhggC_43AvtKS1TxhQTeekBoHO9sxmM';
+const SERVICE_ROLE_KEY = process.env.SERVICE_ROLE_KEY;
 
-async function fetchTable(tableName, orderBy = 'created_at') {
+async function fetchTable(tableName, orderBy = 'created_at', useServiceKey = false) {
+  const apiKey = useServiceKey && SERVICE_ROLE_KEY ? SERVICE_ROLE_KEY : SUPABASE_ANON_KEY;
   const response = await fetch(
     `${SUPABASE_URL}/rest/v1/${tableName}?select=*&order=${orderBy}`,
     {
       headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'apikey': apiKey,
+        'Authorization': `Bearer ${apiKey}`,
       },
     }
   );
   if (!response.ok) {
+    if (response.status === 404 || response.status === 403) {
+      return []; // RLS blocked or table not accessible
+    }
     throw new Error(`HTTP error for ${tableName}: ${response.status}`);
   }
   return response.json();
@@ -118,6 +126,44 @@ async function exportAllData() {
       await fs.writeFile(path.join(exportDir, 'contact_messages-import.sql'), `INSERT INTO public.contact_messages (created_at, name, email, phone, message, read) VALUES\n${contactSql.join(',\n')};`);
     }
 
+    // === PROFILES (requires SERVICE_ROLE_KEY) ===
+    let profiles = [];
+    if (SERVICE_ROLE_KEY) {
+      console.log('👤 Экспорт profiles...');
+      profiles = await fetchTable('profiles', 'created_at', true);
+      console.log(`   ✅ Получено ${profiles.length} профилей`);
+      
+      await fs.writeFile(path.join(exportDir, 'profiles.json'), JSON.stringify(profiles, null, 2));
+      
+      if (profiles.length > 0) {
+        const profilesSql = profiles.map((p) => {
+          return `(${escapeSQL(p.id)}, ${escapeSQL(p.email)}, ${escapeSQL(p.first_name)}, ${escapeSQL(p.last_name)}, ${escapeSQL(p.phone)}, ${escapeSQL(p.avatar_url)}, ${escapeSQL(p.bio)})`;
+        });
+        await fs.writeFile(path.join(exportDir, 'profiles-import.sql'), `-- ВАЖНО: user_id должен существовать в auth.users!\nINSERT INTO public.profiles (id, email, first_name, last_name, phone, avatar_url, bio) VALUES\n${profilesSql.join(',\n')}\nON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, first_name = EXCLUDED.first_name, last_name = EXCLUDED.last_name, phone = EXCLUDED.phone, avatar_url = EXCLUDED.avatar_url, bio = EXCLUDED.bio;`);
+      }
+    } else {
+      console.log('👤 Пропуск profiles (нужен SERVICE_ROLE_KEY)');
+    }
+
+    // === USER ROLES (requires SERVICE_ROLE_KEY) ===
+    let userRoles = [];
+    if (SERVICE_ROLE_KEY) {
+      console.log('🔐 Экспорт user_roles...');
+      userRoles = await fetchTable('user_roles', 'created_at', true);
+      console.log(`   ✅ Получено ${userRoles.length} ролей`);
+      
+      await fs.writeFile(path.join(exportDir, 'user_roles.json'), JSON.stringify(userRoles, null, 2));
+      
+      if (userRoles.length > 0) {
+        const rolesSql = userRoles.map((r) => {
+          return `(${escapeSQL(r.user_id)}, ${escapeSQL(r.role)})`;
+        });
+        await fs.writeFile(path.join(exportDir, 'user_roles-import.sql'), `-- ВАЖНО: user_id должен существовать в auth.users!\nINSERT INTO public.user_roles (user_id, role) VALUES\n${rolesSql.join(',\n')}\nON CONFLICT (user_id, role) DO NOTHING;`);
+      }
+    } else {
+      console.log('🔐 Пропуск user_roles (нужен SERVICE_ROLE_KEY)');
+    }
+
     // === SUMMARY ===
     console.log('\n' + '='.repeat(50));
     console.log('📊 ИТОГО ЭКСПОРТИРОВАНО:');
@@ -127,6 +173,8 @@ async function exportAllData() {
     console.log(`   📋 Translations: ${translations.length} (${Object.keys(byLanguage).length} языков)`);
     console.log(`   🖼️  Site Images: ${siteImages.length}`);
     console.log(`   📧 Contact Messages: ${contactMessages.length}`);
+    console.log(`   👤 Profiles: ${profiles.length}${!SERVICE_ROLE_KEY ? ' (пропущено)' : ''}`);
+    console.log(`   🔐 User Roles: ${userRoles.length}${!SERVICE_ROLE_KEY ? ' (пропущено)' : ''}`);
     console.log('='.repeat(50));
     console.log(`\n✅ Все файлы сохранены в: ${exportDir}/`);
 
