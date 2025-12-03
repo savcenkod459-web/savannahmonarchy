@@ -107,7 +107,7 @@ const Contact = () => {
           <Button 
             size="sm" 
             onClick={() => window.location.href = '/auth'}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs whitespace-nowrap px-3"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 text-[11px] whitespace-nowrap px-4 min-w-fit"
           >
             {t("auth.login")}
           </Button>
