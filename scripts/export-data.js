@@ -164,6 +164,25 @@ async function exportAllData() {
       console.log('🔐 Пропуск user_roles (нужен SERVICE_ROLE_KEY)');
     }
 
+    // === PASSWORD RESET CODES (requires SERVICE_ROLE_KEY) ===
+    let resetCodes = [];
+    if (SERVICE_ROLE_KEY) {
+      console.log('🔑 Экспорт password_reset_codes...');
+      resetCodes = await fetchTable('password_reset_codes', 'created_at.desc', true);
+      console.log(`   ✅ Получено ${resetCodes.length} кодов`);
+      
+      await fs.writeFile(path.join(exportDir, 'password_reset_codes.json'), JSON.stringify(resetCodes, null, 2));
+      
+      if (resetCodes.length > 0) {
+        const codesSql = resetCodes.map((c) => {
+          return `(${escapeSQL(c.user_email)}, ${escapeSQL(c.code)}, ${escapeSQL(c.expires_at)}, ${c.used}, ${c.attempts}, ${c.locked})`;
+        });
+        await fs.writeFile(path.join(exportDir, 'password_reset_codes-import.sql'), `INSERT INTO public.password_reset_codes (user_email, code, expires_at, used, attempts, locked) VALUES\n${codesSql.join(',\n')};`);
+      }
+    } else {
+      console.log('🔑 Пропуск password_reset_codes (нужен SERVICE_ROLE_KEY)');
+    }
+
     // === SUMMARY ===
     console.log('\n' + '='.repeat(50));
     console.log('📊 ИТОГО ЭКСПОРТИРОВАНО:');
@@ -175,6 +194,7 @@ async function exportAllData() {
     console.log(`   📧 Contact Messages: ${contactMessages.length}`);
     console.log(`   👤 Profiles: ${profiles.length}${!SERVICE_ROLE_KEY ? ' (пропущено)' : ''}`);
     console.log(`   🔐 User Roles: ${userRoles.length}${!SERVICE_ROLE_KEY ? ' (пропущено)' : ''}`);
+    console.log(`   🔑 Reset Codes: ${resetCodes.length}${!SERVICE_ROLE_KEY ? ' (пропущено)' : ''}`);
     console.log('='.repeat(50));
     console.log(`\n✅ Все файлы сохранены в: ${exportDir}/`);
 
