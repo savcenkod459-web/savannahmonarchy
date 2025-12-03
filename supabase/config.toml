@@ -11,3 +11,9 @@ verify_jwt = false
 
 [functions.translate-bulk]
 verify_jwt = true
+
+[functions.import-translations]
+verify_jwt = false
+
+[functions.send-verification-code]
+verify_jwt = false
