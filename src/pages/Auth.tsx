@@ -21,6 +21,7 @@ const Auth = () => {
   const [showVerification, setShowVerification] = useState(false);
   const [pendingEmail, setPendingEmail] = useState("");
   const [pendingPassword, setPendingPassword] = useState("");
+  const [isVerifying, setIsVerifying] = useState(false); // Флаг для блокировки редиректа
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
@@ -28,23 +29,17 @@ const Auth = () => {
   // Подключаем кастомную валидацию с переводами
   useFormValidation();
   
-  const getRedirectUrl = (path: string = "/") => {
-    const origin = window.location.origin;
-    if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
-      return `${origin}${path}`;
-    }
-    return origin.replace(/^http:/, "https:") + path;
-  };
-  
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
+      // Не редиректим если идёт верификация
+      if (event === 'SIGNED_IN' && !isVerifying) {
         navigate("/");
       }
     });
     
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
+      // Не редиректим если идёт верификация
+      if (session && !isVerifying) {
         navigate("/");
       }
     });
@@ -52,7 +47,7 @@ const Auth = () => {
     return () => {
       subscription.unsubscribe();
     };
-  }, [navigate]);
+  }, [navigate, isVerifying]);
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,28 +108,14 @@ const Auth = () => {
           description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
-        // Сначала проверяем, существует ли уже пользователь через попытку входа
-        // Если вход не удался с "Invalid login credentials" - пользователь не существует
-        // Если ошибка другая - пользователь может существовать
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+        // Пробуем зарегистрировать пользователя
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
           email,
-          password: "check_if_exists_dummy_password_12345"
-        });
-        
-        // Проверяем по типу ошибки
-        // "Invalid login credentials" может означать: 1) пользователь не существует 2) неверный пароль
-        // Попробуем другой способ - через signUp с временными данными
-        const { data: checkData, error: checkError } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            // Не отправляем email подтверждения, просто проверяем
-            emailRedirectTo: undefined
-          }
+          password
         });
         
         // Если пользователь уже существует (identities пустой массив)
-        if (checkData?.user?.identities?.length === 0) {
+        if (signUpData?.user?.identities?.length === 0) {
           toast({
             variant: "destructive",
             title: t("auth.errors.userExists"),
@@ -144,9 +125,9 @@ const Auth = () => {
         }
         
         // Если ошибка регистрации - пользователь уже зарегистрирован
-        if (checkError) {
-          if (checkError.message.includes("already registered") || 
-              checkError.message.includes("User already registered")) {
+        if (signUpError) {
+          if (signUpError.message.includes("already registered") || 
+              signUpError.message.includes("User already registered")) {
             toast({
               variant: "destructive",
               title: t("auth.errors.userExists"),
@@ -157,13 +138,19 @@ const Auth = () => {
           toast({
             variant: "destructive",
             title: t("auth.errors.signUpError"),
-            description: checkError.message
+            description: signUpError.message
           });
           return;
         }
         
-        // Пользователь создан успешно, показываем окно верификации email
-        // После верификации пользователь сможет войти
+        // Пользователь создан успешно
+        // Включаем флаг верификации чтобы блокировать редирект
+        setIsVerifying(true);
+        
+        // Выходим из системы чтобы пользователь не был залогинен до верификации
+        await supabase.auth.signOut();
+        
+        // Показываем окно верификации email
         setPendingEmail(email);
         setPendingPassword(password);
         setShowVerification(true);
@@ -278,17 +265,40 @@ const Auth = () => {
         email={pendingEmail}
         password={pendingPassword}
         open={showVerification}
-        onOpenChange={setShowVerification}
-        onVerified={() => {
+        onOpenChange={(open) => {
+          setShowVerification(open);
+          if (!open) {
+            setIsVerifying(false);
+          }
+        }}
+        onVerified={async () => {
+          // После успешной верификации логиним пользователя
+          const { error } = await supabase.auth.signInWithPassword({
+            email: pendingEmail,
+            password: pendingPassword
+          });
+          
+          if (error) {
+            toast({
+              variant: "destructive",
+              title: t("auth.errors.signInError"),
+              description: error.message
+            });
+            setIsVerifying(false);
+            return;
+          }
+          
           toast({
             title: t("auth.verification.successTitle"),
             description: t("auth.verification.successDescription")
           });
+          
           setEmail("");
           setPassword("");
           setPendingEmail("");
           setPendingPassword("");
-          setAuthMode("signin");
+          setIsVerifying(false);
+          navigate("/");
         }}
       />
       
