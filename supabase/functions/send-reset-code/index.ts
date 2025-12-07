@@ -48,14 +48,15 @@ const handler = async (req: Request): Promise<Response> => {
     const userExists = userData.users.some(u => u.email === email);
 
     if (!userExists) {
-      // Don't reveal if user exists or not for security
+      // Возвращаем ошибку что пользователь не найден
       return new Response(
         JSON.stringify({ 
-          success: true, 
-          message: "If this email exists, a code has been sent" 
+          success: false, 
+          error: "user_not_found",
+          message: "User with this email does not exist" 
         }),
         {
-          status: 200,
+          status: 404,
           headers: { "Content-Type": "application/json", ...corsHeaders },
         }
       );

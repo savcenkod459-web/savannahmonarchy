@@ -49,6 +49,17 @@ const ResetPassword = () => {
         body: { email }
       });
       
+      // Проверяем если пользователь не найден
+      if (data?.error === "user_not_found") {
+        toast({
+          variant: "destructive",
+          title: t("resetPassword.userNotFound"),
+          description: t("resetPassword.userNotFoundDescription")
+        });
+        setLoading(false);
+        return;
+      }
+      
       if (error) throw error;
       
       if (data?.error) {

@@ -415,9 +415,10 @@
     "backToSignIn": "Back to Login",
     "codeSent": "Code Sent",
     "codeSentDescription": "Check your email for the reset code",
-    "codeSent": "Code sent",
     "codeDescription": "Check your email and enter the code to reset your password",
-    "error": "Error"
+    "error": "Error",
+    "userNotFound": "User not found",
+    "userNotFoundDescription": "No account exists with this email address"
   },
   "updatePassword": {
     "title": "Update Password",
