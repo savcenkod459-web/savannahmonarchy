@@ -76,7 +76,7 @@ const ResetPassword = () => {
       } else {
         toast({
           title: t("resetPassword.codeSent"),
-          description: t("resetPassword.codeSentDescription")
+          description: t("resetPassword.codeSentDescriptionSpam")
         });
       }
       

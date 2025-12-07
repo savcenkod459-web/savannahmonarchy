@@ -305,6 +305,7 @@
       "sending": "Envoi du code de vérification...",
       "codeSent": "Code Envoyé",
       "checkEmail": "Veuillez vérifier votre boîte de réception",
+      "checkEmailSpam": "Vérifiez tous les dossiers, y compris le spam",
       "successTitle": "Email Vérifié",
       "successDescription": "Votre email a été vérifié. Vous pouvez maintenant vous connecter.",
       "accountCreated": "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.",
@@ -406,6 +407,7 @@
     "backToSignIn": "Retour à la connexion",
     "codeSent": "Code envoyé",
     "codeSentDescription": "Vérifiez votre e-mail pour le code de réinitialisation",
+    "codeSentDescriptionSpam": "Vérifiez tous les dossiers, y compris le spam",
     "codeSent": "Code envoyé",
     "codeDescription": "Vérifiez votre e-mail et entrez le code pour réinitialiser votre mot de passe",
     "error": "Erreur"

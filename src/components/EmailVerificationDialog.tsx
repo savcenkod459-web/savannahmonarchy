@@ -66,7 +66,7 @@ export const EmailVerificationDialog = ({
 
       toast({
         title: t("auth.verification.codeSent"),
-        description: t("auth.verification.checkEmail")
+        description: t("auth.verification.checkEmailSpam")
       });
     } catch (error: any) {
       console.error("Error sending verification code:", error);

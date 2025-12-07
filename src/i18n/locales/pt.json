@@ -306,6 +306,7 @@
       "sending": "Enviando código de verificação...",
       "codeSent": "Código Enviado",
       "checkEmail": "Por favor, verifique sua caixa de entrada",
+      "checkEmailSpam": "Verifique todas as pastas, incluindo spam",
       "successTitle": "E-mail Verificado",
       "successDescription": "Seu e-mail foi verificado. Agora você pode fazer login.",
       "accountCreated": "Sua conta foi criada com sucesso. Agora você pode fazer login.",
@@ -447,6 +448,7 @@
     "backToSignIn": "Voltar para o login",
     "codeSent": "Código enviado",
     "codeSentDescription": "Verifique seu e-mail para o código de redefinição",
+    "codeSentDescriptionSpam": "Verifique todas as pastas, incluindo spam",
     "codeSent": "Código enviado",
     "codeDescription": "Verifique seu e-mail e digite o código para redefinir sua senha",
     "error": "Erro"
