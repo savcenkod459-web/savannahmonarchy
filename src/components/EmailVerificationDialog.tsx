@@ -98,36 +98,7 @@ export const EmailVerificationDialog = ({
     if (code === sentCode) {
       setLoading(true);
       try {
-        // Создаём аккаунт после успешной верификации кода
-        // Не используем emailRedirectTo чтобы Supabase не отправлял своё письмо
-        const { error } = await supabase.auth.signUp({
-          email,
-          password
-        });
-
-        if (error) {
-          if (error.message.includes("User already registered") || error.message.includes("user_already_exists")) {
-            toast({
-              title: t("auth.errors.userExists"),
-              description: t("auth.errors.userExistsDescription"),
-              variant: "destructive"
-            });
-          } else if (error.message.includes("weak_password") || error.message.includes("Password")) {
-            toast({
-              title: t("auth.errors.weakPassword"),
-              description: t("auth.errors.weakPasswordDescription"),
-              variant: "destructive"
-            });
-          } else {
-            toast({
-              title: t("auth.errors.signUpError"),
-              description: error.message,
-              variant: "destructive"
-            });
-          }
-          return;
-        }
-
+        // Аккаунт уже создан в Auth.tsx, просто подтверждаем верификацию
         toast({
           title: t("auth.verification.successTitle"),
           description: t("auth.verification.accountCreated")
