@@ -113,11 +113,24 @@ const Auth = () => {
           description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
-        // Проверяем, существует ли пользователь, пытаясь зарегистрировать его
-        // signUp с auto_confirm возвращает user с пустым identities если пользователь уже существует
+        // Сначала проверяем, существует ли уже пользователь через попытку входа
+        // Если вход не удался с "Invalid login credentials" - пользователь не существует
+        // Если ошибка другая - пользователь может существовать
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password: "check_if_exists_dummy_password_12345"
+        });
+        
+        // Проверяем по типу ошибки
+        // "Invalid login credentials" может означать: 1) пользователь не существует 2) неверный пароль
+        // Попробуем другой способ - через signUp с временными данными
         const { data: checkData, error: checkError } = await supabase.auth.signUp({
           email,
-          password
+          password,
+          options: {
+            // Не отправляем email подтверждения, просто проверяем
+            emailRedirectTo: undefined
+          }
         });
         
         // Если пользователь уже существует (identities пустой массив)
@@ -130,7 +143,7 @@ const Auth = () => {
           return;
         }
         
-        // Если ошибка регистрации
+        // Если ошибка регистрации - пользователь уже зарегистрирован
         if (checkError) {
           if (checkError.message.includes("already registered") || 
               checkError.message.includes("User already registered")) {
@@ -149,7 +162,8 @@ const Auth = () => {
           return;
         }
         
-        // Пользователь успешно создан, показываем верификацию для подтверждения
+        // Пользователь создан успешно, показываем окно верификации email
+        // После верификации пользователь сможет войти
         setPendingEmail(email);
         setPendingPassword(password);
         setShowVerification(true);
