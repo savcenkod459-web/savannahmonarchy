@@ -47,15 +47,15 @@ const Auth = () => {
   }, [navigate, isVerifying]);
 
   const checkUserExists = async (email: string): Promise<boolean> => {
-    // Пытаемся войти с неправильным паролем - если пользователь существует, получим ошибку "Invalid login credentials"
-    // Если не существует - другую ошибку
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password: 'check_if_exists_' + Math.random()
-    });
+    // Проверяем существование пользователя через таблицу profiles
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('email', email.toLowerCase().trim())
+      .maybeSingle();
     
-    // Если ошибка "Invalid login credentials" - пользователь существует
-    if (error?.message?.includes("Invalid login credentials")) {
+    // Если нашли профиль с таким email - пользователь существует
+    if (data) {
       return true;
     }
     
