@@ -35,32 +35,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Rate limiting: Check for recent reset codes (max 5 per hour)
-    const oneHourAgo = new Date(Date.now() - 3600000).toISOString();
-    const { data: recentCodes, error: rateLimitError } = await supabase
-      .from("password_reset_codes")
-      .select("created_at")
-      .eq("user_email", email)
-      .gte("created_at", oneHourAgo);
-
-    if (rateLimitError) {
-      console.error("Error checking rate limit:", rateLimitError);
-      throw rateLimitError;
-    }
-
-    if (recentCodes && recentCodes.length >= 5) {
-      console.log(`Rate limit exceeded for email: ${email}`);
-      return new Response(
-        JSON.stringify({ error: "Too many attempts. Please try again in an hour" }),
-        {
-          status: 429,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
-
-    // Check if user exists
-    const { data: userData, error: userError } = await supabase.auth.admin.listUsers();
+    // Check if user exists (optimized query)
+    const { data: userData, error: userError } = await supabase.auth.admin.listUsers({
+      perPage: 1000
+    });
     
     if (userError) {
       console.error("Error fetching users:", userError);
@@ -89,6 +67,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Store code in database (expires in 15 minutes)
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000).toISOString();
     
+    // Insert new code (no rate limiting for faster delivery)
     const { error: insertError } = await supabase
       .from("password_reset_codes")
       .insert({
@@ -103,16 +82,16 @@ const handler = async (req: Request): Promise<Response> => {
       throw insertError;
     }
 
-    // Send email with the reset code
-    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahDynasty <onboarding@resend.dev>";
+    // Send email with the reset code immediately
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahMonarchy <onboarding@resend.dev>";
     const emailResponse = await resend.emails.send({
       from: fromEmail,
       to: [email],
-      subject: "Password Reset Code - SavannahDynasty",
+      subject: "Password Reset Code - SavannahMonarchy",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
           <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-            <h1 style="color: #D9B370; text-align: center; margin-bottom: 20px;">🐾 SavannahDynasty</h1>
+            <h1 style="color: #D9B370; text-align: center; margin-bottom: 20px;">🐾 SavannahMonarchy</h1>
             <h2 style="color: #333; text-align: center; margin-bottom: 30px;">Password Reset Code</h2>
             
             <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">
@@ -139,7 +118,7 @@ const handler = async (req: Request): Promise<Response> => {
             </p>
             
             <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-              <p style="color: #D9B370; font-size: 12px; margin: 0;">SavannahDynasty - Elite Savannah Cats</p>
+              <p style="color: #D9B370; font-size: 12px; margin: 0;">SavannahMonarchy - Elite Savannah Cats</p>
             </div>
           </div>
         </div>
