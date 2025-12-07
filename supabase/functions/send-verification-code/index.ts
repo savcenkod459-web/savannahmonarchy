@@ -23,16 +23,12 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Sending verification code to ${email}`);
 
-    // Send email via Resend - English only with proper sender name
+    // Send email via Resend with improved deliverability
     const emailResponse = await resend.emails.send({
       from: "SavannahMonarchy <noreply@savannahmonarchy.com>",
       to: [email],
-      subject: `🔐 ${code} - Your Email Verification Code`,
-      headers: {
-        "X-Priority": "1",
-        "X-MSMail-Priority": "High",
-        "Importance": "high",
-      },
+      subject: `Your Verification Code: ${code}`,
+      replyTo: "support@savannahmonarchy.com",
       html: `
         <!DOCTYPE html>
         <html lang="en">
