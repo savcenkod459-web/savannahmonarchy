@@ -137,11 +137,7 @@ const Auth = () => {
         setPendingEmail(email);
         setPendingPassword(password);
         setShowVerification(true);
-        
-        toast({
-          title: t("auth.verification.codeSent"),
-          description: t("auth.verification.checkSpam")
-        });
+        // Toast показывается в EmailVerificationDialog после успешной отправки кода
       }
     } catch (error: any) {
       toast({
