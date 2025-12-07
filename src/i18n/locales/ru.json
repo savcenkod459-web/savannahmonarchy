@@ -505,6 +505,7 @@
       "sending": "Отправка кода подтверждения...",
       "codeSent": "Код отправлен",
       "checkEmail": "Проверьте вашу почту",
+      "checkEmailSpam": "Проверьте все папки, включая спам",
       "successTitle": "Email подтвержден",
       "successDescription": "Ваш email подтвержден. Теперь вы можете войти.",
       "accountCreated": "Ваш аккаунт успешно создан. Теперь вы можете войти.",
@@ -618,6 +619,7 @@
     "backToSignIn": "Вернуться к входу",
     "codeSent": "Код отправлен",
     "codeSentDescription": "Проверьте вашу почту для кода сброса",
+    "codeSentDescriptionSpam": "Проверьте все папки, включая спам",
     "error": "Ошибка",
     "userNotFound": "Пользователь не найден",
     "userNotFoundDescription": "Аккаунт с таким email не существует"

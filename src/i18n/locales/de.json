@@ -305,6 +305,7 @@
       "sending": "Bestätigungscode wird gesendet...",
       "codeSent": "Code Gesendet",
       "checkEmail": "Bitte überprüfen Sie Ihr E-Mail-Postfach",
+      "checkEmailSpam": "Überprüfen Sie alle Ordner, auch den Spam-Ordner",
       "successTitle": "E-Mail Verifiziert",
       "successDescription": "Ihre E-Mail wurde verifiziert. Sie können sich jetzt anmelden.",
       "accountCreated": "Ihr Konto wurde erfolgreich erstellt. Sie können sich jetzt anmelden.",
@@ -406,6 +407,7 @@
     "backToSignIn": "Zurück zur Anmeldung",
     "codeSent": "Code gesendet",
     "codeSentDescription": "Überprüfen Sie Ihre E-Mail für den Reset-Code",
+    "codeSentDescriptionSpam": "Überprüfen Sie alle Ordner, auch den Spam-Ordner",
     "codeSent": "Code gesendet",
     "codeDescription": "Überprüfen Sie Ihre E-Mail und geben Sie den Code ein, um Ihr Passwort zurückzusetzen",
     "error": "Fehler"

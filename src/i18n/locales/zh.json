@@ -305,6 +305,7 @@
       "sending": "正在发送验证码...",
       "codeSent": "代码已发送",
       "checkEmail": "请检查您的收件箱",
+      "checkEmailSpam": "请检查所有文件夹，包括垃圾邮件",
       "successTitle": "电子邮件已验证",
       "successDescription": "您的电子邮件已验证。您现在可以登录。",
       "accountCreated": "您的账户已成功创建。您现在可以登录。",
@@ -446,6 +447,7 @@
     "backToSignIn": "返回登录",
     "codeSent": "代码已发送",
     "codeSentDescription": "请检查您的电子邮件以获取重置代码",
+    "codeSentDescriptionSpam": "请检查所有文件夹，包括垃圾邮件",
     "codeSent": "验证码已发送",
     "codeDescription": "检查您的电子邮件并输入验证码以重置密码",
     "error": "错误"

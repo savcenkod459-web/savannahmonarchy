@@ -110,12 +110,10 @@ const Auth = () => {
       } else if (authMode === "signup") {
         // Сначала проверяем существует ли пользователь через попытку регистрации
         // С auto_confirm_email: false аккаунт создастся но не подтвердится
+        // Не передаём emailRedirectTo чтобы Supabase не отправлял своё стандартное письмо
         const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
           email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/`
-          }
+          password
         });
         
         // Если пользователь уже существует (identities пустой массив)

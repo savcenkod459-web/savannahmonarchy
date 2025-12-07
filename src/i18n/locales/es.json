@@ -306,6 +306,7 @@
       "sending": "Enviando código de verificación...",
       "codeSent": "Código Enviado",
       "checkEmail": "Por favor revise su bandeja de entrada",
+      "checkEmailSpam": "Revise todas las carpetas, incluido spam",
       "successTitle": "Email Verificado",
       "successDescription": "Su email ha sido verificado. Ahora puede iniciar sesión.",
       "accountCreated": "Su cuenta ha sido creada exitosamente. Ahora puede iniciar sesión.",
@@ -407,6 +408,7 @@
     "backToSignIn": "Volver al inicio de sesión",
     "codeSent": "Código enviado",
     "codeSentDescription": "Revisa tu correo para el código de restablecimiento",
+    "codeSentDescriptionSpam": "Revise todas las carpetas, incluido spam",
     "codeSent": "Código enviado",
     "codeDescription": "Revise su correo electrónico e ingrese el código para restablecer su contraseña",
     "error": "Error"
