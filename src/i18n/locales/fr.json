@@ -307,6 +307,7 @@
       "checkEmail": "Veuillez vérifier votre boîte de réception",
       "successTitle": "Email Vérifié",
       "successDescription": "Votre email a été vérifié. Vous pouvez maintenant vous connecter.",
+      "accountCreated": "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.",
       "invalidCode": "Code de vérification invalide. Veuillez réessayer."
     }
   },

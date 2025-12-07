@@ -308,6 +308,7 @@
       "checkEmail": "Please check your email inbox",
       "successTitle": "Email Verified",
       "successDescription": "Your email has been verified. You can now sign in.",
+      "accountCreated": "Your account has been successfully created. You can now sign in.",
       "invalidCode": "Invalid verification code. Please try again."
     },
     "logout": {

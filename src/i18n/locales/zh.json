@@ -307,6 +307,7 @@
       "checkEmail": "请检查您的收件箱",
       "successTitle": "电子邮件已验证",
       "successDescription": "您的电子邮件已验证。您现在可以登录。",
+      "accountCreated": "您的账户已成功创建。您现在可以登录。",
       "invalidCode": "验证码无效。请重试。"
     },
     "resetPassword": {
