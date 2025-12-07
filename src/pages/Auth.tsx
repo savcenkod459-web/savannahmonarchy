@@ -108,10 +108,14 @@ const Auth = () => {
           description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
-        // Пробуем зарегистрировать пользователя
+        // Сначала проверяем существует ли пользователь через попытку регистрации
+        // С auto_confirm_email: false аккаунт создастся но не подтвердится
         const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
           email,
-          password
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/`
+          }
         });
         
         // Если пользователь уже существует (identities пустой массив)
@@ -143,14 +147,9 @@ const Auth = () => {
           return;
         }
         
-        // Пользователь создан успешно
-        // Включаем флаг верификации чтобы блокировать редирект
+        // Пользователь создан успешно - показываем окно верификации email
+        // С auto_confirm: false пользователь НЕ залогинен автоматически
         setIsVerifying(true);
-        
-        // Выходим из системы чтобы пользователь не был залогинен до верификации
-        await supabase.auth.signOut();
-        
-        // Показываем окно верификации email
         setPendingEmail(email);
         setPendingPassword(password);
         setShowVerification(true);
@@ -272,33 +271,59 @@ const Auth = () => {
           }
         }}
         onVerified={async () => {
-          // После успешной верификации логиним пользователя
-          const { error } = await supabase.auth.signInWithPassword({
-            email: pendingEmail,
-            password: pendingPassword
-          });
-          
-          if (error) {
+          try {
+            // Подтверждаем email через edge function (использует admin API)
+            const { error: confirmError } = await supabase.functions.invoke('confirm-user-email', {
+              body: { email: pendingEmail }
+            });
+            
+            if (confirmError) {
+              console.error("Confirm error:", confirmError);
+              toast({
+                variant: "destructive",
+                title: t("auth.errors.error"),
+                description: confirmError.message
+              });
+              setIsVerifying(false);
+              return;
+            }
+            
+            // Теперь логиним пользователя
+            const { error: signInError } = await supabase.auth.signInWithPassword({
+              email: pendingEmail,
+              password: pendingPassword
+            });
+            
+            if (signInError) {
+              toast({
+                variant: "destructive",
+                title: t("auth.errors.signInError"),
+                description: signInError.message
+              });
+              setIsVerifying(false);
+              return;
+            }
+            
+            toast({
+              title: t("auth.verification.successTitle"),
+              description: t("auth.verification.successDescription")
+            });
+            
+            setEmail("");
+            setPassword("");
+            setPendingEmail("");
+            setPendingPassword("");
+            setIsVerifying(false);
+            navigate("/");
+          } catch (error: any) {
+            console.error("Verification flow error:", error);
             toast({
               variant: "destructive",
-              title: t("auth.errors.signInError"),
+              title: t("auth.errors.error"),
               description: error.message
             });
             setIsVerifying(false);
-            return;
           }
-          
-          toast({
-            title: t("auth.verification.successTitle"),
-            description: t("auth.verification.successDescription")
-          });
-          
-          setEmail("");
-          setPassword("");
-          setPendingEmail("");
-          setPendingPassword("");
-          setIsVerifying(false);
-          navigate("/");
         }}
       />
       
