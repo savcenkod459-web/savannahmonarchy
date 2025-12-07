@@ -25,7 +25,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (!email || !email.includes("@")) {
       return new Response(
-        JSON.stringify({ error: "Неверный email адрес" }),
+        JSON.stringify({ error: "Invalid email address" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -51,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (recentCodes && recentCodes.length >= 5) {
       console.log(`Rate limit exceeded for email: ${email}`);
       return new Response(
-        JSON.stringify({ error: "Слишком много попыток. Пожалуйста, попробуйте через час" }),
+        JSON.stringify({ error: "Too many attempts. Please try again in an hour" }),
         {
           status: 429,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -74,7 +74,7 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ 
           success: true, 
-          message: "Если email существует, код был отправлен" 
+          message: "If this email exists, a code has been sent" 
         }),
         {
           status: 200,
@@ -108,38 +108,38 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: fromEmail,
       to: [email],
-      subject: "Код сброса пароля - SavannahDynasty",
+      subject: "Password Reset Code - SavannahDynasty",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
           <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <h1 style="color: #D9B370; text-align: center; margin-bottom: 20px;">🐾 SavannahDynasty</h1>
-            <h2 style="color: #333; text-align: center; margin-bottom: 30px;">Код сброса пароля</h2>
+            <h2 style="color: #333; text-align: center; margin-bottom: 30px;">Password Reset Code</h2>
             
             <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">
-              Здравствуйте!
+              Hello!
             </p>
             
             <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 30px;">
-              Вы запросили сброс пароля для вашей учетной записи. Используйте код ниже для подтверждения:
+              You have requested a password reset for your account. Use the code below to confirm:
             </p>
             
             <div style="background: linear-gradient(135deg, #FFF8E7 0%, #FFE4B5 100%); border: 3px solid #D9B370; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0; box-shadow: 0 4px 15px rgba(217, 179, 112, 0.2);">
-              <div style="color: #8B7355; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Ваш код подтверждения</div>
+              <div style="color: #8B7355; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Your Verification Code</div>
               <div style="font-size: 36px; font-weight: bold; color: #D9B370; letter-spacing: 10px; font-family: 'Courier New', monospace; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
                 ${code}
               </div>
             </div>
             
             <p style="color: #666; font-size: 14px; line-height: 1.5; margin-top: 30px;">
-              ⏱️ Этот код действителен в течение <strong>15 минут</strong>.
+              ⏱️ This code is valid for <strong>15 minutes</strong>.
             </p>
             
             <p style="color: #999; font-size: 12px; line-height: 1.5; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-              Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо. Ваш аккаунт в безопасности.
+              If you did not request a password reset, please ignore this email. Your account is safe.
             </p>
             
             <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-              <p style="color: #D9B370; font-size: 12px; margin: 0;">SavannahDynasty - Элитные кошки</p>
+              <p style="color: #D9B370; font-size: 12px; margin: 0;">SavannahDynasty - Elite Savannah Cats</p>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Код отправлен на вашу почту"
+        message: "Code sent to your email"
       }),
       {
         status: 200,
@@ -161,7 +161,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-reset-code function:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Произошла ошибка при отправке кода" }),
+      JSON.stringify({ error: error.message || "An error occurred while sending the code" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
