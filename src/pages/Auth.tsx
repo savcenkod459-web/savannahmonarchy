@@ -113,7 +113,43 @@ const Auth = () => {
           description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
-        // Сначала показываем диалог верификации email, а регистрацию делаем после успешной верификации
+        // Проверяем, существует ли пользователь, пытаясь зарегистрировать его
+        // signUp с auto_confirm возвращает user с пустым identities если пользователь уже существует
+        const { data: checkData, error: checkError } = await supabase.auth.signUp({
+          email,
+          password
+        });
+        
+        // Если пользователь уже существует (identities пустой массив)
+        if (checkData?.user?.identities?.length === 0) {
+          toast({
+            variant: "destructive",
+            title: t("auth.errors.userExists"),
+            description: t("auth.errors.userExistsDescription")
+          });
+          return;
+        }
+        
+        // Если ошибка регистрации
+        if (checkError) {
+          if (checkError.message.includes("already registered") || 
+              checkError.message.includes("User already registered")) {
+            toast({
+              variant: "destructive",
+              title: t("auth.errors.userExists"),
+              description: t("auth.errors.userExistsDescription")
+            });
+            return;
+          }
+          toast({
+            variant: "destructive",
+            title: t("auth.errors.signUpError"),
+            description: checkError.message
+          });
+          return;
+        }
+        
+        // Пользователь успешно создан, показываем верификацию для подтверждения
         setPendingEmail(email);
         setPendingPassword(password);
         setShowVerification(true);
