@@ -23,10 +23,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Sending verification code to ${email}`);
 
-    // Send email via Resend - English only
-    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahMonarchy <noreply@savannahmonarchy.com>";
+    // Send email via Resend - English only with proper sender name
     const emailResponse = await resend.emails.send({
-      from: fromEmail,
+      from: "SavannahMonarchy <noreply@savannahmonarchy.com>",
       to: [email],
       subject: `🔐 ${code} - Your Email Verification Code`,
       headers: {
