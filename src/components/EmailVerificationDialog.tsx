@@ -98,13 +98,11 @@ export const EmailVerificationDialog = ({
     if (code === sentCode) {
       setLoading(true);
       try {
-        // Теперь создаём аккаунт после успешной верификации кода
+        // Создаём аккаунт после успешной верификации кода
+        // Не используем emailRedirectTo чтобы Supabase не отправлял своё письмо
         const { error } = await supabase.auth.signUp({
           email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/`
-          }
+          password
         });
 
         if (error) {
