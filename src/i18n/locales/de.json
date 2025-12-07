@@ -296,13 +296,18 @@
     "verification": {
       "title": "E-Mail Verifizieren",
       "subtitle": "Geben Sie den 6-stelligen Code ein, der an gesendet wurde",
+      "codeLabel": "Bestätigungscode",
       "codePlaceholder": "000000",
-      "verify": "Verifizieren",
+      "verify": "E-Mail Verifizieren",
       "resend": "Code Erneut Senden",
-      "resendIn": "Erneut senden in",
-      "success": "E-Mail erfolgreich verifiziert!",
-      "error": "Ungültiger oder abgelaufener Code",
-      "codeSent": "Code an Ihre E-Mail gesendet"
+      "resendIn": "Erneut senden in ",
+      "seconds": "s",
+      "sending": "Bestätigungscode wird gesendet...",
+      "codeSent": "Code Gesendet",
+      "checkEmail": "Bitte überprüfen Sie Ihr E-Mail-Postfach",
+      "successTitle": "E-Mail Verifiziert",
+      "successDescription": "Ihre E-Mail wurde verifiziert. Sie können sich jetzt anmelden.",
+      "invalidCode": "Ungültiger Bestätigungscode. Bitte versuchen Sie es erneut."
     }
   },
   "changePassword": {

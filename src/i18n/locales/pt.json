@@ -295,15 +295,20 @@
       "signOutDescription": "Você saiu com sucesso"
     },
     "verification": {
-      "title": "Verificar E-mail",
+      "title": "Verificar Seu E-mail",
       "subtitle": "Digite o código de 6 dígitos enviado para",
+      "codeLabel": "Código de Verificação",
       "codePlaceholder": "000000",
-      "verify": "Verificar",
+      "verify": "Verificar E-mail",
       "resend": "Reenviar Código",
-      "resendIn": "Reenviar em",
-      "success": "E-mail verificado com sucesso!",
-      "error": "Código inválido ou expirado",
-      "codeSent": "Código enviado para seu e-mail"
+      "resendIn": "Reenviar em ",
+      "seconds": "s",
+      "sending": "Enviando código de verificação...",
+      "codeSent": "Código Enviado",
+      "checkEmail": "Por favor, verifique sua caixa de entrada",
+      "successTitle": "E-mail Verificado",
+      "successDescription": "Seu e-mail foi verificado. Agora você pode fazer login.",
+      "invalidCode": "Código de verificação inválido. Tente novamente."
     },
     "resetPassword": {
       "title": "Redefinir Senha",

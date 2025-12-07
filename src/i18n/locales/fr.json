@@ -294,15 +294,20 @@
       "signOutDescription": "Vous êtes déconnecté avec succès"
     },
     "verification": {
-      "title": "Vérifier l'Email",
+      "title": "Vérifier Votre Email",
       "subtitle": "Entrez le code à 6 chiffres envoyé à",
+      "codeLabel": "Code de Vérification",
       "codePlaceholder": "000000",
-      "verify": "Vérifier",
+      "verify": "Vérifier l'Email",
       "resend": "Renvoyer le Code",
-      "resendIn": "Renvoyer dans",
-      "success": "Email vérifié avec succès!",
-      "error": "Code invalide ou expiré",
-      "codeSent": "Code envoyé à votre email"
+      "resendIn": "Renvoyer dans ",
+      "seconds": "s",
+      "sending": "Envoi du code de vérification...",
+      "codeSent": "Code Envoyé",
+      "checkEmail": "Veuillez vérifier votre boîte de réception",
+      "successTitle": "Email Vérifié",
+      "successDescription": "Votre email a été vérifié. Vous pouvez maintenant vous connecter.",
+      "invalidCode": "Code de vérification invalide. Veuillez réessayer."
     }
   },
   "changePassword": {

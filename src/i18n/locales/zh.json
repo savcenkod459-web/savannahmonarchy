@@ -294,15 +294,20 @@
       "signOutDescription": "您已成功登出"
     },
     "verification": {
-      "title": "验证电子邮件",
+      "title": "验证您的电子邮件",
       "subtitle": "输入发送至的6位数字代码",
+      "codeLabel": "验证码",
       "codePlaceholder": "000000",
-      "verify": "验证",
+      "verify": "验证电子邮件",
       "resend": "重新发送代码",
-      "resendIn": "重新发送于",
-      "success": "电子邮件验证成功！",
-      "error": "无效或过期的代码",
-      "codeSent": "代码已发送到您的电子邮件"
+      "resendIn": "重新发送于 ",
+      "seconds": "秒",
+      "sending": "正在发送验证码...",
+      "codeSent": "代码已发送",
+      "checkEmail": "请检查您的收件箱",
+      "successTitle": "电子邮件已验证",
+      "successDescription": "您的电子邮件已验证。您现在可以登录。",
+      "invalidCode": "验证码无效。请重试。"
     },
     "resetPassword": {
       "title": "重置密码",

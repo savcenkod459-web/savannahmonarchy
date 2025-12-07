@@ -290,15 +290,20 @@
       "signOutDescription": "Ви успішно вийшли з системи"
     },
     "verification": {
-      "title": "Підтвердіть email",
+      "title": "Підтвердіть Ваш Email",
       "subtitle": "Введіть 6-значний код, надісланий на",
+      "codeLabel": "Код підтвердження",
       "codePlaceholder": "000000",
-      "verify": "Підтвердити",
+      "verify": "Підтвердити Email",
       "resend": "Надіслати знову",
-      "resendIn": "Надіслати знову через",
-      "success": "Email успішно підтверджено!",
-      "error": "Невірний або прострочений код",
-      "codeSent": "Код надіслано на ваш email"
+      "resendIn": "Надіслати через ",
+      "seconds": "с",
+      "sending": "Надсилання коду підтвердження...",
+      "codeSent": "Код надіслано",
+      "checkEmail": "Перевірте вашу пошту",
+      "successTitle": "Email підтверджено",
+      "successDescription": "Ваш email підтверджено. Тепер ви можете увійти.",
+      "invalidCode": "Невірний код підтвердження. Спробуйте ще раз."
     }
   },
   "changePassword": {

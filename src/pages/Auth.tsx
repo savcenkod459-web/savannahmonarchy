@@ -260,8 +260,8 @@ const Auth = () => {
         onOpenChange={setShowVerification}
         onVerified={() => {
           toast({
-            title: "Email подтвержден",
-            description: "Теперь вы можете войти в систему"
+            title: t("auth.verification.successTitle"),
+            description: t("auth.verification.successDescription")
           });
           setAuthMode("signin");
         }}

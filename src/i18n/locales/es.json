@@ -295,15 +295,20 @@
       "signOutDescription": "Ha cerrado sesión correctamente"
     },
     "verification": {
-      "title": "Verificar Email",
+      "title": "Verificar Su Email",
       "subtitle": "Ingrese el código de 6 dígitos enviado a",
+      "codeLabel": "Código de Verificación",
       "codePlaceholder": "000000",
-      "verify": "Verificar",
+      "verify": "Verificar Email",
       "resend": "Reenviar Código",
-      "resendIn": "Reenviar en",
-      "success": "¡Email verificado con éxito!",
-      "error": "Código inválido o expirado",
-      "codeSent": "Código enviado a su email"
+      "resendIn": "Reenviar en ",
+      "seconds": "s",
+      "sending": "Enviando código de verificación...",
+      "codeSent": "Código Enviado",
+      "checkEmail": "Por favor revise su bandeja de entrada",
+      "successTitle": "Email Verificado",
+      "successDescription": "Su email ha sido verificado. Ahora puede iniciar sesión.",
+      "invalidCode": "Código de verificación inválido. Inténtelo de nuevo."
     }
   },
   "changePassword": {

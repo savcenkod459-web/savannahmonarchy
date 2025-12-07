@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Dialog,
@@ -9,9 +8,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Mail } from "lucide-react";
+import { Mail, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface EmailVerificationDialogProps {
@@ -34,43 +38,42 @@ export const EmailVerificationDialog = ({
   const { toast } = useToast();
   const { t } = useTranslation();
 
+  // Auto-send code when dialog opens
+  useEffect(() => {
+    if (open && !sentCode) {
+      sendVerificationCode();
+    }
+  }, [open]);
+
   const sendVerificationCode = async () => {
     setLoading(true);
     try {
-      // Генерируем 6-значный код
+      // Generate 6-digit code
       const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
       setSentCode(verificationCode);
 
-      // Отправляем код через edge function
+      // Send code via edge function
       const { data, error } = await supabase.functions.invoke('send-verification-code', {
         body: { email, code: verificationCode }
       });
 
       if (error) throw error;
 
-      // Устанавливаем таймер на 60 секунд
+      // Set 60 second timer
       setTimer(60);
 
-      // Для разработки показываем код в toast
-      if (data?.debug_code) {
-        toast({
-          title: "Код отправлен (DEV MODE)",
-          description: `Код подтверждения: ${data.debug_code}`,
-          duration: 10000
-        });
-      } else {
-        toast({
-          title: "Код отправлен",
-          description: "Проверьте вашу почту"
-        });
-      }
+      toast({
+        title: t("auth.verification.codeSent"),
+        description: t("auth.verification.checkEmail")
+      });
     } catch (error: any) {
+      console.error("Error sending verification code:", error);
       const errorMessage = error.message?.includes('non-2xx') || error.message?.includes('Edge Function')
         ? t("errors.edgeFunctionError")
         : error.message;
       
       toast({
-        title: t("auth.error"),
+        title: t("auth.errors.error"),
         description: errorMessage,
         variant: "destructive"
       });
@@ -92,69 +95,95 @@ export const EmailVerificationDialog = ({
   const verifyCode = () => {
     if (code === sentCode) {
       toast({
-        title: "Успешно",
-        description: "Email подтвержден"
+        title: t("auth.verification.successTitle"),
+        description: t("auth.verification.successDescription")
       });
       onVerified();
       onOpenChange(false);
+      // Reset state
+      setCode("");
+      setSentCode(null);
     } else {
       toast({
-        title: "Ошибка",
-        description: "Неверный код подтверждения",
+        title: t("auth.errors.error"),
+        description: t("auth.verification.invalidCode"),
         variant: "destructive"
       });
     }
   };
 
+  const handleResend = () => {
+    setCode("");
+    sendVerificationCode();
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md glass-card border-2 border-primary/30">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Mail className="w-5 h-5" />
-            Подтверждение email
+          <DialogTitle className="flex items-center gap-2 text-xl">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <Mail className="w-5 h-5 text-primary-foreground" />
+            </div>
+            {t("auth.verification.title")}
           </DialogTitle>
-          <DialogDescription>
-            Введите код подтверждения, отправленный на {email}
+          <DialogDescription className="text-foreground/70">
+            {t("auth.verification.subtitle")} <span className="font-semibold text-primary">{email}</span>
           </DialogDescription>
         </DialogHeader>
-        <div className="space-y-4">
-          {!sentCode ? (
-            <Button
-              onClick={sendVerificationCode}
-              disabled={loading}
-              className="w-full"
-            >
-              {loading ? "Отправка..." : "Отправить код на почту"}
-            </Button>
+        
+        <div className="space-y-6 py-4">
+          {loading && !sentCode ? (
+            <div className="flex flex-col items-center justify-center py-8 gap-4">
+              <Loader2 className="w-8 h-8 animate-spin text-primary" />
+              <p className="text-foreground/70">{t("auth.verification.sending")}</p>
+            </div>
           ) : (
             <>
-              <div className="space-y-2">
-                <Label htmlFor="verification-code">Код подтверждения</Label>
-                <Input
-                  id="verification-code"
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  placeholder="Введите 6-значный код"
-                  maxLength={6}
-                  className="text-center text-2xl tracking-widest"
-                />
+              <div className="space-y-3">
+                <Label className="text-sm font-semibold text-foreground/80">
+                  {t("auth.verification.codeLabel")}
+                </Label>
+                <div className="flex justify-center">
+                  <InputOTP
+                    maxLength={6}
+                    value={code}
+                    onChange={(value) => setCode(value)}
+                  >
+                    <InputOTPGroup>
+                      <InputOTPSlot index={0} className="w-12 h-14 text-xl border-primary/30" />
+                      <InputOTPSlot index={1} className="w-12 h-14 text-xl border-primary/30" />
+                      <InputOTPSlot index={2} className="w-12 h-14 text-xl border-primary/30" />
+                      <InputOTPSlot index={3} className="w-12 h-14 text-xl border-primary/30" />
+                      <InputOTPSlot index={4} className="w-12 h-14 text-xl border-primary/30" />
+                      <InputOTPSlot index={5} className="w-12 h-14 text-xl border-primary/30" />
+                    </InputOTPGroup>
+                  </InputOTP>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  onClick={sendVerificationCode}
-                  disabled={loading || timer > 0}
-                  className="flex-1"
-                >
-                  {timer > 0 ? `Отправить снова (${timer}с)` : "Отправить снова"}
-                </Button>
+              
+              <div className="flex flex-col gap-3">
                 <Button
                   onClick={verifyCode}
-                  disabled={code.length !== 6}
-                  className="flex-1"
+                  disabled={code.length !== 6 || loading}
+                  className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-glow transition-all duration-300"
                 >
-                  Подтвердить
+                  {loading ? (
+                    <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                  ) : null}
+                  {t("auth.verification.verify")}
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  onClick={handleResend}
+                  disabled={loading || timer > 0}
+                  className="w-full h-12 text-base font-medium border-2 border-primary/30 hover:border-primary"
+                >
+                  {timer > 0 
+                    ? `${t("auth.verification.resendIn")} ${timer}${t("auth.verification.seconds")}`
+                    : t("auth.verification.resend")
+                  }
                 </Button>
               </div>
             </>
