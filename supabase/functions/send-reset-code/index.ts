@@ -82,12 +82,17 @@ const handler = async (req: Request): Promise<Response> => {
       throw insertError;
     }
 
-    // Send email with the reset code immediately
+    // Send email with the reset code immediately with high priority
     const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahMonarchy <onboarding@resend.dev>";
     const emailResponse = await resend.emails.send({
       from: fromEmail,
       to: [email],
-      subject: "Password Reset Code - SavannahMonarchy",
+      subject: `🔐 ${code} - Your Password Reset Code`,
+      headers: {
+        "X-Priority": "1",
+        "X-MSMail-Priority": "High",
+        "Importance": "high",
+      },
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
           <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
