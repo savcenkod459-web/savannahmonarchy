@@ -20,6 +20,7 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [showVerification, setShowVerification] = useState(false);
   const [pendingEmail, setPendingEmail] = useState("");
+  const [pendingPassword, setPendingPassword] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation();
@@ -112,40 +113,9 @@ const Auth = () => {
           description: t("auth.success.signInDescription")
         });
       } else if (authMode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: getRedirectUrl("/")
-          }
-        });
-        
-        if (error) {
-          if (error.message.includes("User already registered") || error.message.includes("user_already_exists")) {
-            toast({
-              variant: "destructive",
-              title: t("auth.errors.userExists"),
-              description: t("auth.errors.userExistsDescription")
-            });
-            setAuthMode("signin");
-          } else if (error.message.includes("weak_password") || error.message.includes("Password")) {
-            toast({
-              variant: "destructive",
-              title: t("auth.errors.weakPassword"),
-              description: t("auth.errors.weakPasswordDescription")
-            });
-          } else {
-            toast({
-              variant: "destructive",
-              title: t("auth.errors.signUpError"),
-              description: error.message
-            });
-          }
-          return;
-        }
-        
-        // Показываем диалог подтверждения email
+        // Сначала показываем диалог верификации email, а регистрацию делаем после успешной верификации
         setPendingEmail(email);
+        setPendingPassword(password);
         setShowVerification(true);
       }
     } catch (error: any) {
@@ -256,6 +226,7 @@ const Auth = () => {
       
       <EmailVerificationDialog
         email={pendingEmail}
+        password={pendingPassword}
         open={showVerification}
         onOpenChange={setShowVerification}
         onVerified={() => {
@@ -263,6 +234,10 @@ const Auth = () => {
             title: t("auth.verification.successTitle"),
             description: t("auth.verification.successDescription")
           });
+          setEmail("");
+          setPassword("");
+          setPendingEmail("");
+          setPendingPassword("");
           setAuthMode("signin");
         }}
       />

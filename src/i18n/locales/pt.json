@@ -308,6 +308,7 @@
       "checkEmail": "Por favor, verifique sua caixa de entrada",
       "successTitle": "E-mail Verificado",
       "successDescription": "Seu e-mail foi verificado. Agora você pode fazer login.",
+      "accountCreated": "Sua conta foi criada com sucesso. Agora você pode fazer login.",
       "invalidCode": "Código de verificação inválido. Tente novamente."
     },
     "resetPassword": {

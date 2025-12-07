@@ -307,6 +307,7 @@
       "checkEmail": "Bitte überprüfen Sie Ihr E-Mail-Postfach",
       "successTitle": "E-Mail Verifiziert",
       "successDescription": "Ihre E-Mail wurde verifiziert. Sie können sich jetzt anmelden.",
+      "accountCreated": "Ihr Konto wurde erfolgreich erstellt. Sie können sich jetzt anmelden.",
       "invalidCode": "Ungültiger Bestätigungscode. Bitte versuchen Sie es erneut."
     }
   },

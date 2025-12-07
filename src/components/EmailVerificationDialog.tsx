@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 
 interface EmailVerificationDialogProps {
   email: string;
+  password: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onVerified: () => void;
@@ -27,6 +28,7 @@ interface EmailVerificationDialogProps {
 
 export const EmailVerificationDialog = ({
   email,
+  password,
   open,
   onOpenChange,
   onVerified
@@ -92,17 +94,60 @@ export const EmailVerificationDialog = ({
     return () => clearInterval(interval);
   }, [timer]);
 
-  const verifyCode = () => {
+  const verifyCode = async () => {
     if (code === sentCode) {
-      toast({
-        title: t("auth.verification.successTitle"),
-        description: t("auth.verification.successDescription")
-      });
-      onVerified();
-      onOpenChange(false);
-      // Reset state
-      setCode("");
-      setSentCode(null);
+      setLoading(true);
+      try {
+        // Теперь создаём аккаунт после успешной верификации кода
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/`
+          }
+        });
+
+        if (error) {
+          if (error.message.includes("User already registered") || error.message.includes("user_already_exists")) {
+            toast({
+              title: t("auth.errors.userExists"),
+              description: t("auth.errors.userExistsDescription"),
+              variant: "destructive"
+            });
+          } else if (error.message.includes("weak_password") || error.message.includes("Password")) {
+            toast({
+              title: t("auth.errors.weakPassword"),
+              description: t("auth.errors.weakPasswordDescription"),
+              variant: "destructive"
+            });
+          } else {
+            toast({
+              title: t("auth.errors.signUpError"),
+              description: error.message,
+              variant: "destructive"
+            });
+          }
+          return;
+        }
+
+        toast({
+          title: t("auth.verification.successTitle"),
+          description: t("auth.verification.accountCreated")
+        });
+        onVerified();
+        onOpenChange(false);
+        // Reset state
+        setCode("");
+        setSentCode(null);
+      } catch (error: any) {
+        toast({
+          title: t("auth.errors.error"),
+          description: error.message,
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
     } else {
       toast({
         title: t("auth.errors.error"),

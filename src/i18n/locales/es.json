@@ -308,6 +308,7 @@
       "checkEmail": "Por favor revise su bandeja de entrada",
       "successTitle": "Email Verificado",
       "successDescription": "Su email ha sido verificado. Ahora puede iniciar sesión.",
+      "accountCreated": "Su cuenta ha sido creada exitosamente. Ahora puede iniciar sesión.",
       "invalidCode": "Código de verificación inválido. Inténtelo de nuevo."
     }
   },
