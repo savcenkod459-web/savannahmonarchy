@@ -83,9 +83,8 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Send email with the reset code immediately with high priority
-    const fromEmail = Deno.env.get("FROM_EMAIL") || "SavannahMonarchy <noreply@savannahmonarchy.com>";
     const emailResponse = await resend.emails.send({
-      from: fromEmail,
+      from: "SavannahMonarchy <noreply@savannahmonarchy.com>",
       to: [email],
       subject: `🔐 ${code} - Your Password Reset Code`,
       headers: {
