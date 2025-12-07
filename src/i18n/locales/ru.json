@@ -618,7 +618,9 @@
     "backToSignIn": "Вернуться к входу",
     "codeSent": "Код отправлен",
     "codeSentDescription": "Проверьте вашу почту для кода сброса",
-    "error": "Ошибка"
+    "error": "Ошибка",
+    "userNotFound": "Пользователь не найден",
+    "userNotFoundDescription": "Аккаунт с таким email не существует"
   },
   "updatePassword": {
     "title": "Обновление пароля",
