@@ -98,7 +98,12 @@ export const EmailVerificationDialog = ({
     if (code === sentCode) {
       setLoading(true);
       try {
-        // Аккаунт уже создан в Auth.tsx, просто подтверждаем верификацию
+        // Код верный - теперь логиним пользователя
+        // Так как auto_confirm_email: false, пользователь уже создан но не подтверждён
+        // signInWithPassword сработает только если email подтверждён
+        // Поэтому используем updateUser для подтверждения или просто вызываем onVerified
+        // который сделает signIn (в Auth.tsx мы можем использовать admin API или другой способ)
+        
         toast({
           title: t("auth.verification.successTitle"),
           description: t("auth.verification.accountCreated")
