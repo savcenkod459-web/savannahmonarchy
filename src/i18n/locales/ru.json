@@ -494,15 +494,20 @@
       "signOutDescription": "Вы успешно вышли из системы"
     },
     "verification": {
-      "title": "Подтвердите email",
+      "title": "Подтвердите Email",
       "subtitle": "Введите 6-значный код, отправленный на",
+      "codeLabel": "Код подтверждения",
       "codePlaceholder": "000000",
-      "verify": "Подтвердить",
+      "verify": "Подтвердить Email",
       "resend": "Отправить снова",
-      "resendIn": "Отправить снова через",
-      "success": "Email успешно подтвержден!",
-      "error": "Неверный или истекший код",
-      "codeSent": "Код отправлен на ваш email"
+      "resendIn": "Отправить через ",
+      "seconds": "с",
+      "sending": "Отправка кода подтверждения...",
+      "codeSent": "Код отправлен",
+      "checkEmail": "Проверьте вашу почту",
+      "successTitle": "Email подтвержден",
+      "successDescription": "Ваш email подтвержден. Теперь вы можете войти.",
+      "invalidCode": "Неверный код подтверждения. Попробуйте снова."
     }
   },
   "changePassword": {

@@ -295,15 +295,20 @@
       "signOutDescription": "You have successfully signed out"
     },
     "verification": {
-      "title": "Verify Email",
+      "title": "Verify Your Email",
       "subtitle": "Enter the 6-digit code sent to",
+      "codeLabel": "Verification Code",
       "codePlaceholder": "000000",
-      "verify": "Verify",
+      "verify": "Verify Email",
       "resend": "Resend Code",
-      "resendIn": "Resend in",
-      "success": "Email verified successfully!",
-      "error": "Invalid or expired code",
-      "codeSent": "Code sent to your email"
+      "resendIn": "Resend in ",
+      "seconds": "s",
+      "sending": "Sending verification code...",
+      "codeSent": "Code Sent",
+      "checkEmail": "Please check your email inbox",
+      "successTitle": "Email Verified",
+      "successDescription": "Your email has been verified. You can now sign in.",
+      "invalidCode": "Invalid verification code. Please try again."
     },
     "logout": {
       "confirm": {
