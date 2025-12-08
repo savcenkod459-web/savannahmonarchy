@@ -14,31 +14,31 @@
   </defs>
   
   <!-- Outer decorative circle -->
-  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldFrame)" stroke-width="1.5"/>
+  <circle cx="50" cy="50" r="48" fill="none" stroke="url(#goldFrame)" stroke-width="2"/>
   
   <!-- Inner decorative circle -->
-  <circle cx="50" cy="50" r="40" fill="none" stroke="url(#goldFrame)" stroke-width="1"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#goldFrame)" stroke-width="1.5"/>
   
   <!-- Braided/Celtic pattern between circles -->
-  <g fill="none" stroke="url(#goldFrame)" stroke-width="1.2">
+  <g fill="none" stroke="url(#goldFrame)" stroke-width="1.5">
     <!-- Top wave patterns -->
-    <path d="M 50 4 Q 65 10, 80 15 Q 90 25, 94 40"/>
-    <path d="M 50 4 Q 35 10, 20 15 Q 10 25, 6 40"/>
+    <path d="M 50 2 Q 68 8, 85 15 Q 95 28, 98 45"/>
+    <path d="M 50 2 Q 32 8, 15 15 Q 5 28, 2 45"/>
     <!-- Bottom wave patterns -->
-    <path d="M 50 96 Q 65 90, 80 85 Q 90 75, 94 60"/>
-    <path d="M 50 96 Q 35 90, 20 85 Q 10 75, 6 60"/>
+    <path d="M 50 98 Q 68 92, 85 85 Q 95 72, 98 55"/>
+    <path d="M 50 98 Q 32 92, 15 85 Q 5 72, 2 55"/>
     <!-- Side connections -->
-    <path d="M 6 50 Q 10 35, 20 22"/>
-    <path d="M 94 50 Q 90 35, 80 22"/>
-    <path d="M 6 50 Q 10 65, 20 78"/>
-    <path d="M 94 50 Q 90 65, 80 78"/>
+    <path d="M 2 50 Q 6 32, 18 18"/>
+    <path d="M 98 50 Q 94 32, 82 18"/>
+    <path d="M 2 50 Q 6 68, 18 82"/>
+    <path d="M 98 50 Q 94 68, 82 82"/>
     <!-- Additional decorative arcs -->
-    <path d="M 25 10 Q 37 5, 50 4"/>
-    <path d="M 75 10 Q 63 5, 50 4"/>
-    <path d="M 25 90 Q 37 95, 50 96"/>
-    <path d="M 75 90 Q 63 95, 50 96"/>
+    <path d="M 22 6 Q 36 2, 50 2"/>
+    <path d="M 78 6 Q 64 2, 50 2"/>
+    <path d="M 22 94 Q 36 98, 50 98"/>
+    <path d="M 78 94 Q 64 98, 50 98"/>
   </g>
   
-  <!-- SM Text -->
-  <text x="50" y="60" font-family="Playfair Display, Georgia, Times New Roman, serif" font-size="32" font-weight="400" text-anchor="middle" fill="url(#gold)" letter-spacing="2">SM</text>
+  <!-- SM Text - MAXIMUM SIZE -->
+  <text x="50" y="68" font-family="Playfair Display, Georgia, Times New Roman, serif" font-size="48" font-weight="500" text-anchor="middle" fill="url(#gold)" letter-spacing="1">SM</text>
 </svg>
