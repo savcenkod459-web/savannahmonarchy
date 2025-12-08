@@ -1,10 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
     <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#E8C547"/>
-      <stop offset="50%" style="stop-color:#D4AF37"/>
+      <stop offset="0%" style="stop-color:#E8D5A3"/>
+      <stop offset="30%" style="stop-color:#D4AF37"/>
+      <stop offset="70%" style="stop-color:#C9A227"/>
       <stop offset="100%" style="stop-color:#B8962E"/>
     </linearGradient>
+    <linearGradient id="goldFrame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4C4A0"/>
+      <stop offset="50%" style="stop-color:#C9A227"/>
+      <stop offset="100%" style="stop-color:#A68B1B"/>
+    </linearGradient>
   </defs>
-  <text x="50" y="72" font-family="Georgia, Times New Roman, serif" font-size="58" font-weight="bold" text-anchor="middle" fill="url(#gold)">SM</text>
+  
+  <!-- Outer decorative circle -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldFrame)" stroke-width="1.5"/>
+  
+  <!-- Inner decorative circle -->
+  <circle cx="50" cy="50" r="40" fill="none" stroke="url(#goldFrame)" stroke-width="1"/>
+  
+  <!-- Braided/Celtic pattern between circles -->
+  <g fill="none" stroke="url(#goldFrame)" stroke-width="1.2">
+    <!-- Top wave patterns -->
+    <path d="M 50 4 Q 65 10, 80 15 Q 90 25, 94 40"/>
+    <path d="M 50 4 Q 35 10, 20 15 Q 10 25, 6 40"/>
+    <!-- Bottom wave patterns -->
+    <path d="M 50 96 Q 65 90, 80 85 Q 90 75, 94 60"/>
+    <path d="M 50 96 Q 35 90, 20 85 Q 10 75, 6 60"/>
+    <!-- Side connections -->
+    <path d="M 6 50 Q 10 35, 20 22"/>
+    <path d="M 94 50 Q 90 35, 80 22"/>
+    <path d="M 6 50 Q 10 65, 20 78"/>
+    <path d="M 94 50 Q 90 65, 80 78"/>
+    <!-- Additional decorative arcs -->
+    <path d="M 25 10 Q 37 5, 50 4"/>
+    <path d="M 75 10 Q 63 5, 50 4"/>
+    <path d="M 25 90 Q 37 95, 50 96"/>
+    <path d="M 75 90 Q 63 95, 50 96"/>
+  </g>
+  
+  <!-- SM Text -->
+  <text x="50" y="60" font-family="Playfair Display, Georgia, Times New Roman, serif" font-size="32" font-weight="400" text-anchor="middle" fill="url(#gold)" letter-spacing="2">SM</text>
 </svg>
