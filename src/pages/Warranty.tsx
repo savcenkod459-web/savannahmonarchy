@@ -36,14 +36,13 @@ const Warranty = () => {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-4 micro-interaction">
                 <Award className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold tracking-widest uppercase text-primary">Премиум защита</span>
+                <span className="text-sm font-bold tracking-widest uppercase text-primary">{t('warranty.badge')}</span>
               </div>
               <h1 className="font-display font-black text-luxury-gradient luxury-text-shadow py-[10px]">
-                Гарантия здоровья
+                {t('warranty.title')}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Ваше спокойствие - наш приоритет. Мы поддерживаем каждую элитную кошку комплексными 
-                гарантиями здоровья и пожизненной поддержкой.
+                {t('warranty.subtitle')}
               </p>
             </div>
           </div>
