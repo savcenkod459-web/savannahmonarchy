@@ -24,38 +24,19 @@ const resources = {
   uk: { translation: uk },
 };
 
-// Custom language detector with country-specific logic
+// Simple language detector - defaults to English, respects saved preference
 const customLanguageDetector = {
   name: 'customDetector',
   lookup() {
-    // ALWAYS check localStorage first
+    // Check localStorage first for saved preference
     const savedLang = localStorage.getItem('i18nextLng');
     if (savedLang) {
-      console.log('Loading saved language from localStorage:', savedLang);
       return savedLang;
     }
-    
-    // If no saved language, try to detect
-    console.log('No saved language, detecting...');
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const language = navigator.language || navigator.languages?.[0];
-    
-    // For Ukraine, check if we need to prompt
-    if (timezone.includes('Kiev') || timezone.includes('Kyiv')) {
-      // Show selection dialog between ru and uk
-      const selection = window.confirm('Оберіть мову / Выберите язык\n\nУкраїнська (OK) / Русский (Cancel)');
-      const selectedLang = selection ? 'uk' : 'ru';
-      console.log('Ukraine detected, user selected:', selectedLang);
-      return selectedLang;
-    }
-    
-    // Default language detection
-    const detectedLang = language?.split('-')[0] || 'en';
-    console.log('Detected language from browser:', detectedLang);
-    return detectedLang;
+    // Default to English
+    return 'en';
   },
   cacheUserLanguage(lng: string) {
-    console.log('Caching language to localStorage:', lng);
     localStorage.setItem('i18nextLng', lng);
   }
 };
