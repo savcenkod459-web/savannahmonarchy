@@ -740,4 +740,38 @@ All colors MUST be HSL.
     scrollbar-width: thin;
     scrollbar-color: hsl(43 96% 56%) hsl(0 0% 4%);
   }
+
+  /* iOS Safari input caret fix - prevents cursor offset on first tap */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    textarea,
+    select,
+    [contenteditable="true"] {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus,
+    [contenteditable="true"]:focus {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
+
+  /* Additional mobile input fixes */
+  @media (hover: none) and (pointer: coarse) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
 }
