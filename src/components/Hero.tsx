@@ -8,7 +8,8 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import SMLogoSVG from "./SMLogoSVG";
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isUkrainian = i18n.language === 'uk';
   
   const { data: heroImages } = useQuery({
     queryKey: ["site-images", "home", "hero"],
@@ -50,13 +51,13 @@ const Hero = () => {
 
             <div className="flex flex-col lg:flex-row gap-3 md:gap-3 lg:gap-4">
               <Link to="/catalog">
-                <Button size="lg" className="group w-full sm:w-auto text-base md:text-xs lg:text-lg px-8 md:px-4 lg:px-10 py-5 md:py-3 lg:py-7 rounded-2xl md:rounded-xl lg:rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
+                <Button size="lg" className={`group w-full sm:w-auto text-base md:text-xs px-8 md:px-4 py-5 md:py-3 rounded-2xl md:rounded-xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction ${isUkrainian ? 'lg:text-sm lg:px-6 lg:py-5' : 'lg:text-lg lg:px-10 lg:py-7 lg:rounded-2xl'}`}>
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
                   <ArrowRight className="ml-2 h-5 w-5 md:h-3 md:w-3 lg:h-5 lg:w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                 </Button>
               </Link>
               <Link to="/about">
-                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-8 md:px-4 lg:px-10 py-5 md:py-3 lg:py-7 rounded-2xl md:rounded-xl lg:rounded-2xl text-base md:text-xs lg:text-lg micro-interaction font-semibold">
+                <Button variant="ghost-gold" size="lg" className={`w-full sm:w-auto px-8 md:px-4 py-5 md:py-3 rounded-2xl md:rounded-xl text-base md:text-xs micro-interaction font-semibold ${isUkrainian ? 'lg:text-sm lg:px-6 lg:py-5' : 'lg:text-lg lg:px-10 lg:py-7 lg:rounded-2xl'}`}>
                   {t('hero.learn')}
                 </Button>
               </Link>
