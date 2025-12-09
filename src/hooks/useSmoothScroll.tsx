@@ -23,18 +23,19 @@ export const useSmoothScroll = () => {
     const smoothScroll = () => {
       const difference = scrollTarget - currentScroll;
       
-      // Очень плавное замедление с инерцией
-      velocity = lerp(velocity, difference, 0.04);
+      // Ультра-плавное замедление с сильной инерцией
+      velocity = lerp(velocity, difference, 0.008);
       currentScroll += velocity;
       
-      // Продолжаем анимацию пока есть движение
-      if (Math.abs(velocity) > 0.05 || Math.abs(difference) > 0.5) {
+      // Продолжаем анимацию пока есть минимальное движение
+      if (Math.abs(velocity) > 0.01 || Math.abs(difference) > 0.1) {
         window.scrollTo(0, currentScroll);
         rafId.current = requestAnimationFrame(smoothScroll);
       } else {
         currentScroll = scrollTarget;
         window.scrollTo(0, currentScroll);
         velocity = 0;
+        rafId.current = null;
       }
     };
 
@@ -43,14 +44,14 @@ export const useSmoothScroll = () => {
       
       // Синхронизация с реальной позицией скролла
       const actualScroll = window.scrollY;
-      if (Math.abs(actualScroll - currentScroll) > 100) {
+      if (Math.abs(actualScroll - currentScroll) > 150) {
         scrollTarget = actualScroll;
         currentScroll = actualScroll;
         velocity = 0;
       }
       
-      // Очень медленная скорость прокрутки для максимальной плавности
-      const scrollAmount = e.deltaY * 0.35;
+      // Ультра-медленная скорость для престижного ощущения
+      const scrollAmount = e.deltaY * 0.08;
       scrollTarget += scrollAmount;
       
       // Ограничение границ
