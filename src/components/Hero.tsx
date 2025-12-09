@@ -48,15 +48,15 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-3 lg:gap-4">
               <Link to="/catalog">
-                <Button size="lg" className="group w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-5 md:py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
+                <Button size="lg" className="group w-full sm:w-auto text-base md:text-sm lg:text-lg px-8 md:px-6 lg:px-10 py-5 md:py-4 lg:py-7 rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
+                  <ArrowRight className="ml-2 h-5 w-5 md:h-4 md:w-4 lg:h-5 lg:w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                 </Button>
               </Link>
               <Link to="/about">
-                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-8 md:px-10 py-5 md:py-7 rounded-2xl text-base md:text-lg micro-interaction font-semibold">
+                <Button variant="ghost-gold" size="lg" className="w-full sm:w-auto px-8 md:px-6 lg:px-10 py-5 md:py-4 lg:py-7 rounded-2xl text-base md:text-sm lg:text-lg micro-interaction font-semibold">
                   {t('hero.learn')}
                 </Button>
               </Link>
