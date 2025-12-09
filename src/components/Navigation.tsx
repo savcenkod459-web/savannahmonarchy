@@ -188,27 +188,27 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-primary/10">
-      <div className="container mx-auto px-6 py-2">
-        <div className="flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-1 group micro-interaction">
-            <SMLogoSVG className="w-20 h-20 dark:drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
-            <h1 className="text-lg md:text-[1.75rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow ml-0.5 pr-2 pb-1">
+      <div className="container mx-auto px-6 py-1.5">
+        <div className="flex items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-0.5 group micro-interaction">
+            <SMLogoSVG className="w-[72px] h-[72px] dark:drop-shadow-[0_0_18px_rgba(217,179,112,0.85)]" />
+            <h1 className="text-base md:text-[1.5rem] font-display font-black text-luxury-gradient group-hover:scale-105 transition-transform luxury-text-shadow ml-0.5 pr-2 pb-1">
               SavannahMonarchy
             </h1>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-4 flex-1 justify-end mr-6">
+          <div className="hidden lg:flex items-center gap-3 flex-1 justify-end mr-4">
             {navItems.map((item) => {
               if (item.hasSubmenu) {
                 return (
                   <Popover key={item.path} open={aboutPopoverOpen} onOpenChange={setAboutPopoverOpen}>
                     <PopoverTrigger asChild>
                       <button
-                        className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                        className={`text-[0.7rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-0.5 ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                       >
                         {item.name}
-                        <ChevronDown className="w-4 h-4" />
+                        <ChevronDown className="w-3.5 h-3.5" />
                         <span
                           className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${isActive(item.path) ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`}
                         />
@@ -247,7 +247,7 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                  className={`text-[0.7rem] font-semibold transition-all duration-300 relative group micro-interaction ${isActive(item.path) ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                 >
                   {item.name}
                   <span
@@ -261,10 +261,10 @@ const Navigation = () => {
               <Popover open={adminPopoverOpen} onOpenChange={setAdminPopoverOpen}>
                 <PopoverTrigger asChild>
                 <button
-                    className={`text-[0.75rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-1 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
+                    className={`text-[0.7rem] font-semibold transition-all duration-300 relative group micro-interaction flex items-center gap-0.5 ${location.pathname.startsWith("/admin") ? "text-primary luxury-text-shadow" : "text-foreground/70 hover:text-primary dark:hover:drop-shadow-[0_0_8px_rgba(217,179,112,0.8)]"}`}
                   >
                     ⚙️ Админ
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5" />
                     <span
                       className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full ${location.pathname.startsWith("/admin") ? "w-full shadow-glow" : "w-0 group-hover:w-full"}`}
                     />
@@ -306,19 +306,19 @@ const Navigation = () => {
                   onClick={() => navigate("/profile")}
                   variant="ghost"
                   size="icon"
-                  className="micro-interaction h-8 w-8 hover:shadow-gold hover:-translate-y-0.5"
+                  className="micro-interaction h-7 w-7 hover:shadow-gold hover:-translate-y-0.5"
                   title="Профиль"
                 >
-                  <User className="h-4 w-4" />
+                  <User className="h-3.5 w-3.5" />
                 </Button>
                 <AlertDialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
                   <AlertDialogTrigger asChild>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="micro-interaction text-[0.75rem] hover:shadow-gold hover:-translate-y-0.5"
+                      className="micro-interaction text-[0.7rem] hover:shadow-gold hover:-translate-y-0.5"
                     >
-                      <LogOut className="h-4 w-4 mr-1" />
+                      <LogOut className="h-3.5 w-3.5 mr-1" />
                       {t("nav.logout")}
                     </Button>
                   </AlertDialogTrigger>
@@ -339,7 +339,7 @@ const Navigation = () => {
                 onClick={() => navigate("/auth")}
                 variant="ghost"
                 size="sm"
-                className="micro-interaction text-[0.75rem] hover:shadow-gold hover:-translate-y-0.5"
+                className="micro-interaction text-[0.7rem] hover:shadow-gold hover:-translate-y-0.5"
               >
                 {t("auth.signin.button")}
               </Button>
