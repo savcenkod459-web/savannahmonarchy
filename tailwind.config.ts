@@ -117,6 +117,10 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" }
         },
+        "fade-in-only": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -131,6 +135,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "gold-pulse": "gold-pulse 2s ease-in-out infinite",
         "rotate-slow": "rotate-slow 20s linear infinite",
+        "fade-in-only": "fade-in-only 0.6s ease-out",
       },
     },
   },
