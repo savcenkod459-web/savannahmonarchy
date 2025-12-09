@@ -742,24 +742,35 @@ All colors MUST be HSL.
   }
 
   /* iOS Safari input caret fix - prevents cursor offset on first tap */
-  @supports (-webkit-touch-callout: none) {
-    input,
-    textarea,
-    select,
-    [contenteditable="true"] {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    
-    input:focus,
-    textarea:focus,
-    select:focus,
-    [contenteditable="true"]:focus {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-    }
+  /* Critical: inputs inside transformed containers need isolated stacking context */
+  input,
+  textarea,
+  select,
+  [contenteditable="true"] {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Fix for inputs inside animated/transformed containers (dialogs, cards with animations) */
+  .glass-card input,
+  .glass-card textarea,
+  .glass-card select,
+  [data-state="open"] input,
+  [data-state="open"] textarea,
+  [data-state="open"] select,
+  .animate-scale-in input,
+  .animate-scale-in textarea,
+  .animate-scale-in select {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    isolation: isolate;
   }
 
   /* Additional mobile input fixes */
@@ -773,5 +784,13 @@ All colors MUST be HSL.
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
+  }
+
+  /* Fix InputOTP slots on mobile */
+  [data-input-otp] input,
+  [data-input-otp-container] input {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    caret-color: hsl(var(--primary));
   }
 }
