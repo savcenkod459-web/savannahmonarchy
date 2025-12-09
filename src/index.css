@@ -314,40 +314,7 @@ All colors MUST be HSL.
   }
 
   html {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
-  }
-
-  /* Ultra smooth scrolling optimization */
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: inherit;
-  }
-
-  /* GPU acceleration for scroll performance */
-  body {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: none;
-    overflow-x: hidden;
-  }
-
-  /* Optimize paint and composite layers */
-  main,
-  section,
-  article,
-  .container {
-    contain: layout style;
-    content-visibility: auto;
-  }
-
-  /* Reduce jank during scroll */
-  img,
-  video,
-  iframe {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 300px;
+    scroll-behavior: auto;
   }
 
   body {
