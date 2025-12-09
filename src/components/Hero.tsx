@@ -48,7 +48,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-2 lg:gap-4">
+            <div className="flex flex-col lg:flex-row gap-3 md:gap-3 lg:gap-4">
               <Link to="/catalog">
                 <Button size="lg" className="group w-full sm:w-auto text-base md:text-xs lg:text-lg px-8 md:px-4 lg:px-10 py-5 md:py-3 lg:py-7 rounded-2xl md:rounded-xl lg:rounded-2xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction">
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
