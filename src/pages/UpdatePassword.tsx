@@ -215,7 +215,7 @@ const UpdatePassword = () => {
       <Navigation />
       
       <main className="flex-1 flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
-        <Card className="w-full max-w-xl glass-card border-2 border-primary/30 shadow-glow">
+        <Card className="w-full max-w-xl glass-card border-2 border-primary/30 shadow-glow animate-fade-in-only">
           <CardHeader className="space-y-3 pb-6 pt-10 px-8">
             <div className="flex justify-center mb-4 animate-fade-in">
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
