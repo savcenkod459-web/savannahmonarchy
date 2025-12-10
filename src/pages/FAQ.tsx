@@ -53,10 +53,11 @@ const FAQ = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title={t('faq.seo.title')}
-        description={t('faq.seo.description')}
-        keywords={t('faq.seo.keywords')}
+        titleKey="seo.faq.title"
+        descriptionKey="seo.faq.description"
+        keywordsKey="seo.faq.keywords"
         canonicalUrl="https://savannahmonarchy.com/faq"
+        page="faq"
         structuredData={generateFaqStructuredData()}
       />
       <Navigation />

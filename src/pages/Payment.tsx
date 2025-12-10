@@ -76,10 +76,11 @@ const Payment = () => {
   };
   return <div className="min-h-screen">
       <SEOHead
-        title="Payment Options - Buy Savannah Cat Securely"
-        description="Secure payment options for purchasing Savannah cats. Accept cryptocurrency (USDT, TON, SOL) and cash payments. Safe transactions with buyer protection."
-        keywords="buy Savannah cat payment, Savannah cat cryptocurrency, USDT cat purchase, secure exotic cat payment, Savannah cat deposit, how to pay for Savannah cat, crypto cat payment"
+        titleKey="seo.payment.title"
+        descriptionKey="seo.payment.description"
+        keywordsKey="seo.payment.keywords"
         canonicalUrl="https://savannahmonarchy.com/payment"
+        page="payment"
       />
       <Navigation />
       

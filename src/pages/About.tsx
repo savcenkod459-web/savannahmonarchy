@@ -50,10 +50,11 @@ const About = () => {
   }];
   return <div className="min-h-screen">
       <SEOHead
-        title="About SavannahMonarchy - Premium Savannah Cat Breeder"
-        description="Learn about SavannahMonarchy - elite Savannah cat breeder specializing in F1 and F2 generations. Discover our breeding standards, health guarantees, champion bloodlines, and commitment to excellence."
-        keywords="about Savannah cat breeder, SavannahMonarchy story, F1 Savannah breeding, F2 Savannah cats, exotic cat breeder, African Serval hybrid breeding, Savannah cat health guarantee, champion Savannah bloodlines, ethical cat breeding, premium Savannah kittens"
+        titleKey="seo.about.title"
+        descriptionKey="seo.about.description"
+        keywordsKey="seo.about.keywords"
         canonicalUrl="https://savannahmonarchy.com/about"
+        page="about"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "AboutPage",

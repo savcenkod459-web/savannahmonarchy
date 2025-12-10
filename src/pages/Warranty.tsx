@@ -20,10 +20,11 @@ const Warranty = () => {
   };
   return <div className="min-h-screen">
       <SEOHead
-        title="Savannah Cat Warranty & Health Guarantee"
-        description="Comprehensive health warranty for all Savannah cats. Genetic health guarantee, veterinary certification, lifetime breeder support. Buy with confidence from SavannahMonarchy."
-        keywords="Savannah cat warranty, Savannah cat health guarantee, exotic cat guarantee, F1 Savannah warranty, F2 Savannah health certificate, Savannah kitten guarantee, cat breeder warranty, genetic health guarantee"
+        titleKey="seo.warranty.title"
+        descriptionKey="seo.warranty.description"
+        keywordsKey="seo.warranty.keywords"
         canonicalUrl="https://savannahmonarchy.com/warranty"
+        page="warranty"
       />
       <Navigation />
       

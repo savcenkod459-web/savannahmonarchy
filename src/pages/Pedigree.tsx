@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, Crown, Maximize2, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -103,6 +104,13 @@ const Pedigree = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        titleKey="seo.pedigree.title"
+        descriptionKey="seo.pedigree.description"
+        keywordsKey="seo.pedigree.keywords"
+        canonicalUrl="https://savannahmonarchy.com/pedigree"
+        page="pedigree"
+      />
       <Navigation />
 
       <main className="pt-24 pb-20">

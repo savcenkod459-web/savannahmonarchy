@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://savannahmonarchy.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -18,6 +29,16 @@
   <!-- Catalog - High Priority (Main Sales Page) -->
   <url>
     <loc>https://savannahmonarchy.com/catalog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/catalog?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/catalog?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/catalog?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/catalog?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/catalog?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/catalog?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/catalog?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/catalog?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/catalog?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/catalog"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
@@ -26,6 +47,16 @@
   <!-- About Us -->
   <url>
     <loc>https://savannahmonarchy.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/about?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/about?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/about?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/about?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/about?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/about?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/about?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/about"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -34,14 +65,52 @@
   <!-- Contact - Important for Conversions -->
   <url>
     <loc>https://savannahmonarchy.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/contact?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/contact?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/contact?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/contact?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/contact?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/contact?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/contact?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/contact?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/contact?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/contact"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- FAQ - Important for SEO -->
+  <url>
+    <loc>https://savannahmonarchy.com/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/faq?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/faq?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/faq?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/faq?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/faq?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/faq?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/faq?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/faq?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/faq?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/faq"/>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <!-- Breeders Information -->
   <url>
     <loc>https://savannahmonarchy.com/breeders</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/breeders?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/breeders?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/breeders?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/breeders?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/breeders?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/breeders?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/breeders?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/breeders?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/breeders?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/breeders"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -50,6 +119,16 @@
   <!-- Guide - Educational Content -->
   <url>
     <loc>https://savannahmonarchy.com/guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/guide?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/guide?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/guide?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/guide?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/guide?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/guide?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/guide?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/guide?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/guide?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/guide"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -58,6 +137,16 @@
   <!-- Pedigree Information -->
   <url>
     <loc>https://savannahmonarchy.com/pedigree</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/pedigree?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/pedigree?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/pedigree?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/pedigree?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/pedigree?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/pedigree?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/pedigree?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/pedigree?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/pedigree?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/pedigree"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -66,6 +155,16 @@
   <!-- Payment Information -->
   <url>
     <loc>https://savannahmonarchy.com/payment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/payment?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/payment?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/payment?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/payment?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/payment?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/payment?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/payment?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/payment?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/payment?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/payment"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -74,17 +173,19 @@
   <!-- Warranty -->
   <url>
     <loc>https://savannahmonarchy.com/warranty</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://savannahmonarchy.com/warranty?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://savannahmonarchy.com/warranty?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://savannahmonarchy.com/warranty?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://savannahmonarchy.com/warranty?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://savannahmonarchy.com/warranty?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savannahmonarchy.com/warranty?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://savannahmonarchy.com/warranty?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://savannahmonarchy.com/warranty?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://savannahmonarchy.com/warranty?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savannahmonarchy.com/warranty"/>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  
-  <!-- FAQ - Important for SEO -->
-  <url>
-    <loc>https://savannahmonarchy.com/faq</loc>
-    <lastmod>2025-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   
 </urlset>
