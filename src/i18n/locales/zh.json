@@ -905,5 +905,21 @@
         "answer": "我们的定金结构：\n\n• 定金：通常为总价的40-50%\n• 确保您选择的小猫\n• 计入全部购买价格\n• 如果您改变主意，不予退款\n\n我们接受加密货币（USDT、TON、SOL）和传统支付方式（现金）。"
       }
     }
+  },
+  "seo": {
+    "index": {
+      "title": "购买萨凡纳猫 F1 和 F2 - 精英异国猫繁殖者",
+      "description": "在 SavannahMonarchy 购买精英萨凡纳 F1 和 F2 猫 - 高端异国猫繁殖者。非洲薮猫杂交小猫，提供健康保证、血统证书。全球配送。价格从 €15,000 起。",
+      "keywords": "萨凡纳猫、F1萨凡纳猫、F2萨凡纳猫、购买萨凡纳猫、萨凡纳小猫、异国猫繁殖者、非洲薮猫杂交、萨凡纳猫价格"
+    },
+    "catalog": { "title": "萨凡纳猫出售 - F1、F2 小猫", "description": "独家萨凡纳 F1 和 F2 猫出售。高端小猫，完整血统，健康保证。", "keywords": "萨凡纳猫出售、F1萨凡纳小猫、购买萨凡纳小猫" },
+    "about": { "title": "关于 SavannahMonarchy - 高端萨凡纳猫繁殖者", "description": "精英萨凡纳猫繁殖者，专注于 F1 和 F2 代。繁殖标准、健康协议。TICA 注册。", "keywords": "萨凡纳繁殖者、TICA、F1萨凡纳繁殖者" },
+    "contact": { "title": "联系我们 - 购买萨凡纳猫 | SavannahMonarchy", "description": "联系我们购买萨凡纳猫。专家咨询，全球配送。", "keywords": "联系萨凡纳繁殖者、购买萨凡纳" },
+    "faq": { "title": "萨凡纳猫常见问题 - F1 和 F2", "description": "关于萨凡纳猫的常见问题。F1 与 F2 的区别、价格、护理。", "keywords": "萨凡纳常见问题、F1对比F2萨凡纳" },
+    "guide": { "title": "萨凡纳猫护理指南", "description": "完整的萨凡纳猫护理指南。饮食、运动、健康。", "keywords": "萨凡纳猫护理、萨凡纳饮食" },
+    "breeders": { "title": "我们的种猫 - SavannahMonarchy", "description": "了解我们的萨凡纳种猫。冠军血统、非洲薮猫基因。", "keywords": "萨凡纳种猫、非洲薮猫" },
+    "payment": { "title": "付款方式 - 安全购买萨凡纳", "description": "安全付款选项。接受加密货币和现金。40-50% 定金。", "keywords": "萨凡纳付款、加密货币购买萨凡纳" },
+    "warranty": { "title": "健康保证 - 萨凡纳猫", "description": "所有萨凡纳猫的全面健康保证。", "keywords": "萨凡纳保证、健康保证" },
+    "pedigree": { "title": "萨凡纳猫血统 - 冠军血统", "description": "血统文档。非洲薮猫血统、TICA 注册。", "keywords": "萨凡纳血统、TICA萨凡纳" }
   }
 }
