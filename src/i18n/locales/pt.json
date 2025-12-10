@@ -879,5 +879,21 @@
         "answer": "Nossa estrutura de depósito:\n\n• Depósito: Geralmente 40-50% do preço total\n• Garante seu gatinho escolhido\n• Aplicado ao preço total de compra\n• Não reembolsável se você mudar de ideia\n\nAceitamos criptomoedas (USDT, TON, SOL) e métodos de pagamento tradicionais (dinheiro)."
       }
     }
+  },
+  "seo": {
+    "index": {
+      "title": "Comprar Gato Savannah F1 e F2 - Criador de Gatos Exóticos",
+      "description": "Compre gatos Savannah F1 e F2 de elite na SavannahMonarchy - criador premium de gatos exóticos. Gatinhos híbridos de Serval Africano com garantia de saúde, pedigree. Entrega mundial. Preço a partir de €15.000.",
+      "keywords": "gato Savannah, Savannah F1, Savannah F2, comprar Savannah, gatinho Savannah, criador gatos exóticos, híbrido Serval Africano, preço gato Savannah, gatos Savannah elite"
+    },
+    "catalog": { "title": "Gatos Savannah à Venda - Gatinhos F1, F2", "description": "Coleção exclusiva de gatos Savannah F1 e F2 à venda. Gatinhos premium com pedigree, garantia de saúde.", "keywords": "gatos Savannah à venda, gatinho Savannah F1, comprar gatinho Savannah" },
+    "about": { "title": "Sobre SavannahMonarchy - Criador Premium Savannah", "description": "Criador de gatos Savannah de elite especializado em F1 e F2. Padrões de criação, protocolos de saúde. Registrado TICA.", "keywords": "criador Savannah, TICA, criador F1 Savannah" },
+    "contact": { "title": "Contato - Comprar Gato Savannah | SavannahMonarchy", "description": "Entre em contato para comprar seu gato Savannah. Consulta especializada, entrega mundial.", "keywords": "contato criador Savannah, comprar Savannah" },
+    "faq": { "title": "FAQ Gato Savannah - Perguntas F1 e F2", "description": "Perguntas frequentes sobre gatos Savannah. Diferenças F1 vs F2, preço, cuidados.", "keywords": "FAQ Savannah, F1 vs F2 Savannah, quanto custa Savannah" },
+    "guide": { "title": "Guia de Cuidados Gato Savannah", "description": "Guia completo de cuidados para gato Savannah. Alimentação, exercício, saúde.", "keywords": "cuidados gato Savannah, alimentação Savannah" },
+    "breeders": { "title": "Nossos Reprodutores - SavannahMonarchy", "description": "Conheça nossos gatos Savannah reprodutores. Linhagens campeãs, genética Serval Africano.", "keywords": "reprodutores Savannah, Serval Africano" },
+    "payment": { "title": "Métodos de Pagamento - Comprar Savannah", "description": "Opções seguras de pagamento. Criptomoeda e dinheiro aceitos. Depósito 40-50%.", "keywords": "pagamento Savannah, comprar Savannah cripto" },
+    "warranty": { "title": "Garantia de Saúde - Gato Savannah", "description": "Garantia de saúde completa para todos os gatos Savannah.", "keywords": "garantia Savannah, garantia saúde" },
+    "pedigree": { "title": "Pedigree Gato Savannah - Linhagens Campeãs", "description": "Documentação de pedigree. Ancestralidade Serval Africano, registro TICA.", "keywords": "pedigree Savannah, TICA Savannah" }
   }
 }

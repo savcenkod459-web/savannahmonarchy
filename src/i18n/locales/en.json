@@ -875,5 +875,57 @@
         "answer": "Our deposit structure:\n\n• Deposit: Typically 40-50% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n\nWe accept cryptocurrency (USDT, TON, SOL) and traditional payment methods (cash)."
       }
     }
+  },
+  "seo": {
+    "index": {
+      "title": "Buy F1 & F2 Savannah Cats - Elite Exotic Cat Breeder",
+      "description": "Buy elite Savannah F1 and F2 cats from SavannahMonarchy - premium exotic cat breeder. African Serval hybrid kittens for sale with health guarantee, pedigree certification. Worldwide delivery. Savannah cat price from €15,000.",
+      "keywords": "Savannah cat, F1 Savannah cat, F2 Savannah cat, buy Savannah cat, Savannah kitten for sale, exotic cat breeder, African Serval hybrid, Savannah cat price, elite Savannah cats, Savannah cat Europe, buy exotic cat"
+    },
+    "catalog": {
+      "title": "Savannah Cats for Sale - F1, F2 Kittens Available",
+      "description": "Browse our exclusive collection of Savannah F1 and F2 cats for sale. Premium exotic kittens with full pedigree, health guarantee. View photos, videos, prices. Reserve your Savannah kitten today.",
+      "keywords": "Savannah cats for sale, F1 Savannah kitten, F2 Savannah kitten, buy Savannah kitten, exotic cats available, Savannah cat photos, Savannah kitten price"
+    },
+    "about": {
+      "title": "About SavannahMonarchy - Premium Savannah Cat Breeder",
+      "description": "Learn about SavannahMonarchy - elite Savannah cat breeder specializing in F1 and F2 generations. Our breeding standards, health protocols, and commitment to excellence. TICA registered cattery.",
+      "keywords": "Savannah cat breeder, TICA registered, F1 Savannah breeder, exotic cat cattery, premium cat breeding, Savannah cat care"
+    },
+    "contact": {
+      "title": "Contact Us - Buy Savannah Cat | SavannahMonarchy",
+      "description": "Contact SavannahMonarchy to buy your Savannah cat. Get expert consultation on F1 and F2 Savannah cats. Fast response, worldwide delivery available. Reserve your kitten today.",
+      "keywords": "contact Savannah breeder, buy Savannah cat, Savannah cat consultation, reserve Savannah kitten"
+    },
+    "faq": {
+      "title": "Savannah Cat FAQ - Questions About F1 & F2 Cats",
+      "description": "Frequently asked questions about Savannah cats. Learn about F1 vs F2 differences, Savannah cat price, care, diet, legality, and how to buy. Expert answers from professional breeders.",
+      "keywords": "Savannah cat FAQ, F1 vs F2 Savannah, Savannah cat questions, how much Savannah cat cost, Savannah cat legal, Savannah care guide"
+    },
+    "guide": {
+      "title": "Savannah Cat Care Guide - Complete Owner's Manual",
+      "description": "Complete Savannah cat care guide. Learn about diet, nutrition, exercise, training, health care for F1 and F2 Savannah cats. Expert tips from professional breeders.",
+      "keywords": "Savannah cat care, Savannah diet, Savannah training, exotic cat care, F1 Savannah care, Savannah health"
+    },
+    "breeders": {
+      "title": "Our Breeding Cats - SavannahMonarchy Cattery",
+      "description": "Meet our breeding Savannah cats. Champion bloodlines, African Serval genetics. View our F1 and F2 breeding pairs with full pedigree documentation.",
+      "keywords": "Savannah breeding cats, African Serval, Savannah pedigree, champion bloodline, Savannah genetics"
+    },
+    "payment": {
+      "title": "Payment Methods - Buy Savannah Cat Securely",
+      "description": "Secure payment options for purchasing Savannah cats. We accept cryptocurrency (USDT, TON, SOL) and cash. 40-50% deposit, flexible payment plans available.",
+      "keywords": "Savannah cat payment, buy Savannah crypto, Savannah deposit, exotic cat purchase"
+    },
+    "warranty": {
+      "title": "Health Warranty - Savannah Cat Guarantee",
+      "description": "Comprehensive health warranty for all Savannah cats. Genetic health guarantee, veterinary documentation, lifetime breeder support. Your Savannah cat is protected.",
+      "keywords": "Savannah cat warranty, health guarantee, genetic guarantee, Savannah cat health"
+    },
+    "pedigree": {
+      "title": "Savannah Cat Pedigree - Champion Bloodlines",
+      "description": "View pedigree documentation for our Savannah cats. African Serval ancestry, champion bloodlines, TICA registration. Full genetic history available.",
+      "keywords": "Savannah pedigree, Savannah ancestry, African Serval bloodline, TICA registered Savannah"
+    }
   }
 }
