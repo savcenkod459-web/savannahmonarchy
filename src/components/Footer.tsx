@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield } from "lucide-react";
+import { Instagram, Send, Crown, Sparkles, Menu, Headphones, Mail, Info, LayoutGrid, Users, BookOpen, CreditCard, Shield, HelpCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import SMLogoSVG from "./SMLogoSVG";
@@ -102,6 +102,12 @@ const Footer = () => {
                 <Link to="/contact" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   {t('nav.contact')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="flex items-center gap-2 p-3 glass-card rounded-lg border border-primary/10 text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-all duration-300 font-light shadow-glow hover:shadow-gold micro-interaction">
+                  <HelpCircle className="w-4 h-4 flex-shrink-0" />
+                  {t('nav.faq')}
                 </Link>
               </li>
             </ul>
