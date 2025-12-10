@@ -29,6 +29,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSelector from "@/components/LanguageSelector";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import SMLogoSVG from "./SMLogoSVG";
+import ShareButtons from "./ShareButtons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -302,6 +303,7 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-2">
               <LanguageSelector />
               <ThemeToggle />
+              <ShareButtons />
             </div>
 
             {user ? (
@@ -496,6 +498,11 @@ const Navigation = () => {
                     {t("auth.signin.button")}
                   </Button>
                 )}
+
+                {/* Mobile Share Button */}
+                <div className="pt-4 border-t border-primary/10">
+                  <ShareButtons variant="inline" className="justify-center" />
+                </div>
               </div>
             </ScrollArea>
           </div>
