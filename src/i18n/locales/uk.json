@@ -135,6 +135,9 @@
     "copyLink": "Копіювати посилання",
     "linkCopied": "Посилання скопійовано!",
     "linkCopiedDesc": "Посилання скопійовано в буфер обміну",
+    "pasteDiscord": "Вставте в чат Discord",
+    "pasteInstagram": "Вставте в історію або біо Instagram",
+    "pasteTikTok": "Вставте в біо або коментар TikTok",
     "error": "Помилка",
     "errorDesc": "Не вдалося скопіювати посилання"
   },

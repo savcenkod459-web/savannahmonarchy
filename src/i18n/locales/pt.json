@@ -136,6 +136,9 @@
     "copyLink": "Copiar link",
     "linkCopied": "Link copiado!",
     "linkCopiedDesc": "O link foi copiado para a área de transferência",
+    "pasteDiscord": "Cole no chat do Discord",
+    "pasteInstagram": "Cole no story ou bio do Instagram",
+    "pasteTikTok": "Cole na bio ou comentário do TikTok",
     "error": "Erro",
     "errorDesc": "Não foi possível copiar o link"
   },

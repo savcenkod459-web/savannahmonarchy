@@ -135,6 +135,9 @@
     "copyLink": "复制链接",
     "linkCopied": "链接已复制!",
     "linkCopiedDesc": "链接已复制到剪贴板",
+    "pasteDiscord": "粘贴到Discord聊天",
+    "pasteInstagram": "粘贴到Instagram故事或简介",
+    "pasteTikTok": "粘贴到TikTok简介或评论",
     "error": "错误",
     "errorDesc": "无法复制链接"
   },

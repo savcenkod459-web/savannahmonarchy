@@ -138,6 +138,9 @@
     "copyLink": "Копировать ссылку",
     "linkCopied": "Ссылка скопирована!",
     "linkCopiedDesc": "Ссылка скопирована в буфер обмена",
+    "pasteDiscord": "Вставьте в чат Discord",
+    "pasteInstagram": "Вставьте в историю или био Instagram",
+    "pasteTikTok": "Вставьте в био или комментарий TikTok",
     "error": "Ошибка",
     "errorDesc": "Не удалось скопировать ссылку"
   },

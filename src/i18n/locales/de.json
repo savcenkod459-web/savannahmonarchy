@@ -135,6 +135,9 @@
     "copyLink": "Link kopieren",
     "linkCopied": "Link kopiert!",
     "linkCopiedDesc": "Der Link wurde in die Zwischenablage kopiert",
+    "pasteDiscord": "In Discord-Chat einfügen",
+    "pasteInstagram": "In Instagram Story oder Bio einfügen",
+    "pasteTikTok": "In TikTok Bio oder Kommentar einfügen",
     "error": "Fehler",
     "errorDesc": "Link konnte nicht kopiert werden"
   },
