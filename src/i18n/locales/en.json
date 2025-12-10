@@ -820,7 +820,7 @@
       },
       "savannahPrice": {
         "question": "How much does a Savannah cat cost?",
-        "answer": "Savannah cat prices vary significantly by generation:\n\n• F1 Savannah cats: $20,000 - $50,000\n• F2 Savannah cats: $15,000 - $25,000\n• F3 Savannah cats: $4,000 - $10,000\n• F4-F5 Savannah cats: $1,500 - $5,000\n\nPrices depend on gender (females are typically more expensive), coat quality, and breeder reputation."
+        "answer": "Savannah cat prices vary significantly by generation:\n\n• F1 Savannah: €10,000 - €25,000 (sometimes up to €35,000+)\n• F2 Savannah: €7,500 - €15,000\n• F3 Savannah: €4,000 - €8,000\n• F4-F5 Savannah: €1,500 - €5,000\n\nPrices depend on gender (males are usually more expensive), coat quality, and breeder reputation."
       },
       "f1VsF2": {
         "question": "What's the difference between F1 and F2 Savannah cats?",
@@ -828,7 +828,7 @@
       },
       "savannahSize": {
         "question": "How big do Savannah cats get?",
-        "answer": "Savannah cat size varies by generation:\n\n• F1 males: 17-25 lbs, up to 17 inches tall\n• F1 females: 13-19 lbs\n• F2 males: 15-20 lbs, 14-16 inches tall\n• F2 females: 12-16 lbs\n• Later generations (F3-F5): 10-15 lbs\n\nThey are among the tallest domestic cats, with long legs and lean bodies."
+        "answer": "Savannah cat size varies by generation:\n\n• F1 males: 7-11 kg, up to 43 cm tall\n• F1 females: 6-9 kg\n• F2 males: 7-9 kg, 35-40 cm tall\n• F2 females: 5-7 kg\n• Later generations (F3-F5): 4-7 kg\n\nThey are among the tallest domestic cats, with long legs and lean bodies."
       },
       "savannahPersonality": {
         "question": "What is the personality of a Savannah cat?",
@@ -836,11 +836,11 @@
       },
       "savannahLegal": {
         "question": "Are Savannah cats legal to own?",
-        "answer": "Legality varies by location. In the United States:\n\n• Legal in most states with no restrictions\n• Some states require permits (Texas, Massachusetts)\n• Banned in Hawaii, Georgia, and some local jurisdictions\n• F1-F2 generations may have additional restrictions\n\nAlways check your local and state laws before purchasing. We provide guidance on legality in your area."
+        "answer": "Legality varies by location.\n\n🇺🇸 USA:\n• Legal in most states with no restrictions\n• Some states require permits (Texas, Massachusetts)\n• Banned in Hawaii, Georgia, and some local jurisdictions\n• F1-F2 generations may have additional restrictions\n\n🇪🇺 Europe:\n• In most EU countries, F3-F5 Savannahs are legal to own\n• F1-F2 may require special permits in Germany, France, Belgium\n• In the UK, F1 requires a DWA (Dangerous Wild Animals) license\n• Scandinavian countries have stricter rules for early generations\n\n🇷🇺 Russia:\n• Legal to own all generations of Savannah\n• Registration with veterinary authorities is recommended\n• Veterinary documents are required for transport between regions\n\n🌏 Asia:\n• Popular and legal in UAE and Qatar with registration\n• Legal in Japan, but F1-F2 require government notification\n• Singapore and Hong Kong may require permits\n• Rules vary by province in China\n\nAlways check local laws before purchasing. We provide guidance on legality in your area."
       },
       "savannahLifespan": {
         "question": "How long do Savannah cats live?",
-        "answer": "Savannah cats typically live 12-20 years with proper care. Their lifespan is comparable to or longer than most domestic cat breeds. Key factors for longevity include:\n\n• Quality nutrition\n• Regular veterinary care\n• Mental and physical stimulation\n• Safe indoor environment\n• Genetic health testing (which all our cats undergo)"
+        "answer": "Savannah cats typically live 12-20 years with proper care. Their lifespan is comparable to or longer than most domestic cat breeds. Key factors for longevity include:\n\n• Quality nutrition\n• Regular veterinary care\n• Mental and physical stimulation\n• Safe indoor environment"
       },
       "savannahCare": {
         "question": "How do you care for a Savannah cat?",
@@ -848,7 +848,7 @@
       },
       "savannahDiet": {
         "question": "What do Savannah cats eat?",
-        "answer": "Savannah cats thrive on a high-protein diet:\n\n• Premium grain-free cat food\n• Raw or cooked meat (chicken, turkey, beef)\n• Wet food for hydration\n• Avoid foods with fillers and grains\n\nF1 and F2 generations especially benefit from raw diets due to their closer genetic link to wild cats. We provide detailed feeding guidelines with each kitten."
+        "answer": "Savannah cats thrive on a high-protein diet:\n\n• Premium grain-free cat food\n• Raw meat (chicken, turkey, beef)\n• Wet food for hydration\n• Avoid foods with fillers and grains\n\nF1 and F2 generations especially benefit from raw diets due to their closer genetic link to wild cats. We provide detailed feeding guidelines with each kitten."
       },
       "savannahOtherPets": {
         "question": "Can Savannah cats live with other pets?",
@@ -860,19 +860,19 @@
       },
       "buyingSavannah": {
         "question": "How do I buy a Savannah cat from SavannahMonarchy?",
-        "answer": "Our purchasing process:\n\n1. Browse our available kittens in the catalog\n2. Contact us to express interest and ask questions\n3. Submit a deposit to reserve your kitten\n4. Complete health documentation and prepare your home\n5. Receive your kitten with all certifications\n\nWe offer worldwide shipping with proper documentation and health guarantees."
+        "answer": "Our purchasing process:\n\n1. Browse our available kittens in the catalog\n2. Contact us to express interest and ask questions\n3. Submit a deposit to reserve your kitten\n4. Prepare your home\n5. Receive your kitten with all documents\n\nWe offer worldwide shipping with proper documentation and health guarantees."
       },
       "savannahHealth": {
         "question": "What health guarantees do you provide?",
-        "answer": "All our Savannah cats come with:\n\n• Comprehensive veterinary health examination\n• Genetic testing for breed-specific conditions\n• Up-to-date vaccinations\n• Parasite prevention treatments\n• Health guarantee documentation\n• Lifetime breeder support\n\nWe stand behind the health of every cat we place."
+        "answer": "All our Savannah cats come with:\n\n• Comprehensive veterinary health examination\n• Up-to-date vaccinations\n• Parasite prevention treatments\n• Health guarantee documentation\n• Lifetime breeder support\n\nWe stand behind the health of every cat we place."
       },
       "savannahShipping": {
         "question": "Do you ship Savannah cats internationally?",
-        "answer": "Yes, we offer worldwide shipping:\n\n• Safe, climate-controlled pet transport\n• All necessary health certificates and documentation\n• USDA/APHIS certification for international travel\n• Door-to-door delivery available\n• Live arrival guarantee\n\nShipping costs vary by destination. Contact us for a quote."
+        "answer": "Yes, we offer worldwide shipping:\n\n• Safe, climate-controlled pet transport\n• All necessary health certificates and documentation\n• Door-to-door delivery available\n• Live arrival guarantee\n\nShipping costs are fully covered by us."
       },
       "savannahDeposit": {
         "question": "How much is the deposit and is it refundable?",
-        "answer": "Our deposit structure:\n\n• Deposit: Typically 20-30% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n• Fully refundable if we cannot provide the promised kitten\n\nWe accept cryptocurrency (USDT, TON, SOL) and traditional payment methods."
+        "answer": "Our deposit structure:\n\n• Deposit: Typically 40-50% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n\nWe accept cryptocurrency (USDT, TON, SOL) and traditional payment methods (cash)."
       }
     }
   }

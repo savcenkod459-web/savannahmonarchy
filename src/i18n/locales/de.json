@@ -761,5 +761,82 @@
     "Gentle": "Sanft",
     "Harmonious": "Harmonisch",
     "Calmly Confident": "Ruhig Selbstsicher"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Antworten auf die häufigsten Fragen zu Savannah-Katzen, unserem Zuchtprogramm und dem Kaufprozess",
+    "seo": {
+      "title": "Savannah-Katzen FAQ - Fragen zu F1 & F2 Savannah-Katzen",
+      "description": "Antworten auf häufig gestellte Fragen zu Savannah-Katzen. Erfahren Sie mehr über F1 vs F2 Unterschiede, Preise, Pflege, Legalität, Persönlichkeit, Ernährung und wie Sie eine Savannah-Katze kaufen.",
+      "keywords": "Savannah-Katzen FAQ, F1 Savannah Fragen, F2 Savannah Info, Savannah-Katze Preis, sind Savannah-Katzen legal, Savannah-Katze Persönlichkeit, Savannah-Katze Pflege, Savannah-Katze kaufen"
+    },
+    "cta": {
+      "title": "Haben Sie noch Fragen?",
+      "subtitle": "Unser Team hilft Ihnen gerne, Ihren perfekten Savannah-Begleiter zu finden",
+      "button": "Kontaktieren Sie uns"
+    },
+    "items": {
+      "whatIsSavannah": {
+        "question": "Was ist eine Savannah-Katze?",
+        "answer": "Eine Savannah-Katze ist eine Hybridrasse, die durch Kreuzung einer Hauskatze mit einem afrikanischen Serval entstanden ist. Sie sind bekannt für ihr auffälliges geflecktes Fell, ihren großen, schlanken Körper, große Ohren und ein wildes Aussehen kombiniert mit einem häuslichen Temperament. Savannah-Katzen sind hochintelligent, aktiv und bauen starke Bindungen zu ihren Besitzern auf."
+      },
+      "savannahPrice": {
+        "question": "Wie viel kostet eine Savannah-Katze?",
+        "answer": "Die Preise für Savannah-Katzen variieren erheblich je nach Generation:\n\n• F1 Savannah: €10.000 - €25.000 (manchmal bis zu €35.000+)\n• F2 Savannah: €7.500 - €15.000\n• F3 Savannah: €4.000 - €8.000\n• F4-F5 Savannah: €1.500 - €5.000\n\nDie Preise hängen vom Geschlecht (Männchen sind normalerweise teurer), der Fellqualität und dem Ruf des Züchters ab."
+      },
+      "f1VsF2": {
+        "question": "Was ist der Unterschied zwischen F1 und F2 Savannah-Katzen?",
+        "answer": "F1 Savannah-Katzen sind Hybriden der ersten Generation (50% Serval) - sie sind die größten, exotischsten und teuersten. F2 Savannah-Katzen sind zweite Generation (25% Serval) - etwas kleiner, behalten aber viele wilde Eigenschaften. F1 erfordern erfahrenere Besitzer aufgrund ihrer stärkeren Wildinstinkte, während F2 oft anpassungsfähiger an typische Haushaltsumgebungen sind."
+      },
+      "savannahSize": {
+        "question": "Wie groß werden Savannah-Katzen?",
+        "answer": "Die Größe von Savannah-Katzen variiert je nach Generation:\n\n• F1 Männchen: 7-11 kg, bis zu 43 cm Höhe\n• F1 Weibchen: 6-9 kg\n• F2 Männchen: 7-9 kg, 35-40 cm Höhe\n• F2 Weibchen: 5-7 kg\n• Spätere Generationen (F3-F5): 4-7 kg\n\nSie gehören zu den größten Hauskatzen mit langen Beinen und schlanken Körpern."
+      },
+      "savannahPersonality": {
+        "question": "Wie ist die Persönlichkeit einer Savannah-Katze?",
+        "answer": "Savannah-Katzen werden oft als 'hundeähnlich' in ihrem Verhalten beschrieben. Sie sind:\n\n• Hochintelligent und trainierbar\n• Extrem loyal und bauen starke Bindungen zu ihren Besitzern auf\n• Sehr aktiv und verspielt, benötigen viel Stimulation\n• Neugierig und abenteuerlustig\n• Gesellig und genießen oft Wasser\n• Können an der Leine gehen und Apportieren lernen\n\nSie benötigen mehr Aufmerksamkeit und Interaktion als typische Hauskatzen."
+      },
+      "savannahLegal": {
+        "question": "Ist es legal, eine Savannah-Katze zu besitzen?",
+        "answer": "Die Legalität variiert je nach Standort.\n\n🇺🇸 USA:\n• In den meisten Staaten ohne Einschränkungen legal\n• Einige Staaten erfordern Genehmigungen (Texas, Massachusetts)\n• Verboten in Hawaii, Georgia und einigen lokalen Gerichtsbarkeiten\n• F1-F2 Generationen können zusätzliche Einschränkungen haben\n\n🇪🇺 Europa:\n• In den meisten EU-Ländern ist der Besitz von F3-F5 Savannahs legal\n• F1-F2 können in Deutschland, Frankreich, Belgien Sondergenehmigungen erfordern\n• In Großbritannien erfordert F1 eine DWA-Lizenz (Dangerous Wild Animals)\n• Skandinavische Länder haben strengere Regeln für frühe Generationen\n\n🇷🇺 Russland:\n• Legal, alle Generationen von Savannah zu besitzen\n• Registrierung bei Veterinärbehörden empfohlen\n• Veterinärdokumente für Transport zwischen Regionen erforderlich\n\n🌏 Asien:\n• In VAE und Katar beliebt und mit Registrierung legal\n• In Japan legal, aber F1-F2 erfordern Behördenbenachrichtigung\n• Singapur und Hongkong können Genehmigungen erfordern\n• Regeln variieren in China nach Provinz\n\nÜberprüfen Sie immer die lokalen Gesetze vor dem Kauf. Wir beraten Sie zur Legalität in Ihrer Region."
+      },
+      "savannahLifespan": {
+        "question": "Wie lange leben Savannah-Katzen?",
+        "answer": "Savannah-Katzen leben typischerweise 12-20 Jahre bei richtiger Pflege. Ihre Lebensdauer ist vergleichbar oder länger als die meisten Hauskatzenrassen. Schlüsselfaktoren für Langlebigkeit:\n\n• Qualitätsernährung\n• Regelmäßige tierärztliche Versorgung\n• Geistige und körperliche Stimulation\n• Sichere Innenumgebung"
+      },
+      "savannahCare": {
+        "question": "Wie pflegt man eine Savannah-Katze?",
+        "answer": "Savannah-Katzen erfordern besondere Pflege:\n\n• Großer Wohnraum mit Kletterstrukturen\n• Hochwertiges, proteinreiches Futter\n• Tägliche interaktive Spielsitzungen (1-2 Stunden)\n• Geistige Stimulation durch Puzzlespielzeug und Training\n• Regelmäßige Fellpflege (wöchentliches Bürsten)\n• Sicherer Außenbereich oder Spaziergänge an der Leine\n• Jährliche tierärztliche Untersuchungen\n\nWir stellen detaillierte Pflegeanleitungen bei jedem Kauf zur Verfügung."
+      },
+      "savannahDiet": {
+        "question": "Was fressen Savannah-Katzen?",
+        "answer": "Savannah-Katzen gedeihen bei einer proteinreichen Ernährung:\n\n• Premium getreidefreies Katzenfutter\n• Rohes Fleisch (Huhn, Pute, Rind)\n• Nassfutter für Hydratation\n• Vermeiden Sie Futter mit Füllstoffen und Getreide\n\nF1- und F2-Generationen profitieren besonders von Rohkost aufgrund ihrer näheren genetischen Verbindung zu Wildkatzen. Wir stellen detaillierte Fütterungsrichtlinien bei jedem Kätzchen zur Verfügung."
+      },
+      "savannahOtherPets": {
+        "question": "Können Savannah-Katzen mit anderen Haustieren leben?",
+        "answer": "Ja, mit richtiger Einführung:\n\n• Am besten als Kätzchen an andere Haustiere gewöhnen\n• Generell gut mit Hunden, besonders wenn zusammen aufgewachsen\n• Können kleinere Katzen aufgrund ihrer Größe dominieren\n• Nicht empfohlen mit kleinen Beutetieren (Hamster, Vögel)\n• Frühe Sozialisierung ist der Schlüssel\n\nUnsere Kätzchen sind gut sozialisiert, bevor sie in ihre neuen Häuser gehen."
+      },
+      "savannahChildren": {
+        "question": "Sind Savannah-Katzen gut mit Kindern?",
+        "answer": "Savannah-Katzen können ausgezeichnete Familienhaustiere sein:\n\n• Spätere Generationen (F3-F5) sind generell besser für Familien mit kleinen Kindern\n• F1-F2 sind besser für Familien mit älteren, respektvollen Kindern geeignet\n• Sie sind verspielt und genießen interaktive Spiele\n• Aufsicht wird bei jedem Haustier und kleinen Kindern empfohlen\n• Ihre hohe Energie passt gut zu aktiven Familien"
+      },
+      "buyingSavannah": {
+        "question": "Wie kaufe ich eine Savannah-Katze bei SavannahMonarchy?",
+        "answer": "Unser Kaufprozess:\n\n1. Durchsuchen Sie unsere verfügbaren Kätzchen im Katalog\n2. Kontaktieren Sie uns, um Interesse zu bekunden und Fragen zu stellen\n3. Leisten Sie eine Anzahlung, um Ihr Kätzchen zu reservieren\n4. Bereiten Sie Ihr Zuhause vor\n5. Erhalten Sie Ihr Kätzchen mit allen Dokumenten\n\nWir bieten weltweiten Versand mit ordnungsgemäßer Dokumentation und Gesundheitsgarantien."
+      },
+      "savannahHealth": {
+        "question": "Welche Gesundheitsgarantien bieten Sie?",
+        "answer": "Alle unsere Savannah-Katzen kommen mit:\n\n• Umfassender tierärztlicher Gesundheitsuntersuchung\n• Aktuellen Impfungen\n• Parasitenvorbeugungsbehandlungen\n• Gesundheitsgarantie-Dokumentation\n• Lebenslanger Züchterunterstützung\n\nWir stehen hinter der Gesundheit jeder Katze, die wir vermitteln."
+      },
+      "savannahShipping": {
+        "question": "Versenden Sie Savannah-Katzen international?",
+        "answer": "Ja, wir bieten weltweiten Versand:\n\n• Sicherer, klimakontrollierter Haustiertransport\n• Alle erforderlichen Gesundheitszertifikate und Dokumentation\n• Tür-zu-Tür-Lieferung verfügbar\n• Lebendankunftsgarantie\n\nDie Versandkosten werden vollständig von uns übernommen."
+      },
+      "savannahDeposit": {
+        "question": "Wie hoch ist die Anzahlung und ist sie erstattungsfähig?",
+        "answer": "Unsere Anzahlungsstruktur:\n\n• Anzahlung: Typischerweise 40-50% des Gesamtpreises\n• Sichert Ihr gewähltes Kätzchen\n• Wird auf den vollen Kaufpreis angerechnet\n• Nicht erstattungsfähig, wenn Sie Ihre Meinung ändern\n\nWir akzeptieren Kryptowährung (USDT, TON, SOL) und traditionelle Zahlungsmethoden (Bargeld)."
+      }
+    }
   }
 }
