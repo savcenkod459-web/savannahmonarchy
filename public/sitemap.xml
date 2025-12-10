@@ -79,4 +79,12 @@
     <priority>0.6</priority>
   </url>
   
+  <!-- FAQ - Important for SEO -->
+  <url>
+    <loc>https://savannahmonarchy.com/faq</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>
