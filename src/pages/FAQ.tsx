@@ -136,9 +136,6 @@ const FAQ = () => {
                 <h2 className="font-display font-black text-3xl md:text-4xl luxury-text-shadow">
                   {t('faq.cta.title')}
                 </h2>
-                <p className="text-lg text-muted-foreground font-light">
-                  {t('faq.cta.subtitle')}
-                </p>
                 <a 
                   href="/contact" 
                   className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-xl font-bold text-lg transition-all duration-500 hover:shadow-glow hover:-translate-y-1 hover:scale-105"
