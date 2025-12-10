@@ -2,14 +2,7 @@ import { Copy, Facebook, MessageCircle, Share2, Twitter, Check, Instagram } from
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
-import { useState, useCallback } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-} from "./ui/dropdown-menu";
+import { useState, useRef, useEffect } from "react";
 
 interface ShareButtonsProps {
   variant?: "inline" | "dropdown";
@@ -41,11 +34,20 @@ const RedditIcon = () => (
   </svg>
 );
 
+interface MenuItem {
+  icon: React.ReactNode;
+  label: string;
+  onClick: () => void;
+  separator?: boolean;
+}
+
 const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProps) => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   
   const getShareUrl = () => {
     const baseUrl = "https://savannahmonarchy.com";
@@ -57,10 +59,46 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   const shareTitle = t("seo.index.title");
   const shareDescription = t("seo.index.description");
 
-  const handleAction = useCallback((action: () => void) => {
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      // Delay adding listener to prevent immediate close
+      const timer = setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 10);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen]);
+
+  // Close on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isOpen]);
+
+  const handleItemClick = (action: () => void) => {
     action();
     setIsOpen(false);
-  }, []);
+  };
 
   const shareToTwitter = () => {
     window.open(
@@ -165,6 +203,29 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
     }
   };
 
+  const menuItems: MenuItem[] = [
+    ...(typeof navigator.share === "function" ? [{
+      icon: <Share2 className="h-4 w-4" />,
+      label: t("share.native"),
+      onClick: nativeShare,
+      separator: true,
+    }] : []),
+    { icon: <Twitter className="h-4 w-4" />, label: "Twitter / X", onClick: shareToTwitter },
+    { icon: <Facebook className="h-4 w-4" />, label: "Facebook", onClick: shareToFacebook },
+    { icon: <Instagram className="h-4 w-4" />, label: "Instagram", onClick: shareToInstagram, separator: true },
+    { icon: <MessageCircle className="h-4 w-4" />, label: "Telegram", onClick: shareToTelegram },
+    { icon: <MessageCircle className="h-4 w-4" />, label: "WhatsApp", onClick: shareToWhatsApp },
+    { icon: <DiscordIcon />, label: "Discord", onClick: shareToDiscord },
+    { icon: <SnapchatIcon />, label: "Snapchat", onClick: shareToSnapchat, separator: true },
+    { icon: <TikTokIcon />, label: "TikTok", onClick: shareToTikTok },
+    { icon: <RedditIcon />, label: "Reddit", onClick: shareToReddit, separator: true },
+    { 
+      icon: copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />, 
+      label: t("share.copyLink"), 
+      onClick: copyLink 
+    },
+  ];
+
   if (variant === "inline") {
     return (
       <div className={`flex items-center gap-2 flex-wrap ${className}`}>
@@ -189,111 +250,49 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   }
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button 
-          variant="outline" 
-          size="icon" 
-          className={`rounded-full border-primary/30 hover:bg-primary/10 hover:border-primary hover:scale-110 transition-all duration-300 ${className}`}
-          title={t("share.title")}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          <Share2 className="h-4 w-4" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        align="end" 
-        className="w-48 z-[9999] bg-background border border-primary/20 animate-scale-in"
-        sideOffset={5}
-        onCloseAutoFocus={(e) => e.preventDefault()}
-        onPointerDownOutside={(e) => {
-          // Only close if clicking outside the menu
-          const target = e.target as HTMLElement;
-          if (target.closest('[data-radix-dropdown-menu-content]')) {
-            e.preventDefault();
-          }
-        }}
-        onInteractOutside={(e) => {
+    <div className="relative">
+      <Button 
+        ref={buttonRef}
+        variant="outline" 
+        size="icon" 
+        className={`rounded-full border-primary/30 hover:bg-primary/10 hover:border-primary hover:scale-110 transition-all duration-300 ${className}`}
+        title={t("share.title")}
+        onClick={(e) => {
           e.preventDefault();
+          e.stopPropagation();
+          setIsOpen(!isOpen);
         }}
       >
-        {typeof navigator.share === "function" && (
-          <>
-            <DropdownMenuItem 
-              onSelect={(e) => {
-                e.preventDefault();
-                nativeShare();
-                setIsOpen(false);
-              }} 
-              className="cursor-pointer hover:bg-primary/10 transition-colors"
-            >
-              <Share2 className="h-4 w-4 mr-2" />
-              {t("share.native")}
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-          </>
-        )}
-        
-        {/* Main social networks */}
-        <DropdownMenuItem onSelect={() => handleAction(shareToTwitter)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <Twitter className="h-4 w-4 mr-2" />
-          Twitter / X
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToFacebook)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <Facebook className="h-4 w-4 mr-2" />
-          Facebook
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToInstagram)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <Instagram className="h-4 w-4 mr-2" />
-          Instagram
-        </DropdownMenuItem>
-        
-        <DropdownMenuSeparator />
-        
-        {/* Messengers */}
-        <DropdownMenuItem onSelect={() => handleAction(shareToTelegram)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <MessageCircle className="h-4 w-4 mr-2" />
-          Telegram
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToWhatsApp)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <MessageCircle className="h-4 w-4 mr-2" />
-          WhatsApp
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToDiscord)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <DiscordIcon />
-          <span className="ml-2">Discord</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToSnapchat)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <SnapchatIcon />
-          <span className="ml-2">Snapchat</span>
-        </DropdownMenuItem>
-        
-        <DropdownMenuSeparator />
-        
-        {/* Other platforms */}
-        <DropdownMenuItem onSelect={() => handleAction(shareToTikTok)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <TikTokIcon />
-          <span className="ml-2">TikTok</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleAction(shareToReddit)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          <RedditIcon />
-          <span className="ml-2">Reddit</span>
-        </DropdownMenuItem>
-        
-        <DropdownMenuSeparator />
-        
-        <DropdownMenuItem onSelect={() => handleAction(copyLink)} className="cursor-pointer hover:bg-primary/10 transition-colors">
-          {copied ? (
-            <Check className="h-4 w-4 mr-2 text-green-500" />
-          ) : (
-            <Copy className="h-4 w-4 mr-2" />
-          )}
-          {t("share.copyLink")}
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <Share2 className="h-4 w-4" />
+      </Button>
+      
+      {isOpen && (
+        <div 
+          ref={menuRef}
+          className="absolute right-0 top-full mt-2 w-48 bg-background border border-primary/20 rounded-md shadow-lg z-[9999] animate-scale-in overflow-hidden"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="py-1 max-h-80 overflow-y-auto">
+            {menuItems.map((item, index) => (
+              <div key={index}>
+                <button
+                  className="w-full flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleItemClick(item.onClick);
+                  }}
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </button>
+                {item.separator && <div className="h-px bg-border my-1" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
