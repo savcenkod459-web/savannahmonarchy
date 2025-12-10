@@ -2,7 +2,7 @@ import { Copy, Facebook, MessageCircle, Share2, Twitter, Check, Instagram } from
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -45,6 +45,7 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   const { toast } = useToast();
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const getShareUrl = () => {
     const baseUrl = "https://savannahmonarchy.com";
@@ -55,6 +56,11 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   const shareUrl = getShareUrl();
   const shareTitle = t("seo.index.title");
   const shareDescription = t("seo.index.description");
+
+  const handleAction = useCallback((action: () => void) => {
+    action();
+    setIsOpen(false);
+  }, []);
 
   const shareToTwitter = () => {
     window.open(
@@ -88,7 +94,6 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   };
 
   const shareToDiscord = () => {
-    // Discord doesn't have a direct share URL, so we copy and inform user
     navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`);
     toast({
       title: t("share.linkCopied"),
@@ -97,7 +102,6 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   };
 
   const shareToInstagram = () => {
-    // Instagram doesn't support direct link sharing, copy link instead
     navigator.clipboard.writeText(shareUrl);
     toast({
       title: t("share.linkCopied"),
@@ -106,7 +110,6 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   };
 
   const shareToTikTok = () => {
-    // TikTok doesn't have web share, copy link
     navigator.clipboard.writeText(shareUrl);
     toast({
       title: t("share.linkCopied"),
@@ -186,21 +189,35 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   }
 
   return (
-    <DropdownMenu modal={false}>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
           size="icon" 
           className={`rounded-full border-primary/30 hover:bg-primary/10 hover:border-primary hover:scale-110 transition-all duration-300 ${className}`}
           title={t("share.title")}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <Share2 className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         align="end" 
-        className="w-48 z-[100] bg-background border border-primary/20 animate-scale-in"
+        className="w-48 z-[9999] bg-background border border-primary/20 animate-scale-in"
+        sideOffset={5}
         onCloseAutoFocus={(e) => e.preventDefault()}
+        onPointerDownOutside={(e) => {
+          // Only close if clicking outside the menu
+          const target = e.target as HTMLElement;
+          if (target.closest('[data-radix-dropdown-menu-content]')) {
+            e.preventDefault();
+          }
+        }}
+        onInteractOutside={(e) => {
+          e.preventDefault();
+        }}
       >
         {typeof navigator.share === "function" && (
           <>
@@ -208,6 +225,7 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
               onSelect={(e) => {
                 e.preventDefault();
                 nativeShare();
+                setIsOpen(false);
               }} 
               className="cursor-pointer hover:bg-primary/10 transition-colors"
             >
@@ -219,15 +237,15 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
         )}
         
         {/* Main social networks */}
-        <DropdownMenuItem onSelect={shareToTwitter} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToTwitter)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <Twitter className="h-4 w-4 mr-2" />
           Twitter / X
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToFacebook} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToFacebook)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <Facebook className="h-4 w-4 mr-2" />
           Facebook
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToInstagram} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToInstagram)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <Instagram className="h-4 w-4 mr-2" />
           Instagram
         </DropdownMenuItem>
@@ -235,19 +253,19 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
         <DropdownMenuSeparator />
         
         {/* Messengers */}
-        <DropdownMenuItem onSelect={shareToTelegram} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToTelegram)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <MessageCircle className="h-4 w-4 mr-2" />
           Telegram
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToWhatsApp} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToWhatsApp)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <MessageCircle className="h-4 w-4 mr-2" />
           WhatsApp
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToDiscord} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToDiscord)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <DiscordIcon />
           <span className="ml-2">Discord</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToSnapchat} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToSnapchat)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <SnapchatIcon />
           <span className="ml-2">Snapchat</span>
         </DropdownMenuItem>
@@ -255,18 +273,18 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
         <DropdownMenuSeparator />
         
         {/* Other platforms */}
-        <DropdownMenuItem onSelect={shareToTikTok} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToTikTok)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <TikTokIcon />
           <span className="ml-2">TikTok</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={shareToReddit} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(shareToReddit)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           <RedditIcon />
           <span className="ml-2">Reddit</span>
         </DropdownMenuItem>
         
         <DropdownMenuSeparator />
         
-        <DropdownMenuItem onSelect={copyLink} className="cursor-pointer hover:bg-primary/10 transition-colors">
+        <DropdownMenuItem onSelect={() => handleAction(copyLink)} className="cursor-pointer hover:bg-primary/10 transition-colors">
           {copied ? (
             <Check className="h-4 w-4 mr-2 text-green-500" />
           ) : (
