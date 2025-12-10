@@ -153,10 +153,11 @@ const Catalog = () => {
 
   return <div className="min-h-screen">
       <SEOHead
-        title="Buy Savannah Cats - F1 & F2 Kittens for Sale"
-        description="Browse our exclusive catalog of elite Savannah cats for sale. F1 and F2 Savannah kittens available with health guarantee, pedigree certification. Prices from $15,000. Worldwide delivery."
-        keywords="buy Savannah cat, Savannah cat for sale, F1 Savannah kitten, F2 Savannah kitten, Savannah cat price, exotic cats for sale, African Serval hybrid kitten, Savannah cat breeder, buy exotic cat, Savannah kitten available, Savannah cat cost"
+        titleKey="seo.catalog.title"
+        descriptionKey="seo.catalog.description"
+        keywordsKey="seo.catalog.keywords"
         canonicalUrl="https://savannahmonarchy.com/catalog"
+        page="catalog"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "ItemList",

@@ -1,5 +1,6 @@
 # SavannahMonarchy - Elite Savannah Cat Breeder
 # https://savannahmonarchy.com
+# Multilingual website: EN, RU, UK, DE, FR, ES, PT, AR, ZH
 
 User-agent: *
 Allow: /
@@ -18,21 +19,54 @@ Crawl-delay: 1
 # Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
-# Yandex
+# Yandex (important for Russian/Ukrainian users)
 User-agent: Yandex
 Allow: /
+Crawl-delay: 2
 
-# Baidu
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexImages
+Allow: /
+
+# Baidu (important for Chinese users)
 User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-image
 Allow: /
 
 # DuckDuckGo
 User-agent: DuckDuckBot
+Allow: /
+
+# Mail.ru (important for Russian users)
+User-agent: Mail.RU_Bot
+Allow: /
+
+# Sogou (Chinese search engine)
+User-agent: Sogou
+Allow: /
+
+# 360 Spider (Chinese search engine)
+User-agent: 360Spider
+Allow: /
+
+# Naver (Korean search engine)
+User-agent: Yeti
 Allow: /
 
 # Social Media Bots
@@ -47,3 +81,35 @@ Allow: /
 
 User-agent: Pinterest
 Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# AI Crawlers (allow for better visibility)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

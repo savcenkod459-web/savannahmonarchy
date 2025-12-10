@@ -233,10 +233,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Contact SavannahMonarchy - Buy Savannah Cats"
-        description="Contact SavannahMonarchy to inquire about our elite Savannah cats. Get in touch for F1 and F2 Savannah kitten availability, pricing, and shipping worldwide. Quick response guaranteed."
-        keywords="contact Savannah cat breeder, buy Savannah cat inquiry, Savannah kitten availability, Savannah cat shipping, exotic cat breeder contact, SavannahMonarchy email, Savannah cat consultation, F1 F2 Savannah inquiry"
+        titleKey="seo.contact.title"
+        descriptionKey="seo.contact.description"
+        keywordsKey="seo.contact.keywords"
         canonicalUrl="https://savannahmonarchy.com/contact"
+        page="contact"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
@@ -250,7 +251,7 @@ const Contact = () => {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "sales",
-              "availableLanguage": ["English", "Russian"]
+              "availableLanguage": ["English", "Russian", "Ukrainian", "German", "French", "Spanish", "Portuguese", "Arabic", "Chinese"]
             }
           }
         }}

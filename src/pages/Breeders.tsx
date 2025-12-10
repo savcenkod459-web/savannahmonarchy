@@ -25,10 +25,11 @@ const Breeders = () => {
   
   return <div className="min-h-screen">
       <SEOHead
-        title="Savannah Cat Breeders - Champion Bloodlines & Ethical Breeding"
-        description="Meet our certified Savannah cat breeders. Champion bloodlines, ethical breeding practices, health-tested parents. Learn about our F1 and F2 Savannah breeding program."
-        keywords="Savannah cat breeder, certified Savannah breeder, F1 Savannah breeder, F2 Savannah breeder, ethical cat breeding, champion Savannah bloodline, African Serval breeder, exotic cat breeder, reputable Savannah breeder"
+        titleKey="seo.breeders.title"
+        descriptionKey="seo.breeders.description"
+        keywordsKey="seo.breeders.keywords"
         canonicalUrl="https://savannahmonarchy.com/breeders"
+        page="breeders"
       />
       <Navigation />
       

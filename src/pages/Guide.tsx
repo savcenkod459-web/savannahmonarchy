@@ -71,10 +71,11 @@ const ageStages = [{
 const Guide = () => {
   return <div className="min-h-screen">
       <SEOHead
-        title="Savannah Cat Care Guide - How to Care for F1 & F2 Savannah"
-        description="Complete guide to Savannah cat care. Learn about feeding, health, socialization, and training for F1 and F2 Savannah cats. Expert tips from professional breeders."
-        keywords="Savannah cat care, how to care for Savannah cat, F1 Savannah feeding, F2 Savannah health, Savannah cat diet, Savannah kitten care, exotic cat care guide, Savannah cat training, Savannah cat socialization, Savannah cat behavior"
+        titleKey="seo.guide.title"
+        descriptionKey="seo.guide.description"
+        keywordsKey="seo.guide.keywords"
         canonicalUrl="https://savannahmonarchy.com/guide"
+        page="guide"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "HowTo",
