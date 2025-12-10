@@ -129,6 +129,15 @@
     "subtitle": "Commencez votre voyage vers la possession d'une des races félines les plus exotiques au monde",
     "button": "Contactez-Nous"
   },
+  "share": {
+    "title": "Partager",
+    "native": "Partager...",
+    "copyLink": "Copier le lien",
+    "linkCopied": "Lien copié !",
+    "linkCopiedDesc": "Le lien a été copié dans le presse-papiers",
+    "error": "Erreur",
+    "errorDesc": "Impossible de copier le lien"
+  },
   "footer": {
     "tagline": "Chats Savannah d'élite de classe premium",
     "delivery": "Livraison dans de nombreux pays du monde",

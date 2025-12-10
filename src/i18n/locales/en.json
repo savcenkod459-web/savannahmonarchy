@@ -130,6 +130,15 @@
     "subtitle": "Start your journey with us today. Our expert team is ready to help you find the perfect feline companion that will bring joy to your life.",
     "button": "Contact Us"
   },
+  "share": {
+    "title": "Share",
+    "native": "Share...",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link Copied!",
+    "linkCopiedDesc": "The link has been copied to your clipboard",
+    "error": "Error",
+    "errorDesc": "Failed to copy the link"
+  },
   "footer": {
     "tagline": "Elite Savannah cats premium class",
     "delivery": "Delivery to many countries worldwide",

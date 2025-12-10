@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import SMLogoSVG from "./SMLogoSVG";
+import ShareButtons from "./ShareButtons";
 const Hero = () => {
   const { t, i18n } = useTranslation();
   const isUkrainian = i18n.language === 'uk';
@@ -49,7 +50,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-3 md:gap-3 lg:gap-4">
+            <div className="flex flex-col lg:flex-row gap-3 md:gap-3 lg:gap-4 items-start lg:items-center">
               <Link to="/catalog">
                 <Button size="lg" className={`group w-full sm:w-auto text-base md:text-xs px-8 md:px-4 py-5 md:py-3 rounded-2xl md:rounded-xl shadow-gold hover:shadow-glow transition-all duration-500 hover:-translate-y-1 hover-shine relative overflow-hidden micro-interaction ${isUkrainian ? 'lg:text-sm lg:px-6 lg:py-5' : 'lg:text-lg lg:px-10 lg:py-7 lg:rounded-2xl'}`}>
                   <span className="relative z-10 font-semibold">{t('hero.cta')}</span>
@@ -61,6 +62,7 @@ const Hero = () => {
                   {t('hero.learn')}
                 </Button>
               </Link>
+              <ShareButtons className="hidden sm:flex" />
             </div>
           </div>
 
