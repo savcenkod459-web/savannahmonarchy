@@ -115,7 +115,7 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
@@ -126,7 +126,7 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
           <Share2 className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-48 z-50 bg-background border border-primary/20">
         {typeof navigator.share === "function" && (
           <DropdownMenuItem onClick={nativeShare} className="cursor-pointer">
             <Share2 className="h-4 w-4 mr-2" />

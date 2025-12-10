@@ -7,7 +7,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import SMLogoSVG from "./SMLogoSVG";
-import ShareButtons from "./ShareButtons";
 const Hero = () => {
   const { t, i18n } = useTranslation();
   const isUkrainian = i18n.language === 'uk';
@@ -62,7 +61,6 @@ const Hero = () => {
                   {t('hero.learn')}
                 </Button>
               </Link>
-              <ShareButtons className="hidden sm:flex" />
             </div>
           </div>
 
