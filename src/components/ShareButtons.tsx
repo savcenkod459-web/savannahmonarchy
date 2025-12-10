@@ -8,6 +8,7 @@ interface ShareButtonsProps {
   variant?: "inline" | "dropdown";
   direction?: "up" | "down";
   className?: string;
+  iconSize?: number;
 }
 
 // Custom icons for platforms not in lucide-react
@@ -42,7 +43,7 @@ interface MenuItem {
   separator?: boolean;
 }
 
-const ShareButtons = ({ variant = "dropdown", direction = "down", className = "" }: ShareButtonsProps) => {
+const ShareButtons = ({ variant = "dropdown", direction = "down", className = "", iconSize = 16 }: ShareButtonsProps) => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
@@ -251,6 +252,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
         variant="outline" 
         size="icon" 
         className={`rounded-full border-primary/30 hover:bg-primary/10 hover:border-primary hover:scale-110 transition-all duration-300 ${className}`}
+        style={{ width: iconSize + 24, height: iconSize + 24 }}
         title={t("share.title")}
         onClick={(e) => {
           e.preventDefault();
@@ -258,7 +260,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
           setIsOpen(!isOpen);
         }}
       >
-        <Share2 className="h-4 w-4" />
+        <Share2 style={{ width: iconSize, height: iconSize }} />
       </Button>
       
       {isOpen && (
