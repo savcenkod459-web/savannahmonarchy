@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { Utensils, Home, Heart, Activity, Crown, Sparkles, Diamond, Star, Book, AlertCircle, Layers, Target, HandHeart } from "lucide-react";
 const ageStages = [{
   age: "1–3 месяца",
@@ -69,6 +70,41 @@ const ageStages = [{
 }];
 const Guide = () => {
   return <div className="min-h-screen">
+      <SEOHead
+        title="Savannah Cat Care Guide - How to Care for F1 & F2 Savannah"
+        description="Complete guide to Savannah cat care. Learn about feeding, health, socialization, and training for F1 and F2 Savannah cats. Expert tips from professional breeders."
+        keywords="Savannah cat care, how to care for Savannah cat, F1 Savannah feeding, F2 Savannah health, Savannah cat diet, Savannah kitten care, exotic cat care guide, Savannah cat training, Savannah cat socialization, Savannah cat behavior"
+        canonicalUrl="https://savannahmonarchy.com/guide"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Care for a Savannah Cat",
+          "description": "Complete guide to caring for F1 and F2 Savannah cats from kitten to adult",
+          "url": "https://savannahmonarchy.com/guide",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Early Age Care (1-3 months)",
+              "text": "Proper nutrition with premium kitten food, warm safe environment, first vaccinations"
+            },
+            {
+              "@type": "HowToStep", 
+              "name": "Active Growth (3-6 months)",
+              "text": "Transition to balanced diet, intellectual toys, harness training"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Adolescent Period (6-12 months)",
+              "text": "Socialization, behavior training, parasite prevention"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Adult Formation (1-2 years)",
+              "text": "Adult cat diet, regular grooming, daily exercise and mental stimulation"
+            }
+          ]
+        }}
+      />
       <Navigation />
       
       <main className="pt-24">

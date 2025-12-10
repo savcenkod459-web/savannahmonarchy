@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -48,6 +49,24 @@ const About = () => {
     traits: ["Активная", "Умная", "Экзотическая", "Преданная"]
   }];
   return <div className="min-h-screen">
+      <SEOHead
+        title="About SavannahMonarchy - Premium Savannah Cat Breeder"
+        description="Learn about SavannahMonarchy - elite Savannah cat breeder specializing in F1 and F2 generations. Discover our breeding standards, health guarantees, champion bloodlines, and commitment to excellence."
+        keywords="about Savannah cat breeder, SavannahMonarchy story, F1 Savannah breeding, F2 Savannah cats, exotic cat breeder, African Serval hybrid breeding, Savannah cat health guarantee, champion Savannah bloodlines, ethical cat breeding, premium Savannah kittens"
+        canonicalUrl="https://savannahmonarchy.com/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About SavannahMonarchy",
+          "description": "Learn about our premium Savannah cat breeding program, health standards, and commitment to producing exceptional F1 and F2 Savannah cats.",
+          "url": "https://savannahmonarchy.com/about",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "SavannahMonarchy",
+            "description": "Elite Savannah cat breeder specializing in F1 and F2 generations"
+          }
+        }}
+      />
       <Navigation />
       
       <main className="pt-24">

@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -74,6 +75,12 @@ const Payment = () => {
     setTimeout(() => setCopiedAddress(null), 2000);
   };
   return <div className="min-h-screen">
+      <SEOHead
+        title="Payment Options - Buy Savannah Cat Securely"
+        description="Secure payment options for purchasing Savannah cats. Accept cryptocurrency (USDT, TON, SOL) and cash payments. Safe transactions with buyer protection."
+        keywords="buy Savannah cat payment, Savannah cat cryptocurrency, USDT cat purchase, secure exotic cat payment, Savannah cat deposit, how to pay for Savannah cat, crypto cat payment"
+        canonicalUrl="https://savannahmonarchy.com/payment"
+      />
       <Navigation />
       
       <main className="pt-24">

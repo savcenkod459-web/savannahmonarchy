@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { Shield, Trophy, MapPin, Crown, Sparkles, Diamond, Star, Lightbulb, ShieldCheck, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -23,6 +24,12 @@ const Breeders = () => {
   }];
   
   return <div className="min-h-screen">
+      <SEOHead
+        title="Savannah Cat Breeders - Champion Bloodlines & Ethical Breeding"
+        description="Meet our certified Savannah cat breeders. Champion bloodlines, ethical breeding practices, health-tested parents. Learn about our F1 and F2 Savannah breeding program."
+        keywords="Savannah cat breeder, certified Savannah breeder, F1 Savannah breeder, F2 Savannah breeder, ethical cat breeding, champion Savannah bloodline, African Serval breeder, exotic cat breeder, reputable Savannah breeder"
+        canonicalUrl="https://savannahmonarchy.com/breeders"
+      />
       <Navigation />
       
       <main className="pt-24">

@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -231,6 +232,29 @@ const Contact = () => {
   
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Contact SavannahMonarchy - Buy Savannah Cats"
+        description="Contact SavannahMonarchy to inquire about our elite Savannah cats. Get in touch for F1 and F2 Savannah kitten availability, pricing, and shipping worldwide. Quick response guaranteed."
+        keywords="contact Savannah cat breeder, buy Savannah cat inquiry, Savannah kitten availability, Savannah cat shipping, exotic cat breeder contact, SavannahMonarchy email, Savannah cat consultation, F1 F2 Savannah inquiry"
+        canonicalUrl="https://savannahmonarchy.com/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact SavannahMonarchy",
+          "description": "Get in touch with SavannahMonarchy for Savannah cat inquiries",
+          "url": "https://savannahmonarchy.com/contact",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "SavannahMonarchy",
+            "email": "savannahmonarchy@gmail.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "availableLanguage": ["English", "Russian"]
+            }
+          }
+        }}
+      />
       <Navigation />
       
       <main className="pt-24">
