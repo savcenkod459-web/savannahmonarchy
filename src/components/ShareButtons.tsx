@@ -126,30 +126,40 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
           <Share2 className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48 z-50 bg-background border border-primary/20">
+      <DropdownMenuContent 
+        align="end" 
+        className="w-48 z-[100] bg-background border border-primary/20"
+        onCloseAutoFocus={(e) => e.preventDefault()}
+      >
         {typeof navigator.share === "function" && (
-          <DropdownMenuItem onClick={nativeShare} className="cursor-pointer">
+          <DropdownMenuItem 
+            onSelect={(e) => {
+              e.preventDefault();
+              nativeShare();
+            }} 
+            className="cursor-pointer"
+          >
             <Share2 className="h-4 w-4 mr-2" />
             {t("share.native")}
           </DropdownMenuItem>
         )}
-        <DropdownMenuItem onClick={shareToTwitter} className="cursor-pointer">
+        <DropdownMenuItem onSelect={shareToTwitter} className="cursor-pointer">
           <Twitter className="h-4 w-4 mr-2" />
           Twitter / X
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={shareToFacebook} className="cursor-pointer">
+        <DropdownMenuItem onSelect={shareToFacebook} className="cursor-pointer">
           <Facebook className="h-4 w-4 mr-2" />
           Facebook
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={shareToTelegram} className="cursor-pointer">
+        <DropdownMenuItem onSelect={shareToTelegram} className="cursor-pointer">
           <MessageCircle className="h-4 w-4 mr-2" />
           Telegram
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={shareToWhatsApp} className="cursor-pointer">
+        <DropdownMenuItem onSelect={shareToWhatsApp} className="cursor-pointer">
           <MessageCircle className="h-4 w-4 mr-2" />
           WhatsApp
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={copyLink} className="cursor-pointer">
+        <DropdownMenuItem onSelect={copyLink} className="cursor-pointer">
           {copied ? (
             <Check className="h-4 w-4 mr-2 text-green-500" />
           ) : (
