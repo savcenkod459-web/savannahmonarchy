@@ -124,6 +124,10 @@ const Navigation = () => {
       path: "/warranty",
     },
     {
+      name: t("nav.faq"),
+      path: "/faq",
+    },
+    {
       name: t("nav.contact"),
       path: "/contact",
     },

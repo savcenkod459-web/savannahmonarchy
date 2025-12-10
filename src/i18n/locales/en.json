@@ -9,6 +9,7 @@
     "pedigree": "Pedigree",
     "payment": "Payment",
     "contact": "Contact",
+    "faq": "FAQ",
     "profile": "Profile",
     "login": "Login",
     "logout": "Logout",
@@ -797,5 +798,82 @@
     "Gentle": "Gentle",
     "Harmonious": "Harmonious",
     "Calmly Confident": "Calmly Confident"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions about Savannah cats, our breeding program, and purchasing process",
+    "seo": {
+      "title": "Savannah Cat FAQ - Common Questions About F1 & F2 Savannah Cats",
+      "description": "Get answers to frequently asked questions about Savannah cats. Learn about F1 vs F2 differences, prices, care, legality, personality, diet, and how to buy a Savannah cat from SavannahMonarchy.",
+      "keywords": "Savannah cat FAQ, F1 Savannah questions, F2 Savannah cat info, Savannah cat price, are Savannah cats legal, Savannah cat personality, Savannah cat care, buy Savannah cat, Savannah cat size, Savannah cat lifespan"
+    },
+    "cta": {
+      "title": "Still Have Questions?",
+      "subtitle": "Our team is ready to help you find your perfect Savannah companion",
+      "button": "Contact Us"
+    },
+    "items": {
+      "whatIsSavannah": {
+        "question": "What is a Savannah cat?",
+        "answer": "A Savannah cat is a hybrid breed created by crossing a domestic cat with an African Serval. They are known for their striking spotted coat, tall and lean body, large ears, and wild appearance combined with a domestic temperament. Savannah cats are highly intelligent, active, and form strong bonds with their owners."
+      },
+      "savannahPrice": {
+        "question": "How much does a Savannah cat cost?",
+        "answer": "Savannah cat prices vary significantly by generation:\n\n• F1 Savannah cats: $20,000 - $50,000\n• F2 Savannah cats: $15,000 - $25,000\n• F3 Savannah cats: $4,000 - $10,000\n• F4-F5 Savannah cats: $1,500 - $5,000\n\nPrices depend on gender (females are typically more expensive), coat quality, and breeder reputation."
+      },
+      "f1VsF2": {
+        "question": "What's the difference between F1 and F2 Savannah cats?",
+        "answer": "F1 Savannah cats are first-generation hybrids (50% Serval) - they are the largest, most exotic-looking, and most expensive. F2 Savannah cats are second-generation (25% Serval) - slightly smaller but still maintain many wild characteristics. F1s require more experienced owners due to their stronger wild instincts, while F2s are often more adaptable to typical household environments."
+      },
+      "savannahSize": {
+        "question": "How big do Savannah cats get?",
+        "answer": "Savannah cat size varies by generation:\n\n• F1 males: 17-25 lbs, up to 17 inches tall\n• F1 females: 13-19 lbs\n• F2 males: 15-20 lbs, 14-16 inches tall\n• F2 females: 12-16 lbs\n• Later generations (F3-F5): 10-15 lbs\n\nThey are among the tallest domestic cats, with long legs and lean bodies."
+      },
+      "savannahPersonality": {
+        "question": "What is the personality of a Savannah cat?",
+        "answer": "Savannah cats are often described as 'dog-like' in their behavior. They are:\n\n• Highly intelligent and trainable\n• Extremely loyal and bond strongly with their owners\n• Very active and playful, requiring lots of stimulation\n• Curious and adventurous\n• Social and often enjoy water\n• Can learn to walk on a leash and play fetch\n\nThey require more attention and interaction than typical domestic cats."
+      },
+      "savannahLegal": {
+        "question": "Are Savannah cats legal to own?",
+        "answer": "Legality varies by location. In the United States:\n\n• Legal in most states with no restrictions\n• Some states require permits (Texas, Massachusetts)\n• Banned in Hawaii, Georgia, and some local jurisdictions\n• F1-F2 generations may have additional restrictions\n\nAlways check your local and state laws before purchasing. We provide guidance on legality in your area."
+      },
+      "savannahLifespan": {
+        "question": "How long do Savannah cats live?",
+        "answer": "Savannah cats typically live 12-20 years with proper care. Their lifespan is comparable to or longer than most domestic cat breeds. Key factors for longevity include:\n\n• Quality nutrition\n• Regular veterinary care\n• Mental and physical stimulation\n• Safe indoor environment\n• Genetic health testing (which all our cats undergo)"
+      },
+      "savannahCare": {
+        "question": "How do you care for a Savannah cat?",
+        "answer": "Savannah cats require specific care:\n\n• Large living space with climbing structures\n• High-quality, protein-rich diet\n• Daily interactive play sessions (1-2 hours)\n• Mental stimulation through puzzle toys and training\n• Regular grooming (weekly brushing)\n• Secure outdoor space or leash walking\n• Annual veterinary checkups\n\nWe provide detailed care guides with every purchase."
+      },
+      "savannahDiet": {
+        "question": "What do Savannah cats eat?",
+        "answer": "Savannah cats thrive on a high-protein diet:\n\n• Premium grain-free cat food\n• Raw or cooked meat (chicken, turkey, beef)\n• Wet food for hydration\n• Avoid foods with fillers and grains\n\nF1 and F2 generations especially benefit from raw diets due to their closer genetic link to wild cats. We provide detailed feeding guidelines with each kitten."
+      },
+      "savannahOtherPets": {
+        "question": "Can Savannah cats live with other pets?",
+        "answer": "Yes, with proper introduction:\n\n• Best introduced to other pets as kittens\n• Generally good with dogs, especially if raised together\n• May dominate smaller cats due to size\n• Not recommended with small prey animals (hamsters, birds)\n• Early socialization is key\n\nOur kittens are well-socialized before going to their new homes."
+      },
+      "savannahChildren": {
+        "question": "Are Savannah cats good with children?",
+        "answer": "Savannah cats can be excellent family pets:\n\n• Later generations (F3-F5) are generally better for families with young children\n• F1-F2 are better suited for families with older, respectful children\n• They are playful and enjoy interactive games\n• Supervision is recommended with any pet and young children\n• Their high energy matches well with active families"
+      },
+      "buyingSavannah": {
+        "question": "How do I buy a Savannah cat from SavannahMonarchy?",
+        "answer": "Our purchasing process:\n\n1. Browse our available kittens in the catalog\n2. Contact us to express interest and ask questions\n3. Submit a deposit to reserve your kitten\n4. Complete health documentation and prepare your home\n5. Receive your kitten with all certifications\n\nWe offer worldwide shipping with proper documentation and health guarantees."
+      },
+      "savannahHealth": {
+        "question": "What health guarantees do you provide?",
+        "answer": "All our Savannah cats come with:\n\n• Comprehensive veterinary health examination\n• Genetic testing for breed-specific conditions\n• Up-to-date vaccinations\n• Parasite prevention treatments\n• Health guarantee documentation\n• Lifetime breeder support\n\nWe stand behind the health of every cat we place."
+      },
+      "savannahShipping": {
+        "question": "Do you ship Savannah cats internationally?",
+        "answer": "Yes, we offer worldwide shipping:\n\n• Safe, climate-controlled pet transport\n• All necessary health certificates and documentation\n• USDA/APHIS certification for international travel\n• Door-to-door delivery available\n• Live arrival guarantee\n\nShipping costs vary by destination. Contact us for a quote."
+      },
+      "savannahDeposit": {
+        "question": "How much is the deposit and is it refundable?",
+        "answer": "Our deposit structure:\n\n• Deposit: Typically 20-30% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n• Fully refundable if we cannot provide the promised kitten\n\nWe accept cryptocurrency (USDT, TON, SOL) and traditional payment methods."
+      }
+    }
   }
 }

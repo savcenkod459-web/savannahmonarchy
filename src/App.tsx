@@ -31,6 +31,7 @@ import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import UpdatePassword from "./pages/UpdatePassword";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
@@ -88,6 +89,7 @@ const AppContent = () => {
           <Route path="/payment" element={<Payment />} />
           <Route path="/warranty" element={<Warranty />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/update-password" element={<UpdatePassword />} />
