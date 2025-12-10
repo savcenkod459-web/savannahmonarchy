@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { useState, useEffect, memo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Crown, Sparkles, Diamond, Loader2 } from "lucide-react";
@@ -151,6 +152,34 @@ const Catalog = () => {
   }, [displayedCats, prefetchImages]);
 
   return <div className="min-h-screen">
+      <SEOHead
+        title="Buy Savannah Cats - F1 & F2 Kittens for Sale"
+        description="Browse our exclusive catalog of elite Savannah cats for sale. F1 and F2 Savannah kittens available with health guarantee, pedigree certification. Prices from $15,000. Worldwide delivery."
+        keywords="buy Savannah cat, Savannah cat for sale, F1 Savannah kitten, F2 Savannah kitten, Savannah cat price, exotic cats for sale, African Serval hybrid kitten, Savannah cat breeder, buy exotic cat, Savannah kitten available, Savannah cat cost"
+        canonicalUrl="https://savannahmonarchy.com/catalog"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Savannah Cats for Sale",
+          "description": "Browse our collection of elite F1 and F2 Savannah cats available for purchase",
+          "url": "https://savannahmonarchy.com/catalog",
+          "numberOfItems": allCats.length,
+          "itemListElement": allCats.slice(0, 5).map((cat, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "Product",
+              "name": cat.name,
+              "description": cat.description,
+              "offers": {
+                "@type": "Offer",
+                "price": cat.price,
+                "priceCurrency": "USD"
+              }
+            }
+          }))
+        }}
+      />
       <Navigation />
       
       <main className="pt-24">

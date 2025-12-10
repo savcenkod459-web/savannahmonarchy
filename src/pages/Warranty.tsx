@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import SEOHead from "@/components/SEOHead";
 import { Shield, Clock, Headphones, RefreshCw, Crown, Sparkles, Star, Award, HeartPulse, Stethoscope, Heart, FileText, DollarSign, ClipboardCheck, ListChecks, Package, ClipboardList, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
@@ -18,6 +19,12 @@ const Warranty = () => {
     });
   };
   return <div className="min-h-screen">
+      <SEOHead
+        title="Savannah Cat Warranty & Health Guarantee"
+        description="Comprehensive health warranty for all Savannah cats. Genetic health guarantee, veterinary certification, lifetime breeder support. Buy with confidence from SavannahMonarchy."
+        keywords="Savannah cat warranty, Savannah cat health guarantee, exotic cat guarantee, F1 Savannah warranty, F2 Savannah health certificate, Savannah kitten guarantee, cat breeder warranty, genetic health guarantee"
+        canonicalUrl="https://savannahmonarchy.com/warranty"
+      />
       <Navigation />
       
       <main className="pt-24">
