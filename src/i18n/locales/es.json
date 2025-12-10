@@ -789,5 +789,82 @@
     "Gentle": "Gentil",
     "Harmonious": "Armonioso",
     "Calmly Confident": "Tranquilamente Seguro"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respuestas a las preguntas más comunes sobre los gatos Savannah, nuestro programa de cría y el proceso de compra",
+    "seo": {
+      "title": "FAQ sobre Gatos Savannah - Preguntas sobre Gatos F1 y F2 Savannah",
+      "description": "Obtén respuestas a preguntas frecuentes sobre gatos Savannah. Aprende sobre diferencias F1 vs F2, precios, cuidados, legalidad, personalidad, dieta y cómo comprar un gato Savannah.",
+      "keywords": "FAQ gatos Savannah, preguntas F1 Savannah, info F2 Savannah, precio gato Savannah, son legales los gatos Savannah, personalidad gato Savannah, cuidado gato Savannah, comprar gato Savannah"
+    },
+    "cta": {
+      "title": "¿Todavía tienes preguntas?",
+      "subtitle": "Nuestro equipo está listo para ayudarte a encontrar tu compañero Savannah perfecto",
+      "button": "Contáctanos"
+    },
+    "items": {
+      "whatIsSavannah": {
+        "question": "¿Qué es un gato Savannah?",
+        "answer": "Un gato Savannah es una raza híbrida creada cruzando un gato doméstico con un Serval africano. Son conocidos por su llamativo pelaje moteado, cuerpo alto y esbelto, orejas grandes y apariencia salvaje combinada con un temperamento doméstico. Los gatos Savannah son altamente inteligentes, activos y forman fuertes lazos con sus dueños."
+      },
+      "savannahPrice": {
+        "question": "¿Cuánto cuesta un gato Savannah?",
+        "answer": "Los precios de los gatos Savannah varían significativamente según la generación:\n\n• F1 Savannah: €10,000 - €25,000 (a veces hasta €35,000+)\n• F2 Savannah: €7,500 - €15,000\n• F3 Savannah: €4,000 - €8,000\n• F4-F5 Savannah: €1,500 - €5,000\n\nLos precios dependen del sexo (los machos suelen ser más caros), calidad del pelaje y reputación del criador."
+      },
+      "f1VsF2": {
+        "question": "¿Cuál es la diferencia entre gatos Savannah F1 y F2?",
+        "answer": "Los gatos Savannah F1 son híbridos de primera generación (50% Serval) - son los más grandes, de aspecto más exótico y más caros. Los gatos Savannah F2 son de segunda generación (25% Serval) - un poco más pequeños pero aún mantienen muchas características salvajes. Los F1 requieren dueños más experimentados debido a sus instintos salvajes más fuertes, mientras que los F2 suelen ser más adaptables a entornos domésticos típicos."
+      },
+      "savannahSize": {
+        "question": "¿Qué tamaño alcanzan los gatos Savannah?",
+        "answer": "El tamaño de los gatos Savannah varía según la generación:\n\n• Machos F1: 7-11 kg, hasta 43 cm de altura\n• Hembras F1: 6-9 kg\n• Machos F2: 7-9 kg, 35-40 cm de altura\n• Hembras F2: 5-7 kg\n• Generaciones posteriores (F3-F5): 4-7 kg\n\nSon de los gatos domésticos más altos, con patas largas y cuerpos esbeltos."
+      },
+      "savannahPersonality": {
+        "question": "¿Cómo es la personalidad de un gato Savannah?",
+        "answer": "Los gatos Savannah a menudo se describen como 'perrunos' en su comportamiento. Son:\n\n• Altamente inteligentes y entrenables\n• Extremadamente leales y forman fuertes lazos con sus dueños\n• Muy activos y juguetones, requieren mucha estimulación\n• Curiosos y aventureros\n• Sociables y a menudo disfrutan del agua\n• Pueden aprender a caminar con correa y jugar a buscar\n\nRequieren más atención e interacción que los gatos domésticos típicos."
+      },
+      "savannahLegal": {
+        "question": "¿Es legal tener un gato Savannah?",
+        "answer": "La legalidad varía según la ubicación.\n\n🇺🇸 EE.UU.:\n• Legal en la mayoría de estados sin restricciones\n• Algunos estados requieren permisos (Texas, Massachusetts)\n• Prohibido en Hawái, Georgia y algunas jurisdicciones locales\n• Las generaciones F1-F2 pueden tener restricciones adicionales\n\n🇪🇺 Europa:\n• En la mayoría de países de la UE es legal tener Savannahs F3-F5\n• F1-F2 pueden requerir permisos especiales en Alemania, Francia, Bélgica\n• En el Reino Unido, F1 requiere licencia DWA (Animales Salvajes Peligrosos)\n• Los países escandinavos tienen reglas más estrictas para generaciones tempranas\n\n🇷🇺 Rusia:\n• Legal poseer todas las generaciones de Savannah\n• Se recomienda registro con autoridades veterinarias\n• Se requieren documentos veterinarios para transporte entre regiones\n\n🌏 Asia:\n• Populares y legales en EAU y Qatar con registro\n• Legal en Japón, pero F1-F2 requieren notificación a autoridades\n• Singapur y Hong Kong pueden requerir permisos\n• Las reglas varían por provincia en China\n\nSiempre verifica las leyes locales antes de comprar. Proporcionamos orientación sobre legalidad en tu área."
+      },
+      "savannahLifespan": {
+        "question": "¿Cuánto viven los gatos Savannah?",
+        "answer": "Los gatos Savannah típicamente viven 12-20 años con cuidado adecuado. Su esperanza de vida es comparable o mayor que la mayoría de razas de gatos domésticos. Factores clave para la longevidad:\n\n• Nutrición de calidad\n• Cuidado veterinario regular\n• Estimulación mental y física\n• Ambiente interior seguro"
+      },
+      "savannahCare": {
+        "question": "¿Cómo se cuida un gato Savannah?",
+        "answer": "Los gatos Savannah requieren cuidados específicos:\n\n• Espacio grande con estructuras para escalar\n• Dieta de alta calidad rica en proteínas\n• Sesiones de juego interactivo diarias (1-2 horas)\n• Estimulación mental con juguetes de rompecabezas y entrenamiento\n• Aseo regular (cepillado semanal)\n• Espacio exterior seguro o paseos con correa\n• Chequeos veterinarios anuales\n\nProporcionamos guías de cuidado detalladas con cada compra."
+      },
+      "savannahDiet": {
+        "question": "¿Qué comen los gatos Savannah?",
+        "answer": "Los gatos Savannah prosperan con una dieta alta en proteínas:\n\n• Comida premium para gatos sin granos\n• Carne cruda (pollo, pavo, res)\n• Comida húmeda para hidratación\n• Evita alimentos con rellenos y granos\n\nLas generaciones F1 y F2 especialmente se benefician de dietas crudas debido a su conexión genética más cercana con gatos salvajes. Proporcionamos guías de alimentación detalladas con cada gatito."
+      },
+      "savannahOtherPets": {
+        "question": "¿Pueden los gatos Savannah vivir con otras mascotas?",
+        "answer": "Sí, con una introducción adecuada:\n\n• Mejor introducidos a otras mascotas siendo gatitos\n• Generalmente buenos con perros, especialmente si crecen juntos\n• Pueden dominar a gatos más pequeños debido a su tamaño\n• No recomendado con animales pequeños de presa (hámsters, pájaros)\n• La socialización temprana es clave\n\nNuestros gatitos están bien socializados antes de ir a sus nuevos hogares."
+      },
+      "savannahChildren": {
+        "question": "¿Son los gatos Savannah buenos con niños?",
+        "answer": "Los gatos Savannah pueden ser excelentes mascotas familiares:\n\n• Las generaciones posteriores (F3-F5) generalmente son mejores para familias con niños pequeños\n• F1-F2 son más adecuados para familias con niños mayores y respetuosos\n• Son juguetones y disfrutan juegos interactivos\n• Se recomienda supervisión con cualquier mascota y niños pequeños\n• Su alta energía combina bien con familias activas"
+      },
+      "buyingSavannah": {
+        "question": "¿Cómo compro un gato Savannah de SavannahMonarchy?",
+        "answer": "Nuestro proceso de compra:\n\n1. Explora nuestros gatitos disponibles en el catálogo\n2. Contáctanos para expresar interés y hacer preguntas\n3. Envía un depósito para reservar tu gatito\n4. Prepara tu hogar\n5. Recibe tu gatito con todos los documentos\n\nOfrecemos envío mundial con documentación adecuada y garantías de salud."
+      },
+      "savannahHealth": {
+        "question": "¿Qué garantías de salud proporcionan?",
+        "answer": "Todos nuestros gatos Savannah vienen con:\n\n• Examen veterinario de salud completo\n• Vacunas actualizadas\n• Tratamientos de prevención de parásitos\n• Documentación de garantía de salud\n• Soporte del criador de por vida\n\nRespaldamos la salud de cada gato que colocamos."
+      },
+      "savannahShipping": {
+        "question": "¿Envían gatos Savannah internacionalmente?",
+        "answer": "Sí, ofrecemos envío mundial:\n\n• Transporte de mascotas seguro con clima controlado\n• Todos los certificados de salud y documentación necesarios\n• Entrega puerta a puerta disponible\n• Garantía de llegada viva\n\nLos costos de envío están completamente cubiertos por nosotros."
+      },
+      "savannahDeposit": {
+        "question": "¿Cuánto es el depósito y es reembolsable?",
+        "answer": "Nuestra estructura de depósito:\n\n• Depósito: Típicamente 40-50% del precio total\n• Asegura tu gatito elegido\n• Se aplica al precio total de compra\n• No reembolsable si cambias de opinión\n\nAceptamos criptomonedas (USDT, TON, SOL) y métodos de pago tradicionales (efectivo)."
+      }
+    }
   }
 }

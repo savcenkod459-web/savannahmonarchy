@@ -788,5 +788,82 @@
     "Gentle": "Doux",
     "Harmonious": "Harmonieux",
     "Calmly Confident": "Calmement Confiant"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Réponses aux questions les plus courantes sur les chats Savannah, notre programme d'élevage et le processus d'achat",
+    "seo": {
+      "title": "FAQ sur les Chats Savannah - Questions sur les Chats F1 et F2 Savannah",
+      "description": "Obtenez des réponses aux questions fréquentes sur les chats Savannah. Découvrez les différences F1 vs F2, les prix, les soins, la légalité, la personnalité, l'alimentation et comment acheter un chat Savannah.",
+      "keywords": "FAQ chats Savannah, questions F1 Savannah, info F2 Savannah, prix chat Savannah, chats Savannah légaux, personnalité chat Savannah, soins chat Savannah, acheter chat Savannah"
+    },
+    "cta": {
+      "title": "Avez-vous encore des questions?",
+      "subtitle": "Notre équipe est prête à vous aider à trouver votre compagnon Savannah parfait",
+      "button": "Contactez-nous"
+    },
+    "items": {
+      "whatIsSavannah": {
+        "question": "Qu'est-ce qu'un chat Savannah?",
+        "answer": "Un chat Savannah est une race hybride créée en croisant un chat domestique avec un Serval africain. Ils sont connus pour leur pelage tacheté frappant, leur corps grand et élancé, leurs grandes oreilles et leur apparence sauvage combinée à un tempérament domestique. Les chats Savannah sont très intelligents, actifs et forment des liens forts avec leurs propriétaires."
+      },
+      "savannahPrice": {
+        "question": "Combien coûte un chat Savannah?",
+        "answer": "Les prix des chats Savannah varient considérablement selon la génération:\n\n• F1 Savannah: €10,000 - €25,000 (parfois jusqu'à €35,000+)\n• F2 Savannah: €7,500 - €15,000\n• F3 Savannah: €4,000 - €8,000\n• F4-F5 Savannah: €1,500 - €5,000\n\nLes prix dépendent du sexe (les mâles sont généralement plus chers), de la qualité du pelage et de la réputation de l'éleveur."
+      },
+      "f1VsF2": {
+        "question": "Quelle est la différence entre les chats Savannah F1 et F2?",
+        "answer": "Les chats Savannah F1 sont des hybrides de première génération (50% Serval) - ils sont les plus grands, les plus exotiques et les plus chers. Les chats Savannah F2 sont de deuxième génération (25% Serval) - légèrement plus petits mais conservent encore de nombreuses caractéristiques sauvages. Les F1 nécessitent des propriétaires plus expérimentés en raison de leurs instincts sauvages plus forts, tandis que les F2 sont souvent plus adaptables aux environnements domestiques typiques."
+      },
+      "savannahSize": {
+        "question": "Quelle taille atteignent les chats Savannah?",
+        "answer": "La taille des chats Savannah varie selon la génération:\n\n• Mâles F1: 7-11 kg, jusqu'à 43 cm de hauteur\n• Femelles F1: 6-9 kg\n• Mâles F2: 7-9 kg, 35-40 cm de hauteur\n• Femelles F2: 5-7 kg\n• Générations ultérieures (F3-F5): 4-7 kg\n\nIls font partie des chats domestiques les plus grands, avec de longues jambes et des corps élancés."
+      },
+      "savannahPersonality": {
+        "question": "Quelle est la personnalité d'un chat Savannah?",
+        "answer": "Les chats Savannah sont souvent décrits comme ayant un comportement 'semblable à un chien'. Ils sont:\n\n• Très intelligents et dressables\n• Extrêmement loyaux et créent des liens forts avec leurs propriétaires\n• Très actifs et joueurs, nécessitant beaucoup de stimulation\n• Curieux et aventuriers\n• Sociables et apprécient souvent l'eau\n• Peuvent apprendre à marcher en laisse et à jouer à rapporter\n\nIls nécessitent plus d'attention et d'interaction que les chats domestiques typiques."
+      },
+      "savannahLegal": {
+        "question": "Est-il légal de posséder un chat Savannah?",
+        "answer": "La légalité varie selon l'emplacement.\n\n🇺🇸 États-Unis:\n• Légal dans la plupart des États sans restrictions\n• Certains États exigent des permis (Texas, Massachusetts)\n• Interdit à Hawaï, en Géorgie et dans certaines juridictions locales\n• Les générations F1-F2 peuvent avoir des restrictions supplémentaires\n\n🇪🇺 Europe:\n• Dans la plupart des pays de l'UE, il est légal de posséder des Savannahs F3-F5\n• F1-F2 peuvent nécessiter des permis spéciaux en Allemagne, France, Belgique\n• Au Royaume-Uni, F1 nécessite une licence DWA (Animaux Sauvages Dangereux)\n• Les pays scandinaves ont des règles plus strictes pour les premières générations\n\n🇷🇺 Russie:\n• Légal de posséder toutes les générations de Savannah\n• Enregistrement auprès des autorités vétérinaires recommandé\n• Documents vétérinaires requis pour le transport entre régions\n\n🌏 Asie:\n• Populaires et légaux aux EAU et au Qatar avec enregistrement\n• Légal au Japon, mais F1-F2 nécessitent une notification aux autorités\n• Singapour et Hong Kong peuvent exiger des permis\n• Les règles varient par province en Chine\n\nVérifiez toujours les lois locales avant d'acheter. Nous fournissons des conseils sur la légalité dans votre région."
+      },
+      "savannahLifespan": {
+        "question": "Combien de temps vivent les chats Savannah?",
+        "answer": "Les chats Savannah vivent généralement 12-20 ans avec des soins appropriés. Leur durée de vie est comparable ou supérieure à la plupart des races de chats domestiques. Facteurs clés pour la longévité:\n\n• Nutrition de qualité\n• Soins vétérinaires réguliers\n• Stimulation mentale et physique\n• Environnement intérieur sûr"
+      },
+      "savannahCare": {
+        "question": "Comment prendre soin d'un chat Savannah?",
+        "answer": "Les chats Savannah nécessitent des soins spécifiques:\n\n• Grand espace de vie avec structures d'escalade\n• Alimentation de haute qualité riche en protéines\n• Séances de jeu interactif quotidiennes (1-2 heures)\n• Stimulation mentale par des jouets puzzles et l'entraînement\n• Toilettage régulier (brossage hebdomadaire)\n• Espace extérieur sécurisé ou promenades en laisse\n• Examens vétérinaires annuels\n\nNous fournissons des guides de soins détaillés avec chaque achat."
+      },
+      "savannahDiet": {
+        "question": "Que mangent les chats Savannah?",
+        "answer": "Les chats Savannah prospèrent avec une alimentation riche en protéines:\n\n• Nourriture premium pour chats sans céréales\n• Viande crue (poulet, dinde, bœuf)\n• Nourriture humide pour l'hydratation\n• Évitez les aliments avec des charges et des céréales\n\nLes générations F1 et F2 bénéficient particulièrement des régimes crus en raison de leur lien génétique plus proche avec les chats sauvages. Nous fournissons des directives d'alimentation détaillées avec chaque chaton."
+      },
+      "savannahOtherPets": {
+        "question": "Les chats Savannah peuvent-ils vivre avec d'autres animaux?",
+        "answer": "Oui, avec une introduction appropriée:\n\n• Mieux introduits aux autres animaux en tant que chatons\n• Généralement bons avec les chiens, surtout s'ils grandissent ensemble\n• Peuvent dominer les chats plus petits en raison de leur taille\n• Non recommandé avec les petits animaux proies (hamsters, oiseaux)\n• La socialisation précoce est essentielle\n\nNos chatons sont bien socialisés avant d'aller dans leurs nouveaux foyers."
+      },
+      "savannahChildren": {
+        "question": "Les chats Savannah sont-ils bons avec les enfants?",
+        "answer": "Les chats Savannah peuvent être d'excellents animaux de famille:\n\n• Les générations ultérieures (F3-F5) sont généralement meilleures pour les familles avec jeunes enfants\n• F1-F2 sont mieux adaptés aux familles avec des enfants plus âgés et respectueux\n• Ils sont joueurs et aiment les jeux interactifs\n• La supervision est recommandée avec tout animal et les jeunes enfants\n• Leur haute énergie correspond bien aux familles actives"
+      },
+      "buyingSavannah": {
+        "question": "Comment acheter un chat Savannah chez SavannahMonarchy?",
+        "answer": "Notre processus d'achat:\n\n1. Parcourez nos chatons disponibles dans le catalogue\n2. Contactez-nous pour exprimer votre intérêt et poser des questions\n3. Soumettez un acompte pour réserver votre chaton\n4. Préparez votre maison\n5. Recevez votre chaton avec tous les documents\n\nNous offrons une livraison mondiale avec documentation appropriée et garanties de santé."
+      },
+      "savannahHealth": {
+        "question": "Quelles garanties de santé fournissez-vous?",
+        "answer": "Tous nos chats Savannah viennent avec:\n\n• Examen vétérinaire de santé complet\n• Vaccinations à jour\n• Traitements de prévention des parasites\n• Documentation de garantie de santé\n• Support de l'éleveur à vie\n\nNous garantissons la santé de chaque chat que nous plaçons."
+      },
+      "savannahShipping": {
+        "question": "Expédiez-vous les chats Savannah internationalement?",
+        "answer": "Oui, nous offrons une livraison mondiale:\n\n• Transport d'animaux sécurisé à climat contrôlé\n• Tous les certificats de santé et documentation nécessaires\n• Livraison porte-à-porte disponible\n• Garantie d'arrivée vivante\n\nLes frais d'expédition sont entièrement couverts par nous."
+      },
+      "savannahDeposit": {
+        "question": "Quel est le montant de l'acompte et est-il remboursable?",
+        "answer": "Notre structure d'acompte:\n\n• Acompte: Généralement 40-50% du prix total\n• Sécurise votre chaton choisi\n• Appliqué au prix d'achat total\n• Non remboursable si vous changez d'avis\n\nNous acceptons les cryptomonnaies (USDT, TON, SOL) et les méthodes de paiement traditionnelles (espèces)."
+      }
+    }
   }
 }
