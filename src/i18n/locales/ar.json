@@ -135,6 +135,9 @@
     "copyLink": "نسخ الرابط",
     "linkCopied": "تم نسخ الرابط!",
     "linkCopiedDesc": "تم نسخ الرابط إلى الحافظة",
+    "pasteDiscord": "الصق في محادثة Discord",
+    "pasteInstagram": "الصق في قصة أو بيو Instagram",
+    "pasteTikTok": "الصق في بيو أو تعليق TikTok",
     "error": "خطأ",
     "errorDesc": "فشل في نسخ الرابط"
   },

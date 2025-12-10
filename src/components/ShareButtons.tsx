@@ -137,7 +137,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
     navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`);
     toast({
       title: t("share.linkCopied"),
-      description: "Paste in Discord chat",
+      description: t("share.pasteDiscord"),
     });
   };
 
@@ -145,7 +145,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
     navigator.clipboard.writeText(shareUrl);
     toast({
       title: t("share.linkCopied"),
-      description: "Paste in Instagram story or bio",
+      description: t("share.pasteInstagram"),
     });
   };
 
@@ -153,7 +153,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
     navigator.clipboard.writeText(shareUrl);
     toast({
       title: t("share.linkCopied"),
-      description: "Paste in TikTok bio or comment",
+      description: t("share.pasteTikTok"),
     });
   };
 
