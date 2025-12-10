@@ -129,6 +129,15 @@
     "subtitle": "Beginnen Sie Ihre Reise zum Besitz einer der exotischsten Katzenrassen der Welt",
     "button": "Kontaktieren Sie Uns"
   },
+  "share": {
+    "title": "Teilen",
+    "native": "Teilen...",
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert!",
+    "linkCopiedDesc": "Der Link wurde in die Zwischenablage kopiert",
+    "error": "Fehler",
+    "errorDesc": "Link konnte nicht kopiert werden"
+  },
   "footer": {
     "tagline": "Elite Savannah-Katzen der Premium-Klasse",
     "delivery": "Lieferung in viele Länder weltweit",

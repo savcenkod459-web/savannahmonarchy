@@ -129,6 +129,15 @@
     "subtitle": "开始拥有世界上最异国情调的猫科动物品种之一的旅程",
     "button": "联系我们"
   },
+  "share": {
+    "title": "分享",
+    "native": "分享...",
+    "copyLink": "复制链接",
+    "linkCopied": "链接已复制!",
+    "linkCopiedDesc": "链接已复制到剪贴板",
+    "error": "错误",
+    "errorDesc": "无法复制链接"
+  },
   "footer": {
     "tagline": "精英热带草原猫高级类别",
     "delivery": "全球多个国家配送",

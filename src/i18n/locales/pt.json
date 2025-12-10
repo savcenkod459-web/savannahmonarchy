@@ -130,6 +130,15 @@
     "subtitle": "Comece sua jornada conosco hoje. Nossa equipe especializada está pronta para ajudá-lo a encontrar o companheiro felino perfeito que trará alegria à sua vida.",
     "button": "Entre em Contato"
   },
+  "share": {
+    "title": "Compartilhar",
+    "native": "Compartilhar...",
+    "copyLink": "Copiar link",
+    "linkCopied": "Link copiado!",
+    "linkCopiedDesc": "O link foi copiado para a área de transferência",
+    "error": "Erro",
+    "errorDesc": "Não foi possível copiar o link"
+  },
   "footer": {
     "tagline": "Gatos Savannah de elite classe premium",
     "delivery": "Entrega para muitos países do mundo",
