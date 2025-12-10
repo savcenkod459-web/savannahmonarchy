@@ -20,9 +20,6 @@ const FinalCTA = () => {
             <h2 className="font-display leading-tight luxury-text-shadow text-stone-950 text-center text-3xl md:text-4xl lg:text-5xl mx-0 my-0 px-0 py-2 md:py-[10px] font-bold">
               {t('cta.title')}
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed font-light">
-              {t('cta.subtitle')}
-            </p>
             
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4">
               <Link to="/catalog">
