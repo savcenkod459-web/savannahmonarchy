@@ -143,7 +143,7 @@ const Footer = () => {
               <div className="flex items-center gap-2 pt-4">
                 <Share2 className="w-4 h-4 text-primary" />
                 <span className="text-sm text-muted-foreground">{t('share.title')}:</span>
-                <ShareButtons />
+                <ShareButtons direction="up" />
               </div>
             </div>
           </div>

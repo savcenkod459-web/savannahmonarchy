@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react";
 
 interface ShareButtonsProps {
   variant?: "inline" | "dropdown";
+  direction?: "up" | "down";
   className?: string;
 }
 
@@ -41,7 +42,7 @@ interface MenuItem {
   separator?: boolean;
 }
 
-const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProps) => {
+const ShareButtons = ({ variant = "dropdown", direction = "down", className = "" }: ShareButtonsProps) => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
@@ -204,12 +205,6 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
   };
 
   const menuItems: MenuItem[] = [
-    ...(typeof navigator.share === "function" ? [{
-      icon: <Share2 className="h-4 w-4" />,
-      label: t("share.native"),
-      onClick: nativeShare,
-      separator: true,
-    }] : []),
     { icon: <Twitter className="h-4 w-4" />, label: "Twitter / X", onClick: shareToTwitter },
     { icon: <Facebook className="h-4 w-4" />, label: "Facebook", onClick: shareToFacebook },
     { icon: <Instagram className="h-4 w-4" />, label: "Instagram", onClick: shareToInstagram, separator: true },
@@ -269,7 +264,9 @@ const ShareButtons = ({ variant = "dropdown", className = "" }: ShareButtonsProp
       {isOpen && (
         <div 
           ref={menuRef}
-          className="absolute right-0 top-full mt-2 w-48 bg-background border border-primary/20 rounded-md shadow-lg z-[9999] animate-scale-in overflow-hidden"
+          className={`absolute right-0 w-48 bg-background border border-primary/20 rounded-md shadow-lg z-[9999] animate-scale-in overflow-hidden ${
+            direction === "up" ? "bottom-full mb-2" : "top-full mt-2"
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="py-1 max-h-80 overflow-y-auto">
