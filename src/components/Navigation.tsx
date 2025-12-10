@@ -303,7 +303,6 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-2">
               <LanguageSelector />
               <ThemeToggle />
-              <ShareButtons />
             </div>
 
             {user ? (
@@ -350,6 +349,10 @@ const Navigation = () => {
                 {t("auth.signin.button")}
               </Button>
             )}
+
+            <div className="hidden md:block">
+              <ShareButtons />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
