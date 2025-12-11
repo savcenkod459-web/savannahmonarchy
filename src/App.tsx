@@ -11,29 +11,40 @@ import { AdminTranslationWrapper } from "./components/AdminTranslationWrapper";
 import Preloader from "./components/Preloader";
 import { GalleryProvider } from "./contexts/GalleryContext";
 
-// Lazy load эффектов для улучшения производительности
+// Lazy load для улучшения производительности
 const MobileFloatingButtons = lazy(() => import("./components/MobileFloatingButtons"));
+const ScrollToTopOnRouteChange = lazy(() => import("./components/ScrollToTopOnRouteChange"));
+
+// Главная страница загружается сразу для быстрого LCP
 import Index from "./pages/Index";
-import About from "./pages/About";
-import Catalog from "./pages/Catalog";
-import Breeders from "./pages/Breeders";
-import Guide from "./pages/Guide";
-import Payment from "./pages/Payment";
-import Warranty from "./pages/Warranty";
-import Contact from "./pages/Contact";
-import AdminCats from "./pages/AdminCats";
-import AdminPedigree from "./pages/AdminPedigree";
-import AdminImages from "./pages/AdminImages";
-import AdminMessages from "./pages/AdminMessages";
-import AdminTranslations from "./pages/AdminTranslations";
-import Pedigree from "./pages/Pedigree";
-import Profile from "./pages/Profile";
-import Auth from "./pages/Auth";
-import ResetPassword from "./pages/ResetPassword";
-import UpdatePassword from "./pages/UpdatePassword";
-import FAQ from "./pages/FAQ";
-import NotFound from "./pages/NotFound";
-import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
+
+// Остальные страницы lazy load для уменьшения начального bundle
+const About = lazy(() => import("./pages/About"));
+const Catalog = lazy(() => import("./pages/Catalog"));
+const Breeders = lazy(() => import("./pages/Breeders"));
+const Guide = lazy(() => import("./pages/Guide"));
+const Payment = lazy(() => import("./pages/Payment"));
+const Warranty = lazy(() => import("./pages/Warranty"));
+const Contact = lazy(() => import("./pages/Contact"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Auth = lazy(() => import("./pages/Auth"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const UpdatePassword = lazy(() => import("./pages/UpdatePassword"));
+const Profile = lazy(() => import("./pages/Profile"));
+const Pedigree = lazy(() => import("./pages/Pedigree"));
+const AdminCats = lazy(() => import("./pages/AdminCats"));
+const AdminPedigree = lazy(() => import("./pages/AdminPedigree"));
+const AdminImages = lazy(() => import("./pages/AdminImages"));
+const AdminMessages = lazy(() => import("./pages/AdminMessages"));
+const AdminTranslations = lazy(() => import("./pages/AdminTranslations"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Компонент для отображения загрузки страниц
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 // Оптимизированная конфигурация QueryClient для максимального кэширования
 const queryClient = new QueryClient({
@@ -73,36 +84,40 @@ const AppContent = () => {
       </Suspense>
       <BrowserRouter>
         <GalleryProvider>
-        <ScrollToTopOnRouteChange />
+        <Suspense fallback={null}>
+          <ScrollToTopOnRouteChange />
+        </Suspense>
         <AdminTranslationWrapper>
           <div 
             className={`transition-opacity duration-1000 ${
               isContentVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/breeders" element={<Breeders />} />
-          <Route path="/guide" element={<Guide />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/warranty" element={<Warranty />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/update-password" element={<UpdatePassword />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/pedigree/:catId" element={<Pedigree />} />
-          <Route path="/admin/cats" element={<AdminCats />} />
-          <Route path="/admin/pedigree" element={<AdminPedigree />} />
-          <Route path="/admin/images" element={<AdminImages />} />
-          <Route path="/admin/messages" element={<AdminMessages />} />
-          <Route path="/admin/translations" element={<AdminTranslations />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/catalog" element={<Catalog />} />
+                <Route path="/breeders" element={<Breeders />} />
+                <Route path="/guide" element={<Guide />} />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/warranty" element={<Warranty />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/update-password" element={<UpdatePassword />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/pedigree/:catId" element={<Pedigree />} />
+                <Route path="/admin/cats" element={<AdminCats />} />
+                <Route path="/admin/pedigree" element={<AdminPedigree />} />
+                <Route path="/admin/images" element={<AdminImages />} />
+                <Route path="/admin/messages" element={<AdminMessages />} />
+                <Route path="/admin/translations" element={<AdminTranslations />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </div>
         </AdminTranslationWrapper>
         </GalleryProvider>
