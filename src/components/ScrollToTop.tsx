@@ -50,7 +50,7 @@ const ScrollToTop = memo(() => {
   return (
     <button
       onClick={scrollToTop}
-      className="group fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground cursor-pointer border border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 active:translate-y-0"
+      className="group fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] hidden md:flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground cursor-pointer border border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 active:translate-y-0"
       aria-label="Scroll to top"
       style={{
         position: 'fixed',
