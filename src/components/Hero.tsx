@@ -86,12 +86,12 @@ const Hero = () => {
             </div>
             
             {/* Floating Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold micro-interaction hover:scale-105 mx-0 my-[20px] px-[30px] py-[20px]" style={{
+            <div className="absolute -bottom-6 left-0 sm:-left-6 bg-gradient-to-br from-primary via-accent to-primary text-luxury-black rounded-2xl shadow-gold micro-interaction hover:scale-105 mx-0 my-[20px] px-[20px] sm:px-[30px] py-[15px] sm:py-[20px]" style={{
             boxShadow: '0 0 60px 20px rgba(217, 179, 112, 0.6), 0 0 100px 40px rgba(217, 179, 112, 0.4), 0 0 140px 60px rgba(217, 179, 112, 0.2)',
             animation: 'gold-pulse-slow 0.9s ease-in-out infinite'
           }}>
-              <p className="text-sm font-bold opacity-90 tracking-wider uppercase">{t('breeds.f1.name')}</p>
-              <p className="text-3xl font-display font-black luxury-text-shadow">{t('hero.premiumClass')}</p>
+              <p className="text-xs sm:text-sm font-bold opacity-90 tracking-wider uppercase">{t('breeds.f1.name')}</p>
+              <p className="text-2xl sm:text-3xl font-display font-black luxury-text-shadow">{t('hero.premiumClass')}</p>
             </div>
           </div>
         </div>

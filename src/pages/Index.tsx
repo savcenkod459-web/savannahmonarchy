@@ -14,7 +14,7 @@ import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <SEOHead
         titleKey="seo.index.title"
         descriptionKey="seo.index.description"
