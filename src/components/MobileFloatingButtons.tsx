@@ -26,6 +26,8 @@ const MobileFloatingButtons = () => {
   const { i18n, t } = useTranslation();
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [shouldRenderScrollTop, setShouldRenderScrollTop] = useState(false);
+  const [isScrollTopLeaving, setIsScrollTopLeaving] = useState(false);
   
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
@@ -34,15 +36,35 @@ const MobileFloatingButtons = () => {
     setTheme(isDark ? "dark" : "light");
   }, []);
 
-  // Scroll to top visibility
+  // Scroll to top visibility with fade in/out
   useEffect(() => {
+    let timeoutId: number;
+    
     const toggleVisibility = () => {
-      setShowScrollTop(window.scrollY > 300);
+      const shouldShow = window.scrollY > 300;
+      
+      if (shouldShow && !showScrollTop) {
+        setIsScrollTopLeaving(false);
+        setShouldRenderScrollTop(true);
+        requestAnimationFrame(() => {
+          setShowScrollTop(true);
+        });
+      } else if (!shouldShow && showScrollTop) {
+        setIsScrollTopLeaving(true);
+        setShowScrollTop(false);
+        timeoutId = window.setTimeout(() => {
+          setShouldRenderScrollTop(false);
+          setIsScrollTopLeaving(false);
+        }, 300);
+      }
     };
     
     window.addEventListener("scroll", toggleVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [showScrollTop]);
 
   const scrollToTop = useCallback(() => {
     window.scrollTo({
@@ -115,10 +137,12 @@ const MobileFloatingButtons = () => {
       </div>
 
       {/* Scroll to top button */}
-      {showScrollTop && (
+      {shouldRenderScrollTop && (
         <div 
           onClick={scrollToTop}
-          className="bg-primary rounded-full p-2 shadow-glow border border-primary/30 cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] hover:translate-y-[-2px] active:scale-95 active:translate-y-0 flex items-center justify-center animate-fade-in"
+          className={`bg-primary rounded-full p-2 border border-primary/30 cursor-pointer flex items-center justify-center transition-opacity duration-300 ${
+            showScrollTop && !isScrollTopLeaving ? 'opacity-100' : 'opacity-0'
+          }`}
           style={{
             boxShadow: '0 0 20px hsl(43 96% 56% / 0.4)',
           }}
