@@ -1,7 +1,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Globe, Moon, Sun } from "lucide-react";
+import { Globe, Moon, Sun, ArrowUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,12 +25,30 @@ const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
   const { i18n, t } = useTranslation();
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [showScrollTop, setShowScrollTop] = useState(false);
   
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  // Scroll to top visibility
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }, []);
 
   const changeLanguage = async (code: string) => {
@@ -95,6 +113,20 @@ const MobileFloatingButtons = () => {
           <Sun className="h-4 w-4 text-foreground" />
         )}
       </div>
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <div 
+          onClick={scrollToTop}
+          className="bg-primary rounded-full p-2 shadow-glow border border-primary/30 cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] hover:translate-y-[-2px] active:scale-95 active:translate-y-0 flex items-center justify-center animate-fade-in"
+          style={{
+            boxShadow: '0 0 20px hsl(43 96% 56% / 0.4)',
+          }}
+          title={t("scrollToTop", "Наверх")}
+        >
+          <ArrowUp className="h-4 w-4 text-primary-foreground" />
+        </div>
+      )}
     </div>
   );
 };

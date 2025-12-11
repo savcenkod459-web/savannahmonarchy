@@ -1,12 +1,14 @@
 import { useState, useEffect, useCallback, memo } from "react";
 import { ArrowUp } from "lucide-react";
 import { useGallery } from "@/contexts/GalleryContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ScrollToTop = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
   const { isGalleryOpen } = useGallery();
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     let timeoutId: number;
@@ -44,13 +46,13 @@ const ScrollToTop = memo(() => {
     });
   }, []);
   
-  // Hide when gallery is open
-  if (!shouldRender || isGalleryOpen) return null;
+  // Hide when gallery is open OR on mobile (mobile uses MobileFloatingButtons)
+  if (!shouldRender || isGalleryOpen || isMobile) return null;
   
   return (
     <button
       onClick={scrollToTop}
-      className="group fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground cursor-pointer border border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 active:translate-y-0"
+      className="group fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground cursor-pointer border border-primary/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 active:translate-y-0"
       aria-label="Scroll to top"
       style={{
         position: 'fixed',
@@ -61,7 +63,7 @@ const ScrollToTop = memo(() => {
         contain: 'layout style paint'
       }}
     >
-      <ArrowUp className="h-4 w-4 md:h-5 md:w-5 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 group-active:scale-90" />
+      <ArrowUp className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 group-active:scale-90" />
     </button>
   );
 });
