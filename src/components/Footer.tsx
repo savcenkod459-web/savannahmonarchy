@@ -125,7 +125,7 @@ const Footer = () => {
                 Email: <button onClick={copyEmail} className="text-primary hover:text-primary/80 transition-all duration-300 cursor-pointer font-normal hover:-translate-y-0.5 micro-interaction outline-none focus:outline-none dark:hover:[text-shadow:0_0_20px_hsl(43_96%_56%/0.8),0_0_40px_hsl(43_96%_56%/0.5)]">savannahmonarchy@gmail.com</button>
               </p>
               
-              <div className="flex gap-4 pt-2 justify-center">
+              <div className="flex gap-4 pt-2">
                 <a href="https://www.instagram.com/savannahmonarchy?igsh=MWU0bjBvNWF1MmxlMA==" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
                   <Instagram className="h-5 w-5" />
                 </a>
@@ -139,8 +139,8 @@ const Footer = () => {
                 </a>
               </div>
               
-              {/* Share Button - centered below social icons */}
-              <div className="flex justify-center pt-4">
+              {/* Share Button - aligned with social icons */}
+              <div className="flex pt-4 pl-1">
                 <ShareButtons direction="up" iconSize={40} />
               </div>
             </div>
