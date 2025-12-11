@@ -1,7 +1,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Globe, Moon, Sun, ArrowUp } from "lucide-react";
+import { Globe, Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,52 +25,12 @@ const MobileFloatingButtons = () => {
   const isMobile = useIsMobile();
   const { i18n, t } = useTranslation();
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [shouldRenderScrollTop, setShouldRenderScrollTop] = useState(false);
-  const [isScrollTopLeaving, setIsScrollTopLeaving] = useState(false);
   
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
     setTheme(isDark ? "dark" : "light");
-  }, []);
-
-  // Scroll to top visibility with fade in/out
-  useEffect(() => {
-    let timeoutId: number;
-    
-    const toggleVisibility = () => {
-      const shouldShow = window.scrollY > 300;
-      
-      if (shouldShow && !showScrollTop) {
-        setIsScrollTopLeaving(false);
-        setShouldRenderScrollTop(true);
-        requestAnimationFrame(() => {
-          setShowScrollTop(true);
-        });
-      } else if (!shouldShow && showScrollTop) {
-        setIsScrollTopLeaving(true);
-        setShowScrollTop(false);
-        timeoutId = window.setTimeout(() => {
-          setShouldRenderScrollTop(false);
-          setIsScrollTopLeaving(false);
-        }, 300);
-      }
-    };
-    
-    window.addEventListener("scroll", toggleVisibility, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [showScrollTop]);
-
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
   }, []);
 
   const changeLanguage = async (code: string) => {
@@ -135,22 +95,6 @@ const MobileFloatingButtons = () => {
           <Sun className="h-4 w-4 text-foreground" />
         )}
       </div>
-
-      {/* Scroll to top button */}
-      {shouldRenderScrollTop && (
-        <div 
-          onClick={scrollToTop}
-          className={`bg-primary rounded-full p-2 border border-primary/30 cursor-pointer flex items-center justify-center transition-opacity duration-300 ${
-            showScrollTop && !isScrollTopLeaving ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            boxShadow: '0 0 20px hsl(43 96% 56% / 0.4)',
-          }}
-          title={t("scrollToTop", "Наверх")}
-        >
-          <ArrowUp className="h-4 w-4 text-primary-foreground" />
-        </div>
-      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LazyImage } from "./LazyImage";
+import { OptimizedImage } from "./OptimizedImage";
 import { useTranslation } from "react-i18next";
 import SMLogoSVG from "./SMLogoSVG";
 
@@ -71,10 +71,11 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
           )}
           
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-3xl bg-muted transition-all duration-500 border-2 border-primary/60 border-b-0">
-            <LazyImage
+            <OptimizedImage
               src={cat.image}
               alt={cat.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              lowQualitySrc={cat.image}
             />
 
             {/* Gradient overlay on hover */}
