@@ -266,7 +266,7 @@ const ShareButtons = ({ variant = "dropdown", direction = "down", className = ""
       {isOpen && (
         <div 
           ref={menuRef}
-          className={`absolute right-0 w-48 bg-background border border-primary/20 rounded-md shadow-lg z-[9999] animate-scale-in overflow-hidden ${
+          className={`absolute left-0 sm:left-auto sm:right-0 w-48 bg-background border border-primary/20 rounded-md shadow-lg z-[9999] animate-scale-in overflow-hidden ${
             direction === "up" ? "bottom-full mb-2" : "top-full mt-2"
           }`}
           onClick={(e) => e.stopPropagation()}
