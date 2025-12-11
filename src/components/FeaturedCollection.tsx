@@ -11,6 +11,7 @@ import savannah1 from "@/assets/savannah-f1-1.jpg";
 import savannah2 from "@/assets/savannah-f2-1.jpg";
 import kitten from "@/assets/savannah-kitten-1.jpg";
 import SMLogoSVG from "./SMLogoSVG";
+import { LazyImage } from "./LazyImage";
 type Cat = {
   id: string;
   name: string;
@@ -119,12 +120,10 @@ const FeaturedCollection = () => {
                     e.stopPropagation();
                     openGallery(cat.image, cat.additional_images);
                   }}>
-                    <img 
+                    <LazyImage 
                       src={cat.image} 
                       alt={cat.name} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                      loading="lazy"
-                      decoding="async"
                     />
                     
                     {/* Gradient overlay on hover - softer colors */}
