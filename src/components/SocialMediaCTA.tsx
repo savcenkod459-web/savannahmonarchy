@@ -1,10 +1,13 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { Play, Camera, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const SocialMediaCTA = () => {
   const { t } = useTranslation();
+
+  const handleClick = () => {
+    window.location.href = '/contact#follow-us';
+  };
 
   return (
     <section className="py-16 relative overflow-hidden">
@@ -36,15 +39,14 @@ const SocialMediaCTA = () => {
           </p>
 
           {/* Button */}
-          <Link to="/contact#follow-us">
-            <Button 
-              size="lg"
-              className="mt-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-105"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              {t('socialCTA.button')}
-            </Button>
-          </Link>
+          <Button 
+            size="lg"
+            onClick={handleClick}
+            className="mt-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-105"
+          >
+            <Play className="w-5 h-5 mr-2" />
+            {t('socialCTA.button')}
+          </Button>
         </div>
       </div>
     </section>
