@@ -12,9 +12,13 @@ const SocialMediaCTA = () => {
     setTimeout(() => {
       const element = document.getElementById('follow-us');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY - 120;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
-    }, 100);
+    }, 150);
   };
 
   return (
