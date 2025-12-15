@@ -390,7 +390,7 @@ const Contact = () => {
                   </div>
 
                   {/* Social Media */}
-                  <div className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500">
+                  <div id="follow-us" className="p-8 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 scroll-mt-24">
                     <div className="flex items-center gap-3 mb-4">
                       <Star className="w-5 h-5 text-primary animate-pulse" />
                       <h3 className="font-display font-bold text-2xl luxury-text-shadow">Подписывайтесь на нас</h3>
