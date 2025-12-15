@@ -939,5 +939,10 @@
       "description": "View pedigree documentation for our Savannah cats. African Serval ancestry, champion bloodlines, TICA registration. Full genetic history available.",
       "keywords": "Savannah pedigree, Savannah ancestry, African Serval bloodline, TICA registered Savannah"
     }
+  },
+  "socialCTA": {
+    "title": "Exclusive Behind-the-Scenes Content",
+    "subtitle": "Follow our social media to see the daily life of our magnificent Savannahs, new arrivals, and unique moments from our elite cattery",
+    "button": "Follow Us"
   }
 }

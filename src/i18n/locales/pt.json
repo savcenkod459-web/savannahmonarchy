@@ -907,5 +907,10 @@
     "payment": { "title": "Métodos de Pagamento - Comprar Savannah", "description": "Opções seguras de pagamento. Criptomoeda e dinheiro aceitos. Depósito 40-50%.", "keywords": "pagamento Savannah, comprar Savannah cripto" },
     "warranty": { "title": "Garantia de Saúde - Gato Savannah", "description": "Garantia de saúde completa para todos os gatos Savannah.", "keywords": "garantia Savannah, garantia saúde" },
     "pedigree": { "title": "Pedigree Gato Savannah - Linhagens Campeãs", "description": "Documentação de pedigree. Ancestralidade Serval Africano, registro TICA.", "keywords": "pedigree Savannah, TICA Savannah" }
+  },
+  "socialCTA": {
+    "title": "Conteúdo Exclusivo dos Bastidores",
+    "subtitle": "Siga nossas redes sociais para ver a vida diária dos nossos magníficos Savannahs, novidades e momentos únicos do nosso criadouro de elite",
+    "button": "Seguir"
   }
 }

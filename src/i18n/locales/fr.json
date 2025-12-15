@@ -929,5 +929,10 @@
       "description": "Documentation pedigree pour nos chats Savannah. Ascendance Serval Africain, lignées de champions, enregistrement TICA. Histoire génétique complète.",
       "keywords": "pedigree Savannah, ascendance Savannah, lignée Serval Africain, Savannah enregistré TICA"
     }
+  },
+  "socialCTA": {
+    "title": "Contenu Exclusif des Coulisses",
+    "subtitle": "Suivez nos réseaux sociaux pour voir la vie quotidienne de nos magnifiques Savannahs, les nouvelles arrivées et les moments uniques de notre élevage d'élite",
+    "button": "Nous Suivre"
   }
 }
