@@ -163,14 +163,16 @@ const CatCardComponent = ({ cat, onCardClick, animationDelay = 0, onHover }: Cat
                     {t('catCard.heritage')}
                   </Button>
                 </Link>
-                <Link to="/payment#booking" onClick={(e) => e.stopPropagation()} className="flex-1">
-                  <Button
-                    size="sm"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(217,179,112,0.7)] hover:-translate-y-1 transition-all duration-300 py-[20px]"
-                  >
-                    {t('catCard.book')}
-                  </Button>
-                </Link>
+                <Button
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = '/payment#booking';
+                  }}
+                  className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(217,179,112,0.7)] hover:-translate-y-1 transition-all duration-300 py-[20px]"
+                >
+                  {t('catCard.book')}
+                </Button>
               </div>
             </div>
           </div>
