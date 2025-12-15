@@ -64,6 +64,18 @@ const Contact = () => {
   // Подключаем кастомную валидацию с переводами
   useFormValidation();
 
+  // Handle hash anchor on page load
+  useEffect(() => {
+    if (window.location.hash === '#follow-us') {
+      setTimeout(() => {
+        const element = document.getElementById('follow-us');
+        if (element) {
+          element.scrollIntoView({ block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+
   useEffect(() => {
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
