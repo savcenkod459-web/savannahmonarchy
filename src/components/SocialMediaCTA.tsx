@@ -7,18 +7,39 @@ const SocialMediaCTA = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const smoothScrollTo = (targetY: number, duration: number = 1200) => {
+    const startY = window.scrollY;
+    const difference = targetY - startY;
+    const startTime = performance.now();
+
+    const easeInOutCubic = (t: number) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startY + difference * easeProgress);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   const handleClick = () => {
     navigate('/contact');
     setTimeout(() => {
       const element = document.getElementById('follow-us');
       if (element) {
-        const targetPosition = element.getBoundingClientRect().top + window.scrollY - 120;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY - 160;
+        smoothScrollTo(targetPosition, 1000);
       }
-    }, 150);
+    }, 200);
   };
 
   return (
