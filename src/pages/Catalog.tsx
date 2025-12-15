@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 import SEOHead from "@/components/SEOHead";
+import SocialMediaCTA from "@/components/SocialMediaCTA";
 import { useState, useEffect, memo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Crown, Sparkles, Diamond, Loader2 } from "lucide-react";
@@ -257,6 +258,11 @@ const Catalog = () => {
               )}
             </div>
           </section>
+        </ScrollAnimationWrapper>
+
+        {/* Social Media CTA */}
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <SocialMediaCTA />
         </ScrollAnimationWrapper>
       </main>
       

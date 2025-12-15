@@ -933,5 +933,10 @@
     "payment": { "title": "付款方式 - 安全购买萨凡纳", "description": "安全付款选项。接受加密货币和现金。40-50% 定金。", "keywords": "萨凡纳付款、加密货币购买萨凡纳" },
     "warranty": { "title": "健康保证 - 萨凡纳猫", "description": "所有萨凡纳猫的全面健康保证。", "keywords": "萨凡纳保证、健康保证" },
     "pedigree": { "title": "萨凡纳猫血统 - 冠军血统", "description": "血统文档。非洲薮猫血统、TICA 注册。", "keywords": "萨凡纳血统、TICA萨凡纳" }
+  },
+  "socialCTA": {
+    "title": "独家幕后内容",
+    "subtitle": "关注我们的社交媒体，观看我们华丽萨凡纳的日常生活、新成员和精英猫舍的独特时刻",
+    "button": "关注我们"
   }
 }

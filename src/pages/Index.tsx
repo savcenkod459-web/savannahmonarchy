@@ -7,6 +7,7 @@ import PricingSection from "@/components/PricingSection";
 import FeaturedCollection from "@/components/FeaturedCollection";
 import PaymentMethods from "@/components/PaymentMethods";
 import FinalCTA from "@/components/FinalCTA";
+import SocialMediaCTA from "@/components/SocialMediaCTA";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
@@ -32,6 +33,9 @@ const Index = () => {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper animation="fade" delay={100}>
           <FeaturedCollection />
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper animation="fade" delay={100}>
+          <SocialMediaCTA />
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper animation="fade" delay={150}>
           <RaritySection />
