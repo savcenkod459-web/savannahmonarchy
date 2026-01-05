@@ -11,11 +11,6 @@ const PaymentMethods = () => {
     title: t('paymentMethods.crypto.title'),
     subtitle: t('paymentMethods.crypto.subtitle'),
     features: [t('paymentMethods.crypto.feature1'), t('paymentMethods.crypto.feature2'), t('paymentMethods.crypto.feature3')]
-  }, {
-    icon: Banknote,
-    title: t('paymentMethods.cash.title'),
-    subtitle: t('paymentMethods.cash.subtitle'),
-    features: [t('paymentMethods.cash.feature1'), t('paymentMethods.cash.feature2'), t('paymentMethods.cash.feature3')]
   }];
   const securityFeatures = [{
     icon: Landmark,
@@ -46,14 +41,10 @@ const PaymentMethods = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-12 md:mb-20 max-w-4xl mx-auto">
+        <div className="flex justify-center mb-12 md:mb-20">
           {paymentMethods.map((method, index) => <div key={index} onClick={() => {
-          if (index === 0) {
-            navigate("/payment?tab=crypto");
-          } else if (index === 1) {
-            navigate("/payment?tab=cash");
-          }
-        }} className={`p-6 md:p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer`} style={{
+          navigate("/payment?tab=crypto");
+        }} className={`p-6 md:p-10 glass-card rounded-3xl shadow-soft hover:shadow-elegant transition-all duration-500 hover-lift hover-scale animate-scale-in micro-interaction cursor-pointer max-w-lg w-full`} style={{
           animationDelay: `${index * 100}ms`
         }}>
               <div className="mb-6 inline-flex p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 shadow-soft">
