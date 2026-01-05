@@ -402,7 +402,18 @@
     "supportTitle": "Support 24/7",
     "supportDesc": "Assistance 24 heures sur 24",
     "copied": "Copié",
-    "copiedDescription": "Adresse copiée dans le presse-papiers"
+    "copiedDescription": "Adresse copiée dans le presse-papiers",
+    "supportSection": {
+      "title": "Support et Garanties",
+      "support": "Service Client",
+      "supportDesc": "24/7 via nos contacts",
+      "healthGuarantee": "Garantie Santé",
+      "healthGuaranteeDesc": "7 jours à partir de l'achat",
+      "documents": "Documents",
+      "documentsDesc": "Pedigree, passeport vétérinaire",
+      "delivery": "Livraison",
+      "deliveryDesc": "Mondiale avec documents"
+    }
   },
   "pedigree": {
     "title": "Pedigree",

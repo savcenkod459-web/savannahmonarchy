@@ -403,7 +403,18 @@
     "supportTitle": "Soporte 24/7",
     "supportDesc": "Asistencia las 24 horas",
     "copied": "Copiado",
-    "copiedDescription": "Dirección copiada al portapapeles"
+    "copiedDescription": "Dirección copiada al portapapeles",
+    "supportSection": {
+      "title": "Soporte y Garantías",
+      "support": "Servicio de Soporte",
+      "supportDesc": "24/7 a través de nuestros contactos",
+      "healthGuarantee": "Garantía de Salud",
+      "healthGuaranteeDesc": "7 días desde la compra",
+      "documents": "Documentos",
+      "documentsDesc": "Pedigrí, pasaporte veterinario",
+      "delivery": "Entrega",
+      "deliveryDesc": "Mundial con documentos"
+    }
   },
   "pedigree": {
     "title": "Pedigrí",

@@ -443,7 +443,18 @@
     "supportTitle": "Suporte 24/7",
     "supportDesc": "Assistência 24 horas",
     "copied": "Copiado",
-    "copiedDescription": "Endereço copiado para a área de transferência"
+    "copiedDescription": "Endereço copiado para a área de transferência",
+    "supportSection": {
+      "title": "Suporte e Garantias",
+      "support": "Serviço de Suporte",
+      "supportDesc": "24/7 através dos nossos contatos",
+      "healthGuarantee": "Garantia de Saúde",
+      "healthGuaranteeDesc": "7 dias a partir da compra",
+      "documents": "Documentos",
+      "documentsDesc": "Pedigree, passaporte veterinário",
+      "delivery": "Entrega",
+      "deliveryDesc": "Mundial com documentos"
+    }
   },
   "pedigree": {
     "title": "Pedigree",
