@@ -875,7 +875,7 @@
       },
       "savannahDeposit": {
         "question": "¿Cuánto es el depósito y es reembolsable?",
-        "answer": "Nuestra estructura de depósito:\n\n• Depósito: Típicamente 40-50% del precio total\n• Asegura tu gatito elegido\n• Se aplica al precio total de compra\n• No reembolsable si cambias de opinión\n\nAceptamos criptomonedas (USDT, TON, SOL) y métodos de pago tradicionales (efectivo)."
+        "answer": "Nuestra estructura de depósito:\n\n• Depósito: 50% del precio total\n• Asegura tu gatito elegido\n• Se aplica al precio total de compra\n• No reembolsable si cambias de opinión\n\nAceptamos criptomonedas (USDT, TON, SOL)."
       }
     }
   },
@@ -917,7 +917,7 @@
     },
     "payment": {
       "title": "Métodos de Pago - Comprar Savannah de Forma Segura",
-      "description": "Opciones de pago seguras para comprar gatos Savannah. Criptomoneda (USDT, TON, SOL) y efectivo aceptados. Depósito 40-50%, planes de pago flexibles.",
+      "description": "Opciones de pago seguras para comprar gatos Savannah. Criptomoneda (USDT, TON, SOL) aceptada. Depósito 50%, planes de pago flexibles.",
       "keywords": "pago gato Savannah, comprar Savannah cripto, depósito Savannah, compra gato exótico"
     },
     "warranty": {

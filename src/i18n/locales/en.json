@@ -884,7 +884,7 @@
       },
       "savannahDeposit": {
         "question": "How much is the deposit and is it refundable?",
-        "answer": "Our deposit structure:\n\n• Deposit: Typically 40-50% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n\nWe accept cryptocurrency (USDT, TON, SOL) and traditional payment methods (cash)."
+        "answer": "Our deposit structure:\n\n• Deposit: 50% of the total price\n• Secures your chosen kitten\n• Applied toward the full purchase price\n• Non-refundable if you change your mind\n\nWe accept cryptocurrency (USDT, TON, SOL)."
       }
     }
   },
@@ -926,7 +926,7 @@
     },
     "payment": {
       "title": "Payment Methods - Buy Savannah Cat Securely",
-      "description": "Secure payment options for purchasing Savannah cats. We accept cryptocurrency (USDT, TON, SOL) and cash. 40-50% deposit, flexible payment plans available.",
+      "description": "Secure payment options for purchasing Savannah cats. We accept cryptocurrency (USDT, TON, SOL). 50% deposit, flexible payment plans available.",
       "keywords": "Savannah cat payment, buy Savannah crypto, Savannah deposit, exotic cat purchase"
     },
     "warranty": {
