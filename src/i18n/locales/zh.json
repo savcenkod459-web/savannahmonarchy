@@ -621,12 +621,12 @@
     },
     "securityTitle": "您的支付安全",
     "bankLevel": {
-      "title": "银行级安全",
+      "title": "可靠的安全级别",
       "description": "256位SSL加密保护所有交易"
     },
     "dataProtection": {
       "title": "数据保护",
-      "description": "卡数据永远不会存储在我们的服务器上"
+      "description": "您的数据永远不会存储在我们的服务器上"
     },
     "privacy": {
       "title": "隐私",

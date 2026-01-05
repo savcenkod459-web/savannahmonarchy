@@ -582,12 +582,12 @@
     },
     "securityTitle": "Seguridad de Su Pago",
     "bankLevel": {
-      "title": "Seguridad de nivel bancario",
+      "title": "Nivel de seguridad confiable",
       "description": "El cifrado SSL de 256 bits protege todas las transacciones"
     },
     "dataProtection": {
       "title": "Protección de Datos",
-      "description": "Los datos de la tarjeta nunca se almacenan en nuestros servidores"
+      "description": "Sus datos nunca se almacenan en nuestros servidores"
     },
     "privacy": {
       "title": "Privacidad",
