@@ -166,6 +166,22 @@ const Payment = () => {
                   </p>
                   </div>
                 </div>
+
+                {/* International Delivery Info */}
+                <div className="p-6 md:p-8 bg-gradient-to-br from-card to-secondary/50 rounded-3xl shadow-soft ring-2 ring-primary/20 hover:ring-primary/40 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2.5 bg-gradient-to-br from-primary/20 to-accent/10 rounded-xl">
+                      <Plane className="h-6 w-6 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-bold luxury-text-shadow">{t('payment.internationalDelivery.title')}</h4>
+                  </div>
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                    <p>{t('payment.internationalDelivery.intro')}</p>
+                    <p>{t('payment.internationalDelivery.courier')}</p>
+                    <p>{t('payment.internationalDelivery.paymentTerms')}</p>
+                    <p className="text-foreground font-medium">{t('payment.internationalDelivery.guarantee')}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

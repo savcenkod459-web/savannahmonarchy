@@ -419,6 +419,13 @@
       "privacyDesc": "Vos données ne sont pas enregistrées",
       "guarantee": "Garantie",
       "guaranteeDesc": "7 jours à partir de l'achat"
+    },
+    "internationalDelivery": {
+      "title": "Livraison Internationale",
+      "intro": "Pour les acheteurs internationaux, nous proposons une livraison personnelle des chatons par un coursier professionnel.",
+      "courier": "Le coursier accompagne le chaton dans la cabine de l'avion, surveille l'ensemble du voyage et remet personnellement l'animal au nouveau propriétaire à l'aéroport d'arrivée.",
+      "paymentTerms": "Le paiement s'effectue 24 à 48 heures avant le départ du chaton. Un acompte est versé à l'avance pour réserver le chaton.",
+      "guarantee": "Cette méthode garantit la sécurité, la tranquillité de l'animal et une coopération confortable entre l'élevage et les nouveaux propriétaires."
     }
   },
   "pedigree": {

@@ -420,6 +420,13 @@
       "privacyDesc": "Sus datos no se guardan",
       "guarantee": "Garantía",
       "guaranteeDesc": "7 días desde la compra"
+    },
+    "internationalDelivery": {
+      "title": "Entrega Internacional",
+      "intro": "Para compradores internacionales, ofrecemos la entrega personal de gatitos a través de un mensajero profesional.",
+      "courier": "El mensajero acompaña al gatito en la cabina del avión, supervisa todo el viaje y entrega personalmente al animal al nuevo propietario en el aeropuerto de llegada.",
+      "paymentTerms": "El pago se realiza 24-48 horas antes de la salida del gatito. Se paga un depósito por adelantado para reservar al gatito.",
+      "guarantee": "Este método garantiza la seguridad, la tranquilidad del animal y una cooperación cómoda entre el criadero y los nuevos propietarios."
     }
   },
   "pedigree": {
