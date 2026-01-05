@@ -453,6 +453,12 @@
       "documentsDesc": "شهادة النسب، جواز السفر البيطري",
       "delivery": "التوصيل",
       "deliveryDesc": "عالمياً مع المستندات"
+    },
+    "securityBadges": {
+      "privacy": "الخصوصية",
+      "privacyDesc": "لا يتم حفظ بياناتك",
+      "guarantee": "الضمان",
+      "guaranteeDesc": "7 أيام من الشراء"
     }
   },
   "pedigree": {

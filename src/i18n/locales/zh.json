@@ -453,6 +453,12 @@
       "documentsDesc": "血统证书、兽医护照",
       "delivery": "配送",
       "deliveryDesc": "全球配送并附带文件"
+    },
+    "securityBadges": {
+      "privacy": "隐私",
+      "privacyDesc": "您的数据不会保存",
+      "guarantee": "保证",
+      "guaranteeDesc": "自购买起7天"
     }
   },
   "pedigree": {

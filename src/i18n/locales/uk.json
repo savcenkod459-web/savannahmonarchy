@@ -413,6 +413,12 @@
       "documentsDesc": "Родовід, ветпаспорт",
       "delivery": "Доставка",
       "deliveryDesc": "По багатьох країнах світу з документами"
+    },
+    "securityBadges": {
+      "privacy": "Конфіденційність",
+      "privacyDesc": "Ваші дані не зберігаються",
+      "guarantee": "Гарантія",
+      "guaranteeDesc": "7 днів з моменту покупки"
     }
   },
   "pedigree": {
