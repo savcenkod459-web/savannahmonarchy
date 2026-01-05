@@ -122,6 +122,17 @@
     "protected": {
       "title": "Proteção ao Comprador",
       "description": "Sua compra está protegida por nossa garantia abrangente"
+    },
+    "support": {
+      "title": "Suporte e Garantias",
+      "customerService": "Atendimento ao Cliente",
+      "customerServiceDesc": "24/7 através dos nossos contatos",
+      "healthGuarantee": "Garantia de Saúde",
+      "healthGuaranteeDesc": "7 dias a partir da compra",
+      "documents": "Documentos",
+      "documentsDesc": "Pedigree, passaporte veterinário",
+      "delivery": "Entrega",
+      "deliveryDesc": "Para muitos países do mundo com documentação"
     }
   },
   "cta": {
