@@ -153,7 +153,7 @@ const Footer = () => {
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
           </div>
-          <p className="text-sm text-muted-foreground font-light">© 2025 SavannahMonarchy. {t('footer.rights')}
+          <p className="text-sm text-muted-foreground font-light">© 2026 SavannahMonarchy. {t('footer.rights')}
           </p>
         </div>
       </div>
