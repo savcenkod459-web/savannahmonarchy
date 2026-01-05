@@ -122,17 +122,6 @@
     "protected": {
       "title": "Buyer Protection",
       "description": "Your purchase is protected by our comprehensive warranty"
-    },
-    "support": {
-      "title": "Support and Guarantees",
-      "customerService": "Customer Service",
-      "customerServiceDesc": "24/7 via our contacts",
-      "healthGuarantee": "Health Guarantee",
-      "healthGuaranteeDesc": "7 days from purchase",
-      "documents": "Documents",
-      "documentsDesc": "Pedigree, veterinary passport",
-      "delivery": "Delivery",
-      "deliveryDesc": "To many countries worldwide with documentation"
     }
   },
   "cta": {

@@ -124,18 +124,7 @@
       "description": "Ваша покупка защищена нашей комплексной гарантией"
     },
     "copied": "Скопировано",
-    "copiedDescription": "Адрес скопирован в буфер обмена",
-    "support": {
-      "title": "Поддержка и гарантии",
-      "customerService": "Служба поддержки",
-      "customerServiceDesc": "24/7 через наши контакты",
-      "healthGuarantee": "Гарантия здоровья",
-      "healthGuaranteeDesc": "7 дней с момента покупки",
-      "documents": "Документы",
-      "documentsDesc": "Родословная, ветпаспорт",
-      "delivery": "Доставка",
-      "deliveryDesc": "По многим странам мира с документами"
-    }
+    "copiedDescription": "Адрес скопирован в буфер обмена"
   },
   "cta": {
     "badge": "Эксклюзивное предложение",

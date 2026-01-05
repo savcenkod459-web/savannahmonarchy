@@ -204,7 +204,7 @@ const Payment = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="font-display font-black text-4xl text-center mb-12">
-                {t('payment.support.title')}
+                Поддержка и гарантии
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction group">
@@ -212,19 +212,19 @@ const Payment = () => {
                     <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <Headphones className="h-5 w-5 text-primary animate-pulse" />
                     </div>
-                    <h4 className="font-bold luxury-text-shadow">{t('payment.support.customerService')}</h4>
+                    <h4 className="font-bold luxury-text-shadow">Служба поддержки</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed">{t('payment.support.customerServiceDesc')}</p>
+                  <p className="text-sm text-muted-foreground font-light leading-relaxed">24/7 через наши контакты</p>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction group">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <HeartPulse className="h-5 w-5 text-primary animate-pulse" />
                     </div>
-                    <h4 className="font-bold luxury-text-shadow">{t('payment.support.healthGuarantee')}</h4>
+                    <h4 className="font-bold luxury-text-shadow">Гарантия здоровья</h4>
                   </div>
                   <p className="text-sm text-muted-foreground font-light leading-relaxed">
-                    {t('payment.support.healthGuaranteeDesc')}
+                    7 дней с момента покупки
                   </p>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction group">
@@ -232,10 +232,10 @@ const Payment = () => {
                     <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <FileText className="h-5 w-5 text-primary animate-pulse" />
                     </div>
-                    <h4 className="font-bold luxury-text-shadow">{t('payment.support.documents')}</h4>
+                    <h4 className="font-bold luxury-text-shadow">Документы</h4>
                   </div>
                   <p className="text-sm text-muted-foreground font-light leading-relaxed">
-                    {t('payment.support.documentsDesc')}
+                    Родословная, ветпаспорт
                   </p>
                 </div>
                 <div className="p-6 glass-card rounded-2xl hover-lift micro-interaction group">
@@ -243,10 +243,10 @@ const Payment = () => {
                     <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <Plane className="h-5 w-5 text-primary animate-pulse" />
                     </div>
-                    <h4 className="font-bold luxury-text-shadow">{t('payment.support.delivery')}</h4>
+                    <h4 className="font-bold luxury-text-shadow">Доставка</h4>
                   </div>
                   <p className="text-sm text-muted-foreground font-light leading-relaxed">
-                    {t('payment.support.deliveryDesc')}
+                    По многим странам мира с документами
                   </p>
                 </div>
               </div>

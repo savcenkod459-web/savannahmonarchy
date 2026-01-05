@@ -122,17 +122,6 @@
     "protected": {
       "title": "Käuferschutz",
       "description": "Ihr Kauf ist durch unsere umfassende Garantie geschützt"
-    },
-    "support": {
-      "title": "Support und Garantien",
-      "customerService": "Kundendienst",
-      "customerServiceDesc": "24/7 über unsere Kontakte",
-      "healthGuarantee": "Gesundheitsgarantie",
-      "healthGuaranteeDesc": "7 Tage ab Kauf",
-      "documents": "Dokumente",
-      "documentsDesc": "Stammbaum, Tierpass",
-      "delivery": "Lieferung",
-      "deliveryDesc": "In viele Länder weltweit mit Dokumentation"
     }
   },
   "cta": {
