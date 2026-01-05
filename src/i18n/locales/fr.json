@@ -413,6 +413,12 @@
       "documentsDesc": "Pedigree, passeport vétérinaire",
       "delivery": "Livraison",
       "deliveryDesc": "Mondiale avec documents"
+    },
+    "securityBadges": {
+      "privacy": "Confidentialité",
+      "privacyDesc": "Vos données ne sont pas enregistrées",
+      "guarantee": "Garantie",
+      "guaranteeDesc": "7 jours à partir de l'achat"
     }
   },
   "pedigree": {

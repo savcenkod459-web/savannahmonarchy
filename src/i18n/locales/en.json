@@ -422,6 +422,12 @@
       "documentsDesc": "Pedigree, vet passport",
       "delivery": "Delivery",
       "deliveryDesc": "Worldwide with documents"
+    },
+    "securityBadges": {
+      "privacy": "Privacy",
+      "privacyDesc": "Your data is not saved",
+      "guarantee": "Guarantee",
+      "guaranteeDesc": "7 days from purchase"
     }
   },
   "pedigree": {

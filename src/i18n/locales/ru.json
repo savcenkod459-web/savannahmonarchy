@@ -615,6 +615,12 @@
       "documentsDesc": "Родословная, ветпаспорт",
       "delivery": "Доставка",
       "deliveryDesc": "По многим странам мира с документами"
+    },
+    "securityBadges": {
+      "privacy": "Конфиденциальность",
+      "privacyDesc": "Ваши данные не сохраняются",
+      "guarantee": "Гарантия",
+      "guaranteeDesc": "7 дней с момента покупки"
     }
   },
   "pedigree": {

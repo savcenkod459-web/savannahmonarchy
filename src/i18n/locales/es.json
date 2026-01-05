@@ -414,6 +414,12 @@
       "documentsDesc": "Pedigrí, pasaporte veterinario",
       "delivery": "Entrega",
       "deliveryDesc": "Mundial con documentos"
+    },
+    "securityBadges": {
+      "privacy": "Privacidad",
+      "privacyDesc": "Sus datos no se guardan",
+      "guarantee": "Garantía",
+      "guaranteeDesc": "7 días desde la compra"
     }
   },
   "pedigree": {

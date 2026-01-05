@@ -117,13 +117,13 @@ const Payment = () => {
               </div>
               <div className="text-center space-y-2 glass-card rounded-2xl px-6 py-4 micro-interaction hover-lift">
                 <Shield className="h-8 w-8 text-primary mx-auto animate-pulse" />
-                <p className="font-bold luxury-text-shadow">Конфиденциальность</p>
-                <p className="text-sm text-muted-foreground font-light">Данные карты не сохраняются</p>
+                <p className="font-bold luxury-text-shadow">{t('payment.securityBadges.privacy')}</p>
+                <p className="text-sm text-muted-foreground font-light">{t('payment.securityBadges.privacyDesc')}</p>
               </div>
               <div className="text-center space-y-2 glass-card rounded-2xl px-6 py-4 micro-interaction hover-lift">
                 <Check className="h-8 w-8 text-primary mx-auto animate-pulse" />
-                <p className="font-bold luxury-text-shadow">Гарантия</p>
-                <p className="text-sm text-muted-foreground font-light">Возврат средств при отказе</p>
+                <p className="font-bold luxury-text-shadow">{t('payment.securityBadges.guarantee')}</p>
+                <p className="text-sm text-muted-foreground font-light">{t('payment.securityBadges.guaranteeDesc')}</p>
               </div>
             </div>
           </div>

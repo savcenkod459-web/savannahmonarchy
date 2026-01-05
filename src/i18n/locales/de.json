@@ -413,6 +413,12 @@
       "documentsDesc": "Stammbaum, Tierpass",
       "delivery": "Lieferung",
       "deliveryDesc": "Weltweit mit Dokumenten"
+    },
+    "securityBadges": {
+      "privacy": "Datenschutz",
+      "privacyDesc": "Ihre Daten werden nicht gespeichert",
+      "guarantee": "Garantie",
+      "guaranteeDesc": "7 Tage ab Kauf"
     }
   },
   "pedigree": {
