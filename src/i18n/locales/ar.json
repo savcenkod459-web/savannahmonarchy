@@ -122,6 +122,17 @@
     "protected": {
       "title": "حماية المشتري",
       "description": "مشترياتك محمية بضماننا الشامل"
+    },
+    "support": {
+      "title": "الدعم والضمانات",
+      "customerService": "خدمة العملاء",
+      "customerServiceDesc": "24/7 عبر جهات الاتصال لدينا",
+      "healthGuarantee": "ضمان الصحة",
+      "healthGuaranteeDesc": "7 أيام من تاريخ الشراء",
+      "documents": "المستندات",
+      "documentsDesc": "شهادة النسب، جواز السفر البيطري",
+      "delivery": "التوصيل",
+      "deliveryDesc": "إلى العديد من البلدان حول العالم مع الوثائق"
     }
   },
   "cta": {

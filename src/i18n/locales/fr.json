@@ -122,6 +122,17 @@
     "protected": {
       "title": "Protection de l'Acheteur",
       "description": "Votre achat est protégé par notre garantie complète"
+    },
+    "support": {
+      "title": "Support et Garanties",
+      "customerService": "Service Client",
+      "customerServiceDesc": "24h/24 via nos contacts",
+      "healthGuarantee": "Garantie Santé",
+      "healthGuaranteeDesc": "7 jours à partir de l'achat",
+      "documents": "Documents",
+      "documentsDesc": "Pedigree, passeport vétérinaire",
+      "delivery": "Livraison",
+      "deliveryDesc": "Dans de nombreux pays avec documentation"
     }
   },
   "cta": {

@@ -122,6 +122,17 @@
     "protected": {
       "title": "Захист покупця",
       "description": "Ваша покупка захищена нашою комплексною гарантією"
+    },
+    "support": {
+      "title": "Підтримка та гарантії",
+      "customerService": "Служба підтримки",
+      "customerServiceDesc": "24/7 через наші контакти",
+      "healthGuarantee": "Гарантія здоров'я",
+      "healthGuaranteeDesc": "7 днів з моменту покупки",
+      "documents": "Документи",
+      "documentsDesc": "Родовід, ветпаспорт",
+      "delivery": "Доставка",
+      "deliveryDesc": "У багато країн світу з документами"
     }
   },
   "cta": {

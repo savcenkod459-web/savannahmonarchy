@@ -122,6 +122,17 @@
     "protected": {
       "title": "买家保护",
       "description": "您的购买受我们全面保修的保护"
+    },
+    "support": {
+      "title": "支持与保障",
+      "customerService": "客户服务",
+      "customerServiceDesc": "24/7 全天候联系我们",
+      "healthGuarantee": "健康保障",
+      "healthGuaranteeDesc": "购买后7天内",
+      "documents": "文件",
+      "documentsDesc": "血统证书，兽医护照",
+      "delivery": "配送",
+      "deliveryDesc": "配送至全球多个国家，附带文件"
     }
   },
   "cta": {
