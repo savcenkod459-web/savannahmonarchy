@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Wallet, Coins, CircleDollarSign, Bitcoin, AlertCircle, Banknote } from "lucide-react";
+import { Lock, Copy, Check, Crown, Sparkles, Shield, Star, Plane, FileText, Headphones, HeartPulse, Coins, CircleDollarSign, Bitcoin, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -41,18 +41,11 @@ const Payment = () => {
   const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"crypto" | "cash">("crypto");
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const {
     toast
   } = useToast();
   useEffect(() => {
-    const tab = searchParams.get("tab");
-    if (tab === "crypto") {
-      setActiveTab("crypto");
-    } else if (tab === "cash") {
-      setActiveTab("cash");
-    }
     
     // Scroll to booking section if hash is present
     const hash = window.location.hash;
@@ -142,79 +135,38 @@ const Payment = () => {
           <section className="py-12 md:py-20 px-4 md:px-0">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
-              {/* Tabs */}
-              <div className="flex gap-2 md:gap-4 mb-8 border-b justify-center max-w-2xl mx-auto">
-                <button onClick={() => setActiveTab("crypto")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all duration-500 rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "crypto" ? "text-primary border-b-2 border-primary glass-card shadow-soft scale-105" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20 hover:scale-102"}`}>
-                  <Bitcoin className={`h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${activeTab === "crypto" ? "rotate-12" : ""}`} />
-                  Криптовалюта
-                </button>
-                <button onClick={() => setActiveTab("cash")} className={`flex-1 px-3 md:px-8 py-3 md:py-4 text-sm md:text-base font-medium transition-all duration-500 rounded-t-lg flex items-center justify-center gap-1 md:gap-2 ${activeTab === "cash" ? "text-primary border-b-2 border-primary glass-card shadow-soft scale-105" : "text-muted-foreground hover:text-foreground hover:bg-secondary/20 hover:scale-102"}`}>
-                  <Banknote className={`h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${activeTab === "cash" ? "rotate-12" : ""}`} />
-                  Наличные
-                </button>
+              {/* Header */}
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <Bitcoin className="h-6 w-6 text-primary" />
+                <h2 className="text-2xl md:text-3xl font-display font-bold luxury-text-shadow">Криптовалюта</h2>
               </div>
 
-              {/* Crypto */}
-              {activeTab === "crypto" && <div className="space-y-6 animate-fade-in opacity-0" style={{ animation: 'fadeIn 0.6s ease-out forwards' }}>
-                  {cryptoAddresses.map((crypto, index) => <div key={index} className="p-6 bg-card rounded-3xl shadow-soft ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl">
-                          <crypto.icon className={`h-6 w-6 ${crypto.color}`} />
-                        </div>
-                        <h4 className="text-xl font-bold">{crypto.name}</h4>
+              {/* Crypto Addresses */}
+              <div className="space-y-6 animate-fade-in">
+                {cryptoAddresses.map((crypto, index) => <div key={index} className="p-6 bg-card rounded-3xl shadow-soft ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl">
+                        <crypto.icon className={`h-6 w-6 ${crypto.color}`} />
                       </div>
-                      <div className="flex gap-2">
-                        <Input value={crypto.address} readOnly className="font-mono text-sm" />
-                        <Button size="icon" variant="outline" onClick={() => copyToClipboard(crypto.address)}>
-                          {copiedAddress === crypto.address ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                        </Button>
-                      </div>
-                    </div>)}
-                  
-                  <div className="p-6 rounded-2xl bg-amber-300">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-5 h-5 text-zinc-950 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium text-zinc-950">
-                      <strong>{t('payment.important')}:</strong> {t('payment.crypto_note')}
-                    </p>
+                      <h4 className="text-xl font-bold">{crypto.name}</h4>
                     </div>
+                    <div className="flex gap-2">
+                      <Input value={crypto.address} readOnly className="font-mono text-sm" />
+                      <Button size="icon" variant="outline" onClick={() => copyToClipboard(crypto.address)}>
+                        {copiedAddress === crypto.address ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                      </Button>
+                    </div>
+                  </div>)}
+                
+                <div className="p-6 rounded-2xl bg-amber-300">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-zinc-950 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm font-medium text-zinc-950">
+                    <strong>{t('payment.important')}:</strong> {t('payment.crypto_note')}
+                  </p>
                   </div>
-                </div>}
-
-              {/* Cash */}
-              {activeTab === "cash" && <div className="p-10 bg-card rounded-3xl shadow-soft animate-fade-in opacity-0 ring-2 ring-primary/30 hover:ring-primary/50 hover:shadow-[0_0_40px_rgba(217,179,112,0.4)] transition-all duration-300" style={{ animation: 'fadeIn 0.6s ease-out forwards' }}>
-                  <div className="flex items-center gap-3 mb-6">
-                    <Banknote className="w-8 h-8 text-primary" />
-                    <h3 className="text-3xl font-display font-bold luxury-text-shadow">Наличные</h3>
-                  </div>
-                  
-                  <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                    <p>
-                      Для международных покупателей мы предлагаем доставку котят лично в руки через профессионального курьера.
-                    </p>
-                    
-                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
-                      <Plane className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p>
-                        Курьер сопровождает котёнка в салоне самолёта, контролирует весь путь и передаёт животное новому владельцу лично в аэропорту прибытия.
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
-                      <Wallet className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p>
-                        Оплата происходит при получении. Предоплата вносится заранее для бронирования котёнка.
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-start gap-3 p-4 glass-card rounded-xl">
-                      <Shield className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p>
-                        Такой способ гарантирует безопасность, спокойствие животного и комфортное сотрудничество между питомником и новыми владельцами.
-                      </p>
-                    </div>
-                  </div>
-                </div>}
+                </div>
+              </div>
             </div>
           </div>
         </section>
