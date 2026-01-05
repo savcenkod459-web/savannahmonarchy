@@ -888,7 +888,7 @@
       },
       "savannahDeposit": {
         "question": "Qual é o valor do depósito e é reembolsável?",
-        "answer": "Nossa estrutura de depósito:\n\n• Depósito: Geralmente 40-50% do preço total\n• Garante seu gatinho escolhido\n• Aplicado ao preço total de compra\n• Não reembolsável se você mudar de ideia\n\nAceitamos criptomoedas (USDT, TON, SOL) e métodos de pagamento tradicionais (dinheiro)."
+        "answer": "Nossa estrutura de depósito:\n\n• Depósito: 50% do preço total\n• Garante seu gatinho escolhido\n• Aplicado ao preço total de compra\n• Não reembolsável se você mudar de ideia\n\nAceitamos criptomoedas (USDT, TON, SOL)."
       }
     }
   },
@@ -904,7 +904,7 @@
     "faq": { "title": "FAQ Gato Savannah - Perguntas F1 e F2", "description": "Perguntas frequentes sobre gatos Savannah. Diferenças F1 vs F2, preço, cuidados.", "keywords": "FAQ Savannah, F1 vs F2 Savannah, quanto custa Savannah" },
     "guide": { "title": "Guia de Cuidados Gato Savannah", "description": "Guia completo de cuidados para gato Savannah. Alimentação, exercício, saúde.", "keywords": "cuidados gato Savannah, alimentação Savannah" },
     "breeders": { "title": "Nossos Reprodutores - SavannahMonarchy", "description": "Conheça nossos gatos Savannah reprodutores. Linhagens campeãs, genética Serval Africano.", "keywords": "reprodutores Savannah, Serval Africano" },
-    "payment": { "title": "Métodos de Pagamento - Comprar Savannah", "description": "Opções seguras de pagamento. Criptomoeda e dinheiro aceitos. Depósito 40-50%.", "keywords": "pagamento Savannah, comprar Savannah cripto" },
+    "payment": { "title": "Métodos de Pagamento - Comprar Savannah", "description": "Opções seguras de pagamento. Criptomoeda aceita. Depósito 50%.", "keywords": "pagamento Savannah, comprar Savannah cripto" },
     "warranty": { "title": "Garantia de Saúde - Gato Savannah", "description": "Garantia de saúde completa para todos os gatos Savannah.", "keywords": "garantia Savannah, garantia saúde" },
     "pedigree": { "title": "Pedigree Gato Savannah - Linhagens Campeãs", "description": "Documentação de pedigree. Ancestralidade Serval Africano, registro TICA.", "keywords": "pedigree Savannah, TICA Savannah" }
   },

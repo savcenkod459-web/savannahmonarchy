@@ -847,7 +847,7 @@
       },
       "savannahDeposit": {
         "question": "Wie hoch ist die Anzahlung und ist sie erstattungsfähig?",
-        "answer": "Unsere Anzahlungsstruktur:\n\n• Anzahlung: Typischerweise 40-50% des Gesamtpreises\n• Sichert Ihr gewähltes Kätzchen\n• Wird auf den vollen Kaufpreis angerechnet\n• Nicht erstattungsfähig, wenn Sie Ihre Meinung ändern\n\nWir akzeptieren Kryptowährung (USDT, TON, SOL) und traditionelle Zahlungsmethoden (Bargeld)."
+        "answer": "Unsere Anzahlungsstruktur:\n\n• Anzahlung: 50% des Gesamtpreises\n• Sichert Ihr gewähltes Kätzchen\n• Wird auf den vollen Kaufpreis angerechnet\n• Nicht erstattungsfähig, wenn Sie Ihre Meinung ändern\n\nWir akzeptieren Kryptowährung (USDT, TON, SOL)."
       }
     }
   },
@@ -889,7 +889,7 @@
     },
     "payment": {
       "title": "Zahlungsmethoden - Savannah Katze sicher kaufen",
-      "description": "Sichere Zahlungsoptionen für den Kauf von Savannah Katzen. Kryptowährung (USDT, TON, SOL) und Bargeld akzeptiert. 40-50% Anzahlung, flexible Zahlungspläne.",
+      "description": "Sichere Zahlungsoptionen für den Kauf von Savannah Katzen. Kryptowährung (USDT, TON, SOL) akzeptiert. 50% Anzahlung, flexible Zahlungspläne.",
       "keywords": "Savannah Katze Zahlung, Savannah mit Krypto kaufen, Savannah Anzahlung, exotische Katze kaufen"
     },
     "warranty": {

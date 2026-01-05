@@ -874,7 +874,7 @@
       },
       "savannahDeposit": {
         "question": "Quel est le montant de l'acompte et est-il remboursable?",
-        "answer": "Notre structure d'acompte:\n\n• Acompte: Généralement 40-50% du prix total\n• Sécurise votre chaton choisi\n• Appliqué au prix d'achat total\n• Non remboursable si vous changez d'avis\n\nNous acceptons les cryptomonnaies (USDT, TON, SOL) et les méthodes de paiement traditionnelles (espèces)."
+        "answer": "Notre structure d'acompte:\n\n• Acompte: 50% du prix total\n• Sécurise votre chaton choisi\n• Appliqué au prix d'achat total\n• Non remboursable si vous changez d'avis\n\nNous acceptons les cryptomonnaies (USDT, TON, SOL)."
       }
     }
   },
@@ -916,7 +916,7 @@
     },
     "payment": {
       "title": "Méthodes de Paiement - Acheter Savannah en Sécurité",
-      "description": "Options de paiement sécurisées pour l'achat de chats Savannah. Cryptomonnaie (USDT, TON, SOL) et espèces acceptées. Acompte 40-50%, plans de paiement flexibles.",
+      "description": "Options de paiement sécurisées pour l'achat de chats Savannah. Cryptomonnaie (USDT, TON, SOL) acceptée. Acompte 50%, plans de paiement flexibles.",
       "keywords": "paiement chat Savannah, acheter Savannah crypto, acompte Savannah, achat chat exotique"
     },
     "warranty": {
