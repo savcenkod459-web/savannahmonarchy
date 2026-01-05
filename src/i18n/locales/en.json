@@ -428,6 +428,13 @@
       "privacyDesc": "Your data is not saved",
       "guarantee": "Guarantee",
       "guaranteeDesc": "7 days from purchase"
+    },
+    "internationalDelivery": {
+      "title": "International Delivery",
+      "intro": "For international buyers, we offer personal hand-delivery of kittens through a professional courier.",
+      "courier": "The courier accompanies the kitten in the aircraft cabin, monitors the entire journey, and personally delivers the animal to the new owner at the arrival airport.",
+      "paymentTerms": "Payment is made 24-48 hours before the kitten's departure. A deposit is paid in advance to reserve the kitten.",
+      "guarantee": "This method ensures safety, the animal's peace of mind, and comfortable cooperation between the cattery and new owners."
     }
   },
   "pedigree": {

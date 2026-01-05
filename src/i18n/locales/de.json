@@ -419,6 +419,13 @@
       "privacyDesc": "Ihre Daten werden nicht gespeichert",
       "guarantee": "Garantie",
       "guaranteeDesc": "7 Tage ab Kauf"
+    },
+    "internationalDelivery": {
+      "title": "Internationale Lieferung",
+      "intro": "Für internationale Käufer bieten wir die persönliche Lieferung von Kätzchen durch einen professionellen Kurier an.",
+      "courier": "Der Kurier begleitet das Kätzchen in der Flugzeugkabine, überwacht die gesamte Reise und übergibt das Tier persönlich am Ankunftsflughafen an den neuen Besitzer.",
+      "paymentTerms": "Die Zahlung erfolgt 24-48 Stunden vor dem Abflug des Kätzchens. Eine Anzahlung wird im Voraus zur Reservierung des Kätzchens geleistet.",
+      "guarantee": "Diese Methode gewährleistet Sicherheit, Ruhe des Tieres und eine komfortable Zusammenarbeit zwischen der Cattery und den neuen Besitzern."
     }
   },
   "pedigree": {

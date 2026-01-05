@@ -459,6 +459,13 @@
       "privacyDesc": "您的数据不会保存",
       "guarantee": "保证",
       "guaranteeDesc": "自购买起7天"
+    },
+    "internationalDelivery": {
+      "title": "国际配送",
+      "intro": "对于国际买家，我们提供通过专业快递员亲自交付小猫的服务。",
+      "courier": "快递员在飞机客舱内陪伴小猫，监控整个旅程，并在抵达机场亲自将动物交给新主人。",
+      "paymentTerms": "付款在小猫出发前24-48小时进行。预付款提前支付以预订小猫。",
+      "guarantee": "这种方式确保了安全、动物的安心以及猫舍与新主人之间的舒适合作。"
     }
   },
   "pedigree": {
