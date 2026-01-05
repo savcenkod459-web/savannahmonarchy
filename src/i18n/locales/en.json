@@ -411,7 +411,18 @@
     "supportTitle": "24/7 Support",
     "supportDesc": "Round-the-clock assistance",
     "copied": "Copied",
-    "copiedDescription": "Address copied to clipboard"
+    "copiedDescription": "Address copied to clipboard",
+    "supportSection": {
+      "title": "Support & Guarantees",
+      "support": "Customer Support",
+      "supportDesc": "24/7 via our contacts",
+      "healthGuarantee": "Health Guarantee",
+      "healthGuaranteeDesc": "7 days from purchase",
+      "documents": "Documents",
+      "documentsDesc": "Pedigree, vet passport",
+      "delivery": "Delivery",
+      "deliveryDesc": "Worldwide with documents"
+    }
   },
   "pedigree": {
     "title": "Pedigree",

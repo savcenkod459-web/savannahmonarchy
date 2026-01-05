@@ -402,7 +402,18 @@
     "supportTitle": "24/7 Support",
     "supportDesc": "Rund-um-die-Uhr-Unterstützung",
     "copied": "Kopiert",
-    "copiedDescription": "Adresse in Zwischenablage kopiert"
+    "copiedDescription": "Adresse in Zwischenablage kopiert",
+    "supportSection": {
+      "title": "Support & Garantien",
+      "support": "Kundensupport",
+      "supportDesc": "24/7 über unsere Kontakte",
+      "healthGuarantee": "Gesundheitsgarantie",
+      "healthGuaranteeDesc": "7 Tage ab Kauf",
+      "documents": "Dokumente",
+      "documentsDesc": "Stammbaum, Tierpass",
+      "delivery": "Lieferung",
+      "deliveryDesc": "Weltweit mit Dokumenten"
+    }
   },
   "pedigree": {
     "title": "Stammbaum",

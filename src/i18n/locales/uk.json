@@ -402,7 +402,18 @@
     "supportTitle": "Підтримка 24/7",
     "supportDesc": "Цілодобова допомога",
     "copied": "Скопійовано",
-    "copiedDescription": "Адресу скопійовано до буфера обміну"
+    "copiedDescription": "Адресу скопійовано до буфера обміну",
+    "supportSection": {
+      "title": "Підтримка та гарантії",
+      "support": "Служба підтримки",
+      "supportDesc": "24/7 через наші контакти",
+      "healthGuarantee": "Гарантія здоров'я",
+      "healthGuaranteeDesc": "7 днів з моменту покупки",
+      "documents": "Документи",
+      "documentsDesc": "Родовід, ветпаспорт",
+      "delivery": "Доставка",
+      "deliveryDesc": "По багатьох країнах світу з документами"
+    }
   },
   "pedigree": {
     "title": "Родовід",

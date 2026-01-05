@@ -442,7 +442,18 @@
     "supportTitle": "24/7 支持",
     "supportDesc": "全天候协助",
     "copied": "已复制",
-    "copiedDescription": "地址已复制到剪贴板"
+    "copiedDescription": "地址已复制到剪贴板",
+    "supportSection": {
+      "title": "支持与保障",
+      "support": "客户支持",
+      "supportDesc": "24/7 通过我们的联系方式",
+      "healthGuarantee": "健康保证",
+      "healthGuaranteeDesc": "自购买起7天",
+      "documents": "文件",
+      "documentsDesc": "血统证书、兽医护照",
+      "delivery": "配送",
+      "deliveryDesc": "全球配送并附带文件"
+    }
   },
   "pedigree": {
     "title": "血统",

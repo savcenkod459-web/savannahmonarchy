@@ -442,7 +442,18 @@
     "supportTitle": "دعم 24/7",
     "supportDesc": "مساعدة على مدار الساعة",
     "copied": "تم النسخ",
-    "copiedDescription": "تم نسخ العنوان إلى الحافظة"
+    "copiedDescription": "تم نسخ العنوان إلى الحافظة",
+    "supportSection": {
+      "title": "الدعم والضمانات",
+      "support": "خدمة الدعم",
+      "supportDesc": "24/7 عبر جهات الاتصال لدينا",
+      "healthGuarantee": "ضمان الصحة",
+      "healthGuaranteeDesc": "7 أيام من الشراء",
+      "documents": "المستندات",
+      "documentsDesc": "شهادة النسب، جواز السفر البيطري",
+      "delivery": "التوصيل",
+      "deliveryDesc": "عالمياً مع المستندات"
+    }
   },
   "pedigree": {
     "title": "النسب",
