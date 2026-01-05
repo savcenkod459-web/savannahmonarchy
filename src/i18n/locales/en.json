@@ -591,12 +591,12 @@
     },
     "securityTitle": "Your Payment Security",
     "bankLevel": {
-      "title": "Bank-level security",
+      "title": "Reliable security level",
       "description": "256-bit SSL encryption protects all transactions"
     },
     "dataProtection": {
       "title": "Data Protection",
-      "description": "Card data is never stored on our servers"
+      "description": "Your data is never stored on our servers"
     },
     "privacy": {
       "title": "Privacy",

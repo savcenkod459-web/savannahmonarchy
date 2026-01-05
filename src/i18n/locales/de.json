@@ -554,12 +554,12 @@
     },
     "securityTitle": "Ihre Zahlungssicherheit",
     "bankLevel": {
-      "title": "Banksicherheit",
+      "title": "Zuverlässiges Sicherheitsniveau",
       "description": "256-Bit-SSL-Verschlüsselung schützt alle Transaktionen"
     },
     "dataProtection": {
       "title": "Datenschutz",
-      "description": "Kartendaten werden niemals auf unseren Servern gespeichert"
+      "description": "Ihre Daten werden niemals auf unseren Servern gespeichert"
     },
     "privacy": {
       "title": "Privatsphäre",
