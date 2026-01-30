@@ -129,7 +129,7 @@ const Footer = () => {
                 <a href="https://www.instagram.com/savannahmonarchy?igsh=MWU0bjBvNWF1MmxlMA==" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="https://t.me/savannahmonarchy_support" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
+                <a href="https://t.me/savannahmonarchy" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
                   <Send className="h-5 w-5" />
                 </a>
                 <a href="https://www.tiktok.com/@savannahmonarchyofficial?_r=1&_t=ZM-92FMULJIIPs" target="_blank" rel="noopener noreferrer" className="p-3 glass-card rounded-full text-muted-foreground hover:text-primary shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300 micro-interaction hover:scale-110 hover-lift">
